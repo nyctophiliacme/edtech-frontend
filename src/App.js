@@ -65,7 +65,7 @@ function App() {
               <img src={illustration1} alt="Illustration1" />
             </div>
             <div className="illustration-text">
-              <div className="illustration-header">Get Exam Ready</div>
+              <div className="illustration-header">Get Ready for the Exam</div>
               <div className="illustration-body">
                 Take tests made from past papers and mock exams in a timed
                 environment.
@@ -109,7 +109,7 @@ function App() {
         <div className="prepping-date">
           GIKI, NUST, FAST. GIKI dates coming soon!
         </div>
-        <div className="prepping-start">Start Prepping</div>
+        <div className="prepping-start">Start Preparing</div>
         <div className="cta">
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSeHcR1uoEa852yTnXGuu84Nu8cv9KwMODQ5ErW8i7i0Bgv73Q/viewform"
