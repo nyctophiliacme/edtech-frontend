@@ -1,0 +1,24 @@
+.logo-header img {
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 320px) {
+    .logo-header {
+      background-color: #122e51;
+      padding: 25px 0;
+    }
+    
+  }
+  @media screen and (min-width: 768px) {
+    .logo-header {
+      padding: 35px 0;
+    }
+    
+  }
+  @media screen and (min-width: 992px) {
+    .logo-header {
+      padding: 55px 0;
+    }
+    
+  }
+  
