@@ -183,7 +183,7 @@ function App() {
         <div className="nopayment-container-info">
           <div className="nopayment-heading">No payment required</div>
           <div className="nopayment-text">
-            If your register before the launch you get 15% discount on the
+            If you register before the launch you get 15% discount on the
             standard package price (to be announced on launch day)
           </div>
         </div>
