@@ -9,7 +9,6 @@ const footer = () => {
     <div className="footer-container">
       <div className="footer-container-left">
         <div className="footer-text">
-          {/* <a href="#">ABOUT US</a> */}
           <Link to="/about_us">ABOUT US</Link>
         </div>
         <div className="footer-text">
