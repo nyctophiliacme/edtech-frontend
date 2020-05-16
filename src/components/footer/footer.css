@@ -1,0 +1,113 @@
+.logo-header img {
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 320px) {
+    .footer-container {
+        background-color: #00223a;
+        color: #60b1ff;
+        display: flow-root;
+        padding: 20px;
+      }
+      .footer-container-right,
+      .footer-container-left {
+        font-size: 12px;
+        line-height: 23px;
+        font-weight: 300;
+        display: inline-block;
+        white-space: nowrap;
+        text-align: left;
+      }
+      .footer-container-left {
+        padding-bottom: 14px;
+        float: left;
+      }
+      .footer-container-right {
+        float: right;
+      }
+      .footer-text {
+        padding-bottom: 8px;
+      }
+      .footer-contact {
+        padding-bottom: 10px;
+      }
+      .footer-address {
+        font-size: 11px;
+      }
+      .footer-icons{
+        padding-top: 20px;
+      }
+      .footer-icons img{
+        width:auto;
+        height:30px;
+        display: inline-block;
+      }
+      .facebook{
+        padding-right: 30px;
+      }
+  }
+  @media screen and (min-width: 768px) {
+    .footer-container {
+        padding: 40px;
+      }
+      .footer-container-right,
+      .footer-container-left {
+        font-size: 18px;
+        line-height: 33px;
+      }
+      .footer-container-left {
+        padding-bottom: 35px;
+      }
+      .footer-text {
+        padding-bottom: 16px;
+      }
+      .footer-contact {
+        padding-bottom: 10px;
+      }
+      .footer-address {
+        font-size: 15px;
+      }
+      .footer-icons{
+        padding-top: 35px;
+      }
+      .footer-icons img{
+        width:auto;
+        height:40px;
+      }
+      .facebook{
+        padding-right: 40px;
+      }
+  }
+  @media screen and (min-width: 992px) {
+    .footer-container {
+        padding: 88px 150px 88px 150px;
+      }
+      .footer-container-right,
+      .footer-container-left {
+        font-size: 27px;
+        line-height: 43px;
+      }
+      .footer-container-left {
+        padding-bottom: 72px;
+      }
+      .footer-text {
+        padding-bottom: 24px;
+      }
+      .footer-contact {
+        padding-bottom: 10px;
+      }
+      .footer-address {
+        font-size: 24px;
+      }
+      .footer-icons{
+        padding-top: 44px;
+      }
+      .footer-icons img{
+        width:auto;
+        height:60px;
+      }
+      .facebook{
+        padding-right: 44px;
+      }
+    
+  }
