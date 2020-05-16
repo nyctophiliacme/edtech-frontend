@@ -1,6 +1,6 @@
 import React from 'react';
-import './about_us.css'
-import '../App.css'
+import './about_us.css';
+import '../../App.css';
 const aboutUs = () => {
     return (
         <div className="common-container">

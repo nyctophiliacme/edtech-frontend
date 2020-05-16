@@ -11,15 +11,6 @@ import "./App.css";
 
 function App() {
   return (
-
-    // <>
-    //   <Header />
-    //   {/* <Marketing /> */}
-    //   {/* <PrivacyPolicy /> */}
-    //   {/* <AboutUs /> */}
-    //   <TermAndCondition />
-    //   <Footer />
-    // </>
     <>
     <Header></Header>
     <Switch>

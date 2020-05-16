@@ -1,6 +1,6 @@
 import React from 'react';
 import './term_condition.css'
-import '../App.css'
+import '../../App.css';
 
 const termAndCondition = () => {
     return (
