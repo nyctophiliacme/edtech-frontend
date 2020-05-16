@@ -5,16 +5,24 @@ import facebook from "../../assets/images/facebook.png";
 import youtube from "../../assets/images/youtube.png";
 
 const footer = () => {
+  const scrollToTop=() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+
   return (
     <div className="footer-container">
       <div className="footer-container-left">
-        <div className="footer-text">
+        <div className="footer-text" onClick={scrollToTop}>
           <Link to="/about_us">ABOUT US</Link>
         </div>
-        <div className="footer-text">
+        <div className="footer-text" onClick={scrollToTop}>
           <Link to="/privacy_policy">PRIVACY POLICY</Link>
         </div>
-        <div className="footer-text">
+        <div className="footer-text" onClick={scrollToTop}>
           <Link to="/term_condition">TERMS &amp; CONDITIONS</Link>
         </div>
       </div>
@@ -47,4 +55,5 @@ const footer = () => {
     </div>
   );
 };
+
 export default footer;
