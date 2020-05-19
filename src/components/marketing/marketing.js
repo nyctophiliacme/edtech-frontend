@@ -13,7 +13,7 @@ const marketing = () => {
           <img src={topBanner} alt="Hero" />
         </div>
         <div className="hero-text-wrapper">
-          <div className="hero-header">Get into your dream University !</div>
+          <div className="hero-header">The best tool for Self Study ! </div>
           <div className="hero-body-txt">
             Superteacher is the source for trusted content in Pakistan. Our
             online test preparation allows you to prepare for ECAT from the
