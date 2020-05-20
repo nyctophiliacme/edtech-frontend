@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Modal from "../modal/modal";
 import logo from "../../assets/images/logo.png";
@@ -9,8 +10,8 @@ import "./header.css";
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {
-    // console.log("Show modal value changed", showModal);
   }, [showModal]);
+  const history=useHistory()
   return (
     <>
       <header className="logo-header">
@@ -45,8 +46,8 @@ const Header = () => {
                 <img className="dropup-arrow" src={up} alt="uprrow" />
               </a>
               <div className="dropdown-content ">
-                <a href="#">ECAT</a>
-                <a href="#">NET (NUST Entry Test)</a>
+                <Link to="/exam/ecat">ECAT</Link>
+                <Link to="/exam/net">NET (NUST Entry Test)</Link>
               </div>
             </li>
           </ul>
@@ -56,10 +57,9 @@ const Header = () => {
         show={showModal}
         handleClose={() => {
           setShowModal(false);
+
         }}
       >
-        <p>Modal</p>
-        <p>Data</p>
       </Modal>
     </>
   );
