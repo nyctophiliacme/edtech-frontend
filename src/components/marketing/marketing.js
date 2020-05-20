@@ -48,8 +48,7 @@ const marketing = () => {
             <div className="illustration-text">
               <div className="illustration-header">Get Ready for the Exam</div>
               <div className="illustration-body">
-                Take tests made from past papers and mock exams in a timed
-                environment.
+                Practice questions by topics with varying difficulty levels and get solutions with explanation.
               </div>
             </div>
           </div>
@@ -59,10 +58,9 @@ const marketing = () => {
               <img src={illustration2} alt="Illustration2" />
             </div>
             <div className="illustration-text">
-              <div className="illustration-header">Practice to Perfection</div>
+              <div className="illustration-header">Simple designs</div>
               <div className="illustration-body">
-                We have made practice tests of each chapter to help you master
-                each topic.
+                Our clean and simple interface lets you learn easily.
               </div>
             </div>
           </div>
@@ -76,8 +74,7 @@ const marketing = () => {
                 Concise &amp; Convenient
               </div>
               <div className="illustration-body">
-                Find everything you need to know about ECAT in one place, save
-                time.
+                Everything you need to know about ECAT, all in one place.
               </div>
             </div>
           </div>
