@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "./register.css";
 import { Link } from "react-router-dom";
+import { register } from "../../services/loginService";
+import "./register.css";
 
 class Register extends Component {
   constructor(props) {
@@ -64,16 +65,16 @@ class Register extends Component {
       default:
         break;
     }
-
-    this.setState({ errors, [name]: value }, () => {
-      // console.log(errors);
-    });
+    this.setState({ errors, [name]: value });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.validateForm(this.state.errors)) {
-      console.info("Valid Form");
+      // console.info("Valid Form");
+      register(this.state.email, this.state.email, this.state.password, this.state.confirmPassword,this.state.firstName, this.state.lastName, this.state.phoneNumber).then((response) => {
+        console.log("User Registered", response);
+      });
     } else {
       console.error("Invalid Form");
     }
