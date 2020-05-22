@@ -9,6 +9,7 @@ class Register extends Component {
       firstName: null,
       lastName: null,
       email: null,
+      phoneNumber: null,
       password: null,
       confirmPassword: null,
       errors: {
@@ -16,20 +17,22 @@ class Register extends Component {
         lastName: "",
         email: "",
         password: "",
+        phoneNumber: "",
         confirmPassword: "",
       },
     };
   }
 
+  isDirty=false
   validEmailRegex = RegExp(
     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
   );
 
   handleChange = (event) => {
+    this.isDirty=true;
     event.preventDefault();
     const { name, value } = event.target;
     let errors = this.state.errors;
-
     switch (name) {
       case "firstName":
         errors.firstName =
@@ -43,6 +46,10 @@ class Register extends Component {
         errors.email = this.validEmailRegex.test(value)
           ? ""
           : "Email is not valid!";
+        break;
+      case "phoneNumber":
+        errors.phoneNumber =
+        value.length !=10 ? "Phone Number must be 10 digits long!" : "";
         break;
       case "password":
         errors.password =
@@ -122,6 +129,19 @@ class Register extends Component {
               type="email"
               name="email"
               placeholder="Email"
+              required
+              onChange={this.handleChange}
+              noValidate
+            />
+            <input
+              className={
+                this.state.errors.phoneNumber.length > 0
+                  ? "login-input error"
+                  : "login-input"
+              }
+              type="number"
+              name="phoneNumber"
+              placeholder="Phone Number"
               required
               onChange={this.handleChange}
               noValidate
