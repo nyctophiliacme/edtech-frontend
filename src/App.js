@@ -19,7 +19,7 @@ function App() {
       <Route path='/privacy_policy' component={PrivacyPolicy}/>
       <Route path='/term_condition' component={TermAndCondition}/>
       <Route path='/about_us' component={AboutUs}/>
-      <Route path='/home' component={MarketingV2}/>
+      <Route exact path='/home' component={MarketingV2}/>
     </Switch>
     <Footer></Footer>
     </>
