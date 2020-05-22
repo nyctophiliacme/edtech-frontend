@@ -1,0 +1,16 @@
+.examhome-container{
+    padding:60px;
+    display:flex;
+    background-color:#FAFAFA;
+}
+.exam-titlelist-Container{
+    float: left;
+    padding:15px 28px;
+    background-color:#Ffffff;
+    display: inline-table;
+
+}
+.exam-details-Container{
+    float: right;
+    padding-left:40px;
+}

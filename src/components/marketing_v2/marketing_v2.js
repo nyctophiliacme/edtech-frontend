@@ -20,7 +20,7 @@ const marketingV2 = () => {
                     <img src={topBanner} alt="Hero" />
                 </div>
                 <div className="hero-text-wrapperv2">
-                    <div className="hero-headerv2">Study & Test prep made easy</div>
+                    <div className="hero-headerv2">Study &amp; Test prep made easy</div>
                     <div className="hero-body-txtv2">
                         Easy concise information in one place. Practice for exams 24/7.
                         All from your home!

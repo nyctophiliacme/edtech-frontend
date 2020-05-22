@@ -1,0 +1,19 @@
+.exam-title-container {
+  display: flex;
+  padding-bottom: 35px;
+  line-height: 28px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #adb2b5;
+  font-weight: 300;
+}
+.title-text {
+  white-space: nowrap;
+}
+.title-img-container {
+  line-height: 28px;
+}
+.title-selected {
+  font-weight: 400 ;
+  color: black;
+}
