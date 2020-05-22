@@ -23,13 +23,13 @@ class Register extends Component {
     };
   }
 
-  isDirty=false
+  isDirty = false;
   validEmailRegex = RegExp(
     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
   );
 
   handleChange = (event) => {
-    this.isDirty=true;
+    this.isDirty = true;
     event.preventDefault();
     const { name, value } = event.target;
     let errors = this.state.errors;
@@ -49,7 +49,7 @@ class Register extends Component {
         break;
       case "phoneNumber":
         errors.phoneNumber =
-        value.length !=10 ? "Phone Number must be 10 digits long!" : "";
+          value.length != 10 ? "Phone Number must be 10 digits long!" : "";
         break;
       case "password":
         errors.password =
@@ -81,10 +81,30 @@ class Register extends Component {
 
   validateForm = (errors) => {
     let valid = true;
-    Object.values(errors).forEach(
-      // if we have an error string set valid to false
-      (val) => val.length > 0 && (valid = false)
-    );
+    if (
+      this.state.email === null &&
+      this.state.password === null &&
+      this.state.email === null &&
+      this.state.password === null &&
+      this.state.email === null &&
+      this.state.password === null
+    ) {
+      valid = false;
+      this.setState({
+        errors: {
+          firstName: "error",
+          lastName: "error",
+          email: "error",
+          password: "error",
+          phoneNumber: "error",
+          confirmPassword: "error",
+        },
+      });
+      Object.values(errors).forEach(
+        // if we have an error string set valid to false
+        (val) => val.length > 0 && (valid = false)
+      );
+    }
     return valid;
   };
 

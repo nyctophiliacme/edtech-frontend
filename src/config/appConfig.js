@@ -1,0 +1,1 @@
+export const baseURL="http://15.206.142.25:8000/";

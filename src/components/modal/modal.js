@@ -9,7 +9,7 @@ const Modal = ({ handleClose, show }) => {
     : "modal display-none modal-animate";
   const [isLogin, setFormType] = useState(true);
   useEffect(() => {
-    console.log(isLogin);
+    // console.log(isLogin);
   }, [isLogin]);
 
   return (
@@ -28,7 +28,6 @@ const Modal = ({ handleClose, show }) => {
         {isLogin ? (
           <Login
             handleRegister={() => {
-              console.log("hello");
               setFormType(false);
             }}
           />

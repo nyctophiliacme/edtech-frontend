@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { login } from "../../services/loginService";
 import "./login.css";
 
 class Login extends Component {
@@ -36,27 +37,31 @@ class Login extends Component {
       default:
         break;
     }
-
-    this.setState({ errors, [name]: value }, () => {
-      // console.log(errors);
-    });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.validateForm(this.state.errors)) {
-      console.info("Valid Form");
+      // console.info("Valid Form");
+      login(this.state.email, this.state.password).then((response) => {
+        sessionStorage.setItem("userToken", `Token${response.data.key}`);
+      });
     } else {
-      console.error("Invalid Form");
+      // console.error("Invalid Form");
     }
   };
 
   validateForm = (errors) => {
     let valid = true;
-    Object.values(errors).forEach(
-      // if we have an error string set valid to false
-      (val) => val.length > 0 && (valid = false)
-    );
+    if (this.state.email === null && this.state.password === null) {
+      valid = false;
+      this.setState({ errors: { email: "error", password: "error" } });
+      Object.values(errors).forEach(
+        // if we have an error string set valid to false
+        (val) => val.length > 0 && (valid = false)
+      );
+    }
+
     return valid;
   };
 
