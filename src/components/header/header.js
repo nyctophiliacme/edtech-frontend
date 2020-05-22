@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Modal from "../modal/modal";
 import logo from "../../assets/images/logo.png";
@@ -11,7 +10,6 @@ const Header = () => {
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {
   }, [showModal]);
-  const history=useHistory()
   return (
     <>
       <header className="logo-header">
@@ -40,7 +38,7 @@ const Header = () => {
         <div>
           <ul>
             <li className="header-dropdown">
-              <a href="javascript:void(0)" className="dropbtn">
+              <a href="#" className="dropbtn">
                 Entry Tests
                 <img className="dropdown-arrow" src={down} alt="downarrow" />
                 <img className="dropup-arrow" src={up} alt="uprrow" />

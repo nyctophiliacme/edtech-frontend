@@ -1,0 +1,39 @@
+.practice-header{
+    background-color:#204A7D ;
+    padding:25px 100px 25px 70px;
+    display: flex;
+    width:100%;
+    margin:0 auto;
+}
+.practice-header-text{
+    font-size: 32px;
+    font-weight:500 ;
+    color: #ffffff;
+    line-height: 36px;
+    float: left;
+}
+
+.practice-header-search-container{
+    float: right;
+}
+.practice-header-search {
+    font-size: 30px;
+    font-weight:300 ;
+    color: #000000;
+    line-height: 34px;
+    border-radius:35px;
+}
+.practice-header-search ::placeholder {
+    color: #C1C1C1;
+    opacity: 1; /* Firefox */
+  }
+  
+  .practice-header-search:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #C1C1C1;
+  }
+  
+  .practice-header-search ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #C1C1C1;
+  }
