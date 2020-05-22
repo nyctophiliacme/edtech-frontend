@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./register.css";
 import { Link } from "react-router-dom";
+import { notify } from "react-notify-toast";
+import { signup } from "../../services/loginService";
 
 class Register extends Component {
   constructor(props) {
@@ -73,8 +75,36 @@ class Register extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.validateForm(this.state.errors)) {
-      console.info("Valid Form");
+      signup(this.state).then((response) => {
+        if (response?.details === "Verification e-mail sent.") {
+          notify.show(
+            <div className="notify-container">
+              Verification e-mail sent to {this.state.email} &nbsp;. <br />
+              You can login after e-mail is verified.
+            </div>,
+            "success",
+            5000
+          );
+        }
+        else if (response?.email === "A user is already registered with this e-mail address.") {
+          notify.show(
+            <div className="notify-container">
+              A user is already registered with this e-mail address.
+              <br />
+              Please try diiferent e-mail.
+            </div>,
+            "success",
+            5000
+          );
+        }
+      });
     } else {
+      notify.show(
+        <div className="notify-container">Please enter valid data</div>,
+        "error",
+        3000
+      );
+
       console.error("Invalid Form");
     }
   };

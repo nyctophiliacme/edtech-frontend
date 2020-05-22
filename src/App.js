@@ -11,10 +11,12 @@ import ExamHome from "./components/exam/examHome/exam_home";
 import PracticeHome from "./components/practice/practice-home/practice-home";
 
 import "./App.css";
+import Notifications, {notify} from 'react-notify-toast';
 
 function App() {
   return (
     <>
+    <Notifications />
     <Header></Header>
     <Switch>
       <Route exact path='/' component={Marketing}/>

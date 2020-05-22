@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { login } from "../../services/loginService";
+import { login, getUserDetails } from "../../services/loginService";
 import "./login.css";
+import { notify } from "react-notify-toast";
 
 class Login extends Component {
   constructor(props) {
@@ -14,7 +15,6 @@ class Login extends Component {
       },
     };
   }
-
   validEmailRegex = RegExp(
     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
   );
@@ -44,9 +44,54 @@ class Login extends Component {
     if (this.validateForm(this.state.errors)) {
       // console.info("Valid Form");
       login(this.state.email, this.state.password).then((response) => {
-        sessionStorage.setItem("userToken", `Token${response.data.key}`);
+        if (response?.data) {
+          sessionStorage.setItem("userToken", `Token${response.data.key}`);
+          getUserDetails(sessionStorage.getItem("userToken")).then(
+            (response) => {
+              if (response?.details === "Invalid token.") {
+                notify.show(
+                  <div className="notify-container">
+                    Error in fetching your profile details.
+                  </div>,
+                  "error",
+                  3000
+                );
+              }
+              else if(response){
+                sessionStorage.setItem("userDetails",JSON.parse(response));
+              }
+            }
+          );
+        } else if (response?.non_field_errors === "E-mail is not verified.") {
+          notify.show(
+            <div className="notify-container">
+              Your e-mail is not verified.
+              <br />
+              Verification e-mail sent to {this.state.email} &nbsp;. <br />
+              You can login after e-mail is verified.
+            </div>,
+            "warning",
+            3000
+          );
+        } else if (
+          response?.non_field_errors ===
+          "Unable to log in with provided credentials."
+        ) {
+          notify.show(
+            <div className="notify-container">
+              Login failed.Please provide correct e-mail and password.
+            </div>,
+            "error",
+            3000
+          );
+        }
       });
     } else {
+      notify.show(
+        <div className="notify-container">Please enter valid details.</div>,
+        "error",
+        3000
+      );
       // console.error("Invalid Form");
     }
   };
