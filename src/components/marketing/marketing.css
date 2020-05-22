@@ -282,7 +282,7 @@
   @media screen and (min-width: 992px) {
     .hero {
       margin: 0 auto;
-      padding: 67px 80px 96px 91px;
+      padding: 70px;
       background-color: #ffffff;
     }
     .hero-text-wrapper {
@@ -351,7 +351,7 @@
       padding-bottom: 96px;
     }
     .illustrations {
-      padding: 213px 117px 142px 122px;
+      padding: 70px 100px;
     }
     .illustrations-wrapper {
       display: flex;
@@ -411,7 +411,7 @@
       line-height: 59px;
     }
     .query-container {
-      padding: 102px 132px 145px 132px;
+      padding: 70px 110px;
     }
     
   }

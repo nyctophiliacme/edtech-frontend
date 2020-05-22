@@ -31,9 +31,6 @@ const marketing = () => {
             </a>
           </div>
           <div className="hero-body-txt, hero-body-sub-text">
-
-            Sign up to the waitlist and get exclusive <span className="hero-body-text-highlight">15% discount </span>on launch day
-            <br />
             Also get a <span className="hero-body-text-highlight">FREE ECAT diagnostic test</span> sent to your email address
           </div>
         </div>
@@ -58,7 +55,7 @@ const marketing = () => {
               <img src={illustration2} alt="Illustration2" />
             </div>
             <div className="illustration-text">
-              <div className="illustration-header">Simple designs</div>
+              <div className="illustration-header">Simple design</div>
               <div className="illustration-body">
                 Our clean and simple interface lets you learn easily.
               </div>
