@@ -1,3 +1,6 @@
+input:focus {
+  outline:none;
+}
 .login-container {
   padding: 35px 50px;
   text-align: center;
@@ -20,6 +23,7 @@
   border-radius: 12px;
   display: inline-block;
   cursor: pointer;
+  border: none;
 }
 .login-signUp{
     font-weight: 400;
@@ -54,6 +58,10 @@
   font-size: 20px;
   line-height: 24px;
 }
+.error{
+  border-color: red;
+  color: red;
+}
 
 .login-input ::placeholder {
   color: #929699;
@@ -68,4 +76,19 @@
 .login-input ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #929699;
+}
+
+.error ::placeholder {
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+.error :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: red;
+}
+
+.error ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: red;
 }

@@ -8,17 +8,27 @@ const Modal = ({ handleClose, show }) => {
     ? "modal display-block modal-animate"
     : "modal display-none modal-animate";
   const [isLogin, setFormType] = useState(true);
-  useEffect(() => {}, [isLogin]);
+  useEffect(() => {
+    console.log(isLogin);
+  }, [isLogin]);
 
   return (
     <div className={showHideClassname}>
       <section className="modal-main ">
-        <span onClick={handleClose} className="modal-close" title="Close Modal">
+        <span
+          onClick={() => {
+            handleClose();
+            setFormType(true);
+          }}
+          className="modal-close"
+          title="Close Modal"
+        >
           &times;
         </span>
         {isLogin ? (
           <Login
             handleRegister={() => {
+              console.log("hello");
               setFormType(false);
             }}
           />

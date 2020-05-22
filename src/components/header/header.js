@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Modal from "../modal/modal";
 import logo from "../../assets/images/logo.png";
@@ -11,7 +10,6 @@ const Header = () => {
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {
   }, [showModal]);
-  const history=useHistory()
   return (
     <>
       <header className="logo-header">
