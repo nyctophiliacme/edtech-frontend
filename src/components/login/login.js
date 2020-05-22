@@ -37,6 +37,7 @@ class Login extends Component {
       default:
         break;
     }
+    this.setState({ errors, [name]: value });
   };
 
   handleSubmit = (event) => {

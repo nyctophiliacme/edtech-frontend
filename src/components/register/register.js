@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./register.css";
 import { Link } from "react-router-dom";
 import { notify } from "react-notify-toast";
 import { signup } from "../../services/loginService";
@@ -66,10 +65,7 @@ class Register extends Component {
       default:
         break;
     }
-
-    this.setState({ errors, [name]: value }, () => {
-      // console.log(errors);
-    });
+    this.setState({ errors, [name]: value });
   };
 
   handleSubmit = (event) => {
@@ -93,7 +89,7 @@ class Register extends Component {
               <br />
               Please try diiferent e-mail.
             </div>,
-            "success",
+            "error",
             5000
           );
         }
