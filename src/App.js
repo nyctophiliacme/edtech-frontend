@@ -9,9 +9,9 @@ import TermAndCondition from "./components/term_condition/term_condition";
 import MarketingV2 from "./components/marketing_v2/marketing_v2";
 import ExamHome from "./components/exam/examHome/exam_home";
 import PracticeHome from "./components/practice/practice-home/practice-home";
-
-import "./App.css";
 import Notifications, {notify} from 'react-notify-toast';
+import "./App.css";
+
 
 function App() {
   return (

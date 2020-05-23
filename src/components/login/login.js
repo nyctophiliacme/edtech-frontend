@@ -49,18 +49,14 @@ class Login extends Component {
           sessionStorage.setItem("userToken", `Token${response.data.key}`);
           getUserDetails(sessionStorage.getItem("userToken")).then(
             (response) => {
-              // if (response?.details === "Invalid token.") {
-                notify.show(
-                  <div className="notify-container">
-                    Error in fetching your profile details.
-                  </div>,
-                  "error",
-                  3000
-                );
-              // }
-              // else if(response){
-                sessionStorage.setItem("userDetails",JSON.parse(response));
-              // }
+              notify.show(
+                <div className="notify-container">
+                  Error in fetching your profile details.
+                </div>,
+                "error",
+                3000
+              );
+              sessionStorage.setItem("userDetails", JSON.parse(response));
             }
           );
         } else if (response?.non_field_errors === "E-mail is not verified.") {

@@ -31,7 +31,26 @@
 .exam-details-text{
     font-weight :300;
     font-size:18px;
-    line-height:22px;
+    line-height:25px;
     color:black;
     padding-bottom: 15px;
+    letter-spacing: 1px;;
+}
+.details-ul{
+    padding-left: 20px;
+    margin: 0px;
+}
+.exam-details-table-container{
+    width:100%;
+    border-radius:4px;
+}
+.exam-details-table-header{
+    background-color: #67B2E8;
+    margin: 0 auto;
+    text-align: center;
+    color:#fff;
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    font-weight: 500;
 }

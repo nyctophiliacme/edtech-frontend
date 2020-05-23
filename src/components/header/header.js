@@ -36,7 +36,7 @@ const Header = () => {
           </div>
         </div>
         <div>
-          <ul>
+          <ul className="header-ul">
             <li className="header-dropdown">
               <a href="#" className="dropbtn">
                 Entry Tests

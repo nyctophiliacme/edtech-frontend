@@ -97,6 +97,16 @@ class Register extends Component {
               "error",
               5000
             );
+          } else if (
+            error.response.data.email[0] === "This password is too common."
+          ) {
+            notify.show(
+              <div className="notify-container">
+                Password is too common .Please use the strong password.
+              </div>,
+              "error",
+              5000
+            );
           }
         });
     } else {
