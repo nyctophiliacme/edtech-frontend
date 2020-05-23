@@ -71,29 +71,34 @@ class Register extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.validateForm(this.state.errors)) {
-      signup(this.state).then((response) => {
-        if (response?.details === "Verification e-mail sent.") {
+      signup(this.state)
+        .then((response) => {
           notify.show(
             <div className="notify-container">
               Verification e-mail sent to {this.state.email} &nbsp;. <br />
               You can login after e-mail is verified.
             </div>,
             "success",
-            5000
+            8000
           );
-        }
-        else if (response?.email === "A user is already registered with this e-mail address.") {
-          notify.show(
-            <div className="notify-container">
-              A user is already registered with this e-mail address.
-              <br />
-              Please try diiferent e-mail.
-            </div>,
-            "error",
-            5000
-          );
-        }
-      });
+          this.props.handleParentClose();
+        })
+        .catch((error) => {
+          if (
+            error.response.data.email[0] ===
+            "A user is already registered with this e-mail address."
+          ) {
+            notify.show(
+              <div className="notify-container">
+                A user is already registered with this e-mail address.
+                <br />
+                Please try diiferent e-mail.
+              </div>,
+              "error",
+              5000
+            );
+          }
+        });
     } else {
       notify.show(
         <div className="notify-container">Please enter valid data</div>,

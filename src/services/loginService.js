@@ -11,6 +11,7 @@ export const login = (email, password) => {
 export const signup = (userDetails) => {
   return axios.post(`${baseURL}auth/registration/`, {
     username: userDetails.email,
+    email: userDetails.email,
     password1: userDetails.password,
     password2: userDetails.confirmPassword,
     first_name: userDetails.firstName,
