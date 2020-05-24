@@ -5,9 +5,9 @@ import "./exam-home.css";
 import {examTitles} from '../exam-ecat-data'
 
 const ExamHome = (props) => {
-  
   const [selectedTitle, setselectedTitle] = useState(0);
   const [subSection,setSubSection]=useState('home');
+
   return (
     <div className="examhome-container">
       <div className="exam-titlelist-Container">

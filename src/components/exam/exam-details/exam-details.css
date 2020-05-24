@@ -1,5 +1,8 @@
+.action-parent-container{
+    text-align: center;
+}
 .action-container{
-    display: flex;
+    display: inline-flex;
     padding-bottom: 40px;
 }
 .exam-action{
@@ -34,15 +37,30 @@
     line-height:25px;
     color:black;
     padding-bottom: 15px;
-    letter-spacing: 1px;;
+    letter-spacing: 1px;
+}
+
+.exam-detail-download:hover{
+    color: blue;
+    text-decoration: underline;
+}
+
+.exam-details-download-container{
+    padding: 40px 0px 30px 0px;
+    box-shadow: 2px 3px #888888;
+    border-bottom: solid gray 1px;
 }
 .details-ul{
     padding-left: 20px;
-    margin: 0px;
+    margin-top: 20px;
 }
+
 .exam-details-table-container{
     width:100%;
     border-radius:4px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed;
 }
 .exam-details-table-header{
     background-color: #67B2E8;
@@ -53,4 +71,11 @@
     letter-spacing: 1px;
     line-height: 30px;
     font-weight: 500;
+}
+.exam-details-table-subcontent{
+    text-align: center;
+    padding: 35px 0px;
+    border: solid #67B2E8;
+    border-top: none;
+    border-width: 2px;
 }
