@@ -19,13 +19,10 @@ Upgrade now and get everything you need to prepare for the ECAT exam
             </div>
             )
         })
-    }
-     <h2>Access to all practice questions</h2>
-     <h2>Detailed explanations for every question</h2>
-     <hu>Unlimited attempts per question</hu>   
+    } 
 </div>
 <div className="upgrade-button">
-
+<input className="login-button"  value="Upgrade Now" />
 </div>
 </>)
 }
