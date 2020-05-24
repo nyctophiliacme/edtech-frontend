@@ -5,29 +5,33 @@ import practice from "../../../assets/images/practice.png";
 import { Link } from "react-router-dom";
 import { examDetailsCompleteData } from "../exam-ecat-data";
 
+
 const ExamDetails = ({ name, subSection }) => {
+  
   const examDetailsData = examDetailsCompleteData.filter((item) => {
     return item.subSection === subSection;
   })[0]?.data;
- console.log(examDetailsData);
+
   const renderActionDiv = () => {
     if (subSection === "home") {
       return (
-        <div className="action-container">
-          <div className="exam-action">
-            <div className="exam-action-img">
-              <img src={taketest} alt="test" />
-            </div>
-            <div className="exam-action-text">Take a Test</div>
-          </div>
-          <Link to={`/practice/ ${name.toUpperCase()}`}>
+        <div className="action-parent-container">
+          <div className="action-container">
             <div className="exam-action">
               <div className="exam-action-img">
-                <img src={practice} alt="test" />
+                <img src={taketest} alt="test" />
               </div>
-              <div className="exam-action-text">Practice by Chapter</div>
+              <div className="exam-action-text">Take a Test</div>
             </div>
-          </Link>
+            <Link to={`/practice/ ${name.toUpperCase()}`}>
+              <div className="exam-action">
+                <div className="exam-action-img">
+                  <img src={practice} alt="test" />
+                </div>
+                <div className="exam-action-text">Practice by Chapter</div>
+              </div>
+            </Link>
+          </div>
         </div>
       );
     }
@@ -50,42 +54,47 @@ const ExamDetails = ({ name, subSection }) => {
   const renderTableType = (ed) => {
     console.log(ed);
     return (
-      // <div className="exam-details-table-container">
-      //   <div className="exam-details-table-header">{ed.heading}</div>
-      //   <div className="exam-details-table-content">
-      //     {ed.items.map(function (item, index) {
-      //       return (
-      //         <div className="exam-details-table-subcontent" key={index}  >
-      //           {item.columnText}
-      //           <br />
-      //           {item.columnValue}
-      //         </div>
-      //       );
-      //     })}
-      //   </div>
-      // </div>
       <table className="exam-details-table-container">
-        <tr className="exam-details-table-header">
-          <th colSpan={ed.items.length}>{ed.heading}</th>
-        </tr>
-        <tr className="exam-details-table-content">
-          {ed.items.map(function (item, index) {
-            return (
-              <td className="exam-details-table-subcontent" key={index}>
-                {item.columnText}
-                <br />
-                {item.columnValue}
-              </td>
-            );
-          })}
-        </tr>
+        <thead className="exam-details-table-container">
+          <tr className="exam-details-table-header">
+            <th colSpan={ed.items.length}>{ed.heading}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="exam-details-table-content">
+            {ed.items.map(function (item, index) {
+              return (
+                <td className="exam-details-table-subcontent" key={index}>
+                  {item.columnText}
+                  <br />
+                  {item.columnValue}
+                </td>
+              );
+            })}
+          </tr>
+        </tbody>
       </table>
     );
   };
+
+  const renderPaperList = (items) => {
+    return(
+      <div>
+        {items.map((item,index)=>{
+          return (
+          <div className="exam-details-download-container exam-details-text " key={index}>
+              <a href={item.link}  className="exam-detail-download" target="_self" download>{item.text}</a>
+          </div>)
+        })
+        }
+      </div>
+    )
+  };
+
   return (
     <>
       {renderActionDiv()}
-      <div>
+      <div className="exam-details-container">
         {examDetailsData.map(function (ed, index) {
           if (ed.type === "para") {
             return (
@@ -115,11 +124,14 @@ const ExamDetails = ({ name, subSection }) => {
               </div>
             );
           } else if (ed.type === "table") {
+            return <div key={index}>{renderTableType(ed)}</div>;
+          } else if (ed.type === "paper") {
             return (
-              <div>
-              {renderTableType(ed)}
+              <div className="exam-details-heading" key={index}>
+                {ed.heading}
+                {renderPaperList(ed.items)}
               </div>
-              );                  
+            );
           }
         })}
       </div>

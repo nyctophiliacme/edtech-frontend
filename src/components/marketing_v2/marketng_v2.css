@@ -255,7 +255,8 @@
   .highlights_content{
       display: flex;
       height: 165px; 
-      margin-bottom: 30px;     
+      margin-bottom: 30px;  
+      cursor: pointer;   
   }
   .highlights_img{
     width: 15%;

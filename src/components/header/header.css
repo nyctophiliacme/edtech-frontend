@@ -15,8 +15,8 @@
     color: #ffffff;
   }
   .header-practice {
-    background-color: #f3d843;
-    color: #122e51;
+    background-color: #e86767;
+    color: white;
     margin-right: 45px;
   }
   .header-cta {
@@ -39,6 +39,7 @@
 
 .header-ul {
   padding: 0;
+  margin: 0;
 }
 
 

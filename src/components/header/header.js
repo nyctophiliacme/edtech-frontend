@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Modal from "../modal/modal";
 import logo from "../../assets/images/logo.png";
 import down from "../../assets/images/dropdown.png";
@@ -62,4 +62,4 @@ const Header = () => {
     </>
   );
 };
-export default Header;
+export default withRouter(Header);

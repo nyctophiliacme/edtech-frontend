@@ -37,3 +37,12 @@
     /* Microsoft Edge */
     color: #C1C1C1;
   }
+  .practice-container{
+    display:flex;
+    background-color:#FEFEFE;
+}
+.practice-chapter-container{
+  background-color: #FEFEFE ;
+  padding-left: 10px;
+    box-shadow: 5px 0px 5px #E1E1E1 inset;
+}

@@ -98,7 +98,7 @@ class Register extends Component {
               5000
             );
           } else if (
-            error.response.data.email[0] === "This password is too common."
+            error.response.data.password1[0] === "This password is too common."
           ) {
             notify.show(
               <div className="notify-container">
