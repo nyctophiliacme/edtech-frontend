@@ -21,7 +21,7 @@ export const signup = (userDetails) => {
 };
 
 export const getUserDetails = (token) => {
-  return axios.post(`${baseURL}auth/user/`, {
+  return axios.get(`${baseURL}auth/user/`, {
     headers: {
       Authorization: token,
     },

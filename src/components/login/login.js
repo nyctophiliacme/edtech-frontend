@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { login, getUserDetails } from "../../services/loginService";
 import "./login.css";
 import { notify } from "react-notify-toast";
-
+import { withStore } from "@spyna/react-store";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -40,56 +40,75 @@ class Login extends Component {
     this.setState({ errors, [name]: value });
   };
 
+  // export function login(credentials) { return function (dispatch) { return loginRemotely(credentials) .then((response) => { // ... history.push('/'); }); }; }
+
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.validateForm(this.state.errors)) {
-      // console.info("Valid Form");
-      login(this.state.email, this.state.password).then((response) => {
-        if (response?.data) {
-          sessionStorage.setItem("userToken", `Token${response.data.key}`);
-          getUserDetails(sessionStorage.getItem("userToken")).then(
-            (response) => {
+      login(this.state.email, this.state.password)
+        .then((response) => {
+          this.props.store.set("userToken", `Token ${response.data.key}`);
+          getUserDetails(this.props.store.get("userToken"))
+            .then((response) => {
+              this.props.store.set("isLoggedIn", true);
+              this.props.store.set("userDetails", response.data);
+              console.log(this.props.store.getState());
+              this.props.redirect.push("/exam/ecat");
+              this.props.handleParentClose();
+            })
+            .catch((error) => {
               notify.show(
                 <div className="notify-container">
                   Error in fetching your profile details.
                 </div>,
                 "error",
-                3000
+                8000
               );
-              sessionStorage.setItem("userDetails", JSON.parse(response));
-            }
-          );
-        } else if (response?.non_field_errors === "E-mail is not verified.") {
-          notify.show(
-            <div className="notify-container">
-              Your e-mail is not verified.
-              <br />
-              Verification e-mail sent to {this.state.email} &nbsp;. <br />
-              You can login after e-mail is verified.
-            </div>,
-            "warning",
-            3000
-          );
-        } else if (
-          response?.non_field_errors ===
-          "Unable to log in with provided credentials."
-        ) {
-          notify.show(
-            <div className="notify-container">
-              Login failed.Please provide correct e-mail and password.
-            </div>,
-            "error",
-            3000
-          );
-        }
-      });
+            });
+        })
+        .catch((error) => {
+          console.log(error.response);
+          if (
+            error.response.data.non_field_errors[0] ===
+            "E-mail is not verified."
+          ) {
+            notify.show(
+              <div className="notify-container">
+                Your e-mail is not verified.
+                <br />
+                Verification e-mail sent to {this.state.email} &nbsp;. <br />
+                You can login after e-mail is verified.
+              </div>,
+              "warning",
+              8000
+            );
+          } else if (
+            error.response.data.non_field_errors[0] ===
+            "Unable to log in with provided credentials."
+          ) {
+            notify.show(
+              <div className="notify-container">
+                Login failed.Please provide correct e-mail and password.
+              </div>,
+              "error",
+              8000
+            );
+          } else{
+            notify.show(
+              <div className="notify-container">
+                Login failed. Please try again.
+              </div>,
+              "error",
+              8000
+            );
+          }
+        });
     } else {
       notify.show(
         <div className="notify-container">Please enter valid details.</div>,
         "error",
-        3000
+        8000
       );
-      // console.error("Invalid Form");
     }
   };
 
@@ -158,4 +177,4 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+export default withStore(Login);
