@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./modal.css";
 import Login from "../login/login";
 import Register from "../register/register";
+import { useHistory } from "react-router-dom";
 
 const Modal = ({ handleClose, show }) => {
   const showHideClassname = show
@@ -10,6 +11,8 @@ const Modal = ({ handleClose, show }) => {
   const [isLogin, setFormType] = useState(true);
   useEffect(() => {
   }, [isLogin]);
+
+  let history = useHistory();
 
   return (
     <div className={showHideClassname}>
@@ -28,7 +31,10 @@ const Modal = ({ handleClose, show }) => {
           <Login
             handleRegister={() => {
               setFormType(false);
-            }}
+            }} handleParentClose={() => {
+              setFormType(true);
+              handleClose();
+            }} redirect={history}
           />
         ) : (
           <Register

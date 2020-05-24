@@ -9,7 +9,8 @@ import TermAndCondition from "./components/term_condition/term_condition";
 import MarketingV2 from "./components/marketing_v2/marketing_v2";
 import ExamHome from "./components/exam/examHome/exam_home";
 import PracticeHome from "./components/practice/practice-home/practice-home";
-import Notifications, {notify} from 'react-notify-toast';
+import Notifications from 'react-notify-toast';
+import { createStore } from '@spyna/react-store';
 import "./App.css";
 
 
@@ -32,4 +33,8 @@ function App() {
   );
 }
 
-export default App;
+const initialValue = {
+  isLoggedIn:false
+}
+
+export default createStore(App, initialValue);
