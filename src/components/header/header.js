@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withStore } from "@spyna/react-store";
+import { messageService } from "../../services/notifyComponentService";
 
 import Modal from "../modal/modal";
 import logo from "../../assets/images/logo.png";
@@ -13,11 +14,21 @@ class Header extends Component {
     super(props);
     this.state = {
       showModal: false,
+      isLoggedIn: sessionStorage.getItem("isLoggedIn")?sessionStorage.getItem("isLoggedIn"):false,
+      userName: sessionStorage.getItem("userDetails")?JSON.parse(sessionStorage.getItem("userDetails")).first_name:""
     };
   }
 
   componentDidMount() {
-    console.log(this.props.store.getState());
+    this.subscription = messageService.getMessage().subscribe((message) => {
+      if (message.text === "Logged In") {
+        this.setState({
+          isLoggedIn: sessionStorage.getItem("isLoggedIn"),
+          userName: JSON.parse(sessionStorage.getItem("userDetails"))
+            .first_name,
+        });
+      }
+    });
   }
 
   render() {
@@ -36,14 +47,25 @@ class Header extends Component {
                   Practice
                 </a>
               </div>
-              <div
-                className="header-cta header-login"
-                onClick={() => {
-                  this.setState({ showModal: true });
-                }}
-              >
-                Log in
-              </div>
+              {!this.state.isLoggedIn ? (
+                <div
+                  className="header-cta header-login"
+                  onClick={() => {
+                    this.setState({ showModal: true });
+                  }}
+                >
+                  Log in
+                </div>
+              ) : (
+                <div
+                  className="header-cta header-login"
+                  onClick={() => {
+                    this.setState({ showModal: true });
+                  }}
+                >
+                  {this.state.userName}
+                </div>
+              )}
             </div>
           </div>
           <div>
