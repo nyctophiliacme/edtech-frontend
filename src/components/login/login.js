@@ -50,7 +50,7 @@ class Login extends Component {
             .then((response) => {
               this.props.store.set("isLoggedIn", true);
               this.props.store.set("userDetails", response.data);
-              this.props.redirect.push("/exam/ecat");
+              this.props.redirect.push("/exam/ecat/home");
               this.props.handleParentClose();
             })
             .catch((error) => {

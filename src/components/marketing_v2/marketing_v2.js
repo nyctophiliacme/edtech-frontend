@@ -118,7 +118,7 @@ const marketingV2 = () => {
           </div>
         </div>
         <Link to={{
-            pathname:"/exam/ecat",
+            pathname:"/exam/ecat/previousPapers",
             loadPaper:"true"
         }} >
           <div className="highlights_content">

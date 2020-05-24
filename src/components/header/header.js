@@ -55,7 +55,7 @@ class Header extends Component {
                   <img className="dropup-arrow" src={up} alt="uprrow" />
                 </a>
                 <div className="dropdown-content ">
-                  <Link to="/exam/ecat">ECAT</Link>
+                  <Link to="/exam/ecat/home">ECAT</Link>
                   <Link to="/exam/net">NET (NUST Entry Test)</Link>
                 </div>
               </li>

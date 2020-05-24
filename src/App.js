@@ -25,7 +25,7 @@ function App() {
       <Route path='/term_condition' component={TermAndCondition}/>
       <Route path='/about_us' component={AboutUs}/>
       <Route path='/home' component={MarketingV2}/>
-      <Route path='/exam/:name' component={ExamHome} />
+      <Route path='/exam/:name/:defaultSection' component={ExamHome} />
       <Route path='/practice/:name' component={PracticeHome} />
     </Switch>
     <Footer></Footer>

@@ -5,8 +5,9 @@ import "./exam-home.css";
 import {examTitles} from '../exam-ecat-data'
 
 const ExamHome = (props) => {
-  const [selectedTitle, setselectedTitle] = useState(0);
-  const [subSection,setSubSection]=useState('home');
+
+
+  const selectedSection= props.match.params.defaultSection
 
   return (
     <div className="examhome-container">
@@ -15,18 +16,14 @@ const ExamHome = (props) => {
           return (
             <ExamTitle
               examTitle={et}
-              key={index}
-              click={() => {
-                setSubSection(et.id);
-                setselectedTitle(index);
-              }}
-              isSelected={index === selectedTitle}
+              key={et.id}
+              isSelected={et.id === selectedSection}
             />
           );
         })}
       </div>
       <div className="exam-details-Container">
-        <ExamDetails name={props.match.params.name} subSection={subSection} />
+        <ExamDetails name={props.match.params.name} subSection={props.match.params.defaultSection} />
       </div>
     </div>
   );

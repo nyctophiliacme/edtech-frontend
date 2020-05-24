@@ -1,15 +1,30 @@
 import React from "react";
 import "./exam-title.css";
-const ExamTitle = ({examTitle,isSelected, click}) => {
-    
-  return (
-    <div className={`exam-title-container ${isSelected?'title-selected':''}`} onClick={click} >
-    <div className="title-img-container">
-      <img className="exam-title-img" src={require(`../../../assets/images/${examTitle.imgUrl}.png`)} alt="tick" />
+import { Link } from "react-router-dom";
+const ExamTitle = ({ examTitle, isSelected, click }) => {
+  const scrollToTop=() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
 
-    </div>
-    <div className="title-text">{examTitle.title}</div>
-    </div>
-  )
+  return (
+    <Link to={`/exam/ecat/${examTitle.id}`}>
+      <div
+        className={`exam-title-container ${isSelected ? "title-selected" : ""}`}
+        onClick={scrollToTop}
+      >
+        <div className="title-img-container">
+          <img
+            className="exam-title-img"
+            src={require(`../../../assets/images/${examTitle.imgUrl}.png`)}
+            alt="tick"
+          />
+        </div>
+        <div className="title-text">{examTitle.title}</div>
+      </div>
+    </Link>
+  );
 };
 export default ExamTitle;
