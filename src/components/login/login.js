@@ -40,8 +40,6 @@ class Login extends Component {
     this.setState({ errors, [name]: value });
   };
 
-  // export function login(credentials) { return function (dispatch) { return loginRemotely(credentials) .then((response) => { // ... history.push('/'); }); }; }
-
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.validateForm(this.state.errors)) {
@@ -52,7 +50,6 @@ class Login extends Component {
             .then((response) => {
               this.props.store.set("isLoggedIn", true);
               this.props.store.set("userDetails", response.data);
-              console.log(this.props.store.getState());
               this.props.redirect.push("/exam/ecat");
               this.props.handleParentClose();
             })
@@ -67,7 +64,6 @@ class Login extends Component {
             });
         })
         .catch((error) => {
-          console.log(error.response);
           if (
             error.response.data.non_field_errors[0] ===
             "E-mail is not verified."
