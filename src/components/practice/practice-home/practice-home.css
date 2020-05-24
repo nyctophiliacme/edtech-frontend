@@ -1,7 +1,6 @@
 .practice-header{
     background-color:#204A7D ;
     padding:25px 100px 25px 70px;
-    display: flex;
     margin:0 auto;
 }
 .practice-header-text{
@@ -9,11 +8,12 @@
     font-weight:500 ;
     color: #ffffff;
     line-height: 36px;
-    float: left;
+    display: inline-block;
 }
 
 .practice-header-search-container{
     float: right;
+    display: flex;  
 }
 .practice-header-search {
     font-size: 30px;
@@ -43,5 +43,6 @@
 .practice-chapter-container{
   background-color: #FEFEFE ;
   padding-left: 25px;
-    box-shadow: 5px 0px 5px #E1E1E1 inset;
+  width:100%;
+  box-shadow: 5px 0px 5px #E1E1E1 inset;
 }

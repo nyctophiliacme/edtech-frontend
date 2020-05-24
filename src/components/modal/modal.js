@@ -3,15 +3,14 @@ import "./modal.css";
 import Login from "../login/login";
 import Register from "../register/register";
 import { useHistory } from "react-router-dom";
+import Upgrade from "../upgarde/upgrade";
+import { messageService } from "../../services/notifyComponentService";
 
-const Modal = ({ handleClose, show }) => {
+const Modal = ({ handleClose, show, type }) => {
+  console.log(type);
   const showHideClassname = show
     ? "modal display-block modal-animate"
     : "modal display-none modal-animate";
-  const [isLogin, setFormType] = useState(true);
-  useEffect(() => {
-  }, [isLogin]);
-
   let history = useHistory();
 
   return (
@@ -20,29 +19,30 @@ const Modal = ({ handleClose, show }) => {
         <span
           onClick={() => {
             handleClose();
-            setFormType(true);
           }}
           className="modal-close"
           title="Close Modal"
         >
           &times;
         </span>
-        {isLogin ? (
+        {type === "login" ? (
           <Login
-            handleRegister={() => {
-              setFormType(false);
-            }} handleParentClose={() => {
-              setFormType(true);
+            loadRegisterForm={() => {
+              messageService.sendMessage("v2 RegiterButton clicked");
+            }}
+            handleModalClose={() => {
               handleClose();
-            }} redirect={history}
+            }}
+            redirect={history}
           />
-        ) : (
+        ) : type === "register" ? (
           <Register
-            handleParentClose={() => {
-              setFormType(true);
+            handleModalClose={() => {
               handleClose();
             }}
           />
+        ) : (
+          <Upgrade />
         )}
       </section>
     </div>

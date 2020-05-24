@@ -7,6 +7,7 @@ import illustration3 from "../../assets/images/illustr-03.png";
 import click1 from "../../assets/images/click-01.png";
 import click2 from "../../assets/images/click-02.png";
 import click3 from "../../assets/images/click-03.png";
+import { messageService } from "../../services/notifyComponentService";
 
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
@@ -117,10 +118,12 @@ const marketingV2 = () => {
             </div>
           </div>
         </div>
-        <Link to={{
-            pathname:"/exam/ecat/previousPapers",
-            loadPaper:"true"
-        }} >
+        <Link
+          to={{
+            pathname: "/exam/ecat/previousPapers",
+            loadPaper: "true",
+          }}
+        >
           <div className="highlights_content">
             <div className="highlights_img highlight_img2">
               <img src={click2} alt="Hero" />
@@ -136,7 +139,12 @@ const marketingV2 = () => {
           <div className="highlights_img highlight_img3">
             <img src={click3} alt="Hero" />
           </div>
-          <div className="highlights_text highlight_text3">
+          <div
+            className="highlights_text highlight_text3"
+            onClick={() => {
+              messageService.sendMessage("v2 RegiterButton clicked");
+            }}
+          >
             <div className="highlight-tex-wrapper">
               Register now to access to download free papers and information
             </div>

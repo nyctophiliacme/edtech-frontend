@@ -81,7 +81,7 @@ class Register extends Component {
             "success",
             8000
           );
-          this.props.handleParentClose();
+          this.props.handleModalClose();
         })
         .catch((error) => {
           if (
@@ -238,14 +238,14 @@ class Register extends Component {
             By joining, you agree to the&nbsp;
             <span
               className="login-signUp"
-              onClick={this.props.handleParentClose}
+              onClick={this.props.handleModalClose}
             >
               <Link to="/term_condition">Terms of Service</Link>
             </span>
             &nbsp;and&nbsp;
             <span
               className="login-signUp"
-              onClick={this.props.handleParentClose}
+              onClick={this.props.handleModalClose}
             >
               <Link to="/privacy_policy">Privacy Policy.</Link>
             </span>

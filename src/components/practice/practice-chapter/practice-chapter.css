@@ -1,8 +1,7 @@
-.practice-chapter-contaier{
+.practice-chapter-subcontainer{
     border-bottom: solid #E1E1E1 1px;
-    display: flex;
-    width: 100%;
     padding: 40px 30px 30px 20px;
+    cursor: pointer;
 }
 
 .practice-chapter-text-container{
@@ -37,9 +36,13 @@ line-height: 26px;
 .practice-lock-img{
     margin-right:20px;
 }
-.practice-chapter-contaier:hover{
+.practice-chapter-subcontainer:hover{
   background-color:  #f6faff;
 }
 .practice-right-block{
-    display: block;
+    display: inline-block;
+}
+.practice-chapter-button-container{
+    display: flex;
+    float: right;
 }

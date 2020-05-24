@@ -9,7 +9,7 @@ return(
 <div className="upgrade-container">
 Upgrade now and get everything you need to prepare for the ECAT exam
 </div>
-<div lassName="upgrade-points-container">
+<div className="upgrade-points-container">
     {
         upgradeBenifts.map((benifit,index)=>{
             return (

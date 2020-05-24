@@ -59,7 +59,6 @@ const PracticeHome = (props) => {
         <div className="practice-header-text">
           {props.match.params.name.toUpperCase() + " "} Practice by Chapter
         </div>
-        <div>
           <div className="practice-header-search-container">
             <input
               className="practice-header-search"
@@ -69,7 +68,6 @@ const PracticeHome = (props) => {
               required
             />
           </div>
-        </div>
       </div>
       <div className="practice-container">
         <div className="practice-subject-container">

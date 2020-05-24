@@ -54,9 +54,9 @@ class Login extends Component {
               sessionStorage.setItem("userDetails", JSON.stringify(response.data));
               // this.props.store.set("isLoggedIn", true);
               // this.props.store.set("userDetails", response.data);
-              this.props.redirect.push("/exam/ecat");
+              this.props.redirect.push("/exam/ecat/home");
               this.sendMessage("Logged In");
-              this.props.handleParentClose();
+              this.props.handleModalClose();
             })
             .catch((error) => {
               sessionStorage.setItem("isLoggedIn", false);
@@ -134,11 +134,6 @@ class Login extends Component {
     messageService.sendMessage(message);
   }
 
-  clearMessages() {
-    // clear messages
-    messageService.clearMessages();
-  }
-
   render() {
     return (
       <div className="login-container">
@@ -180,7 +175,7 @@ class Login extends Component {
           <span
             className="login-signUp"
             onClick={() => {
-              this.props.handleRegister();
+              this.props.loadRegisterForm();
             }}
           >
             Sign up
