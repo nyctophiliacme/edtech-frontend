@@ -3,6 +3,7 @@ import { login, getUserDetails } from "../../services/loginService";
 import "./login.css";
 import { notify } from "react-notify-toast";
 import { withStore } from "@spyna/react-store";
+import { messageService } from "../../services/notifyComponentService";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -45,15 +46,21 @@ class Login extends Component {
     if (this.validateForm(this.state.errors)) {
       login(this.state.email, this.state.password)
         .then((response) => {
-          this.props.store.set("userToken", `Token ${response.data.key}`);
-          getUserDetails(this.props.store.get("userToken"))
+          // this.props.store.set("userToken", `Token ${response.data.key}`);
+          sessionStorage.setItem("userToken", `Token ${response.data.key}`);
+          getUserDetails(sessionStorage.getItem("userToken"))
             .then((response) => {
-              this.props.store.set("isLoggedIn", true);
-              this.props.store.set("userDetails", response.data);
+              sessionStorage.setItem("isLoggedIn", true);
+              sessionStorage.setItem("userDetails", JSON.stringify(response.data));
+              // this.props.store.set("isLoggedIn", true);
+              // this.props.store.set("userDetails", response.data);
               this.props.redirect.push("/exam/ecat");
+              this.sendMessage("Logged In");
               this.props.handleParentClose();
             })
             .catch((error) => {
+              sessionStorage.setItem("isLoggedIn", false);
+              // this.props.store.set("isLoggedIn", false);
               notify.show(
                 <div className="notify-container">
                   Error in fetching your profile details.
@@ -89,7 +96,7 @@ class Login extends Component {
               "error",
               8000
             );
-          } else{
+          } else {
             notify.show(
               <div className="notify-container">
                 Login failed. Please try again.
@@ -121,6 +128,16 @@ class Login extends Component {
 
     return valid;
   };
+
+  sendMessage(message) {
+    // send message to subscribers via observable subject
+    messageService.sendMessage(message);
+  }
+
+  clearMessages() {
+    // clear messages
+    messageService.clearMessages();
+  }
 
   render() {
     return (
