@@ -9,7 +9,6 @@ const Modal = ({ handleClose, show }) => {
     : "modal display-none modal-animate";
   const [isLogin, setFormType] = useState(true);
   useEffect(() => {
-    // console.log(isLogin);
   }, [isLogin]);
 
   return (

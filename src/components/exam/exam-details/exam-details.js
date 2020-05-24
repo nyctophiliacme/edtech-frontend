@@ -52,7 +52,6 @@ const ExamDetails = ({ name, subSection }) => {
   };
 
   const renderTableType = (ed) => {
-    console.log(ed);
     return (
       <table className="exam-details-table-container">
         <thead className="exam-details-table-container">
@@ -116,7 +115,12 @@ const ExamDetails = ({ name, subSection }) => {
               <div className="exam-details-heading" key={index}>
                 {ed.heading}
                 {ed.listHeader ? (
-                  <h2 className="exam-details-text">{ed.listHeader}</h2>
+                  <div>
+                    {ed.listHeader.split('</br>').map((lh,index)=>{
+                      return <h2 key={index} className="exam-details-text">{lh}</h2>
+                    })}
+                  </div>
+                  
                 ) : (
                   ""
                 )}

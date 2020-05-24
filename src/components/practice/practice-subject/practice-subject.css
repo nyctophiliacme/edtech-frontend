@@ -1,7 +1,9 @@
 .subjects-container{
-    padding:65px 75px;
+    padding:60px;
     font-size: 34px;
     line-height: 64px;
     letter-spacing: 1px;
     font-weight: 300;
+    color:#ADB2B5;
+    cursor: pointer;
 }

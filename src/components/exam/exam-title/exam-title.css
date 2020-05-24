@@ -14,6 +14,10 @@
   line-height: 28px;
 }
 .title-selected {
-  font-weight: 400 ;
-  color: black;
+  font-weight: 400 !important;
+  color: black !important;
+}
+
+.exam-title-img{
+  margin-right: 15px;
 }

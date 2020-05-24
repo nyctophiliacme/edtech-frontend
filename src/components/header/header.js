@@ -8,8 +8,7 @@ import "./header.css";
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
-  useEffect(() => {
-  }, [showModal]);
+  useEffect(() => {}, [showModal]);
   return (
     <>
       <header className="logo-header">
@@ -20,11 +19,9 @@ const Header = () => {
             </Link>
           </div>
           <div className="headerbutton-wrapper">
-            <div className="header-cta header-practice">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                Practice
-              </a>
-            </div>
+            <Link to="/practice/ecat">
+              <div className="header-cta header-practice">Practice</div>
+            </Link>
             <div
               className="header-cta header-login"
               onClick={() => {
@@ -38,7 +35,7 @@ const Header = () => {
         <div>
           <ul className="header-ul">
             <li className="header-dropdown">
-              <a href="#" className="dropbtn">
+              <a href="#" className="dropbtn" target="_blanky">
                 Entry Tests
                 <img className="dropdown-arrow" src={down} alt="downarrow" />
                 <img className="dropup-arrow" src={up} alt="uprrow" />
@@ -55,10 +52,8 @@ const Header = () => {
         show={showModal}
         handleClose={() => {
           setShowModal(false);
-
         }}
-      >
-      </Modal>
+      ></Modal>
     </>
   );
 };

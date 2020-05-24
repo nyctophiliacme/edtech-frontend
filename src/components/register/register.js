@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { notify } from "react-notify-toast";
 import { signup } from "../../services/loginService";
-
+import "./register.css";
 class Register extends Component {
   constructor(props) {
     super(props);

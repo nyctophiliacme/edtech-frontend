@@ -344,79 +344,167 @@ export const examDetailsCompleteData = [
   },
   {
     subSection: "tipsForECAT",
-
     data: [
       {
-        heading: "ECAT 2016 Topper advice (Ahsan Abdullah)",
-        listHeader: "",
+        heading: "Tip to Solve MCQS:",
+        listHeader: "empty",
         type: "para",
         items: [
-          "My name is Ahsan Abdullah. I am the topper of ECAT 2016 and scored the 6th merit in PIEAS entry test. I did my intermediate from GCU, Lahore. ",
-          "Today, I will share my experience as to how I tackled the challenges of the mighty entry test which every student faces in their quest to compete for entry into the most prestigious universities/colleges, most desired programs that many covet for. Entry test is not as tough as students have made it out to be.",
-          "The whole syllabus of entry tests is completely based on Punjab textbooks and will never test your understanding of concepts that go beyond the scope of the prescribed textbook. Even so, the same student who scored good marks on board usually is not able to score good marks in the entry test! This is so because in the board exams, they test you from page to page and line by line of book but in the entry test, the examiner tests you word by word of book. They alter a mere word or line and change the entire meaning of the MCQ. </br> Entry test have 2 types of papers: Qualitative and Quantitative. </br> 70% of the questions are quantitative and to master them you just need to practice, practice and more practice! The more you practice, the more you will be able to attempt them better and in the shortest amount of time possible. Practice them with focus and don't heed on the irrelevant things.  </br> To perform better in the Qualitative section, improve your reading skills and concepts. Improve your mental mathematics and use smart solving techniques to get better in quantitative MCQs. Since most of the questions are quantitative, you need to have a strong grip on them and this will save you a lot of time. You must be relaxed on your exam day. Sleep well before the paper- it will help you to optimize your brain and will give you a better ability to process your concepts.  </br> You must manage your time properly during the paper! If 1 MCQ can be solved in 10 seconds, don’t do it in 40 seconds. Don't waste your time on rechecking your MCQs.  </br> Decision is the most important thing in MCQ based papers. Whether you are able to mark this option or not. By marking the wrong answer, you will get a negative mark. So, mark the questions for which you are 100% sure that your answer is right and leave others unchecked.  </br> Examiners don't have time to examine you on all concepts and test your knowledge so they examine you on statements. You need to understand the statements that they are claiming and how they are justifiable and you should know how to justify them as well because this is where your knowledge is being tested. ",
+          "The following tips will help you in all entry tests while attempting MCQs.",
+        ],
+      },
+      {
+        heading: "Follow the Instructions:",
+        listHeader: "empty",
+        type: "para",
+        items: [
+          "The key to solving your MCQs paper successfully is to read the instructions carefully and follow them. This is the first and foremost requirement that will enable you to implement techniques based on correct understanding of the MCQ.",
+        ],
+      },
+      {
+        heading: "Divide the Time:",
+        listHeader: "empty",
+        type: "para",
+        items: [
+          "Divide the given time of the paper according to the number of questions. In case of ECAT, you have 100 minutes to solve 100 MCQs. So, you have approximately 1 minute for each question. However, it is not necessary that you spend a complete minute on a relatively easier MCQ.",
+          "The technique here is to establish a rough estimate as to how much time you should spend on each MCQ on average. Solving simpler questions in less than a minute will give you bonus time to spend more energy on more complex questions and increase the probability of getting a more difficult question correct.",
+        ],
+      },
+      {
+        heading: "Concentrate:",
+        listHeader: "empty",
+        type: "para",
+        items: [
+          "Concentrate on the question, read the question carefully before attempting it. Sometimes the question might look similar to the question you did in your practice test and you rush to select the correct answer based on memory while quitting reading the question only midway. However, the examiner was smart enough to modify the values or change the statement and hence you will end up marking the wrong answer. So, don’t get excited! Read the question carefully first and then proceed to evaluate the options presented in the paper.",
+        ],
+      },
+      {
+        heading: "Use Elimination Strategy:",
+        listHeader: "empty",
+        type: "para",
+        items: [
+          "Once you have managed to understand the question properly, the remaining challenge is to select the correct answer. But what happens when you are not sure about the correct answer? You will then employ the elimination technique by removing answers that you know are incorrect.",
+          "Probability is the highest chance of the occurrence of an event. If a MCQ has four options, that means, if you select any of the options, there is a 25% probability that the MCQ will be correct. But, how do we increase this probability? The trick is simple, we will use the elimination technique here.",
+          "In Elimination technique, we will remove the options that you know are incorrect. Now, if you select any option that will mean you will have a probability of 50% that the option you have selected is correct.",
+        ],
+      },
+      {
+        heading: "Don’t Waste your Time (Time Management): ",
+        listHeader: "empty",
+        type: "para",
+        items: [
+          "If you are not clear for 1 question don’t waste your time, mark some answers that you think look right and move ahead may the rest of questions you can solve easily.",
+          "Sometimes MCQs in the beginning of the paper are hard and difficult to solve. Students usually fall for this common trap and are inclined to waste quite a lot of their time on difficult questions in the start. When they reach the latter half of the paper, they realize the questions have gotten easier but unfortunately, they don’t have much time left. This is because the test taker failed to divide the time properly.",
+          "So, when you start off with your exam, clearly mark the MCQs that you are absolutely sure about. For the ones that you are not quite sure about, use the elimination technique to narrow down your options and then use your guessing power. There will still be some MCQs left that you are not sure about and the elimination technique hasn’t been of much help. What will you do? If you have time, you will be able to repeat all the steps with the most important one being to read the question carefully. If you are able to figure out the problem, you may just be able to answer a record number of questions just by using your time more efficiently.",
+          "You have 1 minute for each MCQ but some MCQs like definition-based questions or questions testing basic Physics/Chemistry facts that you already remember will take less than 10 seconds so use that extra time for the quantitative part that will take more time. In Mathematics, you have to arrive at the correct answer by solving the question so naturally, they will take more of your time in solving those questions.",
+          "Implement these guidelines for your next test and you will be amazed by the results….",
+          "Note: All these strategies will only help you if you have done a good preparation of the course material. If you have not done any preparation, then the test will be a gamble for you.",
+        ],
+      },
+      {
+        heading: "Final Preparations",
+        listHeader: "Tips for test day",
+        type: "list",
+        items: [
+          "Do not study last night before exam and relax. Marathoners don't go for a run before Race Day, and with the correct attitude and focus to preparation, it doesn’t make sense for you to stay up late for such a taxing, mental marathon challenge. Do not study for more than an hour on the day before you take the ECAT. Your brain needs to rest in order to do its best. Read a book or hang out with a friend or two.",
+          "Get a good night’s sleep and avoid using mobile phone at night as it will wake up your brain and make it more difficult to drift off at an early hour.",
+          "Start organizing all the material at least one day before that you need for the test like CNIC, exam slip, calculator, pen and markers, pencil etc in a bag. So in case you don’t find something, you have ample time to arrange for that.",
+          "Work out a plan to get to the test venue. Before you go to sleep, make sure you know exactly how you're going to reach the testing site. If you are going to need to find parking, allow extra time for that. If you are relying on public transportation, check the relevant schedules and make sure your bus/train is running. Check for road closures. If a friend or parent is going with you, make sure they know what they need to do, too.",
+        ],
+      },
+      {
+        heading: "Test Morning",
+        listHeader: "empty",
+        type: "para",
+        items: [
+          "Wake up early keeping in mind that you have to reach test hall 30 to 45 minutes before the time test starts. And have a healthy breakfast. Here are a few good choices: eggs, toast, cereal, bagel, fruit, juice, cheese, milk.",
+          "If you drink coffee or tea, then stick to your routine. If you don't drink a caffeinated beverage every day, though, Test Day isn't the perfect time to experiment. You need calm, slow-burning, consistent energy today.",
+          "Get to the test site early at least one hour before the test time.",
+          "When you get to the test site, try to steer clear of nervous people. You don't need their anxious energy rubbing off on you!",
+          "These are some suggestions that you might try to make you more confident and comfortable on Test Day. Keep in mind that everyone is different, and all of these suggestions don't necessarily have to work for everyone, so it’s always better to try them out before you actually use them on Test day.",
+        ],
+      },
+    ]
+  },
+  {
+    subSection: "previousPapers",
+    data: [
+      {
+        heading: "List of previous year papers",
+        type: "paper",
+        items: [
+          {
+            text: "complete paper of 2018",
+            link: "https://code.visualstudio.com/Download",
+          },
+          {
+            text: "text displayed to user e.g. paper of 2019",
+            link: "../../../assets/images/top-banner.png",
+          },
         ],
       },
     ],
   },
   {
-    subSection:"previousPapers",
-    data:[
-      {
-      heading: "List of previous year papers",
-      type:"paper",
-      items:[{
-        text:"complete paper of 2018",
-        link:"https://code.visualstudio.com/Download"
-      },
-      {
-        text:"text displayed to user e.g. paper of 2019",
-        link:"../../../assets/images/top-banner.png"
-      },
-    ]
-    }
-
-    ]
-  },
+    subSection: "topperAdvice",
+    data: [
+        {
+        heading: "ECAT 2016 Topper advice (Ahsan Abdullah)",
+        listHeader:"empty",
+        type: "para",
+        items: ["My name is Ahsan Abdullah. I am the topper of ECAT 2016 and scored the 6th merit in PIEAS entry test. I did my intermediate from GCU, Lahore.",
+				"Today, I will share my experience as to how I tackled the challenges of the mighty entry test which every student faces in their quest to compete for entry into the most prestigious universities/colleges, most desired programs that many covet for. Entry test is not as tough as students have made it out to be.",
+				"The whole syllabus of entry tests is completely based on Punjab textbooks and will never test your understanding of concepts that go beyond the scope of the prescribed textbook. Even so, the same student who scored good marks on board usually is not able to score good marks in the entry test! This is so because in the board exams, they test you from page to page and line by line of book but in the entry test, the examiner tests you word by word of book. They alter a mere word or line and change the entire meaning of the MCQ.",
+				"Entry test have 2 types of papers: Qualitative and Quantitative.",
+				"70% of the questions are quantitative and to master them you just need to practice, practice and more practice! The more you practice, the more you will be able to attempt them better and in the shortest amount of time possible. Practice them with focus and don't heed on the irrelevant things.",
+				"To perform better in the Qualitative section, improve your reading skills and concepts. Improve your mental mathematics and use smart solving techniques to get better in quantitative MCQs. Since most of the questions are quantitative, you need to have a strong grip on them and this will save you a lot of time. You must be relaxed on your exam day. Sleep well before the paper- it will help you to optimize your brain and will give you a better ability to process your concepts.",
+				"You must manage your time properly during the paper! If 1 MCQ can be solved in 10 seconds, don’t do it in 40 seconds. Don't waste your time on rechecking your MCQs.",
+				"Decision is the most important thing in MCQ based papers. Whether you are able to mark this option or not. By marking the wrong answer, you will get a negative mark. So, mark the questions for which you are 100% sure that your answer is right and leave others unchecked. Examiners don't have time to examine you on all concepts and test your knowledge so they examine you on statements. You need to understand the statements that they are claiming and how they are justifiable and you should know how to justify them as well because this is where your knowledge is being tested.",
+			
+        ],
+      }
+]
+  }
 ];
 
 export const examTitles = [
   {
-    imgUrl: "tick",
+    imgUrl: "home",
     title: "ECAT Home",
     id: "home",
     subtitle: null,
   },
   {
-    imgUrl: "tick",
+    imgUrl: "paperPattern",
     title: "Paper Pattern",
     id: "paperPattern",
     subtitle: null,
   },
   {
-    imgUrl: "tick",
+    imgUrl: "syllabus",
     title: "Syllabus",
     id: "Syllabus",
     subtitle: null,
   },
   {
-    imgUrl: "tick",
+    imgUrl: "affiliatedInstitutes",
     title: "Affiliated Institutes",
     id: "affiliatedInstitutes",
     subtitle: null,
   },
   {
-    imgUrl: "tick",
+    imgUrl: "previousPapers",
     title: "Previous Papers",
     id: "previousPapers",
     subtitle: null,
   },
   {
-    imgUrl: "up-arrow",
+    imgUrl: "tipsForECAT",
     title: "Tips for ECAT",
     id: "tipsForECAT",
     subtitle: [
       {
-        imgUrl: "up-arrow",
+        imgUrl: "topperAdvice",
         title: "Topper’s Advice",
         id: "topperAdvice",
       },
