@@ -82,8 +82,8 @@ class Header extends Component {
                   Log in
                 </div>
               ) : (
-                <div className="header-usee-detail ">
-                  <FontAwesomeIcon icon="user-circle" />
+                <div className="header-usee-detail">
+                  <FontAwesomeIcon icon="user-circle" size="lg"/>&nbsp;
                   {this.state.userName}
                 </div>
               )}
