@@ -24,8 +24,41 @@ class Header extends Component {
       userName: sessionStorage.getItem("userDetails")
         ? JSON.parse(sessionStorage.getItem("userDetails")).first_name
         : "",
-        firstText:"Practice"
+      firstText: (
+        <Link to="/practice/ecat">
+          <div className="header-cta header-practice">Practice</div>
+        </Link>
+      ),
     };
+  }
+
+  checkUpgradePractice=()=>{
+    if (
+      this.props.location.pathname.split("/")[1] === "" ||
+      this.props.location.pathname.split("/")[1] === "exam" ||
+      this.props.location.pathname.split("/")[1] === "home"
+    ) {
+      this.setState({
+        firstText: (
+          <Link to="/practice/ecat">
+            <div className="header-cta header-practice">Practice</div>
+          </Link>
+        ),
+      });
+    } else {
+      this.setState({
+        firstText: (
+          <div
+            className="header-cta header-practice"
+            onClick={() => {
+              this.setState({ modalType: "upgrade", showModal: true });
+            }}
+          >
+            Upgarde
+          </div>
+        ),
+      });
+    }
   }
 
   componentDidMount() {
@@ -54,19 +87,12 @@ class Header extends Component {
         });
       }
     });
+    this.checkUpgradePractice();
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
-      if (
-        this.props.location.pathname.split("/")[1] === "" ||
-        this.props.location.pathname.split("/")[1] === "exam" ||
-        this.props.location.pathname.split("/")[1] === "home"
-      ) {
-        this.setState({firstText :"Practice"});
-      } else {
-        this.setState({firstText :"Upgrade"});
-      }
+      this.checkUpgradePractice();
     }
   }
 
@@ -81,11 +107,7 @@ class Header extends Component {
               </Link>
             </div>
             <div className="headerbutton-wrapper">
-              <Link to="/practice/ecat">
-                <div className="header-cta header-practice">
-                  {this.state.firstText}
-                </div>
-              </Link>
+              {this.state.firstText}
               {!this.state.isLoggedIn ? (
                 <div
                   className="header-cta header-login"

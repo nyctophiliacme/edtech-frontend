@@ -20,7 +20,7 @@ const Upgrade = (handleModalClose) => {
           return (
             <div className="upgrade-points" key={index}>
               <img className="upgrade-img" src={check} alt="chk" />
-              <span>{benifit}</span>
+              <span className="upgrade-txt">{benifit}</span>
             </div>
           );
         })}
