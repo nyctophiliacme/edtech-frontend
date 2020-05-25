@@ -1,64 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import PracticeSubject from "../practice-subject/practice-subject";
 import "./practice-home.css";
 import PracticeChapter from "../practice-chapter/practice-chapter";
+import { getSubjects, getChapters } from "../../../services/practiceService";
 
-const PracticeHome = (props) => {
-  const chapterList = [
-    {
-      subject_code: "Maths",
-      chapters: [
-        {
-          chapter_id: 1,
-          chapter_title: "M1:Number System",
-          isLocked: false,
-          question_count: 12,
-        },
-        {
-          chapter_id: 2,
-          chapter_title: "M2:Calculas",
-          isLocked: true,
-          question_count: 12,
-        },
-      ],
-    },
-    {
-      subject_code: "Physics",
-      chapters: [
-        {
-          chapter_id: 1,
-          chapter_title: "P1:Mechanics",
-          isLocked: false,
-          question_count: 12,
-        },
-        {
-          chapter_id: 2,
-          chapter_title: "P2:Thermodynamics",
-          isLocked: true,
-          question_count: 12,
-        },
-      ],
-    },
-  ];
+class PracticeHome extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      exam_code: props.match.params.name.toLowerCase(),
+      chapterList: [],
+      subjectList: [],
+      selectedSubjectCode: "",
+    };
+  }
 
-  const subjectList = [
-    { subject_title: "Maths", subject_code: "Maths" },
-    { subject_title: "Physics", subject_code: "Physics" },
-    { subject_title: "Chemestry", subject_code: "Chemestry" },
-    {
-      subject_title: "English",
-      subject_code: "English",
-    },
-  ];
-  const [selectedSubject, setSelectedSubject] = useState(0);
-  const [subject, setSubject] = useState("Maths");
+  componentDidMount() {
+    this.getSubjectList();
+  }
+  getSubjectList() {
+    getSubjects(this.state.exam_code)
+      .then((response) =>
+        {
+          this.setState({
+            subjectList: response.data,
+            selectedSubjectCode:response.data[0]?.subject_code
+          });
+          this.getChapterList();
+        }
+      ).catch((error) => {
+        console.log(error);
+      });
+  }
+  getChapterList() {
+    getChapters(this.state.exam_code, this.state.selectedSubjectCode)
+      .then((response) => {
+        this.setState({
+          chapterList: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
-  return (
-    <>
-      <div className="practice-header">
-        <div className="practice-header-text">
-          {props.match.params.name.toUpperCase() + " "} Practice by Chapter
-        </div>
+  setSelectedSubjectCode(subject_code) {
+    this.setState({
+      selectedSubjectCode: subject_code
+    },()=>{
+      this.getChapterList();
+    });
+  }
+
+  render() {
+    return (
+      <>
+        <div className="practice-header">
+          <div className="practice-header-text">
+            {this.state.exam_code.toUpperCase() + " "} Practice by Chapter
+          </div>
           <div className="practice-header-search-container">
             <input
               className="practice-header-search"
@@ -68,29 +68,31 @@ const PracticeHome = (props) => {
               required
             />
           </div>
-      </div>
-      <div className="practice-container">
-        <div className="practice-subject-container">
-          {subjectList.map((subject, index) => {
-            return (
-              <PracticeSubject
-                examName={props.match.params.name}
-                key={index}
-                click={() => {
-                  setSubject(subject.subject_code);
-                  setSelectedSubject(index);
-                }}
-                subjectName={subject.subject_title}
-                isSelected={index === selectedSubject}
-              />
-            );
-          })}
         </div>
-        <div className="practice-chapter-container">
-          <PracticeChapter chapters={chapterList.filter((chapters)=>{return chapters.subject_code===subject})[0].chapters }/>
+        <div className="practice-container">
+          <div className="practice-subject-container">
+            {this.state.subjectList.map((subject, index) => {
+              return (
+                <PracticeSubject
+                  examName={this.state.exam_code}
+                  key={index}
+                  click={() => {
+                    this.setSelectedSubjectCode(subject.subject_code);
+                  }}
+                  subjectName={subject.title}
+                  isSelected={
+                    subject.subject_code === this.state.selectedSubjectCode
+                  }
+                />
+              );
+            })}
+          </div>
+          <div className="practice-chapter-container">
+            <PracticeChapter chapters={this.state.chapterList} />
+          </div>
         </div>
-      </div>
-    </>
-  );
-};
+      </>
+    );
+  }
+}
 export default PracticeHome;
