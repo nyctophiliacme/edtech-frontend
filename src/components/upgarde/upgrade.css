@@ -1,0 +1,27 @@
+.upgrade-container {
+  padding: 50px;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+.upgrade-points-container {
+  padding: 40px 0px;
+}
+.upgrade-points {
+  font-size: 18px;
+  text-align: left;
+}
+.upgrade-img {
+  width: 40px;
+  display: inline-block;
+}
+.upgrade-heading {
+  text-align: center;
+}
+.upgrade-button{
+    text-align: center;
+}
+.upgrade-Highlight{
+    font-weight: 500;
+}

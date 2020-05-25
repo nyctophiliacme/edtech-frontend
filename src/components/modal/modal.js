@@ -41,7 +41,9 @@ const Modal = ({ handleClose, show, type }) => {
             }}
           />
         ) : (
-          <Upgrade />
+          <Upgrade handleModalClose={() => {
+            handleClose();
+          }}/>
         )}
       </section>
     </div>
