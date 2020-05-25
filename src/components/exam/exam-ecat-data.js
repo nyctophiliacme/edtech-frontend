@@ -424,7 +424,7 @@ export const examDetailsCompleteData = [
           "These are some suggestions that you might try to make you more confident and comfortable on Test Day. Keep in mind that everyone is different, and all of these suggestions don't necessarily have to work for everyone, so it’s always better to try them out before you actually use them on Test day.",
         ],
       },
-    ]
+    ],
   },
   {
     subSection: "previousPapers",
@@ -448,23 +448,23 @@ export const examDetailsCompleteData = [
   {
     subSection: "topperAdvice",
     data: [
-        {
+      {
         heading: "ECAT 2016 Topper advice (Ahsan Abdullah)",
-        listHeader:"empty",
+        listHeader: "empty",
         type: "para",
-        items: ["My name is Ahsan Abdullah. I am the topper of ECAT 2016 and scored the 6th merit in PIEAS entry test. I did my intermediate from GCU, Lahore.",
-				"Today, I will share my experience as to how I tackled the challenges of the mighty entry test which every student faces in their quest to compete for entry into the most prestigious universities/colleges, most desired programs that many covet for. Entry test is not as tough as students have made it out to be.",
-				"The whole syllabus of entry tests is completely based on Punjab textbooks and will never test your understanding of concepts that go beyond the scope of the prescribed textbook. Even so, the same student who scored good marks on board usually is not able to score good marks in the entry test! This is so because in the board exams, they test you from page to page and line by line of book but in the entry test, the examiner tests you word by word of book. They alter a mere word or line and change the entire meaning of the MCQ.",
-				"Entry test have 2 types of papers: Qualitative and Quantitative.",
-				"70% of the questions are quantitative and to master them you just need to practice, practice and more practice! The more you practice, the more you will be able to attempt them better and in the shortest amount of time possible. Practice them with focus and don't heed on the irrelevant things.",
-				"To perform better in the Qualitative section, improve your reading skills and concepts. Improve your mental mathematics and use smart solving techniques to get better in quantitative MCQs. Since most of the questions are quantitative, you need to have a strong grip on them and this will save you a lot of time. You must be relaxed on your exam day. Sleep well before the paper- it will help you to optimize your brain and will give you a better ability to process your concepts.",
-				"You must manage your time properly during the paper! If 1 MCQ can be solved in 10 seconds, don’t do it in 40 seconds. Don't waste your time on rechecking your MCQs.",
-				"Decision is the most important thing in MCQ based papers. Whether you are able to mark this option or not. By marking the wrong answer, you will get a negative mark. So, mark the questions for which you are 100% sure that your answer is right and leave others unchecked. Examiners don't have time to examine you on all concepts and test your knowledge so they examine you on statements. You need to understand the statements that they are claiming and how they are justifiable and you should know how to justify them as well because this is where your knowledge is being tested.",
-			
+        items: [
+          "My name is Ahsan Abdullah. I am the topper of ECAT 2016 and scored the 6th merit in PIEAS entry test. I did my intermediate from GCU, Lahore.",
+          "Today, I will share my experience as to how I tackled the challenges of the mighty entry test which every student faces in their quest to compete for entry into the most prestigious universities/colleges, most desired programs that many covet for. Entry test is not as tough as students have made it out to be.",
+          "The whole syllabus of entry tests is completely based on Punjab textbooks and will never test your understanding of concepts that go beyond the scope of the prescribed textbook. Even so, the same student who scored good marks on board usually is not able to score good marks in the entry test! This is so because in the board exams, they test you from page to page and line by line of book but in the entry test, the examiner tests you word by word of book. They alter a mere word or line and change the entire meaning of the MCQ.",
+          "Entry test have 2 types of papers: Qualitative and Quantitative.",
+          "70% of the questions are quantitative and to master them you just need to practice, practice and more practice! The more you practice, the more you will be able to attempt them better and in the shortest amount of time possible. Practice them with focus and don't heed on the irrelevant things.",
+          "To perform better in the Qualitative section, improve your reading skills and concepts. Improve your mental mathematics and use smart solving techniques to get better in quantitative MCQs. Since most of the questions are quantitative, you need to have a strong grip on them and this will save you a lot of time. You must be relaxed on your exam day. Sleep well before the paper- it will help you to optimize your brain and will give you a better ability to process your concepts.",
+          "You must manage your time properly during the paper! If 1 MCQ can be solved in 10 seconds, don’t do it in 40 seconds. Don't waste your time on rechecking your MCQs.",
+          "Decision is the most important thing in MCQ based papers. Whether you are able to mark this option or not. By marking the wrong answer, you will get a negative mark. So, mark the questions for which you are 100% sure that your answer is right and leave others unchecked. Examiners don't have time to examine you on all concepts and test your knowledge so they examine you on statements. You need to understand the statements that they are claiming and how they are justifiable and you should know how to justify them as well because this is where your knowledge is being tested.",
         ],
-      }
-]
-  }
+      },
+    ],
+  },
 ];
 
 export const examTitles = [
@@ -509,5 +509,11 @@ export const examTitles = [
         id: "topperAdvice",
       },
     ],
+  },
+  {
+    imgUrl: "topperAdvice",
+    title: "Topper’s Advice",
+    id: "topperAdvice",
+    isChild:true
   },
 ];

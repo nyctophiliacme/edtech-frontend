@@ -2,12 +2,12 @@ import React from "react";
 import "./exam-title.css";
 import { Link } from "react-router-dom";
 const ExamTitle = ({ examTitle, isSelected, click }) => {
-  const scrollToTop=() => {
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
-  }
+  };
 
   return (
     <Link to={`/exam/ecat/${examTitle.id}`}>
@@ -15,6 +15,7 @@ const ExamTitle = ({ examTitle, isSelected, click }) => {
         className={`exam-title-container ${isSelected ? "title-selected" : ""}`}
         onClick={scrollToTop}
       >
+        {examTitle.isChild ? <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> : ""}
         <div className="title-img-container">
           <img
             className="exam-title-img"
