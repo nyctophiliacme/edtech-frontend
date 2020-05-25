@@ -17,7 +17,7 @@ const PracticeChapter = ({ chapters }) => {
                 messageService.sendMessage(
                   "user trying to access without login"
                 );
-              } else if (chapter.is_locked) {
+              } else if (chapter.is_locked && !JSON.parse(sessionStorage.getItem("userDetails"))?.is_paid_user) {
                 messageService.sendMessage(
                   "user trying to access locked chapter"
                 );

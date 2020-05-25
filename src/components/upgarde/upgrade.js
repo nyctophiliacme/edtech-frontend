@@ -30,7 +30,7 @@ const Upgrade = (handleModalClose) => {
           <input
             className="login-button"
             value="Upgrade Now"
-            onClick={handleModalClose}
+            onClick={handleModalClose()}
           />
         </Link>
       </div>
