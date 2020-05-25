@@ -11,13 +11,13 @@ const PracticeChapter = ({ chapters }) => {
         return (
           <div
             className="practice-chapter-subcontainer"
-            key={chapter.chapter_id}
+            key={chapter.id}
             onClick={() => {
               if (!sessionStorage.getItem("isLoggedIn")) {
                 messageService.sendMessage(
                   "user trying to access without login"
                 );
-              } else if (chapter.isLocked) {
+              } else if (chapter.is_locked) {
                 messageService.sendMessage(
                   "user trying to access locked chapter"
                 );
@@ -28,11 +28,11 @@ const PracticeChapter = ({ chapters }) => {
               <div className="practice-chapter-text-container">
                 <img
                   className="practice-lock-img"
-                  src={chapter.isLocked ? lock : unlock}
+                  src={chapter.is_locked ? lock : unlock}
                   alt="lck"
                 ></img>
                 <span className="practice-chapter-title">
-                  {chapter.chapter_title}
+                  {chapter.title}
                 </span>
               </div>
               <div className="practice-chapter-question">
