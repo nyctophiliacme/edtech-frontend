@@ -12,6 +12,7 @@ import PracticeHome from "./components/practice/practice-home/practice-home";
 import Notifications from 'react-notify-toast';
 import { createStore } from '@spyna/react-store';
 import "./App.css";
+import Pricing from "./components/pricing/pricing";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Route path='/home' component={MarketingV2}/>
       <Route path='/exam/:name/:defaultSection' component={ExamHome} />
       <Route path='/practice/:name' component={PracticeHome} />
+      <Route path='/pricing' component={Pricing}/>
     </Switch>
     <Footer></Footer>
     </>
