@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { withStore } from "@spyna/react-store";
+import { Link, withRouter } from "react-router-dom";
 import { messageService } from "../../services/notifyComponentService";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,6 +24,7 @@ class Header extends Component {
       userName: sessionStorage.getItem("userDetails")
         ? JSON.parse(sessionStorage.getItem("userDetails")).first_name
         : "",
+        firstText:"Practice"
     };
   }
 
@@ -42,18 +42,32 @@ class Header extends Component {
           modalType: "register",
           showModal: true,
         });
-      }else if(message.text==="user trying to access without login"){
+      } else if (message.text === "user trying to access without login") {
         this.setState({
           modalType: "login",
           showModal: true,
         });
-      }else if(message.text==="user trying to access locked chapter"){
+      } else if (message.text === "user trying to access locked chapter") {
         this.setState({
           modalType: "upgrade",
           showModal: true,
         });
       }
     });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      if (
+        this.props.location.pathname.split("/")[1] === "" ||
+        this.props.location.pathname.split("/")[1] === "exam" ||
+        this.props.location.pathname.split("/")[1] === "home"
+      ) {
+        this.setState({firstText :"Practice"});
+      } else {
+        this.setState({firstText :"Upgrade"});
+      }
+    }
   }
 
   render() {
@@ -69,7 +83,7 @@ class Header extends Component {
             <div className="headerbutton-wrapper">
               <Link to="/practice/ecat">
                 <div className="header-cta header-practice">
-                    Practice
+                  {this.state.firstText}
                 </div>
               </Link>
               {!this.state.isLoggedIn ? (
@@ -83,7 +97,8 @@ class Header extends Component {
                 </div>
               ) : (
                 <div className="header-usee-detail">
-                  <FontAwesomeIcon icon="user-circle" size="lg"/>&nbsp;
+                  <FontAwesomeIcon icon="user-circle" size="lg" />
+                  &nbsp;
                   {this.state.userName}
                 </div>
               )}
@@ -116,4 +131,4 @@ class Header extends Component {
     );
   }
 }
-export default withStore(Header);
+export default withRouter((props) => <Header {...props} />);

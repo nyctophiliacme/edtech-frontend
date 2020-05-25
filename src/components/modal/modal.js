@@ -7,7 +7,6 @@ import Upgrade from "../upgarde/upgrade";
 import { messageService } from "../../services/notifyComponentService";
 
 const Modal = ({ handleClose, show, type }) => {
-  console.log(type);
   const showHideClassname = show
     ? "modal display-block modal-animate"
     : "modal display-none modal-animate";
