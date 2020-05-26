@@ -23,7 +23,7 @@ const ExamDetails = ({ name, subSection }) => {
               </div>
               <div className="exam-action-text">Take a Test</div>
             </div>
-            <Link to={`/practice/ ${name.toUpperCase()}`}>
+            <Link to={`/practice/${name}`}>
               <div className="exam-action">
                 <div className="exam-action-img">
                   <img src={practice} alt="test" />

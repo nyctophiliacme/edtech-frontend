@@ -1,56 +1,67 @@
-import { useLocation, useHistory } from "react-router-dom";
-import React, { useState } from "react";
+import React, {Component } from "react";
 import "./practice-chapter.css";
 import lock from "../../../assets/images/lock.png";
 import unlock from "../../../assets/images/unlock.png";
 import { messageService } from "../../../services/notifyComponentService";
-import { useLocation } from "react-router-dom";
 import { getChapters } from "../../../services/practiceService";
 
-const PracticeChapter = () => {
-  const [chapters, SetChapters] = useState([]);
-  let location = useLocation();
-  let history = useHistory();
-  let paths = location.pathname.split("/");
-  const getChapterList = () => {
+class PracticeChapter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      chapters: [],
+    };
+  }
+
+  componentDidMount() {
+    this.getChapterList();
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.getChapterList();
+    }
+  }
+
+  getChapterList = () => {
+    let paths = this.props.location.pathname.split("/");
     getChapters(paths[2], paths[3])
       .then((response) => {
-        SetChapters(response.data);
+        this.setState({
+          chapters: response.data,
+        });
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  getChapterList();
-  if (chapters.length === 0) {
-    return null;
-  } else {
+  handleChpaterClick(chapter){
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      messageService.sendMessage(
+        "user trying to access without login"
+      );
+    } else if (
+      chapter.is_locked &&
+      !JSON.parse(sessionStorage.getItem("userDetails"))
+        ?.is_paid_user
+    ) {
+      messageService.sendMessage(
+        "user trying to access locked chapter"
+      );
+    }else {
+      history.push(
+        `/quiz/${location.pathname.split("/")[2]}/${chapter.id}`
+      );
+    }
+  }
+  render() {
     return (
       <>
-        {chapters.map((chapter, index) => {
+        {this.state.chapters.map((chapter, index) => {
           return (
             <div
               className="practice-chapter-subcontainer"
               key={chapter.id}
-              onClick={() => {
-                if (!sessionStorage.getItem("isLoggedIn")) {
-                  messageService.sendMessage(
-                    "user trying to access without login"
-                  );
-                } else if (
-                  chapter.is_locked &&
-                  !JSON.parse(sessionStorage.getItem("userDetails"))
-                    ?.is_paid_user
-                ) {
-                  messageService.sendMessage(
-                    "user trying to access locked chapter"
-                  );
-                } else {
-                  history.push(
-                    `/quiz/${location.pathname.split("/")[2]}/${chapter.id}`
-                  );
-                }
-              }}
+              onClick={this.handleChpaterClick(chapter)}
             >
               <div className="practice-right-block">
                 <div className="practice-chapter-text-container">
@@ -76,5 +87,5 @@ const PracticeChapter = () => {
       </>
     );
   }
-};
+}
 export default PracticeChapter;

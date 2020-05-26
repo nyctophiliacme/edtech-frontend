@@ -2,14 +2,14 @@ import React, { useState, Component } from "react";
 import PracticeSubject from "../practice-subject/practice-subject";
 import "./practice-home.css";
 import PracticeChapter from "../practice-chapter/practice-chapter";
-import { getSubjects, getChapters } from "../../../services/practiceService";
+import { getSubjects } from "../../../services/practiceService";
 import { Switch, Route, withRouter, BrowserRouter } from "react-router-dom";
 
 class PracticeHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      exam_code: props.match.params.name.toLowerCase(),
+      exam_code: props.match.params.examName.toLowerCase(),
       chapterList: [],
       subjectList: [],
       selectedSubjectCode: "",
@@ -18,7 +18,6 @@ class PracticeHome extends Component {
 
   componentDidMount() {
     this.getSubjectList();
-    
   }
   getSubjectList() {
     getSubjects(this.state.exam_code)
