@@ -1,10 +1,14 @@
 import React from "react";
+import { useLocation, useHistory } from "react-router-dom";
+import Quiz from "../../quiz/quiz";
 import "./practice-chapter.css";
 import lock from "../../../assets/images/lock.png";
 import unlock from "../../../assets/images/unlock.png";
 import { messageService } from "../../../services/notifyComponentService";
 
 const PracticeChapter = ({ chapters }) => {
+  let location = useLocation();
+  let history = useHistory();
   return (
     <>
       {chapters.map((chapter, index) => {
@@ -17,9 +21,16 @@ const PracticeChapter = ({ chapters }) => {
                 messageService.sendMessage(
                   "user trying to access without login"
                 );
-              } else if (chapter.is_locked && !JSON.parse(sessionStorage.getItem("userDetails"))?.is_paid_user) {
+              } else if (
+                chapter.is_locked &&
+                !JSON.parse(sessionStorage.getItem("userDetails"))?.is_paid_user
+              ) {
                 messageService.sendMessage(
                   "user trying to access locked chapter"
+                );
+              } else {
+                history.push(
+                  `/quiz/${location.pathname.split("/")[2]}/${chapter.id}`
                 );
               }
             }}
@@ -31,9 +42,7 @@ const PracticeChapter = ({ chapters }) => {
                   src={chapter.is_locked ? lock : unlock}
                   alt="lck"
                 ></img>
-                <span className="practice-chapter-title">
-                  {chapter.title}
-                </span>
+                <span className="practice-chapter-title">{chapter.title}</span>
               </div>
               <div className="practice-chapter-question">
                 {chapter.question_count} &nbsp; Questions
