@@ -1,31 +1,26 @@
 import React, { Component } from "react";
 import "./question-list.css";
-import { check } from "../../../assets/images/check.png";
+import check from "../../../assets/images/check.png";
 
 class QuestionList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      questionList: [],
       activeQuestion: 0,
     };
   }
-
-  componentDidMount() {
-    this.setState({
-      questionList: this.props.questionList,
-    });
-  }
-
-  setQuestionAttempt(isCorrect) {}
-  redenr() {
+  
+  render() {
     return (
+      
       <div className="questionlist-container">
-        {this.state.questionList.map((question, index) => {
+        {this.props.questionList.map((question, index) => {
           return (
             <div
               className={`questionlist-item-container ${
-                index === this.state.activeQuestion ? "questionlist-item-active" : ""
+                index === this.state.activeQuestion
+                  ? "questionlist-item-active"
+                  : ""
               }`}
               key={index}
               onClick={() => {
