@@ -34,21 +34,7 @@ class PracticeChapter extends Component {
         console.log(error);
       });
   };
-  handleChpaterClick(chapter){
-    if (!sessionStorage.getItem("isLoggedIn")) {
-      messageService.sendMessage(
-        "user trying to access without login"
-      );
-    } else if (
-      chapter.is_locked &&
-      !JSON.parse(sessionStorage.getItem("userDetails"))
-        ?.is_paid_user
-    ) {
-      messageService.sendMessage(
-        "user trying to access locked chapter"
-      );
-    }
-  }
+  
   render() {
     return (
       <>
@@ -57,7 +43,21 @@ class PracticeChapter extends Component {
             <div
               className="practice-chapter-subcontainer"
               key={chapter.id}
-              onClick={this.handleChpaterClick(chapter)}
+              onClick={() => {
+                if (!sessionStorage.getItem("isLoggedIn")) {
+                  messageService.sendMessage(
+                    "user trying to access without login"
+                  );
+                } else if (
+                  chapter.is_locked &&
+                  !JSON.parse(sessionStorage.getItem("userDetails"))
+                    ?.is_paid_user
+                ) {
+                  messageService.sendMessage(
+                    "user trying to access locked chapter"
+                  );
+                }
+              }}
             >
               <div className="practice-right-block">
                 <div className="practice-chapter-text-container">
