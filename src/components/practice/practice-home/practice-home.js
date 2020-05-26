@@ -3,6 +3,7 @@ import PracticeSubject from "../practice-subject/practice-subject";
 import "./practice-home.css";
 import PracticeChapter from "../practice-chapter/practice-chapter";
 import { getSubjects, getChapters } from "../../../services/practiceService";
+import { Switch, Route, withRouter, BrowserRouter } from "react-router-dom";
 
 class PracticeHome extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class PracticeHome extends Component {
 
   componentDidMount() {
     this.getSubjectList();
+    
   }
   getSubjectList() {
     getSubjects(this.state.exam_code)
@@ -24,22 +26,12 @@ class PracticeHome extends Component {
         {
           this.setState({
             subjectList: response.data,
-            selectedSubjectCode:response.data[0]?.subject_code
+            selectedSubjectCode:response.data[0].subject_code
+          },()=>{
+            this.props.history.push(`/practice/${this.state.exam_code}/${this.state.selectedSubjectCode}`)
           });
-          this.getChapterList();
         }
       ).catch((error) => {
-        console.log(error);
-      });
-  }
-  getChapterList() {
-    getChapters(this.state.exam_code, this.state.selectedSubjectCode)
-      .then((response) => {
-        this.setState({
-          chapterList: response.data,
-        });
-      })
-      .catch((error) => {
         console.log(error);
       });
   }
@@ -47,8 +39,6 @@ class PracticeHome extends Component {
   setSelectedSubjectCode(subject_code) {
     this.setState({
       selectedSubjectCode: subject_code
-    },()=>{
-      this.getChapterList();
     });
   }
 
@@ -80,6 +70,7 @@ class PracticeHome extends Component {
                     this.setSelectedSubjectCode(subject.subject_code);
                   }}
                   subjectName={subject.title}
+                  subjectCode={subject.subject_code}
                   isSelected={
                     subject.subject_code === this.state.selectedSubjectCode
                   }
@@ -88,11 +79,13 @@ class PracticeHome extends Component {
             })}
           </div>
           <div className="practice-chapter-container">
-            <PracticeChapter chapters={this.state.chapterList} />
+            <Switch>
+              <Route path='/practice/:name/:subjectName' component ={PracticeChapter}/>
+            </Switch>
           </div>
         </div>
       </>
     );
   }
 }
-export default PracticeHome;
+export default withRouter(PracticeHome);

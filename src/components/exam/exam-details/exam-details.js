@@ -136,6 +136,9 @@ const ExamDetails = ({ name, subSection }) => {
                 {renderPaperList(ed.items)}
               </div>
             );
+          }else
+          {
+          return <div> No Data found</div>
           }
         })}
       </div>

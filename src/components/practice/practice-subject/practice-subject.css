@@ -5,5 +5,9 @@
     letter-spacing: 1px;
     font-weight: 300;
     color:#ADB2B5;
-    cursor: pointer;
+    cursor: pointer !important;
+}
+.subjects-container:hover{
+    color:#000;
+
 }
