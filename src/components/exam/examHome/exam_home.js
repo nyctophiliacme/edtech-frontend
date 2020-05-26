@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ExamTitle from "../exam-title/exam-title";
 import ExamDetails from "../exam-details/exam-details";
 import "./exam-home.css";
@@ -12,7 +12,7 @@ const ExamHome = (props) => {
   return (
     <div className="examhome-container">
       <div className="exam-titlelist-Container">
-        {examTitles.map(function (et, index) {
+        {examTitles.map(function (et) {
           return (
             <ExamTitle
               examTitle={et}
@@ -23,7 +23,7 @@ const ExamHome = (props) => {
         })}
       </div>
       <div className="exam-details-Container">
-        <ExamDetails name={props.match.params.name} subSection={props.match.params.defaultSection} />
+        <ExamDetails name={props.match.params.examName} subSection={selectedSection} />
       </div>
     </div>
   );
