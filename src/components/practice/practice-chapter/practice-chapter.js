@@ -10,6 +10,7 @@ import { getChapters } from "../../../services/practiceService";
 const PracticeChapter = () => {
   const [chapters, SetChapters] = useState([]);
   let location = useLocation();
+  let history = useHistory();
   let paths = location.pathname.split("/");
   const getChapterList = () => {
     getChapters(paths[2], paths[3])
@@ -43,6 +44,10 @@ const PracticeChapter = () => {
                 ) {
                   messageService.sendMessage(
                     "user trying to access locked chapter"
+                  );
+                } else {
+                  history.push(
+                    `/quiz/${location.pathname.split("/")[2]}/${chapter.id}`
                   );
                 }
               }}
