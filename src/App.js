@@ -11,8 +11,10 @@ import ExamHome from "./components/exam/examHome/exam_home";
 import PracticeHome from "./components/practice/practice-home/practice-home";
 import Notifications from 'react-notify-toast';
 import { createStore } from '@spyna/react-store';
-import "./App.css";
 import Pricing from "./components/pricing/pricing";
+import Quiz from "./components/quiz/quiz";
+
+import "./App.css";
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
       <Route path='/exam/:examName/:defaultSection' component={ExamHome} />
       <Route path='/practice/:examName' component={PracticeHome} />
       <Route path='/pricing' component={Pricing}/>
+      <Route path='/quiz' component={Quiz}/>
     </Switch>
     <Footer></Footer>
     </>
