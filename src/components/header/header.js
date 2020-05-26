@@ -63,7 +63,6 @@ class Header extends Component {
 
   componentDidMount() {
     this.subscription = messageService.getMessage().subscribe((message) => {
-      console.log(message);
       if (message.text === "Logged In") {
         this.setState({
           isLoggedIn: sessionStorage.getItem("isLoggedIn"),
