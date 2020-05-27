@@ -25,7 +25,6 @@ class PracticeChapter extends Component {
   paths = this.props.location.pathname.split("/");
 
   getChapterList = () => {
-    
     getChapters(this.paths[2], this.paths[3])
       .then((response) => {
         this.setState({
@@ -60,9 +59,10 @@ class PracticeChapter extends Component {
                     "user trying to access locked chapter"
                   );
                 } else {
-                  this.props.history.push(
-                    `/quiz/${this.paths[2]}/${this.paths[3]}/${chapter.id}`
-                  );
+                  this.props.history.push({
+                    pathname: `/quiz/${this.paths[2]}/${this.paths[3]}/${chapter.id}`,
+                    state: { chapterTitle: chapter.title },
+                  });
                 }
               }}
             >

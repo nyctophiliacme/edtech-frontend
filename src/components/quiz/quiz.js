@@ -1,9 +1,15 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import QuestionList from "./question-list/question-list";
 import { getQuestions } from "../../services/questionService";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Question from "./question/question";
 import unlock from "../../assets/images/unlock.png";
 import "./quiz.css";
+
+library.add(faArrowLeft);
 class Quiz extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +36,18 @@ class Quiz extends Component {
   render() {
     return (
       <>
-        <div className="quiz-header"></div>
+        <div className="quiz-header">
+        <Link to={`/practice/${this.props.location.pathname.split("/")[2]}/${this.props.location.pathname.split("/")[3]}`}>
+          <span className="quiz-header-back-button">
+          <FontAwesomeIcon icon="arrow-left" />
+          </span>
+          </Link>
+          <img className="quiz-header-image" src={unlock} alt="unlocked" />
+          <span className="quiz-header-title">
+            {this.props.location.state.chapterTitle}
+          </span>
+          <span className="quiz-header-title quiz-header-number">{`${this.state.questionList.length} Qs`}</span>
+        </div>
         <div className="quiz-container">
           <QuestionList
             questionList={this.state.questionList}
