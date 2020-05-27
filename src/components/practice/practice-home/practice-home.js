@@ -19,25 +19,33 @@ class PracticeHome extends Component {
   componentDidMount() {
     this.getSubjectList();
   }
+
+  paths=this.props.location.pathname.split("/");
   getSubjectList() {
     getSubjects(this.state.exam_code)
-      .then((response) =>
-        {
-          this.setState({
+      .then((response) => {
+        this.setState(
+          {
             subjectList: response.data,
-            selectedSubjectCode:response.data[0].subject_code
-          },()=>{
-            this.props.history.push(`/practice/${this.state.exam_code}/${this.state.selectedSubjectCode}`)
-          });
-        }
-      ).catch((error) => {
+            selectedSubjectCode: this.paths[3]
+              ? this.paths[3]
+              : response.data[0].subject_code,
+          },
+          () => {
+            this.props.history.push(
+              `/practice/${this.state.exam_code}/${this.state.selectedSubjectCode}`
+            );
+          }
+        );
+      })
+      .catch((error) => {
         console.log(error);
       });
   }
 
   setSelectedSubjectCode(subject_code) {
     this.setState({
-      selectedSubjectCode: subject_code
+      selectedSubjectCode: subject_code,
     });
   }
 
@@ -79,7 +87,10 @@ class PracticeHome extends Component {
           </div>
           <div className="practice-chapter-container">
             <Switch>
-              <Route path='/practice/:name/:subjectName' component ={PracticeChapter}/>
+              <Route
+                path="/practice/:name/:subjectName"
+                component={PracticeChapter}
+              />
             </Switch>
           </div>
         </div>
