@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import QuestionList from "./question-list/question-list";
 import { getQuestions } from "../../services/questionService";
+import "./quiz.css";
+import unlock from "../../assets/images/unlock.png";
 
 class Quiz extends Component {
   constructor(props) {
@@ -22,10 +24,12 @@ class Quiz extends Component {
     })
   }
   render() {
-    console.log(this.props.location.pathname);
+    console.log(this.props);
     return(
       <>
-      <div className="quiz-header"></div>
+      <div className="quiz-header">
+
+      </div>
       <QuestionList questionList={this.state.questionList}/>
       </>
     )

@@ -1,4 +1,4 @@
-import React, {Component } from "react";
+import React, { Component } from "react";
 import "./practice-chapter.css";
 import lock from "../../../assets/images/lock.png";
 import unlock from "../../../assets/images/unlock.png";
@@ -22,9 +22,11 @@ class PracticeChapter extends Component {
     }
   }
 
+  paths = this.props.location.pathname.split("/");
+
   getChapterList = () => {
-    let paths = this.props.location.pathname.split("/");
-    getChapters(paths[2], paths[3])
+    
+    getChapters(this.paths[2], this.paths[3])
       .then((response) => {
         this.setState({
           chapters: response.data,
@@ -33,12 +35,13 @@ class PracticeChapter extends Component {
       .catch((error) => {
         console.log(error);
       });
-  }
-  
+  };
+
   render() {
     return (
       <>
         {this.state.chapters.map((chapter, index) => {
+          console.log(chapter);
           return (
             <div
               className="practice-chapter-subcontainer"
@@ -55,6 +58,10 @@ class PracticeChapter extends Component {
                 ) {
                   messageService.sendMessage(
                     "user trying to access locked chapter"
+                  );
+                } else {
+                  this.props.history.push(
+                    `/quiz/${this.paths[2]}/${this.paths[3]}/${chapter.id}`
                   );
                 }
               }}

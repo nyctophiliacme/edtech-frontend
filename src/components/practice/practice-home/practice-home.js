@@ -1,9 +1,9 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import PracticeSubject from "../practice-subject/practice-subject";
 import "./practice-home.css";
 import PracticeChapter from "../practice-chapter/practice-chapter";
 import { getSubjects } from "../../../services/practiceService";
-import { Switch, Route, withRouter, BrowserRouter } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 
 class PracticeHome extends Component {
   constructor(props) {
