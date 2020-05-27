@@ -19,7 +19,7 @@ const marketing = () => {
             online test preparation allows you to prepare for ECAT from the
             comfort of your home
           </div>
-          <div className="hero-discount-txt">Launching on 25 May 2020 </div>
+          <div className="hero-discount-txt">Launching on 27 May 2020 </div>
           <div className="cta">
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSeHcR1uoEa852yTnXGuu84Nu8cv9KwMODQ5ErW8i7i0Bgv73Q/viewform"
