@@ -1,0 +1,47 @@
+.questionlist-container{
+    border-radius: 10px;
+    border: solid #E2ECFC 1px;
+    width: 25%;
+}
+.questionlist-item-container{
+    border-bottom: solid #E2ECFC 1px;
+    padding:20px 35px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.questionlist-item-right{
+    display: inline-block;
+}
+.questionlist-ques-number{
+    color: #505050;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 28px;
+    padding-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+.questionlist-ques-difficulty{
+    color: #67B2E8;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+}
+.questionlist-item-left{
+    float: right;
+    display: flex;
+}
+.questionlist-item-active{
+   background-color: #F2F7FE;
+}
+
+.question-list-container::-webkit-scrollbar {
+    width: 8px;
+  }
+    
+  /* Handle */
+  .question-list-container ::-webkit-scrollbar-thumb {
+    background: #C9C9C9; 
+    border-radius: 4px;
+  }

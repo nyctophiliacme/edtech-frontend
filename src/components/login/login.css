@@ -1,0 +1,94 @@
+input:focus {
+  outline:none;
+}
+.login-container {
+  padding: 35px 50px;
+  text-align: center;
+}
+
+.login-header {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  padding-bottom: 10px;
+}
+.login-button {
+  text-align: center;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  padding: 18px 28px;
+  color: white;
+  background-color: #67b2e8;
+  border-radius: 12px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+}
+.login-signUp{
+    font-weight: 400;
+    color:#60B1FF;
+    cursor: pointer;
+}
+.login-footer {
+    font-weight: 300;
+  font-size: 18px;
+  line-height: 22px;
+  padding-top:25px;
+}
+.login-forgotpswd {
+  text-align: left;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  padding-bottom: 25px;
+  color: #60b1ff;
+  cursor: pointer;
+}
+.login-input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border-color: #e0e3e5;
+  border-width: 1.6px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+}
+.error{
+  border-color: red;
+  color: red;
+}
+
+.login-input ::placeholder {
+  color: #929699;
+  opacity: 1; /* Firefox */
+}
+
+.login-input :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #929699;
+}
+
+.login-input ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #929699;
+}
+
+.error ::placeholder {
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+.error :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: red;
+}
+
+.error ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: red;
+}

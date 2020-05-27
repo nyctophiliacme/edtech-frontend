@@ -27,8 +27,8 @@ const footer = () => {
         </div>
       </div>
       <div className="footer-container-right">
-        <div className="footer-contact">
-          <Link to="/home">CONTACT US</Link>
+        <div className="footer-contact" onClick={scrollToTop}>
+        <Link to="/">CONTACT US</Link>
         </div>
         <div className="footer-address">
           131 B, DHA Phase 1,
