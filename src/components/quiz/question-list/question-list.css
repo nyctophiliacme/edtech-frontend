@@ -1,11 +1,13 @@
 .questionlist-container{
     border-radius: 10px;
     border: solid #E2ECFC 1px;
+    width: 25%;
 }
 .questionlist-item-container{
     border-bottom: solid #E2ECFC 1px;
     padding:20px 35px;
     background-color: #fff;
+    cursor: pointer;
 }
 
 .questionlist-item-right{
