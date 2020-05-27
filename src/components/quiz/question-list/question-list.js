@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import "./question-list.css";
 import check from "../../../assets/images/check.png";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faCheck, faTimes);
 
 class QuestionList extends Component {
 
@@ -30,7 +35,7 @@ class QuestionList extends Component {
                 </span>
               </div>
               <div className="questionlist-item-left">
-                <img src={check} alt="tem" />
+              <FontAwesomeIcon className="green-check" icon="check"  />
               </div>
             </div>
           );

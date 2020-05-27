@@ -8,9 +8,9 @@ import logo from "../../assets/images/logo.png";
 import down from "../../assets/images/dropdown.png";
 import up from "../../assets/images/up-arrow.png";
 import "./header.css";
-import { faUserCircle, faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faUserCircle, faCoffee);
+library.add(faUserCircle);
 
 class Header extends Component {
   constructor(props) {
