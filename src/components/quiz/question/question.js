@@ -16,6 +16,7 @@ class Question extends Component {
       });
     }
   }
+  selectedIndex = "";
   render() {
     return (
       <div className="question-container">
@@ -65,15 +66,14 @@ class Question extends Component {
                     }`}
                     onClick={() => {
                       if (!this.state.isSubmitted) {
-                        this.setState(
-                          {
-                            slectedOption: option,
-                          });
+                        this.setState({
+                          slectedOption: option,
+                        });
+                        this.selectedIndex = String.fromCharCode(charIndex);
                       }
                     }}
                   >
                     <div
-
                       className={`option-index ${
                         this.state.slectedOption === option &&
                         !this.state.isSubmitted
@@ -101,7 +101,7 @@ class Question extends Component {
           <input
             className="login-button"
             type="submit"
-            value="Submit"
+            value="SUBMIT"
             onClick={() => {
               this.setState({
                 isSubmitted: true,
@@ -111,6 +111,45 @@ class Question extends Component {
         ) : (
           <></>
         )}
+        {this.state.isSubmitted && this.state.slectedOption.is_right_choice ? (
+          <div className="solution-wrapper">
+            <div className="solution-header">Solution</div>
+            <div className="solution-text">
+              <div>
+                Answer:{" "}
+                {`(${
+                  this.selectedIndex
+                }) ${this.props.questionDetails.question_choice.filter(
+                  (item) => {
+                    return item.is_right_choice;
+                  }
+                )[0].choice_text}`}
+              </div>
+              {this.props.questionDetails.explanation}
+            </div>
+          </div>
+        ) : this.state.isSubmitted &&
+          !this.state.slectedOption.is_right_choice ? (
+          <div className="wrong-choice-wrapper">
+            <input
+              className="login-button"
+              type="button"
+              value="TRY AGAIN"
+              onClick={() => {
+                this.setState({
+                  isSubmitted: false,
+                  slectedOption: null,
+                });
+              }}
+            />
+            <input
+              className="login-button"
+              type="button"
+              value="SHOW SOLUTION"
+              onClick={() => {}}
+            />
+          </div>
+        ) : null}
       </div>
     );
   }

@@ -22,7 +22,7 @@ class Quiz extends Component {
     this.getQuestions();
   }
   getQuestions() {
-    getQuestions(48)
+    getQuestions(this.props.location.pathname.split("/")[4])
       .then((response) => {
         this.setState({
           questionList: response.data,
