@@ -1,4 +1,30 @@
-.quiz-container{
-    display: flex;
-    padding:25px;
+.quiz-header {
+  padding: 30px 90px;
+  background-color: #204a7d;
+}
+.quiz-container {
+  display: flex;
+  padding: 25px;
+}
+.quiz-header-image{
+  display: inline-block;
+}
+.quiz-header-title {
+  display: inline-block;
+  line-height: 36px;
+  vertical-align: top;
+  padding-left: 15px;
+  color: #ffffff;
+  font-size: 32px;
+}
+.quiz-header-number{
+  padding-left: 0px;
+  float: right;
+}
+.quiz-header-back-button{
+  font-size: 32px;
+  line-height: 36px;
+  color: #ffffff;
+  vertical-align: bottom;
+  padding-right: 40px;
 }
