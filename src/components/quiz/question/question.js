@@ -6,6 +6,7 @@ class Question extends Component {
     this.state = {
       isSubmitted: false,
       slectedOption: null,
+      showSolution:false
     };
   }
   componentDidUpdate(prevProp) {
@@ -13,6 +14,7 @@ class Question extends Component {
       this.setState({
         isSubmitted: false,
         slectedOption: null,
+        showSolution:false
       });
     }
   }
@@ -105,13 +107,43 @@ class Question extends Component {
             onClick={() => {
               this.setState({
                 isSubmitted: true,
+                showSolution: this.state.slectedOption.is_right_choice
               });
             }}
           />
         ) : (
           <></>
         )}
-        {this.state.isSubmitted && this.state.slectedOption.is_right_choice ? (
+        {this.state.isSubmitted &&
+          !this.state.slectedOption.is_right_choice ? (
+          <div className="wrong-choice-wrapper">
+            <input
+              className="login-button"
+              type="button"
+              value="TRY AGAIN"
+              onClick={() => {
+                this.setState({
+                  isSubmitted: false,
+                  slectedOption: null,
+                  showSolution:false
+                });
+              }}
+            />
+            <input
+              className="login-button"
+              type="button"
+              value={this.state.showSolution?'HIDE SOLUTION':'SHOW SOLUTION'}
+              onClick={() => {
+                this.setState({
+                  showSolution:!this.state.showSolution
+                })
+              }}
+            />
+
+          </div>
+        ) : null}
+
+        {this.state.showSolution? (
           <div className="solution-wrapper">
             <div className="solution-header">Solution</div>
             <div className="solution-text">
@@ -127,27 +159,6 @@ class Question extends Component {
               </div>
               {this.props.questionDetails.explanation}
             </div>
-          </div>
-        ) : this.state.isSubmitted &&
-          !this.state.slectedOption.is_right_choice ? (
-          <div className="wrong-choice-wrapper">
-            <input
-              className="login-button"
-              type="button"
-              value="TRY AGAIN"
-              onClick={() => {
-                this.setState({
-                  isSubmitted: false,
-                  slectedOption: null,
-                });
-              }}
-            />
-            <input
-              className="login-button"
-              type="button"
-              value="SHOW SOLUTION"
-              onClick={() => {}}
-            />
           </div>
         ) : null}
       </div>
