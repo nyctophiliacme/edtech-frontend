@@ -35,7 +35,7 @@ class QuestionList extends Component {
                 </span>
               </div>
               <div className="questionlist-item-left">
-              <FontAwesomeIcon className="green-check" icon="check"  />
+              {/* <FontAwesomeIcon className="green-check" icon="check"  /> */}
               </div>
             </div>
           );

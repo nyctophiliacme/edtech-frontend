@@ -2,6 +2,7 @@
   border-radius: 10px;
   border: solid #e2ecfc 1px;
   width: 25%;
+  height: 700px;
 }
 .questionlist-item-container {
   border-bottom: solid #e2ecfc 1px;
@@ -12,6 +13,13 @@
 .green-check {
   color: #56ce66;
   font-size: 28px;
+  vertical-align: middle;
+}
+
+.red-cross {
+  color: #F44336;
+  font-size: 28px;
+  vertical-align: middle;
 }
 .questionlist-item-right {
   display: inline-block;
@@ -39,12 +47,12 @@
   background-color: #f2f7fe;
 }
 
-.question-list-container::-webkit-scrollbar {
+.questionlist-container::-webkit-scrollbar {
   width: 8px;
 }
 
 /* Handle */
-.question-list-container ::-webkit-scrollbar-thumb {
+.questionlist-container::-webkit-scrollbar-thumb {
   background: #c9c9c9;
   border-radius: 4px;
 }

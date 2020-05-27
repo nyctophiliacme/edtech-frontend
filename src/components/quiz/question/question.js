@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import "./question.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faCheck, faTimes);
+
 class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isSubmitted: false,
       slectedOption: null,
-      showSolution:false
+      showSolution: false,
     };
   }
   componentDidUpdate(prevProp) {
@@ -14,7 +20,7 @@ class Question extends Component {
       this.setState({
         isSubmitted: false,
         slectedOption: null,
-        showSolution:false
+        showSolution: false,
       });
     }
   }
@@ -23,7 +29,16 @@ class Question extends Component {
     return (
       <div className="question-container">
         <div className="question-header-container">
-          <div className="question-header-leftblock">{`Q${this.props.activeQuestion}`}</div>
+          <div className="question-header-leftblock">
+            {`Q${this.props.activeQuestion}`} &nbsp;&nbsp;
+            {this.state.isSubmitted &&
+            this.state.slectedOption.is_right_choice ? (
+              <FontAwesomeIcon className="green-check" icon="check" />
+            ) : this.state.isSubmitted &&
+              !this.state.slectedOption.is_right_choice ? (
+              <FontAwesomeIcon className="red-cross" icon="times" />
+            ) : null}
+          </div>
           <div className="question-header-rightblock">
             {this.props.activeQuestion > 1 ? (
               <div
@@ -107,15 +122,14 @@ class Question extends Component {
             onClick={() => {
               this.setState({
                 isSubmitted: true,
-                showSolution: this.state.slectedOption.is_right_choice
+                showSolution: this.state.slectedOption.is_right_choice,
               });
             }}
           />
         ) : (
           <></>
         )}
-        {this.state.isSubmitted &&
-          !this.state.slectedOption.is_right_choice ? (
+        {this.state.isSubmitted && !this.state.slectedOption.is_right_choice ? (
           <div className="wrong-choice-wrapper">
             <input
               className="login-button"
@@ -125,37 +139,36 @@ class Question extends Component {
                 this.setState({
                   isSubmitted: false,
                   slectedOption: null,
-                  showSolution:false
+                  showSolution: false,
                 });
               }}
             />
             <input
               className="login-button"
               type="button"
-              value={this.state.showSolution?'HIDE SOLUTION':'SHOW SOLUTION'}
+              value={
+                this.state.showSolution ? "HIDE SOLUTION" : "SHOW SOLUTION"
+              }
               onClick={() => {
                 this.setState({
-                  showSolution:!this.state.showSolution
-                })
+                  showSolution: !this.state.showSolution,
+                });
               }}
             />
-
           </div>
         ) : null}
 
-        {this.state.showSolution? (
+        {this.state.showSolution ? (
           <div className="solution-wrapper">
             <div className="solution-header">Solution</div>
             <div className="solution-text">
               <div>
                 Answer:{" "}
-                {`(${
-                  this.selectedIndex
-                }) ${this.props.questionDetails.question_choice.filter(
-                  (item) => {
+                {`(${this.selectedIndex}) ${
+                  this.props.questionDetails.question_choice.filter((item) => {
                     return item.is_right_choice;
-                  }
-                )[0].choice_text}`}
+                  })[0].choice_text
+                }`}
               </div>
               {this.props.questionDetails.explanation}
             </div>
