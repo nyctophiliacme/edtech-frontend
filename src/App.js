@@ -23,11 +23,10 @@ function App() {
     <Notifications />
     <Header></Header>
     <Switch>
-      <Route exact path='/' component={Marketing}/>
+      <Route exact path='/' component={MarketingV2}/>
       <Route path='/privacy_policy' component={PrivacyPolicy}/>
       <Route path='/term_condition' component={TermAndCondition}/>
       <Route path='/about_us' component={AboutUs}/>
-      <Route path='/home' component={MarketingV2}/>
       <Route path='/exam/:examName/:defaultSection' component={ExamHome} />
       <Route path='/practice/:examName' component={PracticeHome} />
       <Route path='/pricing' component={Pricing}/>
