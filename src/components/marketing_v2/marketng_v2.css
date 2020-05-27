@@ -82,6 +82,7 @@
       text-align: center;
       padding-bottom: 30px;
     }
+    
     .illustration-imagev2 {
       height: 230px;
       text-align: center;
@@ -218,6 +219,9 @@
       padding-right: 137px;
       padding-bottom: 0px;
       text-align: left;
+    }
+    .no-right-pad{
+      padding-right: 0px;
     }
     .illustration-content:last-child {
       padding-right: 0;

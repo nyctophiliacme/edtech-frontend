@@ -75,7 +75,7 @@ const marketingV2 = () => {
               The world is waiting to hear from you!
             </div>
           </div>
-          <div className="illustration-contentv2">
+          <div className="illustration-contentv2 no-right-pad">
             <div className="illustration-imagev2">
               <span className="helperv2"></span>
               <img src={illustration3} alt="Illustration1" />
