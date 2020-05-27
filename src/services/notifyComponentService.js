@@ -9,7 +9,3 @@ export const messageService = {
 
 const modalSubject=new Subject();
 
-export const modalOpenService={
-  loadModal: (type) => modalSubject.next({ text: type }),
-  getLoadModal: () => modalSubject.asObservable(),
-}

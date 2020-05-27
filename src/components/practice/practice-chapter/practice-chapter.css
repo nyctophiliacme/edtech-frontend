@@ -15,14 +15,13 @@ padding-bottom: 15px;
 
 }
 .practice-chapter-button{
-    background-color:#E8F2FF ;
-    font-weight: 400;
+background-color:#E8F2FF ;
+font-weight: 400;
 font-size: 22px;
-letter-spacing:1px;
 Color: #122E51;
 line-height: 32px;
 border-radius:25px ;
-
+padding:10px;
 }
 .practice-chapter-question{
     padding-left:55px;

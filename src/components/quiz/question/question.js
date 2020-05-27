@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./question.css";
-import { check } from "../../../assets/images/check.png";
 class Question extends Component {
   constructor(props) {
     super(props);
@@ -53,17 +52,6 @@ class Question extends Component {
                 return (
                   <div
                     key={index}
-                    // className={`question-option-container ${
-                    //   (this.state.slectedOption === option && ! this.state.isSubmitted)
-                    //     ? "question-option-select-container"
-                    //     : this.state.slectedOption === option &&
-                    //       this.state.isSubmitted
-                    //     ? "question-option-correct-container"
-                    //     : this.state.slectedOption === option &&
-                    //       !this.state.isCorrect
-                    //     ? "question-option-incorrect-container"
-                    //     : ""
-                    // }`}
                     className={`question-option-container ${
                       this.state.slectedOption === option &&
                       !this.state.isSubmitted
@@ -80,11 +68,7 @@ class Question extends Component {
                         this.setState(
                           {
                             slectedOption: option,
-                          },
-                          () => {
-                            console.log(this.state);
-                          }
-                        );
+                          });
                       }
                     }}
                   >

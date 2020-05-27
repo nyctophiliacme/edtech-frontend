@@ -38,7 +38,7 @@ const marketingV2 = () => {
         </div>
       </div>
       <div className="illustrationsv2 marketing-container">
-        <div className="illustrations-wrapper">
+        <div className="illustrations-wrapperv2">
           <div className="illustration-contentv2">
             <div className="illustration-imagev2">
               <span className="helperv2"></span>
@@ -107,16 +107,18 @@ const marketingV2 = () => {
         </div>
       </div>
       <div className="highlightsv2-container">
-        <div className="highlights_content">
-          <div className="highlights_img highlight_img1">
-            <img src={click1} alt="Hero" />
-          </div>
-          <div className="highlights_text highlight_text1">
-            <div className="highlight-tex-wrapper">
-              Improve your ECAT score. Click for practice questions
+        <Link to="/practice/ecat">
+          <div className="highlights_content">
+            <div className="highlights_img highlight_img1">
+              <img src={click1} alt="Hero" />
+            </div>
+            <div className="highlights_text highlight_text1">
+              <div className="highlight-tex-wrapper">
+                Improve your ECAT score. Click for practice questions
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
         <Link
           to={{
             pathname: "/exam/ecat/previousPapers",
@@ -134,21 +136,25 @@ const marketingV2 = () => {
             </div>
           </div>
         </Link>
-        <div className="highlights_content ">
-          <div className="highlights_img highlight_img3">
-            <img src={click3} alt="Hero" />
-          </div>
-          <div
-            className="highlights_text highlight_text3"
-            onClick={() => {
-              messageService.sendMessage("v2 RegiterButton clicked");
-            }}
-          >
-            <div className="highlight-tex-wrapper">
-              Register now to access to download free papers and information
+        {sessionStorage.getItem("isLoggedIn") ? (
+          ""
+        ) : (
+          <div className="highlights_content ">
+            <div className="highlights_img highlight_img3">
+              <img src={click3} alt="Hero" />
+            </div>
+            <div
+              className="highlights_text highlight_text3"
+              onClick={() => {
+                messageService.sendMessage("v2 RegiterButton clicked");
+              }}
+            >
+              <div className="highlight-tex-wrapper">
+                Register now to access to download free papers and information
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );

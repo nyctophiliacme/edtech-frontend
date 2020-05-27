@@ -135,7 +135,7 @@ class Header extends Component {
                 </a>
                 <div className="dropdown-content ">
                   <Link to="/exam/ecat/home">ECAT</Link>
-                  <Link to="/exam/net">NET (NUST Entry Test)</Link>
+                  {/* <Link to="/exam/net">NET (NUST Entry Test)</Link> */}
                 </div>
               </li>
             </ul>

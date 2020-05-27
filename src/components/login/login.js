@@ -46,21 +46,17 @@ class Login extends Component {
     if (this.validateForm(this.state.errors)) {
       login(this.state.email, this.state.password)
         .then((response) => {
-          // this.props.store.set("userToken", `Token ${response.data.key}`);
           sessionStorage.setItem("userToken", `Token ${response.data.key}`);
           getUserDetails(sessionStorage.getItem("userToken"))
             .then((response) => {
               sessionStorage.setItem("isLoggedIn", true);
               sessionStorage.setItem("userDetails", JSON.stringify(response.data));
-              // this.props.store.set("isLoggedIn", true);
-              // this.props.store.set("userDetails", response.data);
               this.props.redirect.push("/exam/ecat/home");
               this.sendMessage("Logged In");
               this.props.handleModalClose();
             })
             .catch((error) => {
               sessionStorage.setItem("isLoggedIn", false);
-              // this.props.store.set("isLoggedIn", false);
               notify.show(
                 <div className="notify-container">
                   Error in fetching your profile details.
@@ -121,7 +117,6 @@ class Login extends Component {
       valid = false;
       this.setState({ errors: { email: "error", password: "error" } });
       Object.values(errors).forEach(
-        // if we have an error string set valid to false
         (val) => val.length > 0 && (valid = false)
       );
     }
@@ -130,7 +125,6 @@ class Login extends Component {
   };
 
   sendMessage(message) {
-    // send message to subscribers via observable subject
     messageService.sendMessage(message);
   }
 

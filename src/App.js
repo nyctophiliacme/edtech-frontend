@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route } from 'react-router-dom'
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-import Marketing from "./components/marketing/marketing";
 import PrivacyPolicy from "./components/privacy_policy/privacy_policy";
 import AboutUs from "./components/about_us/about_us";
 import TermAndCondition from "./components/term_condition/term_condition";
