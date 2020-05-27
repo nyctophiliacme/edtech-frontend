@@ -14,17 +14,18 @@ class PracticeChapter extends Component {
   }
 
   componentDidMount() {
+
     this.getChapterList();
   }
   componentDidUpdate(prevProps) {
+
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.getChapterList();
     }
   }
-
   paths = this.props.location.pathname.split("/");
-
   getChapterList = () => {
+    this.paths=this.props.location.pathname.split("/")
     getChapters(this.paths[2], this.paths[3])
       .then((response) => {
         this.setState({
@@ -40,7 +41,6 @@ class PracticeChapter extends Component {
     return (
       <>
         {this.state.chapters.map((chapter, index) => {
-          console.log(chapter);
           return (
             <div
               className="practice-chapter-subcontainer"
