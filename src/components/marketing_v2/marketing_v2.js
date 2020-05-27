@@ -103,7 +103,6 @@ const marketingV2 = () => {
             height="600px"
             controls={true}
             loop={true}
-            light={true}
           />
         </div>
       </div>

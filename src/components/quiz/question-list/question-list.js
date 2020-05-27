@@ -3,12 +3,7 @@ import "./question-list.css";
 import check from "../../../assets/images/check.png";
 
 class QuestionList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeQuestion: 0,
-    };
-  }
+
   
   render() {
     return (
@@ -18,19 +13,17 @@ class QuestionList extends Component {
           return (
             <div
               className={`questionlist-item-container ${
-                index === this.state.activeQuestion
+                index === this.props.activeQuestion-1
                   ? "questionlist-item-active"
                   : ""
               }`}
               key={index}
               onClick={() => {
-                this.setState({
-                  activeQuestion: index,
-                });
+                this.props.click(index+1)
               }}
             >
               <div className="questionlist-item-right">
-                <span className="questionlist-ques-number">{`Question  ${index}`}</span>
+                <span className="questionlist-ques-number">{`Question  ${index+1}`}</span>
                 <br />
                 <span className="questionlist-ques-difficulty">
                   {question.difficulty_level?.toUpperCase()}
