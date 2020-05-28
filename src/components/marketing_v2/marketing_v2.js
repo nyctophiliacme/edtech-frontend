@@ -25,14 +25,13 @@ const marketingV2 = () => {
             Easy concise information in one place. Practice for exams 24/7. All
             from your home!
           </div>
-          <div className="cta">
+          <div className="header-cta header-practice">
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSeHcR1uoEa852yTnXGuu84Nu8cv9KwMODQ5ErW8i7i0Bgv73Q/viewform"
-              className="hero-cta"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Discover
+              DISCOVER
             </a>
           </div>
         </div>
