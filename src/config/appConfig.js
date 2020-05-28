@@ -1,1 +1,1 @@
-export const baseURL="https://codeby-cors.integrationby.com.br/http://15.206.142.25:8000/";
+export const baseURL="https://codeby-cors.integrationby.com.br/https://superteacher.pk/api/";
