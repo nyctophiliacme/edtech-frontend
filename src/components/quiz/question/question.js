@@ -121,7 +121,7 @@ class Question extends Component {
           <input
             className="login-button"
             type="submit"
-            value="SUBMIT"
+            value="SUBMIT ANSWER"
             onClick={() => {
               this.setState({
                 isSubmitted: true,

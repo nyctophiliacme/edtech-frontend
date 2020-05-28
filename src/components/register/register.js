@@ -37,11 +37,11 @@ class Register extends Component {
     switch (name) {
       case "firstName":
         errors.firstName =
-          value.length < 5 ? "Full Name must be 5 characters long!" : "";
+          value.length <= 0 ? "First Name must not be blank!" : "";
         break;
       case "lastName":
         errors.lastName =
-          value.length < 5 ? "Full Name must be 5 characters long!" : "";
+          value.length <= 0 ? "Last Name must not be blank!" : "";
         break;
       case "email":
         errors.email = this.validEmailRegex.test(value)
