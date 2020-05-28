@@ -67,8 +67,9 @@ class Question extends Component {
         {this.props.questionDetails ? (
           <div>
             {this.props.questionDetails?.question_choice.map(
-              (option, index) => {
+              (option, index) => {                
                 let charIndex = 97 + index;
+                this.selectedIndex = option.is_right_choice?String.fromCharCode(charIndex):"";
                 return (
                   <div
                     key={index}
@@ -88,7 +89,7 @@ class Question extends Component {
                         this.setState({
                           slectedOption: option,
                         });
-                        this.selectedIndex = String.fromCharCode(charIndex);
+                        
                       }
                     }}
                   >

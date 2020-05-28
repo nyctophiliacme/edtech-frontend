@@ -6,10 +6,12 @@ const Pricing = () => {
   return (
     <div className="common-container">
       <div className="privacy-heading common-heading-text">
-        Chose and Pay How to Pay
+        Chose and Pay 
+        </div><div className="pricing-selection-container"></div>
+        <div className="pricing sub Heading">
+        Method 1 Cash Payment at Easypaisa Shop
         <p>
-          Easy paisa  Cash Payment at Easypaisa Shop – Pay in cash at any of
-          the 75,000+ Easypaisa shops in over 800 cities o Request to pay mobile
+           Pay in cash at any of  the 75,000+ Easypaisa shops in over 800 cities o Request to pay mobile
           account +92 302 8704709 Syed Shahzib Baseer  Easypaisa Mobile
           Account. If you have one, you can use Easypaisa Mobile Account to pay
           directly from your phone.  o Transfer the amount to mobile account +92

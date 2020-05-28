@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { login, getUserDetails } from "../../services/loginService";
 import "./login.css";
 import { notify } from "react-notify-toast";
-import { withStore } from "@spyna/react-store";
 import { messageService } from "../../services/notifyComponentService";
+import { withRouter } from "react-router-dom";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -51,7 +51,9 @@ class Login extends Component {
             .then((response) => {
               sessionStorage.setItem("isLoggedIn", true);
               sessionStorage.setItem("userDetails", JSON.stringify(response.data));
-              this.props.redirect.push("/exam/ecat/home");
+              if(this.props.location?.pathname ==="/"){
+                this.props.redirect.push("/exam/ecat/home");
+              }
               this.sendMessage("Logged In");
               this.props.handleModalClose();
             })
@@ -179,4 +181,4 @@ class Login extends Component {
     );
   }
 }
-export default withStore(Login);
+export default withRouter(Login);

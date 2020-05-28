@@ -57,13 +57,13 @@ class PracticeHome extends Component {
             {this.state.exam_code.toUpperCase() + " "} Practice by Chapter
           </div>
           <div className="practice-header-search-container">
-            <input
+            {/* <input
               className="practice-header-search"
               type="text"
               name="search"
               placeholder="Search..."
               required
-            />
+            /> */}
           </div>
         </div>
         <div className="practice-container">
