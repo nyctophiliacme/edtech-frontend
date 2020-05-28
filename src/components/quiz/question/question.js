@@ -134,7 +134,7 @@ class Question extends Component {
         {this.state.isSubmitted && !this.state.slectedOption.is_right_choice ? (
           <div className="wrong-choice-wrapper">
             <input
-              className="login-button"
+              className="login-button try-again"
               type="button"
               value="TRY AGAIN"
               onClick={() => {
@@ -164,14 +164,14 @@ class Question extends Component {
           <div className="solution-wrapper">
             <div className="solution-header">Solution</div>
             <div className="solution-text">
-              <div>
-                Answer:{" "}
-                {`(${this.selectedIndex}) ${
+              <div>                
+                {`Answer: (${this.selectedIndex}) ${
                   this.props.questionDetails.question_choice.filter((item) => {
                     return item.is_right_choice;
                   })[0].choice_text
                 }`}
               </div>
+              <br/>
               {this.props.questionDetails.explanation}
               <br/>
               <img src={this.props.questionDetails?.explanation_img_url} alt=""/>

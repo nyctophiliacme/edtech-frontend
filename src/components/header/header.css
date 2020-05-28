@@ -12,7 +12,7 @@
   }
   .img-logo {
     width: 300px;
-    height: 70px;
+    height: auto;
   }
   .header-login {
     background-color: #67b2e8;

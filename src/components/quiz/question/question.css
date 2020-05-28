@@ -85,3 +85,16 @@
 .question-prev{
     margin-right: 20px;
 }
+.try-again{
+    margin-right: 20px;
+}
+.solution-wrapper{
+    padding: 20px;
+    font-size: 28px;
+    line-height: 32px;;
+}
+.solution-header{
+    font-weight: 500;
+    color:#204A7D;
+    padding-bottom: 20px;
+}
