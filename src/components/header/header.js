@@ -4,7 +4,7 @@ import { messageService } from "../../services/notifyComponentService";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "../modal/modal";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/ST_logo.png"
 import down from "../../assets/images/dropdown.png";
 import up from "../../assets/images/up-arrow.png";
 import "./header.css";
@@ -102,7 +102,7 @@ class Header extends Component {
           <div>
             <div className="headerlogo-wrapper">
               <Link to="/">
-                <img src={logo} alt="logo" />
+                <img className="img-logo" src={logo} alt="logo" />
               </Link>
             </div>
             <div className="headerbutton-wrapper">

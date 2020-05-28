@@ -10,6 +10,10 @@
   .headerlogo-wrapper {
     display: inline-block;
   }
+  .img-logo {
+    width: 300px;
+    height: 70px;
+  }
   .header-login {
     background-color: #67b2e8;
     color: #ffffff;
