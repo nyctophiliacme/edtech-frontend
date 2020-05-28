@@ -2,7 +2,8 @@
   border-radius: 10px;
   border: solid #e2ecfc 1px;
   width: 25%;
-  height: 700px;
+  height: 500px;
+  overflow-y: scroll;
 }
 .questionlist-item-container {
   border-bottom: solid #e2ecfc 1px;
@@ -47,12 +48,12 @@
   background-color: #f2f7fe;
 }
 
-.questionlist-container::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 8px;
 }
 
 /* Handle */
-.questionlist-container::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #c9c9c9;
   border-radius: 4px;
 }

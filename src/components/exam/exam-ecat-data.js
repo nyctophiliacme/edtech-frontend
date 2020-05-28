@@ -31,8 +31,8 @@ export const examDetailsCompleteData = [
         type: "list",
         items: [
           "The Entry Test Application filled online through the web link http://admission.uet.edu.pk as the admission date announce (admission started in June probably every year)",
-          "The UET exam fee is Rs 700/-",
-          "UET ECAT tokens are available at the HBL designated Branches by paying a fee of Rs 700/-",
+          "The UET exam fee is Rs 1200/-",
+          "UET ECAT tokens are available at the HBL designated Branches by paying a fee of Rs 1200/-",
           "Login to UET admission Portal",
           "Fill out the application online according to the instructions",
           "After filling the form and read it again and then submit the application",
