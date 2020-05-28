@@ -20,7 +20,7 @@ const footer = () => {
           <Link to="/about_us">ABOUT US</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/pricing">How To Pay</Link>
+          <Link to="/pricing">HOW TO PAY</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/privacy_policy">PRIVACY POLICY</Link>

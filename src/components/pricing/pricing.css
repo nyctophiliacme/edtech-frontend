@@ -1,0 +1,30 @@
+.pricing-container{
+    padding: 70px;
+    font-weight: 300;
+}
+.pricing-header{
+    color:#122E51;
+    font-size:30px;
+}
+.pricing-sub-heading{
+    color:#122E51;
+    font-size: 22px;
+    padding:30px 0px 30px 0px
+}
+
+.pricing-text{
+    color:#505050;
+    font-size: 18px;
+}
+
+.pricing-text-bold{
+    font-weight: 600;
+}
+.pricing-selection-container{
+    padding:20px;
+    border:solid #E2ECFC 2px;
+    font-size: 28px;
+    font-weight: 300;
+    border-radius: 10px;
+    margin-top: 30px;
+}
