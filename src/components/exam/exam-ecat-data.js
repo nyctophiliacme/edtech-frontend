@@ -430,7 +430,7 @@ export const examDetailsCompleteData = [
     subSection: "previousPapers",
     data: [
       {
-        heading: "List of previous year papers",
+        heading: "",
         type: "paper",
         items: [
           {
@@ -494,7 +494,7 @@ export const examTitles = [
   },
   {
     imgUrl: "previousPapers",
-    title: "Previous Papers",
+    title: "Past Papers",
     id: "previousPapers",
     subtitle: null,
   },
