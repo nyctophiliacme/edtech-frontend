@@ -1,13 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import "./pricing.css";
 import "../../App.css";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faAngleDown);
 
 const Pricing = () => {
+  const packages = [
+    {
+      duration: "30 Days",
+      price: "1500",
+    },
+    {
+      duration: "90 Days",
+      price: "3750",
+    },
+    {
+      duration: "180 Days",
+      price: "5000",
+    },
+  ];
+  const [selectedPackage, setSelectedPackage] = useState(packages[1]);
+
   return (
     <div className="pricing-container">
       <div className="pricing-header">Choose and Pay</div>
       <div className="pricing-selection-container">
-        ECAT
+        <div className="pricing-exanname-container">ECAT</div>
+        <div className="pricing-dropdown-container">
+          <ul className="pricing-ul">
+            <li className="pricing-dropdown">
+              <div className="pric-dropbtn">
+                {selectedPackage.duration}
+                &nbsp;&nbsp;
+                <FontAwesomeIcon icon="angle-down" />
+              </div>
+              <div className="pricing-dropdown-content ">
+                {packages.map((pack, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="pricing-drp-dwn-item"
+                      onClick={() => {
+                        setSelectedPackage(pack);
+                      }}
+                    >
+                      <span className="pack-duration-drpdwn"> {pack.duration}</span>{" "}
+                      <span> {`Rs ${pack.price}`}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </li>
+          </ul>
+          <div className="pricing-dropdown-container">
+            <span className="price-prefix-select">Rs </span>
+            <span>{selectedPackage.price}</span>
+          </div>
+        </div>
       </div>
       <div className="pricing-sub-heading">Method 1: Pay via Easypaisa</div>
       <div className="pricing-text">
@@ -16,10 +67,12 @@ const Pricing = () => {
         </span>
         <br />
         <br />
-        Step 1. Pay in cash at any of the 75,000+ Easypaisa shops in over 800 cities.
+        Step 1. Pay in cash at any of the 75,000+ Easypaisa shops in over 800
+        cities.
         <br />
         <br />
-        Step 2. Request to pay mobile account <span className="pricing-text-bold">+92 3028704709</span> Syed Shahzib
+        Step 2. Request to pay mobile account{" "}
+        <span className="pricing-text-bold">+92 3028704709</span> Syed Shahzib
         Baseer
         <br />
         <br />
@@ -29,11 +82,17 @@ const Pricing = () => {
         </span>
         <br />
         <br />
-        Step 1. If you have one, you can use Easypaisa Mobile Account to pay directly from your phone.<br/> <br/>
-        Step 2. Transfer the amount to mobile account <span className="pricing-text-bold">+92 3028704709</span> Syed Shahzib Baseer
+        Step 1. If you have one, you can use Easypaisa Mobile Account to pay
+        directly from your phone.
+        <br /> <br />
+        Step 2. Transfer the amount to mobile account{" "}
+        <span className="pricing-text-bold">+92 3028704709</span> Syed Shahzib
+        Baseer
         <br />
         <br />
-        Step 3. Send a picture as proof of payment to <span className="pricing-text-bold">+92 3412495053</span> via WhatsApp, and You'll get access within12 working hours.
+        Step 3. Send a picture as proof of payment to{" "}
+        <span className="pricing-text-bold">+92 3412495053</span> via WhatsApp,
+        and You'll get access within12 working hours.
         <br />
         <br />
       </div>
@@ -42,12 +101,22 @@ const Pricing = () => {
       </div>
 
       <div className="pricing-text">
-        Step 1. Visit “Your bank’s Website” and click on Fund Transfer. Transfer the exact amount to 
-        <br /><br />
-        <span className="pricing-text-bold">Bank Account Number</span> : 0008947914339503<br /><br />
-        <span className="pricing-text-bold"> Bank Name</span> : Habib Bank <br /><br />
-        <span className="pricing-text-bold">Account Title: </span> Muhammad Nadeem Khan <br /><br />
-        Step 2. Send a picture as proof of payment to <span className="pricing-text-bold">+92 3412495053</span> via WhatsApp,
+        Step 1. Visit “Your bank’s Website” and click on Fund Transfer. Transfer
+        the exact amount to
+        <br />
+        <br />
+        <span className="pricing-text-bold">Bank Account Number</span> :
+        0008947914339503
+        <br />
+        <br />
+        <span className="pricing-text-bold"> Bank Name</span> : Habib Bank{" "}
+        <br />
+        <br />
+        <span className="pricing-text-bold">Account Title: </span> Muhammad
+        Nadeem Khan <br />
+        <br />
+        Step 2. Send a picture as proof of payment to{" "}
+        <span className="pricing-text-bold">+92 3412495053</span> via WhatsApp,
         and You'll get access within 12 working hours.
       </div>
     </div>
