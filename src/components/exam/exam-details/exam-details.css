@@ -33,7 +33,7 @@
 }
 .exam-details-text{
     font-weight :300;
-    font-size:18px;
+    font-size:20px;
     line-height:25px;
     color:black;
     padding-bottom: 15px;
@@ -46,9 +46,7 @@
 }
 
 .exam-details-download-container{
-    padding: 40px 0px 30px 0px;
-    box-shadow: 2px 3px #888888;
-    border-bottom: solid gray 1px;
+    padding: 0px 0px 30px 0px;
 }
 .details-ul{
     padding-left: 20px;
@@ -78,4 +76,16 @@
     border: solid #67B2E8;
     border-top: none;
     border-width: 2px;
+}
+.pdf-icon{
+    display: inline-block;
+}
+.paper-item-text{
+    text-transform: capitalize;
+    vertical-align: top;
+    line-height: 60px;
+    padding-left: 20px;
+}
+.exam-past-paper-container{
+    padding: 40px 0;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import "./exam-details.css";
 import taketest from "../../../assets/images/taketest.png";
 import practice from "../../../assets/images/practice.png";
+import pdfIcon from "../../../assets/images/Pdf_icon.png"
 import { Link } from "react-router-dom";
 import { examDetailsCompleteData } from "../exam-ecat-data";
 
@@ -78,11 +79,11 @@ const ExamDetails = ({ name, subSection }) => {
 
   const renderPaperList = (items) => {
     return(
-      <div>
+      <div className="exam-past-paper-container">
         {items.map((item,index)=>{
           return (
           <div className="exam-details-download-container exam-details-text " key={index}>
-              <a href={item.link}  className="exam-detail-download" target="_self" download>{item.text}</a>
+              <a href={item.link}  className="exam-detail-download" target="_self" download><img className="pdf-icon" src={pdfIcon} alt="test" /><span className="paper-item-text">{item.text}</span></a>
           </div>)
         })
         }
