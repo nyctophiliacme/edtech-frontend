@@ -26,13 +26,9 @@ const marketingV2 = () => {
             from your home!
           </div>
           <div className="header-cta header-practice">
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeHcR1uoEa852yTnXGuu84Nu8cv9KwMODQ5ErW8i7i0Bgv73Q/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              DISCOVER
-            </a>
+            <Link to="/exam/ecat/home">
+            DISCOVER
+            </Link>
           </div>
         </div>
       </div>

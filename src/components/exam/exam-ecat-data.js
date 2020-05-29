@@ -434,13 +434,37 @@ export const examDetailsCompleteData = [
         type: "paper",
         items: [
           {
-            text: "complete paper of 2018",
-            link: "https://code.visualstudio.com/Download",
+            text: "2019 ECAT Paper",
+            link: "https://d15o1jx56rxevg.cloudfront.net/ecat/past_papers/ECAT+2019.pdf",
           },
           {
-            text: "text displayed to user e.g. paper of 2019",
-            link: "../../../assets/images/top-banner.png",
-          },
+            text: "2018 ECAT Paper",
+            link: "https://d15o1jx56rxevg.cloudfront.net/ecat/past_papers/ECAT+2018.pdf",
+          },{
+            text: "2017 ECAT Paper",
+            link: "https://d15o1jx56rxevg.cloudfront.net/ecat/past_papers/ECAT+2017.pdf",
+          },{
+            text: "2016 ECAT Paper",
+            link: "https://d15o1jx56rxevg.cloudfront.net/ecat/past_papers/ECAT+2016.pdf",
+          },{
+            text: "2015 ECAT Paper",
+            link: "https://d15o1jx56rxevg.cloudfront.net/ecat/past_papers/ECAT+2015.pdf",
+          },{
+            text: "2014 ECAT Paper",
+            link: "https://d15o1jx56rxevg.cloudfront.net/ecat/past_papers/ECAT+2014.pdf",
+          },{
+            text: "2013 ECAT Paper",
+            link: "https://d15o1jx56rxevg.cloudfront.net/ecat/past_papers/ECAT+2013.pdf",
+          },{
+            text: "2012 ECAT Paper",
+            link: "https://d15o1jx56rxevg.cloudfront.net/ecat/past_papers/ECAT+2012.pdf",
+          },{
+            text: "2011 ECAT Paper",
+            link: "https://d15o1jx56rxevg.cloudfront.net/ecat/past_papers/ECAT+2011.pdf",
+          },{
+            text: "2010 ECAT Paper",
+            link: "https://d15o1jx56rxevg.cloudfront.net/ecat/past_papers/ECAT+2010.pdf",
+          }
         ],
       },
     ],

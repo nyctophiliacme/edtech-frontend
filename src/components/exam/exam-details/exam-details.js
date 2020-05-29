@@ -2,13 +2,12 @@ import React from "react";
 import "./exam-details.css";
 import taketest from "../../../assets/images/taketest.png";
 import practice from "../../../assets/images/practice.png";
-import pdfIcon from "../../../assets/images/Pdf_icon.png"
+import pdfIcon from "../../../assets/images/Pdf_icon.png";
 import { Link } from "react-router-dom";
 import { examDetailsCompleteData } from "../exam-ecat-data";
-
+import { notify } from "react-notify-toast";
 
 const ExamDetails = ({ name, subSection }) => {
-  
   const examDetailsData = examDetailsCompleteData.filter((item) => {
     return item.subSection === subSection;
   })[0]?.data;
@@ -22,7 +21,17 @@ const ExamDetails = ({ name, subSection }) => {
               <div className="exam-action-img">
                 <img src={taketest} alt="test" />
               </div>
-              <div className="exam-action-text">Take a Test</div>
+              <div
+                className="exam-action-text"
+                onClick={() => {
+                  notify.show(
+                    <div className="notify-container">Coming Soon...</div>,
+                    "success",
+                    8000
+                  );
+                }}
+              >  Take a Test
+              </div>
             </div>
             <Link to={`/practice/${name}`}>
               <div className="exam-action">
@@ -78,17 +87,28 @@ const ExamDetails = ({ name, subSection }) => {
   };
 
   const renderPaperList = (items) => {
-    return(
+    return (
       <div className="exam-past-paper-container">
-        {items.map((item,index)=>{
+        {items.map((item, index) => {
           return (
-          <div className="exam-details-download-container exam-details-text " key={index}>
-              <a href={item.link}  className="exam-detail-download" target="_self" download><img className="pdf-icon" src={pdfIcon} alt="test" /><span className="paper-item-text">{item.text}</span></a>
-          </div>)
-        })
-        }
+            <div
+              className="exam-details-download-container exam-details-text-paper "
+              key={index}
+            >
+              <a
+                href={item.link}
+                className="exam-detail-download"
+                target="_blank"
+                download={`${2019-index}EcatPaper.pdf`}
+              >
+                <img className="pdf-icon" src={pdfIcon} alt="test" />
+                <span className="paper-item-text">{item.text}</span>
+              </a>
+            </div>
+          );
+        })}
       </div>
-    )
+    );
   };
 
   return (
@@ -117,11 +137,14 @@ const ExamDetails = ({ name, subSection }) => {
                 {ed.heading}
                 {ed.listHeader ? (
                   <div>
-                    {ed.listHeader.split('</br>').map((lh,index)=>{
-                      return <h2 key={index} className="exam-details-text">{lh}</h2>
+                    {ed.listHeader.split("</br>").map((lh, index) => {
+                      return (
+                        <h2 key={index} className="exam-details-text">
+                          {lh}
+                        </h2>
+                      );
                     })}
                   </div>
-                  
                 ) : (
                   ""
                 )}
@@ -137,9 +160,8 @@ const ExamDetails = ({ name, subSection }) => {
                 {renderPaperList(ed.items)}
               </div>
             );
-          }else
-          {
-          return <div> No Data found</div>
+          } else {
+            return <div> No Data found</div>;
           }
         })}
       </div>

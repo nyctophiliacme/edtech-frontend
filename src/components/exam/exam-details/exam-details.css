@@ -40,13 +40,23 @@
     letter-spacing: 1px;
 }
 
+.exam-details-text-paper{
+    font-weight :300;
+    font-size:20px;
+    line-height:25px;
+    color:black;
+    padding: 5px;
+    letter-spacing: 1px;
+}
+
 .exam-detail-download:hover{
     color: blue;
     text-decoration: underline;
 }
 
 .exam-details-download-container{
-    padding: 0px 0px 30px 0px;
+    margin: 0px 0px 20px 0px;
+    background-color: white;
 }
 .details-ul{
     padding-left: 20px;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import PrivacyPolicy from "./components/privacy_policy/privacy_policy";
@@ -30,6 +30,7 @@ function App() {
       <Route path='/practice/:examName' component={PracticeHome} />
       <Route path='/pricing' component={Pricing}/>
       <Route path='/quiz' component={Quiz}/>
+      <Redirect to="/" />
     </Switch>
     <Footer></Footer>
     </>
