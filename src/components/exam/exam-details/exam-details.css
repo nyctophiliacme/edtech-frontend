@@ -55,8 +55,9 @@
 }
 
 .exam-details-download-container{
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 10px 0px;
     background-color: white;
+    border-radius:10px;
 }
 .details-ul{
     padding-left: 20px;
@@ -95,7 +96,4 @@
     vertical-align: top;
     line-height: 60px;
     padding-left: 20px;
-}
-.exam-past-paper-container{
-    padding: 40px 0;
 }

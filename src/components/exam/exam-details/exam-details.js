@@ -88,7 +88,7 @@ const ExamDetails = ({ name, subSection }) => {
 
   const renderPaperList = (items) => {
     return (
-      <div className="exam-past-paper-container">
+      <div>
         {items.map((item, index) => {
           return (
             <div
