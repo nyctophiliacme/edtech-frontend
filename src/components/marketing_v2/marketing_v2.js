@@ -26,9 +26,7 @@ const marketingV2 = () => {
             from your home!
           </div>
           <div className="header-cta header-practice">
-            <Link to="/exam/ecat/home">
-            DISCOVER
-            </Link>
+            <Link to="/exam/ecat/home">DISCOVER</Link>
           </div>
         </div>
       </div>
@@ -109,7 +107,8 @@ const marketingV2 = () => {
             </div>
             <div className="highlights_text highlight_text1">
               <div className="highlight-tex-wrapper">
-                Improve your ECAT score. Click for practice questions
+                Improve your ECAT score. Click to access 5000+ practice
+                questions
               </div>
             </div>
           </div>
@@ -126,7 +125,7 @@ const marketingV2 = () => {
             </div>
             <div className="highlights_text highlight_text2">
               <div className="highlight-tex-wrapper">
-                View 10 year past papers of ECAT all in one place
+                View 10 years ECAT past papers all available in one place
               </div>
             </div>
           </div>
@@ -145,7 +144,8 @@ const marketingV2 = () => {
               }}
             >
               <div className="highlight-tex-wrapper">
-                Register now to access to download free papers and information
+                Register now to access and to download past papers, useful tips
+                and information
               </div>
             </div>
           </div>

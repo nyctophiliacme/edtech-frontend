@@ -119,7 +119,7 @@ class Question extends Component {
         )}
         {this.state.slectedOption && !this.state.isSubmitted ? (
           <input
-            className="login-button"
+            className="login-button right-align"
             type="submit"
             value="SUBMIT ANSWER"
             onClick={() => {
@@ -130,10 +130,10 @@ class Question extends Component {
             }}
           />
         ) : (
-          <></>
+          null
         )}
         {this.state.isSubmitted && !this.state.slectedOption.is_right_choice ? (
-          <div className="wrong-choice-wrapper">
+          <div className="wrong-choice-wrapper right-align">
             <input
               className="login-button try-again"
               type="button"

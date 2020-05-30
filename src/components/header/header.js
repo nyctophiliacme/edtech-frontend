@@ -54,7 +54,7 @@ class Header extends Component {
               this.setState({ modalType: "upgrade", showModal: true });
             }}
           >
-            Upgarde
+            Upgrade
           </div>
         ),
       });
