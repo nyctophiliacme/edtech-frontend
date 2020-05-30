@@ -9,15 +9,15 @@ library.add(faAngleDown);
 const Pricing = () => {
   const packages = [
     {
-      duration: "30 Days",
+      duration: "1 Month",
       price: "1500",
     },
     {
-      duration: "90 Days",
+      duration: "3 Months",
       price: "3750",
     },
     {
-      duration: "180 Days",
+      duration: "6 Months",
       price: "5000",
     },
   ];
@@ -46,7 +46,10 @@ const Pricing = () => {
                         setSelectedPackage(pack);
                       }}
                     >
-                      <span className="pack-duration-drpdwn"> {pack.duration}</span>{" "}
+                      <span className="pack-duration-drpdwn">
+                        {" "}
+                        {pack.duration}
+                      </span>{" "}
                       <span> {`Rs ${pack.price}`}</span>
                     </div>
                   );
@@ -67,32 +70,34 @@ const Pricing = () => {
         </span>
         <br />
         <br />
-        Step 1. Pay in cash at any of the 75,000+ Easypaisa shops in over 800
-        cities.
-        <br />
-        <br />
-        Step 2. Request to pay mobile account{" "}
-        <span className="pricing-text-bold">+92 3028704709</span> Syed Shahzib
+        Step 1. <span className="pricing-text-bold">Visit</span> the nearest
+        Easypaisa shop and pay cash . Request to pay mobile account
+        <span className="pricing-text-bold"> +92 3028704709</span> Syed Shahzib
         Baseer
         <br />
         <br />
+        Step 2. <span className="pricing-text-bold">Send a picture</span> as
+        proof of payment to
+        <span className="pricing-text-bold"> +92 3028704709</span> via WhatsApp,
+        and You'll get access within 12 working hours.
         <br />
+        <br />
+
         <span className="pricing-sub-heading">
           b) Via Easypaisa Mobile Account
         </span>
         <br />
         <br />
         Step 1. If you have one, you can use Easypaisa Mobile Account to pay
-        directly from your phone.
-        <br /> <br />
-        Step 2. Transfer the amount to mobile account{" "}
-        <span className="pricing-text-bold">+92 3028704709</span> Syed Shahzib
+        directly from your phone. Transfer the amount to mobile account
+        <span className="pricing-text-bold"> +92 3028704709</span> Syed Shahzib
         Baseer
         <br />
         <br />
-        Step 3. Send a picture as proof of payment to{" "}
+        Step 2. <span className="pricing-text-bold">Send a picture</span> as
+        proof of payment to{" "}
         <span className="pricing-text-bold">+92 3412495053</span> via WhatsApp,
-        and You'll get access within12 working hours.
+        and You'll get access within 12 working hours.
         <br />
         <br />
       </div>
@@ -115,7 +120,8 @@ const Pricing = () => {
         <span className="pricing-text-bold">Account Title: </span> Muhammad
         Nadeem Khan <br />
         <br />
-        Step 2. Send a picture as proof of payment to{" "}
+        Step 2. <span className="pricing-text-bold">Send a picture</span> as
+        proof of payment to{" "}
         <span className="pricing-text-bold">+92 3412495053</span> via WhatsApp,
         and You'll get access within 12 working hours.
       </div>
