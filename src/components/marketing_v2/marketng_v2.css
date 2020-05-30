@@ -34,6 +34,8 @@
     .hero-imgv2 img{
         position: absolute;
         right:0;
+        width: 61%;
+        top: -8px;
     }
     .cta{
       text-align: center;
