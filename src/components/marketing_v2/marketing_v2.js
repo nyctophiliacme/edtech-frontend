@@ -91,7 +91,7 @@ const marketingV2 = () => {
       </div>
       <div className="video-container">
         <div className="video-heading">How it works</div>
-        <div>
+        <div className="video-wrapper">
           <ReactPlayer
             url="https://youtu.be/euQlC2_2j8E"
             width="100%"
