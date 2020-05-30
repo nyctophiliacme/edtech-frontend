@@ -84,6 +84,11 @@ class Header extends Component {
           modalType: "upgrade",
           showModal: true,
         });
+      }else if (message.text === "verified successful login now") {
+        this.setState({
+          modalType: "login",
+          showModal: true,
+        });
       }
     });
     this.checkUpgradePractice();

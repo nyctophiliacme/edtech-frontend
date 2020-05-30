@@ -14,6 +14,7 @@ import Pricing from "./components/pricing/pricing";
 import Quiz from "./components/quiz/quiz";
 
 import "./App.css";
+import EmailVerified from "./components/email-verified/email-verified";
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
       <Route path='/practice/:examName' component={PracticeHome} />
       <Route path='/pricing' component={Pricing}/>
       <Route path='/quiz' component={Quiz}/>
+      <Route path='/email_verified' component={EmailVerified}/>
+
       <Redirect to="/" />
     </Switch>
     <Footer></Footer>
