@@ -95,7 +95,7 @@ const marketingV2 = () => {
           <ReactPlayer
             url="https://youtu.be/euQlC2_2j8E"
             width="100%"
-            height="600px"
+            height="500px"
             controls={true}
             loop={true}
           />

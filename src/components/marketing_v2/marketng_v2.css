@@ -68,8 +68,8 @@
     }
     .video-heading{
         font-weight: 700;
-        font-size: 73px;
-        line-height: 93px;
+        font-size: 45px;
+        line-height: 40px;
         padding-bottom: 30px;
     }
     
@@ -114,8 +114,8 @@
     .illustration-footer {
         padding-top: 30px;
         font-weight: 600;
-        font-size: 23px;
-        line-height: 34px;
+        font-size: 18px;
+        line-height: 16px;
         text-align: justify;
       }
     .bullet {
@@ -169,20 +169,20 @@
     }
     .hero-text-wrapperv2 {
       float: left;
-      width: 45%;
+      width: 40%;
       padding: 0 20px;
     }
     .hero-headerv2 {
       font-weight: 700;
-      font-size: 70px;
-      line-height: 93px;
-      padding-bottom: 45px;
+      font-size: 45px;
+      line-height: 60px;
+      padding-bottom: 25px;
     }
     .hero-body-txtv2 {
       font-weight: 400;
-      font-size: 26px;
-      line-height: 49px;
-      padding-bottom: 23px;
+      font-size: 20px;
+      line-height: 40px;
+      padding-bottom: 17px;
     }
     .hero-discount-txt {
       font-weight: 400;
@@ -242,14 +242,14 @@
     }
     .illustration-headerv2 {
       font-weight: 500;
-      font-size: 30px;
-      line-height: 35px;
+      font-size: 22px;
+      line-height: 28px;
     }
     .illustration-bodyv2 {
       padding-top: 22px;
       font-weight: 400;
-      font-size: 20px;
-      line-height: 30px;
+      font-size: 16px;
+      line-height: 27px;
     }
     
     
@@ -259,29 +259,30 @@
       padding: 70px;
   }
   .highlights_content{
-      display: flex;
-      height: 165px; 
-      margin-bottom: 30px;  
-      cursor: pointer;   
+    display: flex;
+    height: 100px;
+    margin-bottom: 20px;
+    cursor: pointer; 
   }
   .highlights_img{
     width: 15%;
     margin: auto;
-    height: 165px;
+    height: 100px;
     display: grid
   }
   .highlights_img img{
     margin: auto;
     display: inline;
+    height:70px;
   }
   .highlights_text{
     text-align: left;
     padding-left:35px;
-    height: 165px;
+    height: 100px;
     width: 85%;
     line-height: 50px;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 22px;
     color:#ffffff;
     position: relative;
   }
