@@ -23,6 +23,11 @@
     color: white;
     margin-right: 45px;
   }
+
+  .header-practice:hover {
+    background-color: #c15757;  
+  }
+  
   .header-cta {
     text-transform: uppercase;
     font-weight: 600;

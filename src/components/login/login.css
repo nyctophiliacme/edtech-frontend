@@ -20,11 +20,16 @@ input:focus {
   padding: 18px 28px;
   color: white;
   background-color: #67b2e8;
-  border-radius: 12px;
+  border-radius: 30px;
   display: inline-block;
   cursor: pointer;
   border: none;
 }
+
+.login-button:hover{
+  background-color: #518bb5;
+}
+
 .login-signUp{
     font-weight: 400;
     color:#60B1FF;
