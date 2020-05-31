@@ -11,7 +11,7 @@ const EmailVerified = () => {
     <div className="verified-container">
       <FontAwesomeIcon icon="check-circle" className="verified-icon   " />
       <br />
-      <span className="verified-heading"> Congratulation!</span>
+      <span className="verified-heading"> Congratulations!</span>
       <br />
       <br />
       <span> Your account is successfully verified.</span>
