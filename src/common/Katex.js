@@ -24,8 +24,8 @@ class Katex extends Component {
             window.renderMathInElement(this.container, {
                 delimiters: [
                     { left: '$', right: '$', display: false },
-                    { left: '\(', right: '\)', display: true },
-                    { left: '\[', right: '\]', display: true }
+                    { left: '\\(', right: '\\)', display: true },
+                    { left: '\\[', right: '\\]', display: true }
                 ],
                 ...renderOptions,
             });
