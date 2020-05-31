@@ -21,7 +21,7 @@ const Pricing = () => {
       price: "5000",
     },
   ];
-  const [selectedPackage, setSelectedPackage] = useState(packages[1]);
+  const [selectedPackage, setSelectedPackage] = useState(packages[0]);
 
   return (
     <div className="pricing-container">
@@ -78,7 +78,7 @@ const Pricing = () => {
         <br />
         Step 2. <span className="pricing-text-bold">Send a picture</span> as
         proof of payment to
-        <span className="pricing-text-bold"> +92 3028704709</span> via WhatsApp,
+        <span className="pricing-text-bold"> +92 3412495053</span> via WhatsApp,
         and You'll get access within 12 working hours.
         <br />
         <br />
