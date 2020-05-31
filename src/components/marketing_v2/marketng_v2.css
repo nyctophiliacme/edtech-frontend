@@ -315,3 +315,7 @@
   transform: translateY(50%);
   bottom: 50%;
 }
+.hero-cta-register{
+  white-space: nowrap;
+  width:inherit;
+}

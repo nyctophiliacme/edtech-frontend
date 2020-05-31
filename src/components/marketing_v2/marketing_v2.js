@@ -25,8 +25,10 @@ const marketingV2 = () => {
             Easy concise information in one place. Practice for exams 24/7. All
             from your home!
           </div>
-          <div className="header-cta header-practice">
-            <Link to="/exam/ecat/home">DISCOVER</Link>
+          <div className="header-cta hero-cta-register header-practice" onClick={() => {
+                messageService.sendMessage("v2 RegiterButton clicked");
+              }}>
+            REGISTER NOW
           </div>
         </div>
       </div>
