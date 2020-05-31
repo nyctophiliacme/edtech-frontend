@@ -36,7 +36,7 @@
       right: 0;
       top: 0px;
       max-width: 100%;
-      height: auto;
+      height: 330px;
       float: right;
     }
     .cta{
@@ -312,4 +312,20 @@
     position: absolute;
     transform: translateY(50%);
     bottom: 50%;
+  }
+
+  @media screen and (min-width: 1200px) and ( max-width:1500px) {
+    .hero-imgv2 img {
+     
+      height: 308px;
+     
+  }
+  }
+
+  @media screen and (min-width: 1600px) and ( max-width:3000px) {
+    .hero-imgv2 img {
+     
+      height: 265px;
+     
+  }
   }

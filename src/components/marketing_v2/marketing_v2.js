@@ -22,7 +22,7 @@ const marketingV2 = () => {
         <div className="hero-text-wrapperv2">
           <div className="hero-headerv2">Study &amp; Test prep made easy</div>
           <div className="hero-body-txtv2">
-            Easy concise information in one place. Practice for exams 24/7. All
+            Easy concise information in one place.<br/> Practice for exams 24/7.<br/> All
             from your home!
           </div>
           <div className="header-cta header-practice">
