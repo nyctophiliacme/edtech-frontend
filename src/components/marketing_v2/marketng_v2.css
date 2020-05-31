@@ -32,11 +32,12 @@
       padding-bottom: 23px;
     }
     .hero-imgv2 img{
-        position: relative;
-        right: 0;
-        width: 61%;
-        top: 0px;
-        left: 217px;
+      position: relative;
+      right: 0;
+      top: 0px;
+      max-width: 100%;
+      height: auto;
+      float: right;
     }
     .cta{
       text-align: center;
