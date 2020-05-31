@@ -72,7 +72,7 @@ const Pricing = () => {
         <br />
         Step 1. <span className="pricing-text-bold">Visit</span> the nearest
         Easypaisa shop and pay cash . Request to pay mobile account
-        <span className="pricing-text-bold"> +92 3028704709</span> Syed Shahzib
+        <span className="pricing-text-bold"> +92 3412495053</span> Syed Shahzib
         Baseer
         <br />
         <br />
@@ -90,7 +90,7 @@ const Pricing = () => {
         <br />
         Step 1. If you have one, you can use Easypaisa Mobile Account to pay
         directly from your phone. Transfer the amount to mobile account
-        <span className="pricing-text-bold"> +92 3028704709</span> Syed Shahzib
+        <span className="pricing-text-bold"> +92 3412495053</span> Syed Shahzib
         Baseer
         <br />
         <br />
