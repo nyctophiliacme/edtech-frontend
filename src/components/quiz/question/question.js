@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./question.css";
+import HTML from '../../../common/HTML';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -32,12 +33,12 @@ class Question extends Component {
           <div className="question-header-leftblock">
             {`Q${this.props.activeQuestion}`} &nbsp;&nbsp;
             {this.state.isSubmitted &&
-            this.state.slectedOption.is_right_choice ? (
-              <FontAwesomeIcon className="green-check" icon="check" />
-            ) : this.state.isSubmitted &&
-              !this.state.slectedOption.is_right_choice ? (
-              <FontAwesomeIcon className="red-cross" icon="times" />
-            ) : null}
+              this.state.slectedOption.is_right_choice ? (
+                <FontAwesomeIcon className="green-check" icon="check" />
+              ) : this.state.isSubmitted &&
+                !this.state.slectedOption.is_right_choice ? (
+                  <FontAwesomeIcon className="red-cross" icon="times" />
+                ) : null}
           </div>
           <div className="question-header-rightblock">
             {this.props.activeQuestion > 1 ? (
@@ -48,75 +49,75 @@ class Question extends Component {
                 PREV
               </div>
             ) : (
-              ""
-            )}
+                ""
+              )}
             {this.props.activeQuestion < this.props.totalQuestions ? (
               <div className="question-prevnext" onClick={this.props.nextClick}>
                 NEXT
               </div>
             ) : (
-              ""
-            )}
+                ""
+              )}
           </div>
         </div>
         <div className="question-text">
-          {this.props.questionDetails?.question_text}
-          <br/>
-          <img src={this.props.questionDetails?.question_img_url} alt=""/>
+          {this.props.questionDetails ? <HTML html={this.props.questionDetails.question_text} /> : null}
+          <br />
+          <img src={this.props.questionDetails?.question_img_url} alt="" />
         </div>
         {this.props.questionDetails ? (
           <div>
             {this.props.questionDetails?.question_choice.map(
-              (option, index) => {                
+              (option, index) => {
                 let charIndex = 97 + index;
-                this.selectedIndex = option.is_right_choice?String.fromCharCode(charIndex):"";
+                this.selectedIndex = option.is_right_choice ? String.fromCharCode(charIndex) : "";
                 return (
                   <div
                     key={index}
                     className={`question-option-container ${
                       this.state.slectedOption === option &&
-                      !this.state.isSubmitted
+                        !this.state.isSubmitted
                         ? " question-option-select-container"
                         : this.state.slectedOption === option &&
                           this.state.isSubmitted
-                        ? this.state.slectedOption?.is_right_choice
-                          ? "question-option-correct-container"
-                          : "question-option-incorrect-container"
-                        : ""
-                    }`}
+                          ? this.state.slectedOption?.is_right_choice
+                            ? "question-option-correct-container"
+                            : "question-option-incorrect-container"
+                          : ""
+                      }`}
                     onClick={() => {
                       if (!this.state.isSubmitted) {
                         this.setState({
                           slectedOption: option,
                         });
-                        
+
                       }
                     }}
                   >
                     <div
                       className={`option-index ${
                         this.state.slectedOption === option &&
-                        !this.state.isSubmitted
+                          !this.state.isSubmitted
                           ? " option-selected"
                           : this.state.slectedOption === option &&
                             this.state.isSubmitted
-                          ? this.state.slectedOption.is_right_choice
-                            ? "option-correct"
-                            : "option-incorrect"
-                          : ""
-                      }`}
+                            ? this.state.slectedOption.is_right_choice
+                              ? "option-correct"
+                              : "option-incorrect"
+                            : ""
+                        }`}
                     >
                       {String.fromCharCode(charIndex)}
                     </div>
-                    <div className="option-text">{option.choice_text}</div>
+                    <HTML html={option.choice_text} className={'option-text'} />
                   </div>
                 );
               }
             )}
           </div>
         ) : (
-          <></>
-        )}
+            <></>
+          )}
         {this.state.slectedOption && !this.state.isSubmitted ? (
           <input
             className="login-button right-align"
@@ -130,8 +131,8 @@ class Question extends Component {
             }}
           />
         ) : (
-          null
-        )}
+            null
+          )}
         {this.state.isSubmitted && !this.state.slectedOption.is_right_choice ? (
           <div className="wrong-choice-wrapper right-align">
             <input
@@ -165,17 +166,17 @@ class Question extends Component {
           <div className="solution-wrapper">
             <div className="solution-header">Solution</div>
             <div className="solution-text">
-              <div>                
+              <div>
                 {`Answer: (${this.selectedIndex}) ${
                   this.props.questionDetails.question_choice.filter((item) => {
                     return item.is_right_choice;
                   })[0].choice_text
-                }`}
+                  }`}
               </div>
-              <br/>
+              <br />
               {this.props.questionDetails.explanation}
-              <br/>
-              <img src={this.props.questionDetails?.explanation_img_url} alt=""/>
+              <br />
+              <img src={this.props.questionDetails?.explanation_img_url} alt="" />
             </div>
           </div>
         ) : null}
