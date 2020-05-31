@@ -50,7 +50,7 @@ class Register extends Component {
         break;
       case "phoneNumber":
         errors.phoneNumber =
-          value.length != 10 ? "Phone Number must be 10 digits long!" : "";
+          value.length < 10 ? "Phone Number must be greater than 10 digits long!" : "";
         break;
       case "password":
         errors.password =
