@@ -199,7 +199,7 @@ class Register extends Component {
               }
               type="number"
               name="phoneNumber"
-              placeholder="Phone Number"
+              placeholder="Phone Number (without country code)"
               required
               onChange={this.handleChange}
               noValidate
