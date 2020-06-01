@@ -119,7 +119,7 @@ class Header extends Component {
                     this.setState({ showModal: true });
                   }}
                 >
-                  Log in
+                  Login
                 </div>
               ) : (
                 <div className="header-usee-detail">
