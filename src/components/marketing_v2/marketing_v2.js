@@ -22,7 +22,7 @@ const marketingV2 = () => {
         <div className="hero-text-wrapperv2">
           <div className="hero-headerv2">Study &amp; Test prep made easy</div>
           <div className="hero-body-txtv2">
-            Easy concise information in one place. Practice for exams 24/7. All
+            Easy concise information in one place.<br/> Practice for exams 24/7.<br/> All
             from your home!
           </div>
           <div className="header-cta hero-cta-register header-practice" onClick={() => {
@@ -95,7 +95,7 @@ const marketingV2 = () => {
           <ReactPlayer
             url="https://youtu.be/euQlC2_2j8E"
             width="100%"
-            height="600px"
+            height="500px"
             controls={true}
             loop={true}
           />

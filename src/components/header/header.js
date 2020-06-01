@@ -119,7 +119,7 @@ class Header extends Component {
                     this.setState({ showModal: true });
                   }}
                 >
-                  Log in
+                  Login
                 </div>
               ) : (
                 <div className="header-usee-detail">
@@ -130,7 +130,7 @@ class Header extends Component {
               )}
             </div>
           </div>
-          <div>
+          <div className="header-menu">
             <ul className="header-ul">
               <li className="header-dropdown">
                 <a href="#" className="dropbtn">

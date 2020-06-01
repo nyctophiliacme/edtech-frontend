@@ -133,7 +133,7 @@ class Login extends Component {
   render() {
     return (
       <div className="login-container">
-        <div className="login-header"> Log In</div>
+        <div className="login-header"> LOGIN</div>
         <form onSubmit={this.handleSubmit} noValidate>
           <div className="login-form-container">
             <input
@@ -164,7 +164,7 @@ class Login extends Component {
             />
           </div>
           <div className="login-forgotpswd">Forgot password?</div>
-          <input className="login-button" type="submit" value="Log In" />
+          <input className="login-button" type="submit" value="LOGIN" />
         </form>
         <div className="login-footer">
           Don’t have a Superteacher account?&nbsp;
