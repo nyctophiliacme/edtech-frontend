@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./question.css";
+import HTML from "../../../common/HTML";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -15,8 +16,10 @@ class Question extends Component {
       showSolution: false,
     };
   }
+  selectedIndex = "";
   componentDidUpdate(prevProp) {
     if (this.props.activeQuestion !== prevProp.activeQuestion) {
+      this.selectedIndex="";
       this.setState({
         isSubmitted: false,
         slectedOption: null,
@@ -24,7 +27,7 @@ class Question extends Component {
       });
     }
   }
-  selectedIndex = "";
+  
   render() {
     return (
       <div className="question-container">
@@ -60,16 +63,22 @@ class Question extends Component {
           </div>
         </div>
         <div className="question-text">
-          {this.props.questionDetails?.question_text}
-          <br/>
-          <img src={this.props.questionDetails?.question_img_url} alt=""/>
+          {this.props.questionDetails ? (
+            <HTML html={this.props.questionDetails.question_text} />
+          ) : null}
+          <br />
+          <img src={this.props.questionDetails?.question_img_url} alt="" />
         </div>
         {this.props.questionDetails ? (
           <div>
             {this.props.questionDetails?.question_choice.map(
-              (option, index) => {                
+              (option, index) => {
                 let charIndex = 97 + index;
-                this.selectedIndex = option.is_right_choice?String.fromCharCode(charIndex):"";
+                console.log(option.is_right_choice)
+                console.log(String.fromCharCode(charIndex))
+                if(option.is_right_choice){
+                  this.selectedIndex=String.fromCharCode(charIndex)
+                }
                 return (
                   <div
                     key={index}
@@ -89,7 +98,6 @@ class Question extends Component {
                         this.setState({
                           slectedOption: option,
                         });
-                        
                       }
                     }}
                   >
@@ -108,7 +116,7 @@ class Question extends Component {
                     >
                       {String.fromCharCode(charIndex)}
                     </div>
-                    <div className="option-text">{option.choice_text}</div>
+                    <HTML html={option.choice_text} className={"option-text"} />
                   </div>
                 );
               }
@@ -119,7 +127,7 @@ class Question extends Component {
         )}
         {this.state.slectedOption && !this.state.isSubmitted ? (
           <input
-            className="login-button"
+            className="login-button right-align"
             type="submit"
             value="SUBMIT ANSWER"
             onClick={() => {
@@ -129,11 +137,9 @@ class Question extends Component {
               });
             }}
           />
-        ) : (
-          <></>
-        )}
+        ) : null}
         {this.state.isSubmitted && !this.state.slectedOption.is_right_choice ? (
-          <div className="wrong-choice-wrapper">
+          <div className="wrong-choice-wrapper right-align">
             <input
               className="login-button try-again"
               type="button"
@@ -165,17 +171,25 @@ class Question extends Component {
           <div className="solution-wrapper">
             <div className="solution-header">Solution</div>
             <div className="solution-text">
-              <div>                
-                {`Answer: (${this.selectedIndex}) ${
-                  this.props.questionDetails.question_choice.filter((item) => {
-                    return item.is_right_choice;
-                  })[0].choice_text
-                }`}
+              <div className="solution-answer">
+                {`Answer: (${this.selectedIndex})`}
+                <HTML
+                  html={
+                    this.props.questionDetails.question_choice.filter(
+                      (item) => {
+                        return item.is_right_choice;
+                      }
+                    )[0].choice_text
+                  }
+                />
               </div>
-              <br/>
-              {this.props.questionDetails.explanation}
-              <br/>
-              <img src={this.props.questionDetails?.explanation_img_url} alt=""/>
+              <br />
+              <HTML html={this.props.questionDetails.explanation} />
+              <br />
+              <img
+                src={this.props.questionDetails?.explanation_img_url}
+                alt=""
+              />
             </div>
           </div>
         ) : null}

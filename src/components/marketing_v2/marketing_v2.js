@@ -25,10 +25,10 @@ const marketingV2 = () => {
             Easy concise information in one place.<br/> Practice for exams 24/7.<br/> All
             from your home!
           </div>
-          <div className="header-cta header-practice">
-            <Link to="/exam/ecat/home">
-            DISCOVER
-            </Link>
+          <div className="header-cta hero-cta-register header-practice" onClick={() => {
+                messageService.sendMessage("v2 RegiterButton clicked");
+              }}>
+            REGISTER NOW
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@ const marketingV2 = () => {
       </div>
       <div className="video-container">
         <div className="video-heading">How it works</div>
-        <div>
+        <div className="video-wrapper">
           <ReactPlayer
             url="https://youtu.be/euQlC2_2j8E"
             width="100%"
@@ -109,7 +109,8 @@ const marketingV2 = () => {
             </div>
             <div className="highlights_text highlight_text1">
               <div className="highlight-tex-wrapper">
-                Improve your ECAT score. Click for practice questions
+                Improve your ECAT score. Click to access 5000+ practice
+                questions
               </div>
             </div>
           </div>
@@ -126,7 +127,7 @@ const marketingV2 = () => {
             </div>
             <div className="highlights_text highlight_text2">
               <div className="highlight-tex-wrapper">
-                View 10 year past papers of ECAT all in one place
+                View 10 years ECAT past papers all available in one place
               </div>
             </div>
           </div>
@@ -145,7 +146,8 @@ const marketingV2 = () => {
               }}
             >
               <div className="highlight-tex-wrapper">
-                Register now to access to download free papers and information
+                Register now to access and to download past papers, useful tips
+                and information
               </div>
             </div>
           </div>

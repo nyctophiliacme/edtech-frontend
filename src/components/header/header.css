@@ -26,6 +26,11 @@
     color: white;
     margin-right: 45px;
   }
+
+  .header-practice:hover {
+    background-color: #c15757;  
+  }
+  
   .header-cta {
     text-transform: uppercase;
     font-weight: 600;
@@ -37,6 +42,7 @@
     border-radius: 37px;
     width: 150px;
     cursor: pointer;
+  
   }
 }
 @media screen and (min-width: 768px) {

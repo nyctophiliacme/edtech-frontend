@@ -1,0 +1,21 @@
+.verified-container {
+  padding: 100px;
+  margin: auto;
+  background-color: #fafafa;
+  color: #122e51;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+}
+.verified-heading {
+  font-size: 26px;
+  font-weight: 500;
+}
+.verified-icon {
+  color: #67b2e8;
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+.verified-login{
+    border-radius: 40px;
+}

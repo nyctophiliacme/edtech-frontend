@@ -65,17 +65,30 @@
   .video-container {
     color: #fff;
     background-color: #67b2e8;
-    padding: 50px 150px;
+    padding: 50px 150px 0px 150px;
     margin: 0 auto;
     text-align: center;
   }
   .video-heading {
     font-weight: 700;
     font-size: 45px;
-    line-height: 40px;
+    line-height: 50px;
     padding-bottom: 30px;
   }
-
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    transform: translate(12%);
+  }
   .illustrations {
     display: flex;
   }
@@ -115,7 +128,7 @@
 
   .illustration-footer {
     padding-top: 30px;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     text-align: justify;
@@ -307,7 +320,10 @@
   transform: translateY(50%);
   bottom: 50%;
 }
-
+.hero-cta-register {
+  white-space: nowrap;
+  width: inherit;
+}
 @media screen and (min-width: 1200px) and (max-width: 1500px) {
   .hero-imgv2 img {
     height: 308px;

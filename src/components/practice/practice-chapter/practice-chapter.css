@@ -21,8 +21,12 @@ font-size: 22px;
 Color: #122E51;
 line-height: 32px;
 border-radius:25px ;
-padding:10px;
+padding:10px 15px;
 }
+.practice-chapter-button:hover{
+background-color:#cfd9e6 ;
+}
+
 .practice-chapter-question{
     padding-left:55px;
     font-weight: 300;

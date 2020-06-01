@@ -54,7 +54,7 @@ class Header extends Component {
               this.setState({ modalType: "upgrade", showModal: true });
             }}
           >
-            Upgarde
+            Upgrade
           </div>
         ),
       });
@@ -82,6 +82,11 @@ class Header extends Component {
       } else if (message.text === "user trying to access locked chapter") {
         this.setState({
           modalType: "upgrade",
+          showModal: true,
+        });
+      }else if (message.text === "verified successful login now") {
+        this.setState({
+          modalType: "login",
           showModal: true,
         });
       }

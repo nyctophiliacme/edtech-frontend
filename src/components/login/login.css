@@ -2,7 +2,7 @@ input:focus {
   outline:none;
 }
 .login-container {
-  padding: 35px 50px;
+  padding: 25px 35px;
   text-align: center;
 }
 
@@ -20,11 +20,16 @@ input:focus {
   padding: 18px 28px;
   color: white;
   background-color: #67b2e8;
-  border-radius: 12px;
+  border-radius: 30px;
   display: inline-block;
   cursor: pointer;
   border: none;
 }
+
+.login-button:hover{
+  background-color: #518bb5;
+}
+
 .login-signUp{
     font-weight: 400;
     color:#60B1FF;
@@ -47,7 +52,7 @@ input:focus {
 }
 .login-input {
   width: 100%;
-  padding: 15px;
+  padding: 10px 15px;
   border-radius: 12px;
   border-color: #e0e3e5;
   border-width: 1.6px;

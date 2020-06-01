@@ -17,6 +17,9 @@
 .pricing-text {
   color: #505050;
   font-size: 18px;
+  padding-right: 25%;
+  text-align: justify;
+  line-height: 30px
 }
 .price-prefix-select{
     font-size: 20px;
