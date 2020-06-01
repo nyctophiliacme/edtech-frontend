@@ -125,7 +125,7 @@ class Header extends Component {
               )}
             </div>
           </div>
-          <div>
+          <div className="header-menu">
             <ul className="header-ul">
               <li className="header-dropdown">
                 <a href="#" className="dropbtn">
