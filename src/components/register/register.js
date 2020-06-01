@@ -115,8 +115,6 @@ class Register extends Component {
         "error",
         3000
       );
-
-      console.error("Invalid Form");
     }
   };
 

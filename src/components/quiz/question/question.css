@@ -77,7 +77,9 @@
     border-right: solid #F44336 2px;
     color: white;
 }
-
+.solution-answer{
+    display: flex;
+}
 .question-option-correct-container {
     border: solid #56CE66 1px;
 }
@@ -111,8 +113,8 @@
 
 .solution-wrapper {
     padding: 20px;
-    font-size: 28px;
-    line-height: 32px;
+    font-size: 22px;
+    line-height: 28px;
     ;
 }
 

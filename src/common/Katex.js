@@ -41,7 +41,6 @@ class Katex extends Component {
     render() {
         const { tagName, children, ...restProps } = this.props;
         const TagName = tagName || 'div';
-        console.log(TagName);
         return (
             <TagName {...restProps} ref={(node) => this.container = node}>
                 {children ? children : null}
