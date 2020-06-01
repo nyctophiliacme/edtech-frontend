@@ -15,15 +15,16 @@ input:focus {
 .login-button {
   text-align: center;
   font-weight: 500;
-  font-size: 22px;
-  line-height: 26px;
-  padding: 18px 28px;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 15px 25px;
   color: white;
   background-color: #67b2e8;
   border-radius: 30px;
   display: inline-block;
   cursor: pointer;
   border: none;
+  letter-spacing: 1px;
 }
 
 .login-button:hover{
@@ -60,8 +61,9 @@ input:focus {
   box-sizing: border-box;
   margin-bottom: 12px;
   font-weight: 300;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 22px;
+
 }
 .error{
   border-color: red;
