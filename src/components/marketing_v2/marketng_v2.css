@@ -98,9 +98,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 80%;
-    height: 80%;
-    transform: translate(12%);
+    width: 100%;
+    height: 100%;
+    transform: none;
   }
 
   .highlightsv2-container {
@@ -269,6 +269,11 @@
     font-size: 45px;
     line-height: 50px;
     padding-bottom: 30px;
+  }
+  .video-wrapper iframe {
+    width: 80%;
+    height: 80%;
+    transform: translate(12%);
   }
   .highlight-item-text {
     margin-left: 25px;
