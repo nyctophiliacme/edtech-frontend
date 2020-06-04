@@ -3,14 +3,25 @@ import "./exam-details.css";
 import taketest from "../../../assets/images/taketest.png";
 import practice from "../../../assets/images/practice.png";
 import pdfIcon from "../../../assets/images/Pdf_icon.png";
-import { Link } from "react-router-dom";
 import { examDetailsCompleteData } from "../exam-ecat-data";
 import { notify } from "react-notify-toast";
+import { messageService } from "../../../services/notifyComponentService";
 
 const ExamDetails = ({ name, subSection }) => {
   const examDetailsData = examDetailsCompleteData.filter((item) => {
     return item.subSection === subSection;
   })[0]?.data;
+
+  const startPractice = () => {
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      messageService.sendMessage("user trying to access without login");
+      sessionStorage.setItem("targetUrl","practice");
+    } else {
+      this.props.history.push({
+        pathname: "/practice/"+name,
+      });
+    }
+  };
 
   const renderActionDiv = () => {
     if (subSection === "home") {
@@ -33,14 +44,12 @@ const ExamDetails = ({ name, subSection }) => {
               >  Take a Test
               </div>
             </div>
-            <Link to={`/practice/${name}`}>
-              <div className="exam-action">
+              <div className="exam-action" onClick={startPractice}>
                 <div className="exam-action-img">
                   <img src={practice} alt="test" />
                 </div>
                 <div className="exam-action-text">Practice by Chapter</div>
               </div>
-            </Link>
           </div>
         </div>
       );

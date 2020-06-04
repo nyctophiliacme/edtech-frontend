@@ -50,8 +50,15 @@ class Login extends Component {
           getUserDetails(sessionStorage.getItem("userToken"))
             .then((response) => {
               sessionStorage.setItem("isLoggedIn", true);
-              sessionStorage.setItem("userDetails", JSON.stringify(response.data));
-              if(this.props.location?.pathname ==="/"){
+              sessionStorage.setItem(
+                "userDetails",
+                JSON.stringify(response.data)
+              );
+              if (sessionStorage.getItem("targetUrl") === "practice") {
+                this.props.history.push({
+                  pathname: "/practice/ecat",
+                });
+              }else if (this.props.location?.pathname === "/") {
                 this.props.redirect.push("/exam/ecat/home");
               }
               this.sendMessage("Logged In");
@@ -118,9 +125,7 @@ class Login extends Component {
     if (this.state.email === null && this.state.password === null) {
       valid = false;
       this.setState({ errors: { email: "error", password: "error" } });
-      Object.values(errors).forEach(
-        (val) => val.length > 0 && (valid = false)
-      );
+      Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
     }
 
     return valid;

@@ -4,7 +4,7 @@ import { messageService } from "../../services/notifyComponentService";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "../modal/modal";
-import logo from "../../assets/images/ST_logo.png"
+import logo from "../../assets/images/ST_logo.png";
 import down from "../../assets/images/dropdown.png";
 import up from "../../assets/images/up-arrow.png";
 import "./header.css";
@@ -25,24 +25,39 @@ class Header extends Component {
         ? JSON.parse(sessionStorage.getItem("userDetails")).first_name
         : "",
       firstText: (
-        <Link to="/practice/ecat">
-          <div className="header-cta header-practice">Practice</div>
-        </Link>
+        <div
+          className="header-cta header-practice"
+          onClick={this.startPractice}
+        >
+          Practice
+        </div>
       ),
     };
   }
-
-  checkUpgradePractice=()=>{
+  startPractice = () => {
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      this.setState({ modalType: "login", showModal: true });
+      sessionStorage.setItem("targetUrl","practice");
+    } else {
+      this.props.history.push({
+        pathname: "/practice/ecat",
+      });
+    }
+  }
+  checkUpgradePractice = () => {
     if (
       this.props.location.pathname.split("/")[1] === "" ||
       this.props.location.pathname.split("/")[1] === "exam" ||
-      this.props.location.pathname.split("/")[1] === "home"
+      this.props.location.pathname.split("/")[1] === "pricing"
     ) {
       this.setState({
         firstText: (
-          <Link to="/practice/ecat">
-            <div className="header-cta header-practice">Practice</div>
-          </Link>
+          <div
+            className="header-cta header-practice"
+            onClick={this.startPractice}
+          >
+            Practice
+          </div>
         ),
       });
     } else {
@@ -59,7 +74,7 @@ class Header extends Component {
         ),
       });
     }
-  }
+  };
 
   componentDidMount() {
     this.subscription = messageService.getMessage().subscribe((message) => {
@@ -74,7 +89,10 @@ class Header extends Component {
           modalType: "register",
           showModal: true,
         });
-      } else if (message.text === "user trying to access without login") {
+      } else if (
+        message.text === "user trying to access without login" ||
+        message.text === "login Clicked"
+      ) {
         this.setState({
           modalType: "login",
           showModal: true,
@@ -84,7 +102,7 @@ class Header extends Component {
           modalType: "upgrade",
           showModal: true,
         });
-      }else if (message.text === "verified successful login now") {
+      } else if (message.text === "verified successful login now") {
         this.setState({
           modalType: "login",
           showModal: true,
@@ -95,7 +113,10 @@ class Header extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.location.pathname !== prevProps.location.pathname || this.props.isMobile!==prevProps.isMobile) {
+    if (
+      this.props.location.pathname !== prevProps.location.pathname ||
+      this.props.isMobile !== prevProps.isMobile
+    ) {
       this.checkUpgradePractice();
     }
   }
@@ -103,7 +124,9 @@ class Header extends Component {
   render() {
     return (
       <>
-        <header className={`logo-header ${this.props.isMobile?"hide-header":""}`}>
+        <header
+          className={`logo-header ${this.props.isMobile ? "hide-header" : ""}`}
+        >
           <div>
             <div className="headerlogo-wrapper">
               <Link to="/">

@@ -13,6 +13,16 @@ import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 
 const marketingV2 = () => {
+  const startPractice = () => {
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      messageService.sendMessage("user trying to access without login");
+      sessionStorage.setItem("targetUrl","practice");
+    } else {
+      this.props.history.push({
+        pathname: "/practice/ecat",
+      });
+    }
+  };
   return (
     <>
       <div className="herov2 marketing-container">
@@ -101,19 +111,16 @@ const marketingV2 = () => {
         </div>
       </div>
       <div className="highlightsv2-container">
-        <Link to="/practice/ecat">
-          <div className="highlights_content">
-            <div className="highlights_img highlight_img1">
-              <img src={click1} alt="Hero" />
-            </div>
-            <div className="highlights_text highlight_text1">
-              <div className="highlight-tex-wrapper">
-                Improve your ECAT score. Click to access 5000+ practice
-                questions
-              </div>
+        <div className="highlights_content" onClick={startPractice}>
+          <div className="highlights_img highlight_img1">
+            <img src={click1} alt="Hero" />
+          </div>
+          <div className="highlights_text highlight_text1">
+            <div className="highlight-tex-wrapper">
+              Improve your ECAT score. Click to access 5000+ practice questions
             </div>
           </div>
-        </Link>
+        </div>
         <Link
           to={{
             pathname: "/exam/ecat/previousPapers",

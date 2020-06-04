@@ -21,6 +21,18 @@ const MobileHeader = ({ isMobile }) => {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+  const startPractice = () => {
+    if (!sessionStorage.getItem("isLoggedIn")) {
+      messageService.sendMessage("user trying to access without login");
+      sessionStorage.setItem("targetUrl","practice");
+
+    } else {
+      this.props.history.push({
+        pathname: "/practice/ecat",
+      });
+    }
+    toggleMenu();
+  };
 
   return (
     <>
@@ -44,12 +56,13 @@ const MobileHeader = ({ isMobile }) => {
           </div>
         </Link>
 
-        <div className="mbl-hdr-menu-item" onClick={()=>{
-           messageService.sendMessage(
-            "user trying to access without login"
-          );
-          setShowMenu(!showMenu);
-          }}>
+        <div
+          className="mbl-hdr-menu-item"
+          onClick={() => {
+            messageService.sendMessage("login Clicked");
+            setShowMenu(!showMenu);
+          }}
+        >
           Login
         </div>
         <div
@@ -77,11 +90,9 @@ const MobileHeader = ({ isMobile }) => {
           ""
         )}
 
-        <Link to="/practice/ecat">
-          <div className="mbl-hdr-menu-item last-item" onClick={toggleMenu}>
-            Practice
-          </div>
-        </Link>
+        <div className="mbl-hdr-menu-item last-item" onClick={startPractice}>
+          Practice
+        </div>
       </div>
     </>
   );

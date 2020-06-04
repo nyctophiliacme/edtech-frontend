@@ -2,6 +2,7 @@
     padding:60px;
     display:flex;
     background-color:#FAFAFA;
+    overflow-x: scroll;
 }
 .exam-titlelist-Container{
     float: left;

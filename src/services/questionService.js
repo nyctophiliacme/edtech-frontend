@@ -6,6 +6,9 @@ export const getQuestions = (chapter_id) => {
       chapter_id: chapter_id
   }
     return axios.get(`${baseURL}questions/practice`,{
+      headers: {
+        Authorization: sessionStorage.getItem("userToken"),
+      },
       params:axiosParams
     });
   };
