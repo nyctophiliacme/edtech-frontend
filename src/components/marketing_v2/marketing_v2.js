@@ -16,74 +16,73 @@ const marketingV2 = () => {
   return (
     <>
       <div className="herov2 marketing-container">
-        <div className="hero-imgv2">
-          <img src={topBanner} alt="Hero" />
-        </div>
         <div className="hero-text-wrapperv2">
           <div className="hero-headerv2">Study &amp; Test prep made easy</div>
           <div className="hero-body-txtv2">
-            Easy concise information in one place.<br/> Practice for exams 24/7.<br/> All
-            from your home!
+            Easy concise information in one place.
+            <br /> Practice for exams 24/7.
+            <br /> All from your home!
           </div>
-          <div className="header-cta hero-cta-register header-practice" onClick={() => {
-                messageService.sendMessage("v2 RegiterButton clicked");
-              }}>
+          <div
+            className="header-cta hero-cta-register header-practice"
+            onClick={() => {
+              messageService.sendMessage("v2 RegiterButton clicked");
+            }}
+          >
             REGISTER NOW
           </div>
         </div>
+        <div className="hero-imgv2">
+          <img src={topBanner} alt="Hero" />
+        </div>
       </div>
       <div className="illustrationsv2 marketing-container">
-        <div className="illustrations-wrapperv2">
-          <div className="illustration-contentv2">
-            <div className="illustration-imagev2">
-              <span className="helperv2"></span>
-              <img src={illustration1} alt="Illustration3" />
-            </div>
-            <div className="illustration-textv2">
-              <div className="illustration-headerv2">
-                Concise &amp; <br />
-                Convenient
-              </div>
-              <div className="illustration-bodyv2">
-                We have collected the best resources in one place, saving you
-                time and money. Now learn at your own pace.
-              </div>
-              <div className="illustration-footer">Hassle free learning</div>
-            </div>
+        <div className="illustration-contentv2">
+          <div className="illustration-imagev2">
+            <img src={illustration1} alt="Illustration3" />
           </div>
-          <div className="illustration-contentv2">
-            <div className="illustration-imagev2">
-              <span className="helperv2"></span>
-              <img src={illustration2} alt="Illustration2" />
+          <div className="illustration-textv2">
+            <div className="illustration-headerv2">
+              Concise &amp; <br />
+              Convenient
             </div>
-            <div className="illustration-textv2">
-              <div className="illustration-headerv2">
-                Group <br />
-                Learning
-              </div>
-              <div className="illustration-bodyv2">
-                Make friends with smart learners. Ask questions, get answers,
-                share notes, come up with new ideas.
-              </div>
+            <div className="illustration-bodyv2">
+              We have collected the best resources in one place, saving you time
+              and money. Now learn at your own pace.
+            </div>
+            <div className="illustration-footer">Hassle free learning</div>
+          </div>
+        </div>
+        <div className="illustration-contentv2">
+          <div className="illustration-imagev2">
+            <img src={illustration2} alt="Illustration2" />
+          </div>
+          <div className="illustration-textv2">
+            <div className="illustration-headerv2">
+              Group <br />
+              Learning
+            </div>
+            <div className="illustration-bodyv2">
+              Make friends with smart learners. Ask questions, get answers,
+              share notes, come up with new ideas.
             </div>
             <div className="illustration-footer">
               The world is waiting to hear from you!
             </div>
           </div>
-          <div className="illustration-contentv2 no-right-pad">
-            <div className="illustration-imagev2">
-              <span className="helperv2"></span>
-              <img src={illustration3} alt="Illustration1" />
+        </div>
+        <div className="illustration-contentv2 no-right-pad">
+          <div className="illustration-imagev2">
+            <img src={illustration3} alt="Illustration1" />
+          </div>
+          <div className="illustration-textv2">
+            <div className="illustration-headerv2">
+              Expert <br />
+              Mentors
             </div>
-            <div className="illustration-textv2">
-              <div className="illustration-headerv2">
-                Expert <br />
-                Mentors
-              </div>
-              <div className="illustration-bodyv2">
-                Learn valuable tips and tricks from the best teachers. Direct
-                access to smart students who aced the exams.
-              </div>
+            <div className="illustration-bodyv2">
+              Learn valuable tips and tricks from the best teachers. Direct
+              access to smart students who aced the exams.
             </div>
             <div className="illustration-footer">Take the best shot!</div>
           </div>

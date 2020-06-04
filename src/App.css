@@ -22,6 +22,10 @@ a{
   color: inherit;
 }
 
+.hide-header{
+  display: none !important;
+}
+
 @media screen and (min-width: 320px) {
   .common-container {
     margin: 0 auto;

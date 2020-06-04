@@ -29,7 +29,7 @@ class App extends Component {
     window.addEventListener(
       "resize",
       debounce(() => {
-        current.setState({ checkDevice: handleResize() });
+        this.setState({ checkDevice: handleResize() });
       }, 500)
     );
   }
@@ -41,7 +41,8 @@ class App extends Component {
     return (
       <>
         <Notifications />
-        {isMobile ? <MobileHeader></MobileHeader> : <Header></Header>}
+         <MobileHeader isMobile={isMobile}></MobileHeader> 
+         <Header isMobile={isMobile}></Header>
         <Switch>
           <Route exact path="/" component={MarketingV2} />
           <Route path="/privacy_policy" component={PrivacyPolicy} />

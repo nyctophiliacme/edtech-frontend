@@ -1,0 +1,52 @@
+.mob-hdr-container{
+    background-color: #122E51;
+    padding:20px;
+    display: flex;
+}
+.mob-hdr-menuIcon{
+    font-size: 22px;
+    line-height: 32px;
+    color: #fff;
+}
+.mob-hdr-logo{
+    margin: 0 auto;
+    HEIGHT: 32px;
+}
+.side-panel  {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #122E51;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: .75px;
+  }
+
+  .side-panel-show{
+      width:100%;
+  }
+  .mbl-hdr-menu-item{
+      padding:15px 60px;
+      border-bottom: solid #686868 .5px;
+  }
+  .mbl-hdr-back-arrow{
+    padding:10px 30px 0px;
+
+  }
+  .last-item{
+    border-bottom: none;
+  }
+  .mbl-hdr-sub-item{
+    padding:10px 70px;
+    font-size: 15px;
+  }
+  .mbl-hdr-menu-item-arrow{
+      float:right;
+      font-size: 22px;
+  }

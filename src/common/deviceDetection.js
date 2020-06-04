@@ -18,7 +18,7 @@ function handleResize() {
   } else if (innerWidth < 1200 && innerWidth >= 992) {
     device.isDesktop = true;
   } else if (innerWidth >= 1200) {
-    device.isWide = true;
+    device.isDesktop = true;
   }
 
   return device;

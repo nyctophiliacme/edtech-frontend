@@ -95,7 +95,7 @@ class Header extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.location.pathname !== prevProps.location.pathname) {
+    if (this.props.location.pathname !== prevProps.location.pathname || this.props.isMobile!==prevProps.isMobile) {
       this.checkUpgradePractice();
     }
   }
@@ -103,7 +103,7 @@ class Header extends Component {
   render() {
     return (
       <>
-        <header className="logo-header">
+        <header className={`logo-header ${this.props.isMobile?"hide-header":""}`}>
           <div>
             <div className="headerlogo-wrapper">
               <Link to="/">

@@ -37,19 +37,36 @@
   .header-cta {
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
-    padding: 15px;
-    letter-spacing: 1.5px;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 11px;
+    letter-spacing: 1px;
     text-align: center;
     border-radius: 37px;
-    width: 150px;
+    width: 100px;
     cursor: pointer;
   }
 }
 @media screen and (min-width: 768px) {
+  .header-cta {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 13px;
+    letter-spacing: 1.2px;
+    border-radius: 37px;
+    width: 120px;
+  }
 }
 @media screen and (min-width: 992px) {
+  .header-cta {
+
+    font-size: 18px;
+    line-height: 22px;
+    padding: 15px;
+    letter-spacing: 1.5px;
+    border-radius: 37px;
+    width: 150px;
+  }
 }
 
 .header-ul {
