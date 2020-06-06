@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Component } from "react";
 import logo from "../../assets/images/ST_logo.png";
 import {
   faBars,
@@ -11,17 +11,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./mobile_header.css";
 import { messageService } from "../../services/notifyComponentService";
+import { render } from "@testing-library/react";
 
 library.add(faBars, faArrowLeft, faAngleDown, faAngleUp);
 
-const MobileHeader = ({ isMobile }) => {
-  const [showMenu, setShowMenu] = useState(false);
-  const [ShowEntryTestList, SetShowEntryTestList] = useState(false);
-
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
+class MobileHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMenu: false,
+      ShowEntryTestList: false,
+      isLoggedIn: sessionStorage.getItem("isLoggedIn")
+        ? sessionStorage.getItem("isLoggedIn")
+        : false,
+    };
+  }
+  componentDidMount() {
+    this.subscription = messageService.getMessage().subscribe((message) => {
+      if (message.text === "Logged In") {
+        this.setState({
+          isLoggedIn: sessionStorage.getItem("isLoggedIn"),
+        });
+      }
+    });
+  }
+  toggleMenu = () => {
+    this.setState({
+      showMenu: !this.state.showMenu,
+    });
   };
-  const startPractice = () => {
+  startPractice = () => {
     if (!sessionStorage.getItem("isLoggedIn")) {
       messageService.sendMessage("user trying to access without login");
       sessionStorage.setItem("targetUrl", "practice");
@@ -30,88 +49,103 @@ const MobileHeader = ({ isMobile }) => {
         pathname: "/practice/ecat",
       });
     }
-    toggleMenu();
+    this.toggleMenu();
   };
 
-  return (
-    <>
-      <div className={`mob-hdr-container ${isMobile ? "" : "hide-header"}`}>
-        <div className="mob-hdr-menuIcon">
-          <FontAwesomeIcon icon="bars" onClick={toggleMenu} />
-        </div>
-        <div className="mob-hdr-logo">
-          <Link to="/">
-            <img className="img-logo" src={logo} alt="logo" />
-          </Link>
-        </div>
-        <>
-          {sessionStorage.getItem("userDetails") ? (
-            <div className="mbl-hdr-user-name">
-              {JSON.parse(
-                sessionStorage.getItem("userDetails")
-              ).first_name.charAt(0) +
-                JSON.parse(
-                  sessionStorage.getItem("userDetails")
-                ).last_name.charAt(0)}
-            </div>
-          ) : (
-            ""
-          )}
-        </>
-      </div>
-      <div className={`side-panel ${showMenu ? "side-panel-show" : ""}`}>
-        <div className="mbl-hdr-back-arrow" onClick={toggleMenu}>
-          <FontAwesomeIcon icon="arrow-left" />
-        </div>
-        <Link to="/">
-          <div className="mbl-hdr-menu-item" onClick={toggleMenu}>
-            Home
+  render() {
+    return (
+      <>
+        <div
+          className={`mob-hdr-container ${
+            this.props.isMobile ? "" : "hide-header"
+          }`}
+        >
+          <div className="mob-hdr-menuIcon">
+            <FontAwesomeIcon icon="bars" onClick={this.toggleMenu} />
           </div>
-        </Link>
-        {sessionStorage.getItem("isLoggedIn") ? (
-          ""
-        ) : (
+          <div className="mob-hdr-logo">
+            <Link to="/">
+              <img className="img-logo" src={logo} alt="logo" />
+            </Link>
+          </div>
+          <>
+            {sessionStorage.getItem("userDetails") ? (
+              <div className="mbl-hdr-user-name">
+                {JSON.parse(
+                  sessionStorage.getItem("userDetails")
+                ).first_name.charAt(0) +
+                  JSON.parse(
+                    sessionStorage.getItem("userDetails")
+                  ).last_name.charAt(0)}
+              </div>
+            ) : (
+              ""
+            )}
+          </>
+        </div>
+        <div
+          className={`side-panel ${
+            this.state.showMenu ? "side-panel-show" : ""
+          }`}
+        >
+          <div className="mbl-hdr-back-arrow" onClick={this.toggleMenu}>
+            <FontAwesomeIcon icon="arrow-left" />
+          </div>
+          <Link to="/">
+            <div className="mbl-hdr-menu-item" onClick={this.toggleMenu}>
+              Home
+            </div>
+          </Link>
+          {this.state.isLoggedIn ? (
+            ""
+          ) : (
+            <div
+              className="mbl-hdr-menu-item"
+              onClick={() => {
+                messageService.sendMessage("login Clicked");
+                this.setState({ showMenu: !this.state.showMenu });
+              }}
+            >
+              Login
+            </div>
+          )}
+
           <div
             className="mbl-hdr-menu-item"
             onClick={() => {
-              messageService.sendMessage("login Clicked");
-              setShowMenu(!showMenu);
+              this.setState({
+                ShowEntryTestList: !this.state.ShowEntryTestList,
+              });
             }}
           >
-            Login
+            Entry Tests
+            <FontAwesomeIcon
+              className="mbl-hdr-menu-item-arrow"
+              icon={this.state.ShowEntryTestList ? "angle-up" : "angle-down"}
+            />
           </div>
-        )}
+          {this.state.ShowEntryTestList ? (
+            <Link to="/exam/ecat/home">
+              <div
+                className="mbl-hdr-menu-item mbl-hdr-sub-item"
+                onClick={this.toggleMenu}
+              >
+                ECAT
+              </div>
+            </Link>
+          ) : (
+            ""
+          )}
 
-        <div
-          className="mbl-hdr-menu-item"
-          onClick={() => {
-            SetShowEntryTestList(!ShowEntryTestList);
-          }}
-        >
-          Entry Tests
-          <FontAwesomeIcon
-            className="mbl-hdr-menu-item-arrow"
-            icon={ShowEntryTestList ? "angle-up" : "angle-down"}
-          />
+          <div
+            className="mbl-hdr-menu-item last-item"
+            onClick={this.startPractice}
+          >
+            Practice
+          </div>
         </div>
-        {ShowEntryTestList ? (
-          <Link to="/exam/ecat/home">
-            <div
-              className="mbl-hdr-menu-item mbl-hdr-sub-item"
-              onClick={toggleMenu}
-            >
-              ECAT
-            </div>
-          </Link>
-        ) : (
-          ""
-        )}
-
-        <div className="mbl-hdr-menu-item last-item" onClick={startPractice}>
-          Practice
-        </div>
-      </div>
-    </>
-  );
-};
+      </>
+    );
+  }
+}
 export default MobileHeader;

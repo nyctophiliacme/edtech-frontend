@@ -30,23 +30,23 @@
     font-size: 12px;
     line-height: 28px;
     padding-bottom: 15px;
-    width: 80%;
+    width: 90%;
   }
   .hero-imgv2 img {
     position: relative;
-    top: 15%;
-    max-width: 125%;
-    height: 175px;
+    top: 10%;
+    max-width: 120%;
+    height: 185px;
     margin-left: -25px;
     float: right;
   }
   .illustration-imagev2 {
-    padding-right: 40px;
+    padding-right: 30px;
     margin: auto;
   }
   .illustration-imagev2 img {
-    height: 120px;
-    width: 100px;
+    height: 130px;
+    width: 110px;
   }
 
   .illustration-headerv2 {
