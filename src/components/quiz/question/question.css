@@ -2,9 +2,9 @@
     border-radius: 10px;
     border: solid #E2ECFC 1px;
     margin-left: 15px;
-    padding: 25px 40px 40px 40px;
-    font-size: 24px;
-    line-height: 32px;
+    padding: 15px 30px 30px 30px;
+    font-size: 20px;
+    line-height: 24px;
     font-weight: 300;
     color: #000;
     text-align: left;
@@ -19,13 +19,15 @@
 
 .question-header-leftblock {
     display: inline-block;
-    line-height: 44px;
+    line-height: 30px;
+    font-size: 24px;
 }
 
 .question-header-rightblock {
     display: flex;
     float: right;
-    font-size: 20px;
+    font-size: 22px;
+    line-height: 26px;
 }
 
 .question-text {
@@ -94,7 +96,7 @@
 
 .question-prevnext {
     background-color: #E8F2FF;
-    padding: 5px 20px;
+    padding: 7px 17px;
     border-radius: 20px;
     cursor: pointer;
 }
@@ -112,16 +114,16 @@
 }
 
 .solution-wrapper {
-    padding: 20px;
-    font-size: 22px;
-    line-height: 28px;
+    padding: 15px;
+    font-size: 20px;
+    line-height: 30px;
     ;
 }
 
 .solution-header {
     font-weight: 500;
     color: #204A7D;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .right-align {

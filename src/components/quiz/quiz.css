@@ -1,5 +1,5 @@
 .quiz-header {
-  padding: 30px 90px;
+  padding: 15px 60px;
   background-color: #204a7d;
 }
 .quiz-container {
@@ -8,23 +8,28 @@
 }
 .quiz-header-image{
   display: inline-block;
+  width:24px;
+  height: auto;
 }
 .quiz-header-title {
   display: inline-block;
-  line-height: 36px;
+  line-height: 30px;
   vertical-align: top;
   padding-left: 15px;
   color: #ffffff;
-  font-size: 32px;
+  font-weight: 500;
+  font-size: 26px;
 }
 .quiz-header-number{
   padding-left: 0px;
   float: right;
 }
 .quiz-header-back-button{
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 26px;
+  line-height: 30px;
   color: #ffffff;
-  vertical-align: bottom;
-  padding-right: 40px;
+  vertical-align: top;
+  padding-right: 20px;
+  padding-top: 4px;
+  display: inline-block;
 }

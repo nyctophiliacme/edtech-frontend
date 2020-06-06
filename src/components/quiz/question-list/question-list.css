@@ -1,19 +1,19 @@
 .questionlist-container {
   border-radius: 10px;
-  border: solid #e2ecfc 1px;
-  width: 25%;
+  border: solid #e2ecfc 1.5px;
+  width: 20%;
   height: 500px;
   overflow-y: scroll;
 }
 .questionlist-item-container {
   border-bottom: solid #e2ecfc 1px;
-  padding: 20px;
+  padding: 10px 20px;
   background-color: #fff;
   cursor: pointer;
 }
 .green-check {
   color: #56ce66;
-  font-size: 28px;
+  font-size: 24px;
   vertical-align: middle;
   padding-right: 5px;
 
@@ -21,7 +21,7 @@
 
 .red-cross {
   color: #f44336;
-  font-size: 28px;
+  font-size: 24px;
   vertical-align: middle;
   padding-right: 5px;
 }
@@ -35,15 +35,14 @@
 }
 .questionlist-ques-number {
   color: #505050;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 300;
-  line-height: 28px;
-  padding-bottom: 20px;
+  line-height: 26px;
   letter-spacing: 0.5px;
 }
 .questionlist-ques-difficulty {
   color: #67b2e8;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 26px;
   letter-spacing: 0.5px;

@@ -119,7 +119,6 @@ class Question extends Component {
           {this.props.questionDetails ? (
             <HTML html={this.props.questionDetails.question_text} />
           ) : null}
-          <br />
           <img src={this.props.questionDetails?.question_img_url} alt="" />
         </div>
         {this.props.questionDetails ? (
@@ -230,9 +229,8 @@ class Question extends Component {
                   }
                 />
               </div>
-              <br />
               <HTML html={this.props.questionDetails.explanation} />
-              <br />
+
               <img
                 src={this.props.questionDetails?.explanation_img_url}
                 alt=""
