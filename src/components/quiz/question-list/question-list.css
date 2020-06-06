@@ -7,7 +7,7 @@
 }
 .questionlist-item-container {
   border-bottom: solid #e2ecfc 1px;
-  padding: 20px 35px;
+  padding: 20px;
   background-color: #fff;
   cursor: pointer;
 }
@@ -15,13 +15,21 @@
   color: #56ce66;
   font-size: 28px;
   vertical-align: middle;
+  padding-right: 5px;
+
 }
 
 .red-cross {
-  color: #F44336;
+  color: #f44336;
   font-size: 28px;
   vertical-align: middle;
+  padding-right: 5px;
 }
+.grey-dash {
+  color: #b3b3b3;
+  padding-top: 10px;
+}
+
 .questionlist-item-right {
   display: inline-block;
 }

@@ -17,6 +17,7 @@ class Quiz extends Component {
       questionList: [],
       activeQuestion: 1,
     };
+
   }
   componentDidMount() {
     this.getQuestions();
@@ -32,6 +33,15 @@ class Quiz extends Component {
       .catch((error) => {
         console.log(error);
       });
+  }
+  updateQuestionStatus=(choiceId,isCorrect)=>{
+    let tempList=this.state.questionList;
+    tempList[this.state.activeQuestion-1].user_question_choice_id=choiceId;
+    tempList[this.state.activeQuestion-1].user_attempt_is_correct=isCorrect;
+    this.setState({
+      questionList:tempList
+    })
+
   }
   render() {
     return (
@@ -74,6 +84,7 @@ class Quiz extends Component {
                 activeQuestion: this.state.activeQuestion + 1,
               })
             }
+            updateQuestionStatus={this.updateQuestionStatus}
           />
         </div>
       </>

@@ -4,6 +4,9 @@ import HTML from "../../../common/HTML";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { submitAnswer } from "../../../services/questionService";
+import { withRouter } from "react-router-dom";
+import { notify } from "react-notify-toast";
 
 library.add(faCheck, faTimes);
 
@@ -11,34 +14,84 @@ class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isSubmitted: false,
-      slectedOption: null,
-      showSolution: false,
+      isSubmitted: props.questionDetails?.user_question_choice_id
+        ? true
+        : false,
+      slectedOption: props.questionDetails?.user_question_choice_id
+        ? props.questionDetails?.question_choice.filter((choice) => {
+            return choice.id === props.questionDetails?.user_question_choice_id;
+          })[0]
+        : null,
+      showSolution: props.questionDetails?.user_attempt_is_correct
+        ? true
+        : false,
     };
+    this.submitAnswer = this.submitAnswer.bind(this);
   }
   selectedIndex = "";
+
+
   componentDidUpdate(prevProp) {
-    if (this.props.activeQuestion !== prevProp.activeQuestion) {
-      this.selectedIndex="";
+    if (this.props!== prevProp) {
+      this.selectedIndex = "";
       this.setState({
-        isSubmitted: false,
-        slectedOption: null,
-        showSolution: false,
+        isSubmitted: this.props.questionDetails?.user_question_choice_id
+          ? true
+          : false,
+        slectedOption: this.props.questionDetails?.user_question_choice_id
+          ? this.props.questionDetails?.question_choice.filter((choice) => {
+              return (
+                choice.id ===
+                this.props.questionDetails?.user_question_choice_id
+              );
+            })[0]
+          : null,
+
+        showSolution: this.props.questionDetails?.user_attempt_is_correct
+          ? true
+          : false,
       });
     }
   }
-  
+  submitAnswer() {
+    let pathItems = this.props.location.pathname.split("/");
+    submitAnswer(
+      JSON.parse(sessionStorage.getItem("userDetails"))?.pk,
+      this.props.questionDetails.id,
+      this.state.slectedOption.id,
+      pathItems[4],
+      pathItems[3],
+      pathItems[2],
+      this.state.slectedOption.is_right_choice
+    )
+      .then(() => {
+        this.setState({
+          isSubmitted: true,
+          showSolution: this.state.slectedOption.is_right_choice,
+        });
+        this.props.updateQuestionStatus(this.state.slectedOption.id,this.state.slectedOption.is_right_choice);
+      })
+      .catch(() => {
+        notify.show(
+          <div className="notify-container">Error in Submitting Question.</div>,
+          "error",
+          8000
+        );
+      });
+  }
   render() {
     return (
       <div className="question-container">
         <div className="question-header-container">
           <div className="question-header-leftblock">
             {`Q${this.props.activeQuestion}`} &nbsp;&nbsp;
-            {this.state.isSubmitted &&
-            this.state.slectedOption.is_right_choice ? (
+            {(this.state.isSubmitted &&
+              this.state.slectedOption.is_right_choice) ||
+            this.props.questionDetails?.user_attempt_is_correct ? (
               <FontAwesomeIcon className="green-check" icon="check" />
-            ) : this.state.isSubmitted &&
-              !this.state.slectedOption.is_right_choice ? (
+            ) : (this.state.isSubmitted &&
+                !this.state.slectedOption.is_right_choice) ||
+              this.props.questionDetails?.user_attempt_is_correct === false ? (
               <FontAwesomeIcon className="red-cross" icon="times" />
             ) : null}
           </div>
@@ -74,10 +127,8 @@ class Question extends Component {
             {this.props.questionDetails?.question_choice.map(
               (option, index) => {
                 let charIndex = 97 + index;
-                console.log(option.is_right_choice)
-                console.log(String.fromCharCode(charIndex))
-                if(option.is_right_choice){
-                  this.selectedIndex=String.fromCharCode(charIndex)
+                if (option.is_right_choice) {
+                  this.selectedIndex = String.fromCharCode(charIndex);
                 }
                 return (
                   <div
@@ -130,12 +181,7 @@ class Question extends Component {
             className="login-button right-align"
             type="submit"
             value="SUBMIT ANSWER"
-            onClick={() => {
-              this.setState({
-                isSubmitted: true,
-                showSolution: this.state.slectedOption.is_right_choice,
-              });
-            }}
+            onClick={this.submitAnswer}
           />
         ) : null}
         {this.state.isSubmitted && !this.state.slectedOption.is_right_choice ? (
@@ -150,6 +196,7 @@ class Question extends Component {
                   slectedOption: null,
                   showSolution: false,
                 });
+                this.props.updateQuestionStatus(null,null);
               }}
             />
             <input
@@ -197,4 +244,4 @@ class Question extends Component {
     );
   }
 }
-export default Question;
+export default withRouter(Question);
