@@ -1,13 +1,12 @@
-.subjects-container{
-    padding:20px 60px;
-    font-size: 34px;
-    line-height: 64px;
-    letter-spacing: 1px;
-    font-weight: 300;
-    color:#ADB2B5;
-    cursor: pointer !important;
+.subjects-container {
+  padding: 15px 60px;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  color: #adb2b5;
+  cursor: pointer !important;
 }
-.subjects-container:hover{
-    color:#000;
-
+.subjects-container:hover {
+  color: #000;
 }
