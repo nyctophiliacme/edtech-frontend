@@ -24,8 +24,7 @@ const MobileHeader = ({ isMobile }) => {
   const startPractice = () => {
     if (!sessionStorage.getItem("isLoggedIn")) {
       messageService.sendMessage("user trying to access without login");
-      sessionStorage.setItem("targetUrl","practice");
-
+      sessionStorage.setItem("targetUrl", "practice");
     } else {
       this.props.history.push({
         pathname: "/practice/ecat",
@@ -45,6 +44,20 @@ const MobileHeader = ({ isMobile }) => {
             <img className="img-logo" src={logo} alt="logo" />
           </Link>
         </div>
+        <>
+          {sessionStorage.getItem("userDetails") ? (
+            <div className="mbl-hdr-user-name">
+              {JSON.parse(
+                sessionStorage.getItem("userDetails")
+              ).first_name.charAt(0) +
+                JSON.parse(
+                  sessionStorage.getItem("userDetails")
+                ).last_name.charAt(0)}
+            </div>
+          ) : (
+            ""
+          )}
+        </>
       </div>
       <div className={`side-panel ${showMenu ? "side-panel-show" : ""}`}>
         <div className="mbl-hdr-back-arrow" onClick={toggleMenu}>
@@ -55,16 +68,20 @@ const MobileHeader = ({ isMobile }) => {
             Home
           </div>
         </Link>
+        {sessionStorage.getItem("isLoggedIn") ? (
+          ""
+        ) : (
+          <div
+            className="mbl-hdr-menu-item"
+            onClick={() => {
+              messageService.sendMessage("login Clicked");
+              setShowMenu(!showMenu);
+            }}
+          >
+            Login
+          </div>
+        )}
 
-        <div
-          className="mbl-hdr-menu-item"
-          onClick={() => {
-            messageService.sendMessage("login Clicked");
-            setShowMenu(!showMenu);
-          }}
-        >
-          Login
-        </div>
         <div
           className="mbl-hdr-menu-item"
           onClick={() => {
