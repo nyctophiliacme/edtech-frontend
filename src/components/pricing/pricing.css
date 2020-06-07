@@ -4,27 +4,27 @@
 }
 .pricing-header {
   color: #122e51;
-  font-size: 30px;
+  font-size: 22px;
 }
 .pricing-sub-heading {
   color: #122e51;
-  font-size: 22px;
-  padding: 30px 0px 30px 0px;
+  font-size: 18px;
+  padding: 26px 0px 26px 0px;
 }
 .pricing-ul{
     margin: 0px 30px;
 }
 .pricing-text {
   color: #505050;
-  font-size: 18px;
+  font-size: 16px;
   padding-right: 25%;
   text-align: justify;
   line-height: 30px
 }
 .price-prefix-select{
-    font-size: 20px;
-    line-height: 38px;
-    margin-right: 5px;
+  font-size: 20px;
+  line-height: 24px;
+  margin-right: 8px;
 }
 .pricing-text-bold {
   font-weight: 600;
@@ -32,7 +32,7 @@
 .pricing-selection-container {
   padding: 20px;
   border: solid #e2ecfc 2px;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 300;
   border-radius: 10px;
   margin-top: 30px;

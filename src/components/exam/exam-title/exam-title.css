@@ -1,8 +1,8 @@
 .exam-title-container {
   display: flex;
-  padding-bottom: 35px;
+  padding-bottom: 25px;
   line-height: 28px;
-  font-size: 24px;
+  font-size: 18px;
   cursor: pointer !important;
   color: #adb2b5;
   font-weight: 300;
@@ -20,4 +20,6 @@
 
 .exam-title-img{
   margin-right: 15px;
+  height: 27px;
+  width: 27px;
 }

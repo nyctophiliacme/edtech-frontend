@@ -30,34 +30,37 @@ a{
   .common-container {
     margin: 0 auto;
     text-align: center;
-    padding: 40px 35px 80px 35px;
+    padding: 30px 50px 80px 50px;
   }
   .common-heading-text{
-    font-size: 37px;
+    font-size: 16px;
     line-height: 27px;
     font-weight: 500;
+    color: #f44336;
   }
   
 }
 @media screen and (min-width: 768px) {
   .common-container{
-    padding: 80px 70px 120px 70px;
+    padding: 45px 100px 120px 100px;
     
   }
   .common-heading-text{
-    font-size: 47px;
+    font-size: 18px;
     line-height: 37px;
     font-weight: 500;
+    color: #f44336;
   }
   
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) {s
   .common-container {
-    padding: 120px 140px 240px 140px;
+    padding: 55px 180px 240px 180px;
   }
   .common-heading-text{
-    font-size: 57px;
-    line-height: 47px;
+    font-size: 20px;
+    line-height: 21px;
     font-weight: 500;
+    color: #f44336;
   }
 }

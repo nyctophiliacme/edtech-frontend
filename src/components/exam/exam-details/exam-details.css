@@ -19,21 +19,21 @@
 .exam-action-text{
     text-align: center;
    font-weight :400;
-   font-size:36px;
+   font-size:25px;
    line-height:40px;
    color:#122E51;
    padding-bottom: 20px;
 }
 .exam-details-heading{
     font-weight :400;
-    font-size:32px;
+    font-size:22px;
     line-height:36px;
     color:black;
     padding-bottom: 10px;
 }
 .exam-details-text{
     font-weight :300;
-    font-size:20px;
+    font-size:16px;
     line-height:25px;
     color:black;
     padding-bottom: 15px;
@@ -90,10 +90,13 @@
 }
 .pdf-icon{
     display: inline-block;
+    height: 36px;
+    width: 36px;
 }
 .paper-item-text{
     text-transform: capitalize;
     vertical-align: top;
-    line-height: 60px;
+    line-height: 50px;
     padding-left: 20px;
+    font-size: 18px;
 }

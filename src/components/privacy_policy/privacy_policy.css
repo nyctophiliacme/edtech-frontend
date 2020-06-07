@@ -11,7 +11,7 @@
   }
   @media screen and (min-width: 768px) {
     .privacy-heading {
-        padding-bottom: 35px;
+        padding-bottom: 30px;
     }
     .privacy-content{
         font-size: 18px;
@@ -21,7 +21,7 @@
   }
   @media screen and (min-width: 992px) {
     .privacy-heading {
-        padding-bottom: 70px ;
+        padding-bottom: 40px ;
     }
     .privacy-content{
         font-size: 22px;
