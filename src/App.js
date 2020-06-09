@@ -16,6 +16,12 @@ import MobileHeader from "./components/mobile_header/mobile_header"
 
 import "./App.css";
 import EmailVerified from "./components/email-verified/email-verified";
+import ReactGA from 'react-ga';
+
+function initializeReactGA() {
+    ReactGA.initialize('UA-168958894-1');
+    ReactGA.pageview('/homepage');
+}
 
 class App extends Component {
   constructor(props) {
