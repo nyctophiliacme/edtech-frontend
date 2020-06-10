@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component }, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
@@ -18,10 +18,7 @@ import "./App.css";
 import EmailVerified from "./components/email-verified/email-verified";
 import ReactGA from 'react-ga';
 
-function initializeReactGA() {
-    ReactGA.initialize('UA-168958894-1');
-    ReactGA.pageview('/homepage');
-}
+ReactGA.initialize('UA-168958894-1');
 
 class App extends Component {
   constructor(props) {
@@ -44,6 +41,12 @@ class App extends Component {
     const {
       checkDevice: { isMobile },
     } = this.state;
+
+    useEffect( () => {
+        // This line will trigger on a route change
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    });
+
     return (
       <>
         <Notifications />
