@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
@@ -35,17 +35,16 @@ class App extends Component {
         this.setState({ checkDevice: handleResize() });
       }, 500)
     );
+
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
+
+  componentDidUpdate = () => ReactGA.pageview(window.location.pathname + window.location.search);
 
   render() {
     const {
       checkDevice: { isMobile },
     } = this.state;
-
-    useEffect( () => {
-        // This line will trigger on a route change
-        ReactGA.pageview(window.location.pathname + window.location.search);
-    });
 
     return (
       <>
