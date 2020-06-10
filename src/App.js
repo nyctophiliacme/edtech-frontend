@@ -1,4 +1,4 @@
-import React, { Component }, { useEffect } from "react";
+import React, { Component, useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
