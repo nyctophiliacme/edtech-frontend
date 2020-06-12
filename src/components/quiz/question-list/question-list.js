@@ -35,8 +35,7 @@ class QuestionList extends Component {
               <div className="questionlist-item-left">
                 {question.user_attempt_is_correct === null ? (
                   <>
-                    <FontAwesomeIcon className="grey-dash" icon="minus" /> &nbsp;&nbsp;
-                    <FontAwesomeIcon className="grey-dash" icon="minus" />
+                    
                   </>
                 ) : question.user_attempt_is_correct ? (
                   <FontAwesomeIcon className="green-check" icon="check" />

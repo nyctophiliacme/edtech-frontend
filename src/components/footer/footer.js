@@ -38,7 +38,9 @@ const footer = () => {
           >
             CONTACT US
           </a>
-        </div>
+          <br/>
+          info.superteacher@gmail.com
+          </div>
         <div className="footer-address">
           131 B, DHA Phase 1,
           <br />

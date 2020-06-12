@@ -30,9 +30,8 @@ class Question extends Component {
   }
   selectedIndex = "";
 
-
   componentDidUpdate(prevProp) {
-    if (this.props!== prevProp) {
+    if (this.props !== prevProp) {
       this.selectedIndex = "";
       this.setState({
         isSubmitted: this.props.questionDetails?.user_question_choice_id
@@ -69,7 +68,10 @@ class Question extends Component {
           isSubmitted: true,
           showSolution: this.state.slectedOption.is_right_choice,
         });
-        this.props.updateQuestionStatus(this.state.slectedOption.id,this.state.slectedOption.is_right_choice);
+        this.props.updateQuestionStatus(
+          this.state.slectedOption.id,
+          this.state.slectedOption.is_right_choice
+        );
       })
       .catch(() => {
         notify.show(
@@ -167,6 +169,7 @@ class Question extends Component {
                       {String.fromCharCode(charIndex)}
                     </div>
                     <HTML html={option.choice_text} className={"option-text"} />
+                    <img  src={option?.choice_img_url} alt="" />
                   </div>
                 );
               }
@@ -195,7 +198,7 @@ class Question extends Component {
                   slectedOption: null,
                   showSolution: false,
                 });
-                this.props.updateQuestionStatus(null,null);
+                this.props.updateQuestionStatus(null, null);
               }}
             />
             <input
