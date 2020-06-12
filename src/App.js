@@ -16,6 +16,9 @@ import MobileHeader from "./components/mobile_header/mobile_header"
 
 import "./App.css";
 import EmailVerified from "./components/email-verified/email-verified";
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-168958894-1');
 
 class App extends Component {
   constructor(props) {
@@ -32,12 +35,17 @@ class App extends Component {
         this.setState({ checkDevice: handleResize() });
       }, 500)
     );
+
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
+
+  componentDidUpdate = () => ReactGA.pageview(window.location.pathname + window.location.search);
 
   render() {
     const {
       checkDevice: { isMobile },
     } = this.state;
+
     return (
       <>
         <Notifications />
