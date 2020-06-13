@@ -86,33 +86,42 @@ class PracticeChapter extends Component {
                 </div>
               </div>
               <div className="practice-chapter-button-container">
-                <div
-                  className={`practice-chapter-button ${
-                    chapter.user_total_attempts > 0
-                      ? correctPercentage < 50
-                        ? "learning"
-                        : correctPercentage < 70
-                        ? "passing"
-                        : correctPercentage < 100
-                        ? "proficient"
-                        : "mastery"
-                      : ""
-                  }`}
-                >
-                  {chapter.user_total_attempts > 0 ? (
-                    correctPercentage < 50 ? (
-                      <span>{`Learning ${correctPercentage}%`}</span>
-                    ) : correctPercentage < 70 ? (
-                      <span>{`Passing ${correctPercentage}%`}</span>
-                    ) : correctPercentage < 100 ? (
-                      <span>{`Proficient ${correctPercentage}%`}</span>
-                    ) : (
-                      <span>{`Mastered ${correctPercentage}%`}</span>
-                    )
-                  ) : (
-                    "Not Started"
-                  )}
-                </div>
+                {chapter.user_total_attempts > 0 ? (
+                  <div
+                    className={`practice-chapter-button ${
+                      chapter.user_total_attempts > 0
+                        ? correctPercentage < 50
+                          ? "learning"
+                          : correctPercentage < 70
+                          ? "passing"
+                          : correctPercentage < 100
+                          ? "proficient"
+                          : "mastery"
+                        : ""
+                    }`}
+                  >
+                    <div className="practice-status-value">
+                      {chapter.user_total_attempts > 0 ? (
+                        correctPercentage < 50 ? (
+                          <span>Learning</span>
+                        ) : correctPercentage < 70 ? (
+                          <span>Passing</span>
+                        ) : correctPercentage < 100 ? (
+                          <span>Proficient</span>
+                        ) : (
+                          <span>Mastered</span>
+                        )
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                    <div className="practice-percentage-value">
+                      {`${correctPercentage}%`}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="practice-chapter-button practice-not-started">Not Started</div>
+                )}
               </div>
             </div>
           );
