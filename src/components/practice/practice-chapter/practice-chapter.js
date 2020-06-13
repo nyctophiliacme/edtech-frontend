@@ -14,18 +14,16 @@ class PracticeChapter extends Component {
   }
 
   componentDidMount() {
-
     this.getChapterList();
   }
   componentDidUpdate(prevProps) {
-
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.getChapterList();
     }
   }
   paths = this.props.location.pathname.split("/");
   getChapterList = () => {
-    this.paths=this.props.location.pathname.split("/")
+    this.paths = this.props.location.pathname.split("/");
     getChapters(this.paths[2], this.paths[3])
       .then((response) => {
         this.setState({
@@ -41,6 +39,9 @@ class PracticeChapter extends Component {
     return (
       <>
         {this.state.chapters.map((chapter, index) => {
+          let correctPercentage = Math.round(
+            (chapter.user_correct_attempts / chapter.question_count) * 100
+          );
           return (
             <div
               className="practice-chapter-subcontainer"
@@ -78,11 +79,40 @@ class PracticeChapter extends Component {
                   </span>
                 </div>
                 <div className="practice-chapter-question">
+                  {chapter.user_total_attempts > 0
+                    ? chapter.user_total_attempts + "/"
+                    : null}
                   {chapter.question_count} &nbsp; Questions
                 </div>
               </div>
               <div className="practice-chapter-button-container">
-                <div className="practice-chapter-button">Not Started</div>
+                <div
+                  className={`practice-chapter-button ${
+                    chapter.user_total_attempts > 0
+                      ? correctPercentage < 50
+                        ? "learning"
+                        : correctPercentage < 70
+                        ? "passing"
+                        : correctPercentage < 100
+                        ? "proficient"
+                        : "mastery"
+                      : ""
+                  }`}
+                >
+                  {chapter.user_total_attempts > 0 ? (
+                    correctPercentage < 50 ? (
+                      <span>{`Learning ${correctPercentage}%`}</span>
+                    ) : correctPercentage < 70 ? (
+                      <span>{`Passing ${correctPercentage}%`}</span>
+                    ) : correctPercentage < 100 ? (
+                      <span>{`Proficient ${correctPercentage}%`}</span>
+                    ) : (
+                      <span>{`Mastered ${correctPercentage}%`}</span>
+                    )
+                  ) : (
+                    "Not Started"
+                  )}
+                </div>
               </div>
             </div>
           );
