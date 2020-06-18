@@ -10,7 +10,7 @@ const Pricing = () => {
   const packages = [
     {
       duration: "1 Month",
-      price: "1500",
+      price: "975",
     },
     {
       duration: "3 Months",
