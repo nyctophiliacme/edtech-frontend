@@ -4,6 +4,7 @@ import "./practice-home.css";
 import PracticeChapter from "../practice-chapter/practice-chapter";
 import { getSubjects } from "../../../services/practiceService";
 import { Switch, Route, withRouter } from "react-router-dom";
+import { handleResize, debounce } from "../../../common/deviceDetection";
 
 class PracticeHome extends Component {
   constructor(props) {
@@ -13,10 +14,17 @@ class PracticeHome extends Component {
       chapterList: [],
       subjectList: [],
       selectedSubjectCode: "",
+      checkDevice: handleResize(),
     };
   }
 
   componentDidMount() {
+    window.addEventListener(
+      "resize",
+      debounce(() => {
+        this.setState({ checkDevice: handleResize() });
+      }, 500)
+    );
     this.getSubjectList();
   }
 

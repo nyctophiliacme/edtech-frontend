@@ -1,14 +1,56 @@
-.practice-header {
-  background-color: #204a7d;
-  padding: 15px 15px 15px 60px;
-  margin: 0 auto;
+@media screen and (min-width: 320px) {
+  .practice-header {
+    background-color: #204a7d;
+    padding: 16px 24px;
+    margin: 0 auto;
+  }
+  .practice-header-text {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    color: #ffffff;
+    display: inline-block;
+  }
+  .practice-container {
+    display: block;
+    background-color: #fefefe;
+  }
+  .practice-chapter-container {
+    background-color: #e5e5e5;
+    padding:32px 16px 0px 16px;
+  }
+  .practice-lock-img {
+    width: 12px;
+    height: 14px;
+  }
 }
-.practice-header-text {
-  font-size: 26px;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 30px;
-  display: inline-block;
+@media screen and (min-width: 768px) {
+  .practice-header {
+    background-color: #204a7d;
+    padding: 15px 15px 15px 60px;
+    margin: 0 auto;
+  }
+  .practice-header-text {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 30px;
+  }
+  .practice-container {
+    display: flex;
+    background-color: #fefefe;
+  }
+  .practice-chapter-container {
+    background-color: #fefefe;
+    padding-left: 25px;
+    width: 100%;
+    box-shadow: 5px 0px 5px #e1e1e1 inset;
+  }
+  .practice-lock-img {
+    width: 24px;
+    height: 29px;
+  }
+}
+@media screen and (min-width: 992px) {
 }
 
 .practice-header-search-container {
@@ -36,20 +78,9 @@
   /* Microsoft Edge */
   color: #c1c1c1;
 }
-.practice-container {
-  display: flex;
-  background-color: #fefefe;
-}
+
 .practice-subject-container {
   padding-top: 10px;
 }
-.practice-chapter-container {
-  background-color: #fefefe;
-  padding-left: 25px;
-  width: 100%;
-  box-shadow: 5px 0px 5px #e1e1e1 inset;
-}
-.practice-lock-img{
-  width:24px;
-  height: auto;
-}
+
+
