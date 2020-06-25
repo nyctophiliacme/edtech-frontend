@@ -229,6 +229,7 @@ class Question extends Component {
               <div >
                 <div className="solution-answer">{`Answer: (${this.selectedIndex})`}</div>
                 <HTML
+                  className="answer-text"
                   html={
                     this.props.questionDetails.question_choice.filter(
                       (item) => {
