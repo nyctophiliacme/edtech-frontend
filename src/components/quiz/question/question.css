@@ -247,7 +247,7 @@
 }
 
 .question-option-container:hover .option-index {
-  border-right: solid #67b2e8 1px;
+  border-right: solid #67b2e8 2px;
 }
 
 .option-selected {
