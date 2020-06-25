@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./mobile_header.css";
 import { messageService } from "../../services/notifyComponentService";
 import { render } from "@testing-library/react";
@@ -41,6 +41,7 @@ class MobileHeader extends Component {
     });
   };
   startPractice = () => {
+    console.log(this.props);
     if (!sessionStorage.getItem("isLoggedIn")) {
       messageService.sendMessage("user trying to access without login");
       sessionStorage.setItem("targetUrl", "practice");
@@ -148,4 +149,4 @@ class MobileHeader extends Component {
     );
   }
 }
-export default MobileHeader;
+export default withRouter(MobileHeader);
