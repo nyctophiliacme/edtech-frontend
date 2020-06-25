@@ -122,7 +122,7 @@ const ExamDetails = ({ name, subSection }) => {
 
   return (
     <>
-      {renderActionDiv()}
+      {/* {renderActionDiv()} removing action div*/}
       <div className="exam-details-container">
         {examDetailsData.map(function (ed, index) {
           if (ed.type === "para") {
