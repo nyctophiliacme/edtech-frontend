@@ -1,3 +1,8 @@
+@media screen and (min-width: 768px) {
+  .login-button:hover{
+    background-color: #518bb5;
+  }
+}
 input:focus {
   outline:none;
 }
@@ -27,9 +32,7 @@ input:focus {
   letter-spacing: 1px;
 }
 
-.login-button:hover{
-  background-color: #518bb5;
-}
+
 
 .login-signUp{
     font-weight: 400;

@@ -117,70 +117,76 @@ class Question extends Component {
             )}
           </div>
         </div>
-        <div className="question-text">
+        <div className="question-body-container">
+          <div className="question-text">
+            {this.props.questionDetails ? (
+              <HTML html={this.props.questionDetails.question_text} />
+            ) : null}
+            <img src={this.props.questionDetails?.question_img_url} alt="" />
+          </div>
           {this.props.questionDetails ? (
-            <HTML html={this.props.questionDetails.question_text} />
-          ) : null}
-          <img src={this.props.questionDetails?.question_img_url} alt="" />
-        </div>
-        {this.props.questionDetails ? (
-          <div>
-            {this.props.questionDetails?.question_choice.map(
-              (option, index) => {
-                let charIndex = 97 + index;
-                if (option.is_right_choice) {
-                  this.selectedIndex = String.fromCharCode(charIndex);
-                }
-                return (
-                  <div
-                    key={index}
-                    className={`question-option-container ${
-                      this.state.slectedOption === option &&
-                      !this.state.isSubmitted
-                        ? " question-option-select-container"
-                        : this.state.slectedOption === option &&
-                          this.state.isSubmitted
-                        ? this.state.slectedOption?.is_right_choice
-                          ? "question-option-correct-container"
-                          : "question-option-incorrect-container"
-                        : ""
-                    }`}
-                    onClick={() => {
-                      if (!this.state.isSubmitted) {
-                        this.setState({
-                          slectedOption: option,
-                        });
-                      }
-                    }}
-                  >
+            <div>
+              {this.props.questionDetails?.question_choice.map(
+                (option, index) => {
+                  let charIndex = 97 + index;
+                  if (option.is_right_choice) {
+                    this.selectedIndex = String.fromCharCode(charIndex);
+                  }
+                  return (
                     <div
-                      className={`option-index ${
+                      key={index}
+                      className={`question-option-container ${
                         this.state.slectedOption === option &&
                         !this.state.isSubmitted
-                          ? " option-selected"
+                          ? " question-option-select-container"
                           : this.state.slectedOption === option &&
                             this.state.isSubmitted
-                          ? this.state.slectedOption.is_right_choice
-                            ? "option-correct"
-                            : "option-incorrect"
+                          ? this.state.slectedOption?.is_right_choice
+                            ? "question-option-correct-container"
+                            : "question-option-incorrect-container"
                           : ""
                       }`}
+                      onClick={() => {
+                        if (!this.state.isSubmitted) {
+                          this.setState({
+                            slectedOption: option,
+                          });
+                        }
+                      }}
                     >
-                      {String.fromCharCode(charIndex)}
+                      <div
+                        className={`option-index ${
+                          this.state.slectedOption === option &&
+                          !this.state.isSubmitted
+                            ? " option-selected"
+                            : this.state.slectedOption === option &&
+                              this.state.isSubmitted
+                            ? this.state.slectedOption.is_right_choice
+                              ? "option-correct"
+                              : "option-incorrect"
+                            : ""
+                        }`}
+                      >
+                        {String.fromCharCode(charIndex)}
+                      </div>
+                      <HTML
+                        html={option.choice_text}
+                        className={"option-text"}
+                      />
+                      <img src={option?.choice_img_url} alt="" />
                     </div>
-                    <HTML html={option.choice_text} className={"option-text"} />
-                    <img  src={option?.choice_img_url} alt="" />
-                  </div>
-                );
-              }
-            )}
-          </div>
-        ) : (
-          <></>
-        )}
+                  );
+                }
+              )}
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
+
         {this.state.slectedOption && !this.state.isSubmitted ? (
           <input
-            className="login-button right-align"
+            className="login-button right-align submit-answer-button"
             type="submit"
             value="SUBMIT ANSWER"
             onClick={this.submitAnswer}
@@ -189,7 +195,7 @@ class Question extends Component {
         {this.state.isSubmitted && !this.state.slectedOption.is_right_choice ? (
           <div className="wrong-choice-wrapper right-align">
             <input
-              className="login-button try-again"
+              className="login-button try-again try-again-button"
               type="button"
               value="TRY AGAIN"
               onClick={() => {
@@ -202,7 +208,7 @@ class Question extends Component {
               }}
             />
             <input
-              className="login-button"
+              className="login-button show-solution-button"
               type="button"
               value={
                 this.state.showSolution ? "HIDE SOLUTION" : "SHOW SOLUTION"
@@ -220,8 +226,8 @@ class Question extends Component {
           <div className="solution-wrapper">
             <div className="solution-header">Solution</div>
             <div className="solution-text">
-              <div className="solution-answer">
-                {`Answer: (${this.selectedIndex})`}
+              <div >
+                <div className="solution-answer">{`Answer: (${this.selectedIndex})`}</div>
                 <HTML
                   html={
                     this.props.questionDetails.question_choice.filter(
