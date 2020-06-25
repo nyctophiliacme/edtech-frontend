@@ -17,11 +17,36 @@
   }
   .practice-chapter-container {
     background-color: #e5e5e5;
-    padding:32px 16px 0px 16px;
+    padding: 24px 16px 8px 16px;
   }
   .practice-lock-img {
     width: 12px;
     height: 14px;
+  }
+  .subject-select {
+    width: 100%;
+    border: none;
+    background-color: #ffffff;
+  }
+  .subject-select:hover {
+    background-color: #ffffff;
+  }
+  .practice-subject-container {
+    padding: 16px 16px 0px 16px;
+    background-color: #e5e5e5;
+  }
+  .subject-select-container{
+    width: 100%;
+    border: 1px solid #f2f2f2;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 12px rgba(11, 35, 81, 0.05);
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #ffffff;
+    color: #838592;
+    padding: 14px 12px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -48,6 +73,11 @@
   .practice-lock-img {
     width: 24px;
     height: 29px;
+  }
+  .practice-subject-container {
+    padding: 0;
+    padding-top: 10px;
+    background-color: #ffffff;
   }
 }
 @media screen and (min-width: 992px) {
@@ -78,9 +108,3 @@
   /* Microsoft Edge */
   color: #c1c1c1;
 }
-
-.practice-subject-container {
-  padding-top: 10px;
-}
-
-

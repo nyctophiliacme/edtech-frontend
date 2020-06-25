@@ -3,7 +3,7 @@ import PracticeSubject from "../practice-subject/practice-subject";
 import "./practice-home.css";
 import PracticeChapter from "../practice-chapter/practice-chapter";
 import { getSubjects } from "../../../services/practiceService";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Switch, Route, withRouter, Link } from "react-router-dom";
 import { handleResize, debounce } from "../../../common/deviceDetection";
 
 class PracticeHome extends Component {
@@ -28,7 +28,7 @@ class PracticeHome extends Component {
     this.getSubjectList();
   }
 
-  paths=this.props.location.pathname.split("/");
+  paths = this.props.location.pathname.split("/");
   getSubjectList() {
     getSubjects(this.state.exam_code)
       .then((response) => {
@@ -57,6 +57,13 @@ class PracticeHome extends Component {
     });
   }
 
+  LoadChapter = (e) => {
+    console.log(e.target.value);
+    this.props.history.push(
+      `/practice/${this.state.exam_code}/${e.target.value}`
+    );
+  };
+
   render() {
     return (
       <>
@@ -76,22 +83,44 @@ class PracticeHome extends Component {
         </div>
         <div className="practice-container">
           <div className="practice-subject-container">
-            {this.state.subjectList.map((subject, index) => {
-              return (
-                <PracticeSubject
-                  examName={this.state.exam_code}
-                  key={index}
-                  click={() => {
-                    this.setSelectedSubjectCode(subject.subject_code);
-                  }}
-                  subjectName={subject.title}
-                  subjectCode={subject.subject_code}
-                  isSelected={
-                    subject.subject_code === this.state.selectedSubjectCode
-                  }
-                />
-              );
-            })}
+            {!this.state.checkDevice.isMobile ? (
+              this.state.subjectList.map((subject, index) => {
+                return (
+                  <PracticeSubject
+                    examName={this.state.exam_code}
+                    key={index}
+                    click={() => {
+                      this.setSelectedSubjectCode(subject.subject_code);
+                    }}
+                    subjectName={subject.title}
+                    subjectCode={subject.subject_code}
+                    isSelected={
+                      subject.subject_code === this.state.selectedSubjectCode
+                    }
+                  />
+                );
+              })
+            ) : (
+              <div className="subject-select-container">
+                <select
+                  className="subject-select"
+                  onChange={this.LoadChapter}
+                  value={this.state.selectedSubjectCode}
+                >
+                  {this.state.subjectList.map((subject, index) => {
+                    console.log();
+                    return (
+                      <option
+                        key={subject.subject_code}
+                        value={subject.subject_code}
+                      >
+                        {subject.title}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            )}
           </div>
           <div className="practice-chapter-container">
             <Switch>
