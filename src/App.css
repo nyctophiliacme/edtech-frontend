@@ -1,14 +1,14 @@
 @font-face {
-  font-family: "Montserrat";
+  font-family: "SourceSansPro";
   font-style: normal;
   font-weight: 400;
-  src: local("Montserrat"), local("Montserrat"),
-    /* Modern Browsers */ url("./assets/fonts/Montserrat/Montserrat-Medium.ttf")
+  src: local("SourceSansPro"), local("SourceSansPro"),
+     url("./assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf")
       format("truetype");
 }
 
 body {
-  font-family: "Montserrat";
+  font-family: "SourceSansPro";
 }
 img {
   display: block;
