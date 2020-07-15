@@ -17,6 +17,7 @@ import MobileHeader from "./components/mobile_header/mobile_header"
 import "./App.css";
 import EmailVerified from "./components/email-verified/email-verified";
 import ReactGA from 'react-ga';
+import CourseLibrary from "./components/course_library/course_library";
 
 ReactGA.initialize('UA-168958894-1');
 
@@ -61,7 +62,7 @@ class App extends Component {
           <Route path="/pricing" component={Pricing} />
           <Route path="/quiz" component={Quiz} />
           <Route path="/email_verified" component={EmailVerified} />
-          <Route path="/courses" component={AboutUs} />
+          <Route path="/courses" component={CourseLibrary} />
           <Route path="/videos" component={AboutUs} />
           <Route path="/career_center" component={AboutUs} />
           <Route path="/resources" component={AboutUs} />
