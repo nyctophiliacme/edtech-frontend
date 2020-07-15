@@ -27,3 +27,6 @@ export const getUserDetails = (token) => {
     },
   });
 };
+export const getAllExams=()=>{
+  return axios.get(`${baseURL}exams/`);
+}

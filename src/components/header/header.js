@@ -5,12 +5,10 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "../modal/modal";
 import logo from "../../assets/images/ST_logo.png";
-import down from "../../assets/images/dropdown.png";
-import up from "../../assets/images/up-arrow.png";
 import "./header.css";
-import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { faUserCircle, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faUserCircle);
+library.add(faUserCircle, faAngleDown);
 
 class Header extends Component {
   constructor(props) {
@@ -37,13 +35,13 @@ class Header extends Component {
   startPractice = () => {
     if (!sessionStorage.getItem("isLoggedIn")) {
       this.setState({ modalType: "login", showModal: true });
-      sessionStorage.setItem("targetUrl","practice");
+      sessionStorage.setItem("targetUrl", "practice");
     } else {
       this.props.history.push({
         pathname: "/practice/ecat",
       });
     }
-  }
+  };
   checkUpgradePractice = () => {
     if (
       this.props.location.pathname.split("/")[1] === "" ||
@@ -127,7 +125,7 @@ class Header extends Component {
         <header
           className={`logo-header ${this.props.isMobile ? "hide-header" : ""}`}
         >
-          <div>
+          <div className="logo-cta-container">
             <div className="headerlogo-wrapper">
               <Link to="/">
                 <img className="img-logo" src={logo} alt="logo" />
@@ -154,19 +152,32 @@ class Header extends Component {
             </div>
           </div>
           <div className="header-menu">
-            <ul className="header-ul">
-              <li className="header-dropdown">
-                <a href="#" className="dropbtn">
-                  Entry Tests
-                  <img className="dropdown-arrow" src={down} alt="downarrow" />
-                  <img className="dropup-arrow" src={up} alt="uprrow" />
-                </a>
-                <div className="dropdown-content ">
-                  <Link to="/exam/ecat/home">ECAT</Link>
-                  {/* <Link to="/exam/net">NET (NUST Entry Test)</Link> */}
-                </div>
-              </li>
-            </ul>
+            <Link className="header-menu-item" to="/courses">
+              Courses
+            </Link>
+            <div className="header-menu-item dropdown-menu-item">
+              <span>
+                Exams{" "}
+                <FontAwesomeIcon className="dropdown-arrow" icon="angle-down" />
+              </span>
+              <div className="dropdown-content">
+                <Link to="#">ECAT</Link>
+                <Link to="#">NET</Link>
+                <Link to="#">ITU</Link>
+              </div>
+            </div>
+            <Link to="/videos" className="header-menu-item">
+              Videos
+            </Link>
+            <Link to="/career_center" className="header-menu-item">
+              Career Center
+            </Link>
+            <Link to="/resources" className="header-menu-item">
+              Resources
+            </Link>
+            <Link to="/blog" className="header-menu-item">
+              Blog
+            </Link>
           </div>
         </header>
         <Modal

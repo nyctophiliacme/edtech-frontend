@@ -61,6 +61,11 @@ class App extends Component {
           <Route path="/pricing" component={Pricing} />
           <Route path="/quiz" component={Quiz} />
           <Route path="/email_verified" component={EmailVerified} />
+          <Route path="/courses" component={AboutUs} />
+          <Route path="/videos" component={AboutUs} />
+          <Route path="/career_center" component={AboutUs} />
+          <Route path="/resources" component={AboutUs} />
+          <Route path="/blog" component={AboutUs} />
           <Redirect to="/" />
         </Switch>
         <Footer></Footer>
