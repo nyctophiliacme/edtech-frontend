@@ -45,7 +45,7 @@
     margin-left: -16px;
     padding: 16px;
     text-align: center;
-    
+    overflow-y: auto;    
   }
   .subject-icon-container {
     width: 80px;
@@ -60,6 +60,7 @@
     font-size: 16px;
     line-height: 24px;
     color: #000000;
+    padding: 0pc 16px 0px 24px;
   }
   .subject-name-highlight{
     font-weight: bold;
