@@ -1,0 +1,26 @@
+@media screen and (min-width: 320px) {
+  .subject-list-container {
+    padding: 16px;
+    width: 100%;
+    background: #e5e5e5;
+  }
+  .subject-list-header {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .subject-list-container {
+    padding: 24px;
+  }
+  .subject-list-header {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 42px;
+    color: #3e4851;
+  }
+}
+@media screen and (min-width: 992px) {
+  .subject-list-container {
+    padding: 40px 80px 40px 40px;
+  }
+}

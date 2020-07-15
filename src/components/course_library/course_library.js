@@ -11,7 +11,7 @@ class CourseLibrary extends Component {
   render() {
     return <div>
       <div className="course-library-header">Course Library</div>
-      <div>
+      <div className="course-library-container">
           <CourseNavigation />
           <SubjectList />
       </div>
