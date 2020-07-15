@@ -1,16 +1,79 @@
 @media screen and (min-width: 320px) {
   .subject-list-container {
-    padding: 16px;
-    width: 100%;
-    background: #e5e5e5;
+    padding: 0px 0px 0px 16px;
+    background: #ebf0f4;
   }
   .subject-list-header {
     display: none;
   }
+  .exam-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 16px 0px;
+  }
+
+  .exam-name {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ababab;
+    padding: 8px 24px;
+    cursor: pointer;
+    background-color: inherit;
+    border-radius: 0px;
+    margin-right: 0px;
+  }
+  .exam-selected {
+    background-color: inherit;
+    color: #2f80ed;
+    background: rgba(47, 128, 237, 0.1);
+    border-radius: 4px;
+  }
+  .subject-detail-container {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    float: left;
+    background: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0px 16px 32px rgba(221, 230, 237, 0.4);
+    margin: 0px 0px 16px 0px;
+    border-radius:8px;
+  }
+  .subject-tiles-container {
+    background-color: #e5e5e5;
+    margin-left: -16px;
+    padding: 16px;
+    text-align: center;
+    
+  }
+  .subject-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px 0px 0px 8px;
+    
+  }
+  .subject-text-container {
+    border-radius: 0px 8px 8px 0px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+  }
+  .subject-name-highlight{
+    font-weight: bold;
+  }
 }
 @media screen and (min-width: 768px) {
+  .subject-list-header {
+    display: block;
+  }
   .subject-list-container {
-    padding: 24px;
+    background: #e5e5e5;
+    padding: 24px 8px 24px 24px;
+    max-width: 100%;
+    width: 100%;
   }
   .subject-list-header {
     font-weight: bold;
@@ -18,9 +81,44 @@
     line-height: 42px;
     color: #3e4851;
   }
+  .exam-container {
+    padding: 15px 0px 24px 0px;
+  }
+  .exam-name {
+    font-size: 20px;
+    line-height: 30px;
+    margin-right: 24px;
+  }
+  .subject-detail-container {
+    width: calc(50% - 24px);
+    height: 96px;
+    margin: 0px 24px 24px 0px;
+  }
+  .subject-tiles-container {
+    background-color: inherit;
+    margin-left: 0px;
+    padding: 0px;
+    text-align: left;
+  }
+  .subject-icon-container {
+    width: 96px;
+    height: 96px;
+  }
+  .subject-text-container {
+    height: 96px;
+  }
 }
 @media screen and (min-width: 992px) {
   .subject-list-container {
     padding: 40px 80px 40px 40px;
+  }
+  .exam-container {
+    padding: 15px 0px 48px 0px;
+  }
+  .exam-name {
+    margin-right: 48px;
+  }
+  .subject-detail-container {
+    width: 468px;
   }
 }
