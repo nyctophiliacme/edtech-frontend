@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./subject-list.css";
+import { Link } from "react-router-dom";
 class SubjectList extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,7 @@ class SubjectList extends Component {
       subjectList: [
         {
           subject_id: 1,
-          subject_name: "Chemestry",
+          subject_name: "Chemistry",
           icon_url: "asa",
           background_start_color: "#DD7B34",
           background_end_color: "#E58A48",
@@ -138,7 +139,7 @@ class SubjectList extends Component {
           </div>
           {this.state.examList.map((exam) => {
             return (
-              <div
+              <div key={exam.exam_id}
                 className={`exam-name  ${
                   this.state.selectedExamId === exam.exam_id
                     ? "exam-selected"
@@ -162,22 +163,29 @@ class SubjectList extends Component {
               this.state.selectedExamId === subject.exam_id
             ) {
               return (
-                <div className="subject-detail-container">
-                  <div
-                    className="subject-icon-container"
-                    style={{
-                      background: `linear-gradient(to right,${subject.background_start_color},${subject.background_end_color})`,
-                    }}
-                  >
-                    ss
+                <Link
+                  to={`/practice/${subject.exam_code.toLowerCase()}/${subject.subject_name.toLocaleLowerCase()}`}
+                  key={subject.subject_id}
+                >
+                  <div className="subject-detail-container">
+                    <div
+                      className="subject-icon-container"
+                      style={{
+                        background: `linear-gradient(to right,${subject.background_start_color},${subject.background_end_color})`,
+                      }}
+                    >
+                      ss
+                    </div>
+                    <div className="subject-text-container">
+                      <span className="subject-name-highlight">
+                        {subject.subject_name}
+                      </span>
+                      {` for ${
+                        subject.exam_fullname
+                      }(${subject.exam_code.toUpperCase()})`}
+                    </div>
                   </div>
-                  <div className="subject-text-container">
-                    <span className="subject-name-highlight">
-                      {subject.subject_name}
-                    </span>
-                    {` for ${subject.exam_fullname}(${subject.exam_code.toUpperCase()})`}
-                  </div>
-                </div>
+                </Link>
               );
             }
           })}
