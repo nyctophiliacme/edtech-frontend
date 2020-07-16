@@ -1,0 +1,27 @@
+.course-navigation {
+  background: #f1f5f8;
+  padding: 40px 40px 60px 120px;
+}
+.course-navigation .section {
+  width: 200px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #747d8a;
+}
+.course-navigation .section .section-title {
+  border-bottom: 1px solid #ced7e4;
+}
+.course-navigation .section .sub-section {
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+.course-navigation .section .sub-section .subsection-item {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #99a1a8;
+  text-transform: none;
+}
