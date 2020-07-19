@@ -1,6 +1,9 @@
 import axios from "axios";
-import { localBaseURL } from "../config/appConfig";
+import { baseURL } from "../config/appConfig";
 
-export const getAllExams=()=>{
-  return axios.get(`${localBaseURL}/courses/`);
+export const getAllCourses=()=>{
+  return axios.get(`${baseURL}courses/get_all/`);
+}
+export const getAllSubjects=()=>{
+  return axios.get(`${baseURL}subjects`);
 }

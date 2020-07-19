@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { getAllExams } from "../../../services/courseService";
 import "./course-navigation.css";
 
 class CourseNavigation extends Component {
@@ -13,20 +12,20 @@ class CourseNavigation extends Component {
   }
 
   componentDidMount() {
-    this.getExamsList();
+    // this.getExamsList();
   }
 
-  getExamsList = () => {
-    getAllExams()
-      .then((response) => {
-        this.setState({
-          exams: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // getExamsList = () => {
+  //   getAllExams()
+  //     .then((response) => {
+  //       this.setState({
+  //         exams: response.data,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
   render() {
     return (
       <div className="course-navigation">
@@ -43,7 +42,6 @@ class CourseNavigation extends Component {
                           key={subsection.subsection_id}
                         >
                           <Link to={`/courses/${subsection.subsection_id}/`}>
-                          {/* {subsection.subsection_id} */}
                             {subsection.subsection_Name}
                           </Link>
                         </div>
@@ -58,5 +56,4 @@ class CourseNavigation extends Component {
     );
   }
 }
-
 export default CourseNavigation;
