@@ -62,7 +62,7 @@ class App extends Component {
           <Route path="/pricing" component={Pricing} />
           <Route path="/quiz" component={Quiz} />
           <Route path="/email_verified" component={EmailVerified} />
-          <Route path="/courses" component={CourseLibrary} />
+          <Route path="/courses/:courseId" component={CourseLibrary} />
           <Route path="/videos" component={AboutUs} />
           <Route path="/career_center" component={AboutUs} />
           <Route path="/resources" component={AboutUs} />

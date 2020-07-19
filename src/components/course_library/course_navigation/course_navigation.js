@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { getAllExams } from "../../../services/courseService";
 import "./course-navigation.css";
 
@@ -7,6 +8,7 @@ class CourseNavigation extends Component {
     super(props);
     this.state = {
       exams: null,
+      courseId:props.courseId
     };
   }
 
@@ -34,10 +36,16 @@ class CourseNavigation extends Component {
                 <div key={index} className="section">
                   <div className="section-title">{category.section}</div>
                   <div className="sub-section">
-                    {category.subsections.map((subsection, key) => {
+                    {category.subsections.map((subsection) => {
                       return (
-                        <div className="subsection-item" key={key}>
-                          {subsection.subsection_Name}
+                        <div
+                          className="subsection-item"
+                          key={subsection.subsection_id}
+                        >
+                          <Link to={`/courses/${subsection.subsection_id}/`}>
+                          {/* {subsection.subsection_id} */}
+                            {subsection.subsection_Name}
+                          </Link>
                         </div>
                       );
                     })}

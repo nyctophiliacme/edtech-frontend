@@ -152,7 +152,7 @@ class Header extends Component {
             </div>
           </div>
           <div className="header-menu">
-            <Link className="header-menu-item" to="/courses">
+            <Link className="header-menu-item" to="/courses/1">
               Courses
             </Link>
             <div className="header-menu-item dropdown-menu-item">

@@ -23,5 +23,10 @@
   font-size: 20px;
   line-height: 30px;
   color: #99a1a8;
-  text-transform: none;
+  text-transform: capitalize;
+  padding-bottom: 24px;
+}
+.course-navigation .section .sub-section .subsection-item:hover, .course-navigation .section .sub-section .subsection-item.active{
+  font-weight: bold;
+  color:#102335;
 }
