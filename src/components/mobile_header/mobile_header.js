@@ -41,7 +41,6 @@ class MobileHeader extends Component {
     });
   };
   startPractice = () => {
-    console.log(this.props);
     if (!sessionStorage.getItem("isLoggedIn")) {
       messageService.sendMessage("user trying to access without login");
       sessionStorage.setItem("targetUrl", "practice");
