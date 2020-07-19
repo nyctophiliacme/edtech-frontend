@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./subject-list.css";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { messageService } from "../../../services/notifyComponentService";
+
 class SubjectList extends Component {
   constructor(props) {
     super(props);
@@ -164,8 +166,14 @@ class SubjectList extends Component {
             ) {
               return (
                 <Link
-                  to={`/practice/${subject.exam_code.toLowerCase()}/${subject.subject_name.toLocaleLowerCase()}`}
                   key={subject.subject_id}
+                  onClick={()=>{
+                    if (!sessionStorage.getItem("isLoggedIn")) {
+                      messageService.sendMessage("user trying to access without login");
+                      sessionStorage.setItem("targetUrl", "practice");
+                    } 
+                  }}
+                  to={ sessionStorage.getItem("isLoggedIn")?`/practice/${subject.exam_code.toLowerCase()}/${subject.subject_name.toLocaleLowerCase()}`:this.props.location.pathname}
                 >
                   <div className="subject-detail-container">
                     <div
@@ -195,4 +203,4 @@ class SubjectList extends Component {
   }
 }
 
-export default SubjectList;
+export default withRouter(SubjectList);
