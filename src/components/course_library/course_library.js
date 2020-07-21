@@ -10,7 +10,7 @@ class CourseLibrary extends Component {
     this.state = {
       courses: {},
       subjects: {},
-      selectedCourseId: "",
+      selectedCourseId: this.props.match.params.courseId,
       selectedCourseName: "",
       selectedSectionName: "",
     };
@@ -26,9 +26,12 @@ class CourseLibrary extends Component {
   getCoursesList = () => {
     getAllCourses()
       .then((response) => {
-        this.setState({
-          courses: response.data,
-        },this.getSubjectList());        
+        this.setState(
+          {
+            courses: response.data,
+          },
+          this.getSubjectList()
+        );
       })
       .catch((error) => {
         console.log(error);
@@ -48,15 +51,25 @@ class CourseLibrary extends Component {
   };
 
   render() {
-    console.log(`Logged Output: CourseLibrary -> constructor -> courses`, this.state.courses);
-    console.log(`Logged Output: SubjectLibrary -> render -> this.state.subjects`, this.state.subjects);    
+    console.log(this.props.match.params.courseId);
     return (
       <div>
-        <div className="course-library-header">Course Library</div>
-        <div className="course-library-container">
-          <CourseNavigation courses={this.state.courses} selectedCourseId={this.state.selectedCourseId}/>
-          <SubjectList subjects={this.state.subjects} selectedCourseName={this.state.selectedCourseName} selectedSectionName={this.state.selectedSectionName}/>
-        </div>
+        {this.state.courses.length > 0 ? (
+          <>
+            <div className="course-library-header">Course Library</div>
+            <div className="course-library-container">
+              <CourseNavigation
+                courses={this.state.courses}
+                selectedCourseId={this.props.match.params.courseId}
+              />
+              <SubjectList
+                subjects={this.state.subjects}
+                selectedCourseName={this.state.selectedCourseName}
+                selectedSectionName={this.state.selectedSectionName}
+              />
+            </div>
+          </>
+        ) : null}
       </div>
     );
   }
