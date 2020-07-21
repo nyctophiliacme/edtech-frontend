@@ -2,138 +2,93 @@ import React, { Component } from "react";
 import "./subject-list.css";
 import { Link, withRouter } from "react-router-dom";
 import { messageService } from "../../../services/notifyComponentService";
+import {
+  getAllSubjectForCourse,
+  getAllExamForCourse,
+} from "../../../services/courseService";
 
 class SubjectList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      examList: [
-        {
-          exam_id: 1,
-          exam_code: "ECAT",
-        },
-        {
-          exam_id: 2,
-          exam_code: "NET",
-        },
-        {
-          exam_id: 3,
-          exam_code: "PRUIES",
-        },
-        {
-          exam_id: 4,
-          exam_code: "ITPU",
-        },
-      ],
-      subjectList: [
-        {
-          subject_id: 1,
-          subject_name: "Chemistry",
-          icon_url: "asa",
-          background_start_color: "#DD7B34",
-          background_end_color: "#E58A48",
-          exam_code: "ecat",
-          exam_id: 1,
-          exam_fullname: "Engineering common admission test",
-        },
-        {
-          subject_id: 2,
-          subject_name: "English",
-          icon_url: "asa",
-          background_start_color: "#A320B9",
-          background_end_color: "#AA2D7F",
-          exam_code: "ecat",
-          exam_id: 1,
-          exam_fullname: "Engineering common admission test",
-        },
-        {
-          subject_id: 3,
-          subject_name: "Maths",
-          icon_url: "asa",
-          background_start_color: "#1AAE8A",
-          background_end_color: "#00C067",
-          exam_code: "ecat",
-          exam_id: 1,
-          exam_fullname: "Engineering common admission test",
-        },
-        {
-          subject_id: 4,
-          subject_name: "Physics",
-          icon_url: "asa",
-          background_start_color: "#DB2D67",
-          background_end_color: "#E55748",
-          exam_code: "ecat",
-          exam_id: 1,
-          exam_fullname: "Engineering common admission test",
-        },
-        {
-          subject_id: 5,
-          subject_name: "Chemestry",
-          icon_url: "asa",
-          background_start_color: "#DD7B34",
-          background_end_color: "#E58A48",
-          exam_code: "net",
-          exam_id: 2,
-          exam_fullname: "National entrance exam",
-        },
-        {
-          subject_id: 6,
-          subject_name: "English",
-          icon_url: "asa",
-          background_start_color: "#A320B9",
-          background_end_color: "#AA2D7F",
-          exam_code: "ecat",
-          exam_id: 2,
-          exam_fullname: "National entrance exam",
-        },
-        {
-          subject_id: 7,
-          subject_name: "Maths",
-          icon_url: "asa",
-          background_start_color: "#1AAE8A",
-          background_end_color: "#00C067",
-          exam_code: "itpu",
-          exam_id: 3,
-          exam_fullname: "Engineering common admission test",
-        },
-        {
-          subject_id: 8,
-          subject_name: "Physics",
-          icon_url: "asa",
-          background_start_color: "#DB2D67",
-          background_end_color: "#E55748",
-          exam_code: "itpu",
-          exam_id: 3,
-          exam_fullname: "Engineering common admission test",
-        },
-      ],
-      sectionName: "Test Prep",
-      subSectionName: "Engineering",
-      selectedExamId: 0,
+      examList: [],
+      subjectList: [],
+      selectedSectionName: "",
+      selectedCourseName: "",
+      selectedCourseId: 1,
+      selectedExamCode:""
     };
   }
-  //   componentDidUpdate(prevProps) {
-  //     if (prevProps !== this.props) {
-  //       this.setState({
-  //         sectionName: this.props.sectionName,
-  //         subSectionName: this.props.sectionName,
-  //       });
-  //     }
-  //   }
+  componentDidMount() {
+    this.getExamList();
+    this.getSubjectList();
+    this.updateName();
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.selectedCourseId !== this.props.selectedCourseId) {
+      this.reloadData();
+      this.updateName();
+    } else if (prevProps !== this.props) {
+      this.updateName();
+    }
+  }
+  
+  updateName=()=>{
+    this.setState({
+      selectedCourseName:this.props.selectedCourseName,
+      selectedSectionName:this.props.selectedSectionName
+    });
+  }
+  reloadData = () => {
+    this.setState(
+      {
+        selectedCourseId: this.props.selectedCourseId,
+      },
+      () => {
+        this.getExamList();
+        this.getSubjectList();
+      }
+    );
+  };
+
+  getSubjectList = () => {
+    getAllSubjectForCourse(this.state.selectedCourseId)
+      .then((response) => {
+        this.setState({
+          subjectList: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  getExamList = () => {
+    getAllExamForCourse(this.state.selectedCourseId)
+      .then((response) => {
+        this.setState({
+          examList: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   render() {
+    console.log(this.state)
     return (
       <div className="subject-list-container">
         <div className="subject-list-header">
-          {this.state.subSectionName} {this.state.sectionName}
+          {this.state.selectedCourseName} {this.state.selectedSectionName}
         </div>
         <div className="exam-container">
           <div
             className={`exam-name ${
-              this.state.selectedExamId === 0 ? "exam-selected" : ""
+              this.state.selectedExamCode === "" ? "exam-selected" : ""
             }`}
             onClick={() => {
               this.setState({
-                selectedExamId: 0,
+                selectedExamCode: "",
               });
             }}
           >
@@ -141,19 +96,18 @@ class SubjectList extends Component {
           </div>
           {this.state.examList.map((exam) => {
             return (
-              <div key={exam.exam_id}
+              <div
+                key={exam.id}
                 className={`exam-name  ${
-                  this.state.selectedExamId === exam.exam_id
-                    ? "exam-selected"
-                    : ""
+                  this.state.selectedExamCode === exam.exam_code ? "exam-selected" : ""
                 }`}
                 onClick={() => {
                   this.setState({
-                    selectedExamId: exam.exam_id,
+                    selectedExamCode: exam.exam_code,
                   });
                 }}
               >
-                {exam.exam_code}
+                {exam.exam_code.toUpperCase()}
               </div>
             );
           })}
@@ -161,19 +115,27 @@ class SubjectList extends Component {
         <div className="subject-tiles-container">
           {this.state.subjectList.map((subject) => {
             if (
-              this.state.selectedExamId === 0 ||
-              this.state.selectedExamId === subject.exam_id
+              this.state.selectedExamCode === "" ||
+              this.state.selectedExamCode === subject.exam_code
             ) {
               return (
                 <Link
-                  key={subject.subject_id}
-                  onClick={()=>{
+                  key={subject.id}
+                  onClick={() => {
                     if (!sessionStorage.getItem("isLoggedIn")) {
-                      messageService.sendMessage("user trying to access without login");
+                      messageService.sendMessage(
+                        "user trying to access without login"
+                      );
                       sessionStorage.setItem("targetUrl", "practice");
-                    } 
+                    }
                   }}
-                  to={ sessionStorage.getItem("isLoggedIn")?`/practice/${subject.exam_code.toLowerCase()}/${subject.subject_name.toLocaleLowerCase()}`:this.props.location.pathname}
+                  to={
+                    sessionStorage.getItem("isLoggedIn")
+                      ? `/practice/${subject.exam_code.toLowerCase()}/${
+                          subject.subject_code
+                        }`
+                      : this.props.location.pathname
+                  }
                 >
                   <div className="subject-detail-container">
                     <div
@@ -186,10 +148,10 @@ class SubjectList extends Component {
                     </div>
                     <div className="subject-text-container">
                       <span className="subject-name-highlight">
-                        {subject.subject_name}
+                        {subject.title}
                       </span>
                       {` for ${
-                        subject.exam_fullname
+                        subject.exam_title
                       }(${subject.exam_code.toUpperCase()})`}
                     </div>
                   </div>
@@ -200,6 +162,9 @@ class SubjectList extends Component {
         </div>
       </div>
     );
+    // } else {
+    //   return null;
+    // }
   }
 }
 
