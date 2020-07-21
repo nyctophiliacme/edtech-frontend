@@ -15,7 +15,7 @@ class SubjectList extends Component {
       subjectList: [],
       selectedSectionName: "",
       selectedCourseName: "",
-      selectedCourseId: 1,
+      selectedCourseId: this.props.selectedCourseId,
       selectedExamCode:""
     };
   }
@@ -75,11 +75,10 @@ class SubjectList extends Component {
   };
 
   render() {
-    console.log(this.state)
     return (
       <div className="subject-list-container">
         <div className="subject-list-header">
-          {this.state.selectedCourseName} {this.state.selectedSectionName}
+          {this.state.selectedCourseName} {this.state.selectedSectionName.toLowerCase()}
         </div>
         <div className="exam-container">
           <div

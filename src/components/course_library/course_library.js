@@ -16,8 +16,6 @@ class CourseLibrary extends Component {
     };
   }
 
-  couseChanged = () => {};
-
   componentDidMount() {
     this.getCoursesList();
   }
@@ -27,6 +25,8 @@ class CourseLibrary extends Component {
       .then((response) => {
         this.setState({
           courses: response.data,
+          selectedCourseName: response.data[0].courses[0].course_title,
+          selectedSectionName: response.data[0].course_container_title,
         });
       })
       .catch((error) => {
@@ -34,8 +34,32 @@ class CourseLibrary extends Component {
       });
   };
 
+  componentDidUpdate(prevProp) {
+    if (prevProp.match.params.courseId !== this.props.match.params.courseId) {
+      let CourseName="";
+      let tempSection = this.state.courses.filter((course) => {
+        let crs = course.courses.filter((subCourse) => {
+          if(
+            parseInt(subCourse.id) ===
+            parseInt(this.props.match.params.courseId)
+          ){
+            CourseName=subCourse.course_title;
+            return subCourse;
+          }
+        })[0];
+        if (crs) {
+          return course;
+        }
+      })[0];
+      if (tempSection ) {
+        this.setState({
+          selectedSectionName: tempSection.course_container_title,
+          selectedCourseName: CourseName,
+        });
+      }
+    }
+  }
   render() {
-    console.log(this.props.match.params.courseId);
     return (
       <div>
         {this.state.courses.length > 0 ? (
@@ -47,7 +71,7 @@ class CourseLibrary extends Component {
                 selectedCourseId={this.props.match.params.courseId}
               />
               <SubjectList
-                selectedCourseId={this.state.selectedCourseId}
+                selectedCourseId={this.props.match.params.courseId}
                 selectedCourseName={this.state.selectedCourseName}
                 selectedSectionName={this.state.selectedSectionName}
               />
