@@ -132,7 +132,7 @@
   }
   .subject-list-container {
     padding: 40px 80px 40px 40px;
-    width: auto;
+    width: calc(100vw - 480px);;
   }
   .exam-container {
     padding: 15px 0px 48px 0px;
@@ -141,9 +141,12 @@
     margin-right: 48px;
   }
   .subject-detail-container {
-    min-width: 288px;
+    min-width: 340px;
     width: 44%;
     max-width: 468px;
+  }
+  .subject-tiles-container {
+    width: 100%;
   }
 }
 
