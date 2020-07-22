@@ -58,7 +58,8 @@
     width: calc(100vw - 32px);
   }
   .subject-icon-container {
-    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
     height: 80px;
     border-radius: 8px 0px 0px 8px;
   }
