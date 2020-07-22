@@ -94,7 +94,6 @@ class CourseNavigation extends Component {
         window.alert("delete clicked!");
       },
     });
-    console.log(isMobile);
     return (
       <>
         {this.state.checkDevice.isMobile ? (

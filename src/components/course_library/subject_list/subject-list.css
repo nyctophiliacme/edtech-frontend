@@ -46,7 +46,6 @@
     margin: 0px 0px 16px 0px;
     border-radius: 8px;
     cursor: pointer;
-    align-items: center;
     text-align: left;
   }
   .subject-tiles-container {
@@ -71,15 +70,22 @@
     line-height: 24px;
     color: #000000;
     padding: 0pc 16px 0px 24px;
+    width: 100%;
+    position: relative;
+  }
+  .subject-text-wrapper{
+    position: absolute;
+    width: 90%;
+    transform: translateY(-50%);
+    top: 50%;
+
   }
   .subject-name-highlight {
     font-weight: bold;
   }
 }
 @media screen and (min-width: 768px) {
-  .subject-text-wrapper{
-    
-  }
+
   .subject-list-header {
     display: block;
   }

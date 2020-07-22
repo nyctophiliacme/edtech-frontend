@@ -58,7 +58,6 @@ class PracticeHome extends Component {
   }
 
   LoadChapter = (e) => {
-    console.log(e.target.value);
     this.props.history.push(
       `/practice/${this.state.exam_code}/${e.target.value}`
     );
@@ -108,7 +107,6 @@ class PracticeHome extends Component {
                   value={this.state.selectedSubjectCode}
                 >
                   {this.state.subjectList.map((subject, index) => {
-                    console.log();
                     return (
                       <option
                         key={subject.subject_code}

@@ -75,8 +75,6 @@ class SubjectList extends Component {
   };
 
   render() {
-    console.log(this.state.examList.count);
-    console.log(this.state.subjectList.count);
     return (
       <div className="subject-list-container">
         <div className="subject-list-header">
