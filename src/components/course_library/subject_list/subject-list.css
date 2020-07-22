@@ -11,7 +11,12 @@
     overflow-x: auto;
     padding: 16px 0px;
   }
-
+  .coming-soon {
+    font-size: 28px;
+    padding: 16px 0px;
+    color: green;
+    font-weight: bold;
+  }
   .exam-name {
     cursor: pointer;
     font-weight: bold;
@@ -50,6 +55,7 @@
     padding: 16px;
     text-align: center;
     overflow-y: auto;
+    width: calc(100vw - 32px);
   }
   .subject-icon-container {
     width: 80px;
@@ -76,8 +82,7 @@
   .subject-list-container {
     background: #e5e5e5;
     padding: 24px 8px 24px 24px;
-    max-width: 100%;
-    width: 100%;
+    width: calc(100vw - 272px);
   }
   .subject-list-header {
     font-weight: bold;
@@ -94,7 +99,7 @@
     margin-right: 24px;
   }
   .subject-detail-container {
-    width: calc(50% - 24px);
+    width: 468px;
     height: 96px;
     margin: 0px 24px 24px 0px;
   }
@@ -113,10 +118,18 @@
   .subject-text-container {
     height: 96px;
   }
+  .coming-soon {
+    padding: 60px 0px;
+  }
+
 }
 @media screen and (min-width: 992px) {
+  .coming-soon {
+    padding: 80px 0px;
+  }
   .subject-list-container {
     padding: 40px 80px 40px 40px;
+    width: auto;
   }
   .exam-container {
     padding: 15px 0px 48px 0px;
@@ -125,12 +138,11 @@
     margin-right: 48px;
   }
   .subject-detail-container {
-    width: 468px;
+    min-width: 288px;
+    width: 44%;
+    max-width: 468px;
   }
 }
-.coming-soon {
-  font-size: 28px;
-  padding: 80px 0px;
-  color: green;
-  font-weight: bold;
-}
+
+
+
