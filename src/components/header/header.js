@@ -161,9 +161,9 @@ class Header extends Component {
                 <FontAwesomeIcon className="dropdown-arrow" icon="angle-down" />
               </span>
               <div className="dropdown-content">
-                <Link to="#">ECAT</Link>
-                <Link to="#">NET</Link>
-                <Link to="#">ITU</Link>
+                <Link to="/exam/ecat/home">ECAT</Link>
+                {/* <Link to="#">NET</Link>
+                <Link to="#">ITU</Link> */}
               </div>
             </div>
             <Link to="/videos" className="header-menu-item">
