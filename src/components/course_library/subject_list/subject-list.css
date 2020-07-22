@@ -39,7 +39,7 @@
     box-sizing: border-box;
     box-shadow: 0px 16px 32px rgba(221, 230, 237, 0.4);
     margin: 0px 0px 16px 0px;
-    border-radius:8px;
+    border-radius: 8px;
     cursor: pointer;
     align-items: center;
     text-align: left;
@@ -49,13 +49,12 @@
     margin-left: -16px;
     padding: 16px;
     text-align: center;
-    overflow-y: auto;    
+    overflow-y: auto;
   }
   .subject-icon-container {
     width: 80px;
     height: 80px;
     border-radius: 8px 0px 0px 8px;
-    
   }
   .subject-text-container {
     border-radius: 0px 8px 8px 0px;
@@ -66,7 +65,7 @@
     color: #000000;
     padding: 0pc 16px 0px 24px;
   }
-  .subject-name-highlight{
+  .subject-name-highlight {
     font-weight: bold;
   }
 }
@@ -128,4 +127,10 @@
   .subject-detail-container {
     width: 468px;
   }
+}
+.coming-soon {
+  font-size: 28px;
+  padding: 80px 0px;
+  color: green;
+  font-weight: bold;
 }

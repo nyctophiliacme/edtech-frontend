@@ -16,7 +16,7 @@ class SubjectList extends Component {
       selectedSectionName: "",
       selectedCourseName: "",
       selectedCourseId: this.props.selectedCourseId,
-      selectedExamCode:""
+      selectedExamCode: "",
     };
   }
   componentDidMount() {
@@ -32,13 +32,13 @@ class SubjectList extends Component {
       this.updateName();
     }
   }
-  
-  updateName=()=>{
+
+  updateName = () => {
     this.setState({
-      selectedCourseName:this.props.selectedCourseName,
-      selectedSectionName:this.props.selectedSectionName
+      selectedCourseName: this.props.selectedCourseName,
+      selectedSectionName: this.props.selectedSectionName,
     });
-  }
+  };
   reloadData = () => {
     this.setState(
       {
@@ -75,95 +75,113 @@ class SubjectList extends Component {
   };
 
   render() {
+    console.log(this.state.examList.count);
+    console.log(this.state.subjectList.count);
     return (
       <div className="subject-list-container">
         <div className="subject-list-header">
-          {this.state.selectedCourseName} {this.state.selectedSectionName.toLowerCase()}
+          {this.state.selectedCourseName}{" "}
+          {this.state.selectedSectionName.toLowerCase()}
         </div>
-        <div className="exam-container">
-          <div
-            className={`exam-name ${
-              this.state.selectedExamCode === "" ? "exam-selected" : ""
-            }`}
-            onClick={() => {
-              this.setState({
-                selectedExamCode: "",
-              });
-            }}
-          >
-            All
-          </div>
-          {this.state.examList.map((exam) => {
-            return (
+        {this.state.examList && this.state.examList.length > 0 ? (
+          <>
+            <div className="exam-container">
               <div
-                key={exam.id}
-                className={`exam-name  ${
-                  this.state.selectedExamCode === exam.exam_code ? "exam-selected" : ""
+                className={`exam-name ${
+                  this.state.selectedExamCode === "" ? "exam-selected" : ""
                 }`}
                 onClick={() => {
                   this.setState({
-                    selectedExamCode: exam.exam_code,
+                    selectedExamCode: "",
                   });
                 }}
               >
-                {exam.exam_code.toUpperCase()}
+                All
               </div>
-            );
-          })}
-        </div>
-        <div className="subject-tiles-container">
-          {this.state.subjectList.map((subject) => {
-            if (
-              this.state.selectedExamCode === "" ||
-              this.state.selectedExamCode === subject.exam_code
-            ) {
-              return (
-                <Link
-                  key={subject.id}
-                  onClick={() => {
-                    if (!sessionStorage.getItem("isLoggedIn")) {
-                      messageService.sendMessage(
-                        "user trying to access without login"
-                      );
-                      sessionStorage.setItem("targetUrl", "practice");
-                    }
-                  }}
-                  to={
-                    sessionStorage.getItem("isLoggedIn")
-                      ? `/practice/${subject.exam_code.toLowerCase()}/${
-                          subject.subject_code
-                        }`
-                      : this.props.location.pathname
-                  }
-                >
-                  <div className="subject-detail-container">
-                    <div
-                      className="subject-icon-container"
-                      style={{
-                        background: `linear-gradient(to right,${subject.background_start_color},${subject.background_end_color})`,
-                      }}
-                    >
-                      ss
-                    </div>
-                    <div className="subject-text-container">
-                      <span className="subject-name-highlight">
-                        {subject.title}
-                      </span>
-                      {` for ${
-                        subject.exam_title
-                      }(${subject.exam_code.toUpperCase()})`}
-                    </div>
+              {this.state.examList.map((exam) => {
+                return (
+                  <div
+                    key={exam.id}
+                    className={`exam-name  ${
+                      this.state.selectedExamCode === exam.exam_code
+                        ? "exam-selected"
+                        : ""
+                    }`}
+                    onClick={() => {
+                      this.setState({
+                        selectedExamCode: exam.exam_code,
+                      });
+                    }}
+                  >
+                    {exam.exam_code.toUpperCase()}
                   </div>
-                </Link>
-              );
-            }
-          })}
-        </div>
+                );
+              })}
+            </div>
+            {this.state.subjectList && this.state.subjectList.length > 0 ? (
+              <div className="subject-tiles-container">
+                {this.state.subjectList.map((subject) => {
+                  if (
+                    this.state.selectedExamCode === "" ||
+                    this.state.selectedExamCode === subject.exam_code
+                  ) {
+                    return (
+                      <Link
+                        key={subject.id}
+                        onClick={() => {
+                          if (!sessionStorage.getItem("isLoggedIn")) {
+                            messageService.sendMessage(
+                              "user trying to access without login"
+                            );
+                            sessionStorage.setItem("targetUrl", "practice");
+                          }
+                        }}
+                        to={
+                          sessionStorage.getItem("isLoggedIn")
+                            ? `/practice/${subject.exam_code.toLowerCase()}/${
+                                subject.subject_code
+                              }`
+                            : this.props.location.pathname
+                        }
+                      >
+                        <div className="subject-detail-container">
+                          <div
+                            className="subject-icon-container"
+                            style={{
+                              background: `linear-gradient(to right,${subject.background_start_color},${subject.background_end_color})`,
+                            }}
+                          >
+                            ss
+                          </div>
+                          <div className="subject-text-container">
+                            <span className="subject-name-highlight">
+                              {subject.title}
+                            </span>
+                            {` for ${
+                              subject.exam_title
+                            }(${subject.exam_code.toUpperCase()})`}
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  }
+                })}
+              </div>
+            ) : (
+              <div className="coming-soon">
+                No Subject available for {this.state.selectedCourseName} Coming
+                Soon....
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="coming-soon">
+            No Exam available for {this.state.selectedCourseName} Coming
+            Soon....
+          </div>
+        )}
       </div>
     );
-    // } else {
-    //   return null;
-    // }
   }
 }
 
