@@ -154,12 +154,14 @@ class SubjectList extends Component {
                             ss
                           </div>
                           <div className="subject-text-container">
+                            <div className="subject-text-wrapper">
                             <span className="subject-name-highlight">
                               {subject.title}
                             </span>
                             {` for ${
                               subject.exam_title
                             }(${subject.exam_code.toUpperCase()})`}
+                            </div>
                           </div>
                         </div>
                       </Link>
