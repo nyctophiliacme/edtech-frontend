@@ -24,9 +24,9 @@ class CourseLibrary extends Component {
     getAllCourses()
       .then((response) => {
         this.setState({
-          courses: response.data,
-          selectedCourseName: response.data[0].courses[0].course_title,
-          selectedSectionName: response.data[0].course_container_title,
+          courses: response.data
+        },()=>{
+          this.getNames();
         });
       })
       .catch((error) => {
@@ -36,27 +36,31 @@ class CourseLibrary extends Component {
 
   componentDidUpdate(prevProp) {
     if (prevProp.match.params.courseId !== this.props.match.params.courseId) {
-      let CourseName="";
-      let tempSection = this.state.courses.filter((course) => {
-        let crs = course.courses.filter((subCourse) => {
-          if(
-            parseInt(subCourse.id) ===
-            parseInt(this.props.match.params.courseId)
-          ){
-            CourseName=subCourse.course_title;
-            return subCourse;
-          }
-        })[0];
-        if (crs) {
-          return course;
+     this.getNames();
+    }
+  }
+
+  getNames=()=>{
+    let CourseName="";
+    let tempSection = this.state.courses.filter((course) => {
+      let crs = course.courses.filter((subCourse) => {
+        if(
+          parseInt(subCourse.id) ===
+          parseInt(this.props.match.params.courseId)
+        ){
+          CourseName=subCourse.course_title;
+          return subCourse;
         }
       })[0];
-      if (tempSection ) {
-        this.setState({
-          selectedSectionName: tempSection.course_container_title,
-          selectedCourseName: CourseName,
-        });
+      if (crs) {
+        return course;
       }
+    })[0];
+    if (tempSection ) {
+      this.setState({
+        selectedSectionName: tempSection.course_container_title,
+        selectedCourseName: CourseName,
+      });
     }
   }
   render() {
