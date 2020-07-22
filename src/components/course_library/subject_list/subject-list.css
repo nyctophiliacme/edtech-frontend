@@ -109,6 +109,8 @@
     margin-left: 0px;
     padding: 0px;
     text-align: left;
+    width: calc(100vw - 288px);
+
   }
   .subject-icon-container {
     min-width: 96px;
