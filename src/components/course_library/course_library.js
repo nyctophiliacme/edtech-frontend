@@ -73,6 +73,8 @@ class CourseLibrary extends Component {
               <CourseNavigation
                 courses={this.state.courses}
                 selectedCourseId={this.props.match.params.courseId}
+                selectedCourseName={this.state.selectedCourseName}
+                selectedSectionName={this.state.selectedSectionName}
               />
               <SubjectList
                 selectedCourseId={this.props.match.params.courseId}

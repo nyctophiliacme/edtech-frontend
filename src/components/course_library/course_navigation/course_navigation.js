@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { handleResize, debounce } from "../../../common/deviceDetection";
 import "./course-navigation.css";
+import { faChevronDown} from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faChevronDown);
 
 class CourseNavigation extends Component {
   constructor(props) {
@@ -31,6 +35,7 @@ class CourseNavigation extends Component {
     const {
       checkDevice: { isMobile },
     } = this.state;
+    let { selectedCourseName, selectedSectionName } = this.props;
     let overlay = (
       <div>
         <div className="course-navigation">
@@ -75,9 +80,7 @@ class CourseNavigation extends Component {
         </div>
       </div>
     );
-    // let navigationContent = (
 
-    // );
     let obj = [];
     obj.push({
       title: "modify",
@@ -95,12 +98,25 @@ class CourseNavigation extends Component {
     return (
       <>
         {this.state.checkDevice.isMobile ? (
-          <div>
-            <button className="example" onClick={this.toggleBottomSheet}>
-              open bottom sheet!
-            </button>
+          <div className="course-filter-wrapper">
+            <div className="course-filter" onClick={this.toggleBottomSheet}>
+              <span className="course-name">{selectedCourseName}</span>
+              <span className="section-name">
+                &nbsp;|&nbsp;{selectedSectionName}
+              </span>
+              <span className="down-icon">
+                <FontAwesomeIcon
+                  icon="chevron-down"
+                  className=""
+                />
+              </span>
+            </div>
             {this.state.bottomSheet ? (
-              <div id="bottom-sheet" className="overlay" onClick={this.toggleBottomSheet}>
+              <div
+                id="bottom-sheet"
+                className="overlay"
+                onClick={this.toggleBottomSheet}
+              >
                 {overlay}{" "}
               </div>
             ) : null}
