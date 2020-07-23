@@ -95,7 +95,7 @@
   }
   .pricing-dropdown:hover .pricing-dropdown-content{
       display: block !important;
-  
+      background: aliceblue;
   }
   
 }
