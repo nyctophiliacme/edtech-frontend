@@ -37,6 +37,7 @@
   }
   .footer-text {
     padding-bottom: 8px;
+    cursor: pointer;
   }
   .footer-contact {
     padding-bottom: 10px;

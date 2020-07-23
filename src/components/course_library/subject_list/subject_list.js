@@ -178,8 +178,8 @@ class SubjectList extends Component {
           </>
         ) : (
           <div className="coming-soon">
-            No Exam available for {this.state.selectedCourseName} Coming
-            Soon....
+            No Subject available for {this.state.selectedCourseName}. Coming
+            Soon...
           </div>
         )}
       </div>

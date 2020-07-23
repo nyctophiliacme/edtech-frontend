@@ -97,7 +97,7 @@ class MobileHeader extends Component {
           </Link>
           <Link to="/courses/1">
             <div className="mbl-hdr-menu-item" onClick={this.toggleMenu}>
-              Course
+              Courses
             </div>
           </Link>
           <div

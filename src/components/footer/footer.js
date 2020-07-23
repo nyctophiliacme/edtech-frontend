@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./footer.css";
 import facebook from "../../assets/images/facebook.svg";
 import youtube from "../../assets/images/youtube.svg";
+import { messageService } from "../../services/notifyComponentService";
 
 const footer = () => {
   const scrollToTop = () => {
@@ -20,7 +21,13 @@ const footer = () => {
           <Link to="/about_us">About Us</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/pricing">Contact Us</Link>
+          <a
+            href=" http://158.106.139.211/~superteacher/contact-us/ "
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Contact Us
+          </a>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/privacy_policy">Privacy Policy</Link>
@@ -34,9 +41,18 @@ const footer = () => {
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/pricing">Pricing and Plans</Link>
         </div>
-        <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/about_us">Login</Link>
-        </div>
+        {!sessionStorage.getItem("isLoggedIn") ? (
+          <div
+            className="footer-text"
+            onClick={() => {
+              messageService.sendMessage("login Clicked");
+              scrollToTop();
+            }}
+          >
+            Login
+          </div>
+        ) : null}
+
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/about_us">Forgot Password</Link>
         </div>
@@ -50,9 +66,13 @@ const footer = () => {
           <Link to="/about_us">FAQs</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
-        <a href="http://158.106.139.211/~superteacher/blog/" rel="noopener noreferrer" target="_blank" >
-              Blog
-        </a>
+          <a
+            href="http://158.106.139.211/~superteacher/blog/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Blog
+          </a>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/term_condition">Help</Link>

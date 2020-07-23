@@ -13,16 +13,7 @@ import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 
 const marketingV2 = () => {
-  const startPractice = () => {
-    if (!sessionStorage.getItem("isLoggedIn")) {
-      messageService.sendMessage("user trying to access without login");
-      sessionStorage.setItem("targetUrl","practice");
-    } else {
-      this.props.history.push({
-        pathname: "/practice/ecat",
-      });
-    }
-  };
+
   return (
     <>
       <div className="herov2 marketing-container">
@@ -111,7 +102,8 @@ const marketingV2 = () => {
         </div>
       </div>
       <div className="highlightsv2-container">
-        <div className="highlights_content" onClick={startPractice}>
+        <Link to="/courses/1">
+        <div className="highlights_content" >
           <div className="highlights_img highlight_img1">
             <img src={click1} alt="Hero" />
           </div>
@@ -121,6 +113,7 @@ const marketingV2 = () => {
             </div>
           </div>
         </div>
+        </Link>
         <Link
           to={{
             pathname: "/exam/ecat/previousPapers",
