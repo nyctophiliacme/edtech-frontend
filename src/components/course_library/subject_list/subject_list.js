@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./subject-list.css";
 import { Link, withRouter } from "react-router-dom";
-import { messageService } from "../../../services/notifyComponentService";
 import {
   getAllSubjectForCourse,
   getAllExamForCourse,
