@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./footer.css";
-import facebook from "../../assets/images/facebook.png";
-import youtube from "../../assets/images/youtube.png";
+import facebook from "../../assets/images/facebook.svg";
+import youtube from "../../assets/images/youtube.svg";
 
 const footer = () => {
   const scrollToTop = () => {
