@@ -149,7 +149,9 @@ class SubjectList extends Component {
                               background: `linear-gradient(to right,${subject.background_start_color},${subject.background_end_color})`,
                             }}
                           >
-                            ss
+                            <div className="subject-icon-wrapper">
+                              <img className="subject-icon-img" src={subject.image_url} alt="imga"/>
+                            </div>
                           </div>
                           <div className="subject-text-container">
                             <div className="subject-text-wrapper">
