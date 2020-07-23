@@ -25,40 +25,54 @@ class Header extends Component {
       firstText: (
         <div
           className="header-cta header-practice"
-          onClick={this.startPractice}
+          onClick={() => {
+            this.setState({
+              modalType: "register",
+              showModal: true,
+            });
+          }}
         >
-          Practice
+          Register
         </div>
       ),
     };
   }
-  startPractice = () => {
-    if (!sessionStorage.getItem("isLoggedIn")) {
-      this.setState({ modalType: "login", showModal: true });
-      sessionStorage.setItem("targetUrl", "practice");
-    } else {
-      this.props.history.push({
-        pathname: "/practice/ecat",
-      });
-    }
-  };
+  // startPractice = () => {
+  //   // if (!sessionStorage.getItem("isLoggedIn")) {
+  //   //   this.setState({ modalType: "login", showModal: true });
+  //   //   sessionStorage.setItem("targetUrl", "practice");
+  //   // } else {
+  //   //   this.props.history.push({
+  //   //     pathname: "/practice/ecat",
+  //   //   });
+  //   // }
+  // };
   checkUpgradePractice = () => {
-    if (
-      this.props.location.pathname.split("/")[1] === "" ||
-      this.props.location.pathname.split("/")[1] === "exam" ||
-      this.props.location.pathname.split("/")[1] === "pricing"
-    ) {
+    if (sessionStorage.getItem("isLoggedIn")) {
       this.setState({
         firstText: (
           <div
             className="header-cta header-practice"
-            onClick={this.startPractice}
+            onClick={() => {
+              this.setState({
+                modalType: "register",
+                showModal: true,
+              });
+            }}
           >
-            Practice
+            Register
           </div>
         ),
       });
-    } else {
+    }
+    // else if (
+    //   this.props.location.pathname.split("/")[1] === "" ||
+    //   this.props.location.pathname.split("/")[1] === "exam" ||
+    //   this.props.location.pathname.split("/")[1] === "pricing"
+    // ) {
+
+    // }
+    else {
       this.setState({
         firstText: (
           <div
@@ -132,22 +146,45 @@ class Header extends Component {
               </Link>
             </div>
             <div className="headerbutton-wrapper">
-              {this.state.firstText}
+              {/* {this.state.firstText} */}
               {!this.state.isLoggedIn ? (
-                <div
-                  className="header-cta header-login"
-                  onClick={() => {
-                    this.setState({ showModal: true });
-                  }}
-                >
-                  Login
-                </div>
+                <>
+                  <div
+                    className="header-cta header-practice"
+                    onClick={() => {
+                      this.setState({
+                        modalType: "register",
+                        showModal: true,
+                      });
+                    }}
+                  >
+                    Register
+                  </div>
+                  <div
+                    className="header-cta header-login"
+                    onClick={() => {
+                      this.setState({ showModal: true });
+                    }}
+                  >
+                    Login
+                  </div>
+                </>
               ) : (
-                <div className="header-usee-detail">
-                  <FontAwesomeIcon icon="user-circle" size="lg" />
-                  &nbsp;
-                  {this.state.userName}
-                </div>
+                <>
+                  <div
+                    className="header-cta header-practice"
+                    onClick={() => {
+                      this.setState({ modalType: "upgrade", showModal: true });
+                    }}
+                  >
+                    Upgrade
+                  </div>
+                  <div className="header-usee-detail">
+                    <FontAwesomeIcon icon="user-circle" size="lg" />
+                    &nbsp;
+                    {this.state.userName}
+                  </div>
+                </>
               )}
             </div>
           </div>

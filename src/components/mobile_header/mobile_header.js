@@ -1,4 +1,4 @@
-import React, {Component } from "react";
+import React, { Component } from "react";
 import logo from "../../assets/images/ST_logo.png";
 import {
   faBars,
@@ -100,20 +100,6 @@ class MobileHeader extends Component {
               Course
             </div>
           </Link>
-          {this.state.isLoggedIn ? (
-            ""
-          ) : (
-            <div
-              className="mbl-hdr-menu-item"
-              onClick={() => {
-                messageService.sendMessage("login Clicked");
-                this.setState({ showMenu: !this.state.showMenu });
-              }}
-            >
-              Login
-            </div>
-          )}
-
           <div
             className="mbl-hdr-menu-item"
             onClick={() => {
@@ -140,13 +126,40 @@ class MobileHeader extends Component {
           ) : (
             ""
           )}
-
-          <div
-            className="mbl-hdr-menu-item last-item"
-            onClick={this.startPractice}
-          >
-            Practice
-          </div>
+          {!this.state.isLoggedIn ? (
+            <>
+              <div
+                className="mbl-hdr-menu-item "
+                onClick={() => {
+                  messageService.sendMessage("v2 RegiterButton clicked");
+                  this.setState({ showMenu: !this.state.showMenu });
+                }}
+              >
+                Register
+              </div>
+              <div
+                className="mbl-hdr-menu-item last-item"
+                onClick={() => {
+                  messageService.sendMessage("login Clicked");
+                  this.setState({ showMenu: !this.state.showMenu });
+                }}
+              >
+                Login
+              </div>
+            </>
+          ) : (
+            <div
+              className="mbl-hdr-menu-item last-item"
+              onClick={() => {
+                messageService.sendMessage(
+                  "user trying to access locked chapter"
+                );
+                this.setState({ showMenu: !this.state.showMenu });
+              }}
+            >
+              Upgrade
+            </div>
+          )}
         </div>
       </>
     );

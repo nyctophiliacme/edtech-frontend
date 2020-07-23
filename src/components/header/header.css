@@ -28,12 +28,13 @@
   }
   .header-practice {
     background-color: #e86767;
-    color: #f6faff;
+    color: #2D3646;
+    background: #F7C143;
     margin-right: 24px;
   }
 
   .header-practice:hover {
-    background-color: #c15757;
+    background-color: #f7c143cc;
   }
 
   .header-cta {
@@ -43,7 +44,7 @@
     padding: 12px 24px;
     letter-spacing: 0.5px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
   }
   .header-menu-item {
