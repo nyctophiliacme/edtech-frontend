@@ -32,25 +32,27 @@ const footer = () => {
       <div className="footer-column footer-second-column">
         <div className="column-header">Account</div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/about_us">Pricing and Plans</Link>
+          <Link to="/pricing">Pricing and Plans</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/about_us">Login</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/pricing">Forgot Password</Link>
+          <Link to="/about_us">Forgot Password</Link>
         </div>
       </div>
       <div className="footer-column footer-third-column">
         <div className="column-header">Helpful Links</div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/about_us">How to pay</Link>
+          <Link to="/pricing">How to pay</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/pricing">FAQs</Link>
+          <Link to="/about_us">FAQs</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/privacy_policy">Blog</Link>
+        <a href="http://158.106.139.211/~superteacher/blog/" rel="noopener noreferrer" target="_blank" >
+              Blog
+        </a>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/term_condition">Help</Link>

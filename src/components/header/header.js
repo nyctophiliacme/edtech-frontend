@@ -209,12 +209,12 @@ class Header extends Component {
             <Link to="/career_center" className="header-menu-item">
               Career Center
             </Link>
-            <Link to="/resources" className="header-menu-item">
+            <a href="http://158.106.139.211/~superteacher/k-12-resources/" rel="noopener noreferrer" target="_blank" className="header-menu-item">
               Resources
-            </Link>
-            <Link to="/blog" className="header-menu-item">
+            </a>
+            <a href="http://158.106.139.211/~superteacher/blog/" rel="noopener noreferrer" target="_blank" className="header-menu-item">
               Blog
-            </Link>
+            </a>
           </div>
         </header>
         <Modal

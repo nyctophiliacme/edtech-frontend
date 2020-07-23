@@ -66,7 +66,7 @@
   }
   .practice-chapter-container {
     background-color: #fefefe;
-    padding-left: 25px;
+    padding-left: 0px;
     width: 100%;
     box-shadow: 5px 0px 5px #e1e1e1 inset;
   }
@@ -81,6 +81,9 @@
   }
 }
 @media screen and (min-width: 992px) {
+  .practice-chapter-container {
+    padding-left: 25px;
+  }
 }
 
 .practice-header-search-container {
