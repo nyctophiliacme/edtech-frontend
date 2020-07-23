@@ -32,9 +32,7 @@ class CourseNavigation extends Component {
   };
 
   render() {
-    const {
-      checkDevice: { isMobile },
-    } = this.state;
+
     let { selectedCourseName, selectedSectionName } = this.props;
     let overlay = (
       <div>

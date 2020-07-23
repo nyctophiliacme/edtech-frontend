@@ -1,60 +1,56 @@
 import React from "react";
 import "./exam-details.css";
-import taketest from "../../../assets/images/taketest.png";
-import practice from "../../../assets/images/practice.png";
 import pdfIcon from "../../../assets/images/Pdf_icon.png";
 import { examDetailsCompleteData } from "../exam-ecat-data";
-import { notify } from "react-notify-toast";
-import { messageService } from "../../../services/notifyComponentService";
 
-const ExamDetails = ({ name, subSection }) => {
+const ExamDetails = ({ subSection }) => {
   const examDetailsData = examDetailsCompleteData.filter((item) => {
     return item.subSection === subSection;
   })[0]?.data;
 
-  const startPractice = () => {
-    if (!sessionStorage.getItem("isLoggedIn")) {
-      messageService.sendMessage("user trying to access without login");
-      sessionStorage.setItem("targetUrl","practice");
-    } else {
-      this.props.history.push({
-        pathname: "/practice/"+name,
-      });
-    }
-  };
+  // const startPractice = () => {
+  //   if (!sessionStorage.getItem("isLoggedIn")) {
+  //     messageService.sendMessage("user trying to access without login");
+  //     sessionStorage.setItem("targetUrl","practice");
+  //   } else {
+  //     this.props.history.push({
+  //       pathname: "/practice/"+name,
+  //     });
+  //   }
+  // };
 
-  const renderActionDiv = () => {
-    if (subSection === "home") {
-      return (
-        <div className="action-parent-container">
-          <div className="action-container">
-            <div className="exam-action">
-              <div className="exam-action-img">
-                <img src={taketest} alt="test" />
-              </div>
-              <div
-                className="exam-action-text"
-                onClick={() => {
-                  notify.show(
-                    <div className="notify-container">Coming Soon...</div>,
-                    "success",
-                    8000
-                  );
-                }}
-              >  Take a Test
-              </div>
-            </div>
-              <div className="exam-action" onClick={startPractice}>
-                <div className="exam-action-img">
-                  <img src={practice} alt="test" />
-                </div>
-                <div className="exam-action-text">Practice by Chapter</div>
-              </div>
-          </div>
-        </div>
-      );
-    }
-  };
+  // const renderActionDiv = () => {
+  //   if (subSection === "home") {
+  //     return (
+  //       <div className="action-parent-container">
+  //         <div className="action-container">
+  //           <div className="exam-action">
+  //             <div className="exam-action-img">
+  //               <img src={taketest} alt="test" />
+  //             </div>
+  //             <div
+  //               className="exam-action-text"
+  //               onClick={() => {
+  //                 notify.show(
+  //                   <div className="notify-container">Coming Soon...</div>,
+  //                   "success",
+  //                   8000
+  //                 );
+  //               }}
+  //             >  Take a Test
+  //             </div>
+  //           </div>
+  //             <div className="exam-action" onClick={startPractice}>
+  //               <div className="exam-action-img">
+  //                 <img src={practice} alt="test" />
+  //               </div>
+  //               <div className="exam-action-text">Practice by Chapter</div>
+  //             </div>
+  //         </div>
+  //       </div>
+  //     );
+  //   }
+  // };
 
   const listItems = (items) => {
     return (
@@ -109,6 +105,7 @@ const ExamDetails = ({ name, subSection }) => {
                 className="exam-detail-download"
                 target="_blank"
                 download={`${2019-index}EcatPaper.pdf`}
+                rel="noopener noreferrer"
               >
                 <img className="pdf-icon" src={pdfIcon} alt="test" />
                 <span className="paper-item-text">{item.text}</span>

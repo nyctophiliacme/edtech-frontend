@@ -57,10 +57,6 @@ class Quiz extends Component {
   };
 
   render() {
-    const {
-      checkDevice: { isMobile },
-    } = this.state;
-
     return (
       <div className="quiz-parent-container">
         <div

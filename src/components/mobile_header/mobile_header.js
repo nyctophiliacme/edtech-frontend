@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from "react";
+import React, {Component } from "react";
 import logo from "../../assets/images/ST_logo.png";
 import {
   faBars,
@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, withRouter } from "react-router-dom";
 import "./mobile_header.css";
 import { messageService } from "../../services/notifyComponentService";
-import { render } from "@testing-library/react";
 
 library.add(faBars, faArrowLeft, faAngleDown, faAngleUp);
 
