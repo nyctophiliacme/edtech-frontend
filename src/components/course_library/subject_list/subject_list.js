@@ -126,21 +126,22 @@ class SubjectList extends Component {
                     return (
                       <Link
                         key={subject.id}
-                        onClick={() => {
-                          if (!sessionStorage.getItem("isLoggedIn")) {
-                            messageService.sendMessage(
-                              "user trying to access without login"
-                            );
-                            sessionStorage.setItem("targetUrl", "practice");
-                          }
-                        }}
-                        to={
-                          sessionStorage.getItem("isLoggedIn")
-                            ? `/practice/${subject.exam_code.toLowerCase()}/${
-                                subject.subject_code
-                              }`
-                            : this.props.location.pathname
-                        }
+                        // onClick={() => {
+                        //   if (!sessionStorage.getItem("isLoggedIn")) {
+                        //     messageService.sendMessage(
+                        //       "user trying to access without login"
+                        //     );
+                        //     sessionStorage.setItem("targetUrl", "practice");
+                        //   }
+                        // }}
+                        // to={
+                        //   sessionStorage.getItem("isLoggedIn")
+                        //     ? `/practice/${subject.exam_code.toLowerCase()}/${
+                        //         subject.subject_code
+                        //       }`
+                        //     : this.props.location.pathname
+                        // }
+                        to={`/practice/${subject.exam_code.toLowerCase()}/${subject.subject_code}`}
                       >
                         <div className="subject-detail-container">
                           <div

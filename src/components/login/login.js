@@ -58,7 +58,13 @@ class Login extends Component {
                 this.props.history.push({
                   pathname: "/practice/ecat",
                 });
-              }else if (this.props.location?.pathname === "/") {
+              }else if( sessionStorage.getItem("targetUrl") && sessionStorage.getItem("targetUrl").indexOf('quiz')>-1){
+                this.props.history.push(
+                  {pathname: sessionStorage.getItem("targetUrl"),
+                  state: JSON.parse(sessionStorage.getItem("targetUrlState"))
+                });
+              }
+              else if (this.props.location?.pathname === "/") {
                 this.props.redirect.push("/exam/ecat/home");
               }
               this.sendMessage("Logged In");

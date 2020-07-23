@@ -3,7 +3,7 @@ import "./practice-chapter.css";
 import lock from "../../../assets/images/lock.png";
 import unlock from "../../../assets/images/unlock.png";
 import { messageService } from "../../../services/notifyComponentService";
-import { getChapters } from "../../../services/practiceService";
+import { getChapters,getChaptersGuest } from "../../../services/practiceService";
 
 class PracticeChapter extends Component {
   constructor(props) {
@@ -24,7 +24,9 @@ class PracticeChapter extends Component {
   paths = this.props.location.pathname.split("/");
   getChapterList = () => {
     this.paths = this.props.location.pathname.split("/");
-    getChapters(this.paths[2], this.paths[3])
+    if(sessionStorage.getItem("isLoggedIn"))
+    {
+      getChapters(this.paths[2], this.paths[3])
       .then((response) => {
         this.setState({
           chapters: response.data,
@@ -33,6 +35,20 @@ class PracticeChapter extends Component {
       .catch((error) => {
         console.log(error);
       });
+    }
+    else
+    {
+      getChaptersGuest(this.paths[2], this.paths[3])
+      .then((response) => {
+        this.setState({
+          chapters: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
+    
   };
 
   render() {
@@ -51,6 +67,8 @@ class PracticeChapter extends Component {
                   messageService.sendMessage(
                     "user trying to access without login"
                   );
+                  sessionStorage.setItem("targetUrl",`/quiz/${this.paths[2]}/${this.paths[3]}/${chapter.id}`);
+                  sessionStorage.setItem("targetUrlState",JSON.stringify({ chapterTitle: chapter.title }));
                 } else if (
                   chapter.is_locked &&
                   !JSON.parse(sessionStorage.getItem("userDetails"))
