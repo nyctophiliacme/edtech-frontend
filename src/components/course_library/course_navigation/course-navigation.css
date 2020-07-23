@@ -12,6 +12,7 @@
   box-shadow: 0px -4px 15px rgba(11, 112, 231, 0.1);
   border-radius: 8px 8px 0px 0px;
   width: calc(100vw - 24px);
+  z-index: 1;
 }
 
 .course-filter-wrapper {
