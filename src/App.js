@@ -13,7 +13,7 @@ import Pricing from "./components/pricing/pricing";
 import Quiz from "./components/quiz/quiz";
 import { handleResize, debounce } from "./common/deviceDetection";
 import MobileHeader from "./components/mobile_header/mobile_header"
-
+import construction from "./components/under-construction/under-construction"
 import "./App.css";
 import EmailVerified from "./components/email-verified/email-verified";
 import ReactGA from 'react-ga';
@@ -63,10 +63,11 @@ class App extends Component {
           <Route path="/quiz" component={Quiz} />
           <Route path="/email_verified" component={EmailVerified} />
           <Route path="/courses/:courseId" component={CourseLibrary} />
-          <Route path="/videos" component={AboutUs} />
-          <Route path="/career_center" component={AboutUs} />
+          <Route path="/videos" component={construction} />
+          <Route path="/career_center" component={construction} />
           <Route path="/resources" component={AboutUs} />
           <Route path="/blog" component={AboutUs} />
+          <Route path="/construction" component={construction} />
           <Redirect to="/" />
         </Switch>
         <Footer></Footer>

@@ -58,9 +58,13 @@ class PracticeHome extends Component {
   }
 
   LoadChapter = (e) => {
-    this.props.history.push(
-      `/practice/${this.state.exam_code}/${e.target.value}`
-    );
+    console.log(e.target);
+    let value=e.target.value;
+    this.setState({
+      selectedSubjectCode : value
+    },()=>{
+      this.props.history.push(`/practice/${this.state.exam_code}/${value}`)}
+      );    
   };
 
   render() {

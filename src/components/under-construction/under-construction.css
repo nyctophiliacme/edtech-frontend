@@ -1,0 +1,110 @@
+@media screen and (min-width: 320px) {
+  .construction-container {
+    padding: 40px 24px;
+    display: block;
+    text-align: center;
+  }
+  .construction-text-container {
+    text-align: center;
+    width: 100%;
+  }
+  .construction-text1,
+  .construction-text2 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    color: #3e4851;
+  }
+  .construction-text2 {
+    padding-bottom: 20px;
+    color: #2f80ed;
+  }
+  .construction-text3 {
+    display: none;
+  }
+  .construction-text4 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #717980;
+  }
+  .construction-image-container {
+    width: 100%;
+    padding-top: 24px;
+  }
+  .construction-image-container img {
+    width: 280px;
+    height: 200px;
+    margin: auto;
+  }
+  .construction-cta {
+    background: #2f80ed;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    max-width: 192px;
+    margin: 20px auto 0px auto;
+    color: #f6faff;
+    
+    padding: 12px 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .construction-text1,
+  .construction-text2 {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    color: #3e4851;
+  }
+  .construction-text4 {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    color: #717980;
+  }
+  .construction-text-container {
+    text-align: left;
+    width: 40%;
+  }
+  .construction-text2 {
+    padding-bottom: 0px;
+  }
+  .construction-text3 {
+    display: block;
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+  .construction-container {
+    padding: 160px 40px;
+    display: flex;
+  }
+  .construction-image-container {
+    width: 60%;
+    padding-top: 0px;
+  }
+  .construction-image-container img {
+    width: 400px;
+    height: 250px;
+    float: right;
+  }
+  .construction-cta {
+    margin: 20px 0px 0px 0px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .construction-container {
+    padding: 120px;
+  }
+  .construction-text-container {
+    padding-top: 80px;
+  }
+  .construction-image-container img {
+    width: 500px;
+    height: 300px;
+    float: right;
+  }
+}

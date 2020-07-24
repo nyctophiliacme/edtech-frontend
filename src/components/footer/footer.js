@@ -39,7 +39,7 @@ const footer = () => {
       <div className="footer-column footer-second-column">
         <div className="column-header">Account</div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/pricing">Pricing and Plans</Link>
+          <Link to="/construction">Pricing and Plans</Link>
         </div>
         {!sessionStorage.getItem("isLoggedIn") ? (
           <div
@@ -54,16 +54,17 @@ const footer = () => {
         ) : null}
 
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/about_us">Forgot Password</Link>
+          <Link to="/construction">Forgot Password</Link>
         </div>
       </div>
       <div className="footer-column footer-third-column">
-        <div className="column-header">Helpful Links</div>
+        <div className="column-header">
+          Helpful Links</div>
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/pricing">How to pay</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/about_us">FAQs</Link>
+          <Link to="/construction">FAQs</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
           <a
@@ -75,7 +76,7 @@ const footer = () => {
           </a>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/term_condition">Help</Link>
+          <Link to="/construction">Help</Link>
         </div>
       </div>
       <div className="footer-column footer-container-right">
