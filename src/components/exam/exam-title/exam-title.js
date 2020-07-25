@@ -10,7 +10,7 @@ const ExamTitle = ({ examTitle, isSelected, click }) => {
   };
 
   return (
-    <Link to={`/exam/ecat/${examTitle.id}`}>
+    <Link to={`/examHome/ecat/info/${examTitle.id}`}>
       <div
         className={`exam-title-container ${isSelected ? "title-selected" : ""}`}
         onClick={scrollToTop}

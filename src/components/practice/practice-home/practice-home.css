@@ -65,24 +65,26 @@
     background-color: #fefefe;
   }
   .practice-chapter-container {
-    background-color: #fefefe;
-    padding-left: 0px;
+    padding: 32px 24px 24px 32px;
+    background-color: #E5E5E5;    
     width: 100%;
-    box-shadow: 5px 0px 5px #e1e1e1 inset;
   }
   .practice-lock-img {
     width: 24px;
     height: 29px;
   }
   .practice-subject-container {
-    padding: 0;
-    padding-top: 10px;
-    background-color: #ffffff;
+    padding: 48px 36px 0px 24px;
+    background-color: #F1F5F8;
   }
 }
 @media screen and (min-width: 992px) {
   .practice-chapter-container {
-    padding-left: 25px;
+    padding: 32px 120px 24px 32px;
+  }
+  .practice-subject-container {
+    padding: 48px 48px 0px 120px;
+    /* padding-top: 10px; */
   }
 }
 

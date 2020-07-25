@@ -10,8 +10,8 @@ const PracticeSubject = ({
   click,
 }) => {
   return (
-    <Link  to={`/practice/${examName}/${subjectCode}`}>
-      <div className={`subjects-container ${isSelected ? "title-selected" : ""}`} onClick={click}>
+    <Link  to={`/examHome/${examName}/practice/${subjectCode}`}>
+      <div className={`subjects-container ${isSelected ? "subject-selected" : ""}`} onClick={click}>
         {subjectName}
       </div>
     </Link>

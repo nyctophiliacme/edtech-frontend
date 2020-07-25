@@ -1,0 +1,58 @@
+.exam-home-header-container {
+  background: linear-gradient(47.71deg, #db2b68 0%, #e65946 100%);
+  box-shadow: 0px 4px 8px rgba(11, 35, 81, 0.1);
+  padding: 16px 0px 0px 24px;
+}
+.exam-home-heading {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding-left: 1.5%;
+}
+.exam-home-tab-item {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 24px 0px 10px 0px;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.54);
+  cursor: pointer;
+  width: 33vw;
+  text-align: center;
+}
+.exam-tab-item-selected {
+  color: #ffffff;
+  border-bottom: solid 2px white;
+}
+.exam-home-tab-container{
+    margin-left:-24px;
+}
+@media screen and (min-width: 768px) {
+  .exam-home-header-container {
+    padding: 24px 0px 0px 24px;    
+  }
+  .exam-home-heading {
+    font-size: 32px;
+    line-height: 48px;
+    padding-left: 0px;
+  }
+  .exam-home-tab-item {
+    padding: 24px 0px 10px 0px;
+    margin-right: 92px;
+    text-align: left;
+    width: auto;
+  }
+  .exam-home-tab-container{
+    margin-left:0px;
+}
+}
+@media screen and (min-width: 992px) {
+  .exam-home-header-container {
+    padding: 24px 0px 0px 120px;
+  }
+}

@@ -10,10 +10,10 @@ class PracticeHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      exam_code: props.match.params.examName.toLowerCase(),
+      exam_code: props.match.params.examcode.toLowerCase(),
       chapterList: [],
       subjectList: [],
-      selectedSubjectCode: "",
+      selectedSubjectCode: props.match.params.subjectName.toLowerCase(),
       checkDevice: handleResize(),
     };
   }
@@ -35,15 +35,16 @@ class PracticeHome extends Component {
         this.setState(
           {
             subjectList: response.data,
-            selectedSubjectCode: this.paths[3]
-              ? this.paths[3]
-              : response.data[0].subject_code,
-          },
-          () => {
-            this.props.history.push(
-              `/practice/${this.state.exam_code}/${this.state.selectedSubjectCode}`
-            );
+            selectedSubjectCode:this.props.match.params.subjectName.toLowerCase()
+              // ? this.paths[3]
+              // : response.data[0].subject_code,
           }
+          // ,
+          // () => {
+          //   this.props.history.push(
+          //     `/practice/${this.state.exam_code}/${this.state.selectedSubjectCode}`
+          //   );
+          // }
         );
       })
       .catch((error) => {
@@ -58,32 +59,31 @@ class PracticeHome extends Component {
   }
 
   LoadChapter = (e) => {
-    console.log(e.target);
     let value=e.target.value;
     this.setState({
       selectedSubjectCode : value
     },()=>{
-      this.props.history.push(`/practice/${this.state.exam_code}/${value}`)}
+      this.props.history.push(`/examHome/${this.state.exam_code}/practice/${value}`)}
       );    
   };
 
   render() {
     return (
       <>
-        <div className="practice-header">
+        {/* <div className="practice-header">
           <div className="practice-header-text">
             {this.state.exam_code.toUpperCase() + " "} Practice by Chapter
           </div>
           <div className="practice-header-search-container">
-            {/* <input
+            { <input
               className="practice-header-search"
               type="text"
               name="search"
               placeholder="Search..."
               required
-            /> */}
+            /> }
           </div>
-        </div>
+        </div> */}
         <div className="practice-container">
           <div className="practice-subject-container">
             {!this.state.checkDevice.isMobile ? (
@@ -127,7 +127,7 @@ class PracticeHome extends Component {
           <div className="practice-chapter-container">
             <Switch>
               <Route
-                path="/practice/:name/:subjectName"
+                path={this.url}
                 component={PracticeChapter}
               />
             </Switch>

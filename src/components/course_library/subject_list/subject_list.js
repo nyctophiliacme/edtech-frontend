@@ -123,24 +123,13 @@ class SubjectList extends Component {
                     this.state.selectedExamCode === subject.exam_code
                   ) {
                     return (
+                      // <Link
+                      //   key={subject.id}
+                      //   to={`/practice/${subject.exam_code.toLowerCase()}/${subject.subject_code}`}
+                      // >
                       <Link
                         key={subject.id}
-                        // onClick={() => {
-                        //   if (!sessionStorage.getItem("isLoggedIn")) {
-                        //     messageService.sendMessage(
-                        //       "user trying to access without login"
-                        //     );
-                        //     sessionStorage.setItem("targetUrl", "practice");
-                        //   }
-                        // }}
-                        // to={
-                        //   sessionStorage.getItem("isLoggedIn")
-                        //     ? `/practice/${subject.exam_code.toLowerCase()}/${
-                        //         subject.subject_code
-                        //       }`
-                        //     : this.props.location.pathname
-                        // }
-                        to={`/practice/${subject.exam_code.toLowerCase()}/${subject.subject_code}`}
+                        to={`/examHome/${subject.exam_code.toLowerCase()}/practice/${subject.subject_code}`}
                       >
                         <div className="subject-detail-container">
                           <div

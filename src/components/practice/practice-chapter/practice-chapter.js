@@ -21,12 +21,12 @@ class PracticeChapter extends Component {
       this.getChapterList();
     }
   }
-  paths = this.props.location.pathname.split("/");
+  // paths = this.props.location.pathname.split("/");
   getChapterList = () => {
-    this.paths = this.props.location.pathname.split("/");
+    // this.paths = this.props.location.pathname.split("/");
     if(sessionStorage.getItem("isLoggedIn"))
     {
-      getChapters(this.paths[2], this.paths[3])
+      getChapters(this.props.match.params.examcode, this.props.match.params.subjectName)
       .then((response) => {
         this.setState({
           chapters: response.data,
@@ -38,7 +38,7 @@ class PracticeChapter extends Component {
     }
     else
     {
-      getChaptersGuest(this.paths[2], this.paths[3])
+      getChaptersGuest(this.props.match.params.examcode, this.props.match.params.subjectName)
       .then((response) => {
         this.setState({
           chapters: response.data,
@@ -67,7 +67,7 @@ class PracticeChapter extends Component {
                   messageService.sendMessage(
                     "user trying to access without login"
                   );
-                  sessionStorage.setItem("targetUrl",`/quiz/${this.paths[2]}/${this.paths[3]}/${chapter.id}`);
+                  sessionStorage.setItem("targetUrl",`/quiz/${this.props.match.params.examcode}/${this.props.match.params.subjectName}/${chapter.id}`);
                   sessionStorage.setItem("targetUrlState",JSON.stringify({ chapterTitle: chapter.title }));
                 } else if (
                   chapter.is_locked &&
@@ -79,7 +79,7 @@ class PracticeChapter extends Component {
                   );
                 } else {
                   this.props.history.push({
-                    pathname: `/quiz/${this.paths[2]}/${this.paths[3]}/${chapter.id}`,
+                    pathname: `/quiz/${this.props.match.params.examcode}/${this.props.match.params.subjectName}/${chapter.id}`,
                     state: { chapterTitle: chapter.title },
                   });
                 }

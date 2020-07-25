@@ -65,7 +65,7 @@ class Login extends Component {
                 });
               }
               else if (this.props.location?.pathname === "/") {
-                this.props.redirect.push("/exam/ecat/home");
+                this.props.redirect.push("/courses");
               }
               this.sendMessage("Logged In");
               this.props.handleModalClose();

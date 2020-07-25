@@ -67,7 +67,7 @@ class Quiz extends Component {
           }
         >
           <Link
-            to={`/practice/${this.props.location.pathname.split("/")[2]}/${
+            to={`/examHome/${this.props.location.pathname.split("/")[2]}/practice/${
               this.props.location.pathname.split("/")[3]
             }`}
           >
@@ -81,7 +81,7 @@ class Quiz extends Component {
           </span>
           <span className="quiz-header-title quiz-header-number">{`${this.state.questionList.length} Qs`}</span>
           <Link
-            to={`/practice/${this.props.location.pathname.split("/")[2]}/${
+            to={`/examHome/${this.props.location.pathname.split("/")[2]}/practice/${
               this.props.location.pathname.split("/")[3]
             }`}
           >

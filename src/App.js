@@ -18,6 +18,7 @@ import "./App.css";
 import EmailVerified from "./components/email-verified/email-verified";
 import ReactGA from 'react-ga';
 import CourseLibrary from "./components/course_library/course_library";
+import ExamLanding from "./components/exam-landing/exam-landing";
 
 ReactGA.initialize('UA-168958894-1');
 
@@ -68,6 +69,7 @@ class App extends Component {
           <Route path="/resources" component={AboutUs} />
           <Route path="/blog" component={AboutUs} />
           <Route path="/construction" component={construction} />
+          <Route path="/examHome/:examcode" component={ExamLanding} />
           <Redirect to="/" />
         </Switch>
         <Footer></Footer>
