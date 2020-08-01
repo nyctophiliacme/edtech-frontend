@@ -1,6 +1,6 @@
 .mob-hdr-container{
     background-color: #122E51;
-    padding:20px;
+    padding:16px;
     display: flex;
     position: fixed;
     right: 0;
@@ -10,12 +10,12 @@
 }
 .mob-hdr-menuIcon{
     font-size: 22px;
-    line-height: 32px;
+    line-height: 24px;
     color: #fff;
 }
 .mob-hdr-logo{
     margin: 0 auto;
-    HEIGHT: 32px;
+    height: 24px;
 }
 .side-panel  {
     width: 0;

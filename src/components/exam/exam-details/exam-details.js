@@ -121,7 +121,7 @@ const ExamDetails = ({ subSection }) => {
 
   return (
     <>
-     <div className="exam-page-header">
+
       <div className="exam-details-container">
         {examDetailsData.map(function (ed, index) {
           if (ed.type === "para") {
@@ -173,7 +173,7 @@ const ExamDetails = ({ subSection }) => {
           }
         })}
       </div>
-      </div>
+
     </>
   );
 };
