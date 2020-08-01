@@ -5,10 +5,7 @@
 }
 .exam-titlelist-Container{
     float: left;
-    padding:15px 28px;
-    background-color:#Ffffff;
-    display: inline-table;
-
+    background-color:#F1F5F8;
 }
 .exam-details-Container{
     float: right;
@@ -23,8 +20,14 @@
         text-transform: none !important;
         padding-left: 0px !important;
     }
+    .exam-details-Container{
+        display: none;
+    }
 }
 @media screen and (min-width: 768px) {
+    .exam-details-Container{
+        display: none;
+    }
     .exam-static-header{
         padding-bottom: 24px;
         text-transform: none !important;
