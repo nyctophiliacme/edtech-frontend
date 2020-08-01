@@ -1,8 +1,7 @@
 .examhome-container{
-    padding:60px;
     display:flex;
     background-color:#FAFAFA;
-    overflow-x: scroll;
+    overflow: hidden;
 }
 .exam-titlelist-Container{
     float: left;
