@@ -12,15 +12,17 @@ import Notifications from "react-notify-toast";
 import Pricing from "./components/pricing/pricing";
 import Quiz from "./components/quiz/quiz";
 import { handleResize, debounce } from "./common/deviceDetection";
-import MobileHeader from "./components/mobile_header/mobile_header"
-import construction from "./components/under-construction/under-construction"
+import MobileHeader from "./components/mobile_header/mobile_header";
+import construction from "./components/under-construction/under-construction";
 import "./App.css";
 import EmailVerified from "./components/email-verified/email-verified";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 import CourseLibrary from "./components/course_library/course_library";
 import ExamLanding from "./components/exam-landing/exam-landing";
+import {withRouter } from 'react-router';
 
-ReactGA.initialize('UA-168958894-1');
+
+ReactGA.initialize("UA-168958894-1");
 
 class App extends Component {
   constructor(props) {
@@ -31,6 +33,12 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.unlisten = this.props.history.listen((location, action) => {
+      window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+    });
     window.addEventListener(
       "resize",
       debounce(() => {
@@ -41,7 +49,8 @@ class App extends Component {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }
 
-  componentDidUpdate = () => ReactGA.pageview(window.location.pathname + window.location.search);
+  componentDidUpdate = () =>
+    ReactGA.pageview(window.location.pathname + window.location.search);
 
   render() {
     const {
@@ -51,31 +60,37 @@ class App extends Component {
     return (
       <>
         <Notifications />
-         <MobileHeader isMobile={isMobile}></MobileHeader> 
-         <Header isMobile={isMobile}></Header>
-        <Switch>
-          <Route exact path="/" component={MarketingV2} />
-          <Route path="/privacy_policy" component={PrivacyPolicy} />
-          <Route path="/term_condition" component={TermAndCondition} />
-          <Route path="/about_us" component={AboutUs} />
-          <Route path="/exam/:examName/:defaultSection" component={ExamHome} />
-          <Route path="/practice/:examName" component={PracticeHome} />
-          <Route path="/pricing" component={Pricing} />
-          <Route path="/quiz" component={Quiz} />
-          <Route path="/email_verified" component={EmailVerified} />
-          <Route path="/courses/:courseId" component={CourseLibrary} />
-          <Route path="/videos" component={construction} />
-          <Route path="/career_center" component={construction} />
-          <Route path="/resources" component={AboutUs} />
-          <Route path="/blog" component={AboutUs} />
-          <Route path="/construction" component={construction} />
-          <Route path="/examHome/:examcode" component={ExamLanding} />
-          <Redirect to="/" />
-        </Switch>
+        <MobileHeader isMobile={isMobile}></MobileHeader>
+        <Header isMobile={isMobile}></Header>
+        <div className="main-container">
+          <Switch>
+            <Route exact path="/" component={MarketingV2} />
+            <Route path="/privacy_policy" component={PrivacyPolicy} />
+            <Route path="/term_condition" component={TermAndCondition} />
+            <Route path="/about_us" component={AboutUs} />
+            <Route
+              path="/exam/:examName/:defaultSection"
+              component={ExamHome}
+            />
+            <Route path="/practice/:examName" component={PracticeHome} />
+            <Route path="/pricing" component={Pricing} />
+            <Route path="/quiz" component={Quiz} />
+            <Route path="/email_verified" component={EmailVerified} />
+            <Route path="/courses/:courseId" component={CourseLibrary} />
+            <Route path="/videos" component={construction} />
+            <Route path="/career_center" component={construction} />
+            <Route path="/resources" component={AboutUs} />
+            <Route path="/blog" component={AboutUs} />
+            <Route path="/construction" component={construction} />
+            <Route path="/examHome/:examcode" component={ExamLanding} />
+            <Redirect to="/" />
+          </Switch>
+        </div>
+
         <Footer></Footer>
       </>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

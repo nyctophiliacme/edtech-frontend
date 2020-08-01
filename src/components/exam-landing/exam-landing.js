@@ -42,7 +42,7 @@ class ExamLanding extends Component {
           />
           <Route
             path={`${this.props.match.path}/info/:defaultSection`}
-            component={ExamHome}
+            component={construction}
           />
         </Switch>
       </>

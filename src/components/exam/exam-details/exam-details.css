@@ -1,99 +1,125 @@
-.action-parent-container{
-    text-align: center;
+@media screen and (min-width: 320px) {
+    .action-parent-container{
+        text-align: center;
+    }
+    .action-container{
+        display: inline-flex;
+        padding-bottom: 40px;
+    }
+    .exam-action{
+        padding:20px 45px;
+        margin-right: 70px;
+        background-color: white;
+        border-radius: 16px;
+        cursor: pointer;
+    }
+    .exam-action-img{
+        width:30px;
+        padding-bottom: 15px;
+    }
+    .exam-action-text{
+        text-align: center;
+       font-weight :400;
+       font-size:36px;
+       line-height:40px;
+       color:#122E51;
+       padding-bottom: 20px;
+    }
+    .exam-details-heading{
+        padding-bottom: 8px;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.1px;
+        color: #606060;
+    }
+    .exam-details-text{
+        font-weight :normal;
+        font-size:14px;
+        line-height:20px;
+        padding-bottom: 10px;
+        letter-spacing: 0.1px;
+        color: #606060;
+        margin:0;
+    }
+    
+    .exam-details-text-paper{
+        font-weight :300;
+        font-size:20px;
+        line-height:25px;
+        color:black;
+        padding: 5px;
+        letter-spacing: 1px;
+    }
+    
+    .exam-detail-download:hover{
+        color: blue;
+        text-decoration: underline;
+    }
+    
+    .exam-details-download-container{
+        margin: 0px 0px 10px 0px;
+        background-color: white;
+        border-radius:10px;
+    }
+    .details-ul{
+        padding-left: 20px;
+        margin:0;
+    }
+    
+    .exam-details-table-container{
+        width:100%;
+        border-radius:4px;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+    .exam-details-table-header{
+        background-color: #67B2E8;
+        margin: 0 auto;
+        text-align: center;
+        color:#fff;
+        font-size: 24px;
+        letter-spacing: 1px;
+        line-height: 30px;
+        font-weight: 500;
+    }
+    .exam-details-table-subcontent{
+        text-align: center;
+        padding: 35px 0px;
+        border: solid #67B2E8;
+        border-top: none;
+        border-width: 2px;
+    }
+    .pdf-icon{
+        display: inline-block;
+    }
+    .paper-item-text{
+        text-transform: capitalize;
+        vertical-align: top;
+        line-height: 60px;
+        padding-left: 20px;
+    }
+    .examlist-wrapper{
+        display: inline;
+    }
+    .exam-page-header{
+        background: linear-gradient(37.81deg, #DB2B68 0%, #E65946 100%);
+box-shadow: 0px 4px 8px rgba(11, 35, 81, 0.1);
+    }
 }
-.action-container{
-    display: inline-flex;
-    padding-bottom: 40px;
-}
-.exam-action{
-    padding:20px 45px;
-    margin-right: 70px;
-    background-color: white;
-    border-radius: 16px;
-    cursor: pointer;
-}
-.exam-action-img{
-    width:30px;
-    padding-bottom: 15px;
-}
-.exam-action-text{
-    text-align: center;
-   font-weight :400;
-   font-size:36px;
-   line-height:40px;
-   color:#122E51;
-   padding-bottom: 20px;
-}
-.exam-details-heading{
-    font-weight :400;
-    font-size:32px;
-    line-height:36px;
-    color:black;
-    padding-bottom: 10px;
-}
-.exam-details-text{
-    font-weight :300;
-    font-size:20px;
-    line-height:25px;
-    color:black;
-    padding-bottom: 15px;
-    letter-spacing: 1px;
-}
+@media screen and (min-width: 768px) {
+    .exam-details-heading{
 
-.exam-details-text-paper{
-    font-weight :300;
-    font-size:20px;
-    line-height:25px;
-    color:black;
-    padding: 5px;
-    letter-spacing: 1px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .exam-details-text{
+        font-weight :normal;
+        font-size:16px;
+        line-height:24px;
+        padding-bottom: 10px;
+    }
 }
-
-.exam-detail-download:hover{
-    color: blue;
-    text-decoration: underline;
-}
-
-.exam-details-download-container{
-    margin: 0px 0px 10px 0px;
-    background-color: white;
-    border-radius:10px;
-}
-.details-ul{
-    padding-left: 20px;
-    margin-top: 20px;
-}
-
-.exam-details-table-container{
-    width:100%;
-    border-radius:4px;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    table-layout: fixed;
-}
-.exam-details-table-header{
-    background-color: #67B2E8;
-    margin: 0 auto;
-    text-align: center;
-    color:#fff;
-    font-size: 24px;
-    letter-spacing: 1px;
-    line-height: 30px;
-    font-weight: 500;
-}
-.exam-details-table-subcontent{
-    text-align: center;
-    padding: 35px 0px;
-    border: solid #67B2E8;
-    border-top: none;
-    border-width: 2px;
-}
-.pdf-icon{
-    display: inline-block;
-}
-.paper-item-text{
-    text-transform: capitalize;
-    vertical-align: top;
-    line-height: 60px;
-    padding-left: 20px;
+@media screen and (min-width: 992px) {
 }

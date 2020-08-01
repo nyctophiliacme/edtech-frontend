@@ -37,7 +37,9 @@ a{
     line-height: 27px;
     font-weight: 500;
   }
-  
+  .main-container{
+    margin-top: 75px;
+  }
 }
 @media screen and (min-width: 768px) {
   .common-container{
@@ -49,7 +51,9 @@ a{
     line-height: 37px;
     font-weight: 500;
   }
-  
+  .main-container{
+    margin-top: 152px;
+  }
 }
 @media screen and (min-width: 992px) {
   .common-container {
@@ -60,4 +64,5 @@ a{
     line-height: 47px;
     font-weight: 500;
   }
+
 }

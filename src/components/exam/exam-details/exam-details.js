@@ -57,9 +57,11 @@ const ExamDetails = ({ subSection }) => {
       <ul className="details-ul">
         {items.map(function (item, index) {
           return (
+            <div className="examlist-wrapper">
             <li className="exam-details-text" key={index}>
               {item}
             </li>
+            </div>
           );
         })}
       </ul>
@@ -119,7 +121,7 @@ const ExamDetails = ({ subSection }) => {
 
   return (
     <>
-      {/* {renderActionDiv()} removing action div*/}
+     <div className="exam-page-header">
       <div className="exam-details-container">
         {examDetailsData.map(function (ed, index) {
           if (ed.type === "para") {
@@ -170,6 +172,7 @@ const ExamDetails = ({ subSection }) => {
             return <div> No Data found</div>;
           }
         })}
+      </div>
       </div>
     </>
   );

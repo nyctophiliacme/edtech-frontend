@@ -2,6 +2,11 @@
     background-color: #122E51;
     padding:20px;
     display: flex;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1;
 }
 .mob-hdr-menuIcon{
     font-size: 22px;
