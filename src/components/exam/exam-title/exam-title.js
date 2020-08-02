@@ -11,7 +11,6 @@ library.add(faChevronRight);
 class ExamTitle extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
       // exam_code: this.props.match.params.examName,
       exam_code:"",
@@ -40,7 +39,8 @@ class ExamTitle extends Component {
             ? this.state.examsItemsList.map((category, index) => {
                 return (
                   <div key={index} className="section exam-tile-section">
-                    <div className="section-title exam-section-title">
+                    <div className="section-title exam-section-title" onClick={()=>{
+                              this.props.updateRoute(category.section_container_1d, category.sections[0].section_id)}}>
                       {category.section_container_title}
                       <span className="right-icon">
                         <FontAwesomeIcon icon="chevron-right" className="" />
@@ -56,7 +56,8 @@ class ExamTitle extends Component {
                                 ? "active"
                                 : ""
                             }`}
-                            key={subsection.section_id}
+                            key={subsection.section_id} onClick={()=>{
+                              this.props.updateRoute(category.section_container_1d,subsection.section_id)}}
                           >
                             {subsection.section_title}
                           </div>

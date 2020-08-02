@@ -8,9 +8,9 @@ export const getExamSideNav = (exam_code) => {
 
   return examSideNavData;
 };
-export const getExamStaticData = (exam_code,section_id) => {
-    return section_id===1 ?examDetail1:examdetail2;
-  };
+export const getExamStaticData = (section_container_1d) => {
+  return section_container_1d === 1 ? examDetail1 : examDetail2;
+};
 
 let examSideNavData = [
   {
@@ -370,8 +370,154 @@ let examDetail1 = {
     },
   ],
 };
-let examdetail2 = {
-  section_html: `
+let examDetail2 = {
+  section_container_1d: 2,
+  section_container_title: "about the test",
+  sections: [
+    {
+      section_id: 3,
+      section_title: "Fees",
+      section_html: `<div class="exam-details-heading">
+       What is ECAT?
+       </div>
+       <div>
+         <p class="exam-details-text">
+           Engineering College Admission Test (ECAT) is a test conducted in Punjab,
+           Pakistan each year for admission in BE/BS/BSc Engineering degree
+           programs. ECAT is conducted by the University of Engineering and
+           Technology, Lahore. Each year some 45,000 students attempt this test
+           while there are some 3,000 seats in public sector engineering
+           institutions of the Punjab.
+         </p>
+         <p class="exam-details-text">
+           ECAT is a prerequisite for admission in the University of Engineering
+           and Technology, Lahore, and its affiliated institutions and all other
+           public sector engineering institutions in the Punjab. Some private
+           institutions also require ECAT as a prerequisite.
+         </p>
+       </div>
+     <div class="exam-details-heading">
+       Eligibility
+       <ul class="details-ul">
+         <li class="exam-details-text">
+           Applicants who have passed or have appeared in F.Sc. / Intermediate,
+           B.Sc., DAE, B.Tech. (Pass), or any Equivalent Examination may apply for
+           Entry Test.
+         </li>
+         <li class="exam-details-text">
+           Or applicants who have successfully taken the F.Sc (part-II) /
+           equivalent A-Level exams and are awaiting are eligible to sit in the
+           test on the basis of their 1st year marks.
+         </li>
+       </ul>
+     </div>
+     <div class="exam-details-heading">
+       Schedule
+       <div>
+         <p class="exam-details-text">
+           ECAT is conducted once a year during the month of July.
+         </p>
+       </div>
+     </div>
+     <div class="exam-details-heading">
+       Application process
+       <ul class="details-ul">
+         <li class="exam-details-text">
+           The Entry Test Application filled online through the web link
+           http://admission.uet.edu.pk as the admission date announce (admission
+           started in June probably every year)
+         </li>
+         <li class="exam-details-text">The UET exam fee is Rs 1200/-</li>
+         <li class="exam-details-text">
+           UET ECAT tokens are available at the HBL designated Branches by paying a
+           fee of Rs 1200/-
+         </li>
+         <li class="exam-details-text">Login to UET admission Portal</li>
+         <li class="exam-details-text">
+           Fill out the application online according to the instructions
+         </li>
+         <li class="exam-details-text">
+           After filling the form and read it again and then submit the application
+         </li>
+         <li class="exam-details-text">
+           Now after submitting the form, the applicant is able to download the
+           admit card
+         </li>
+         <li class="exam-details-text">Print the admit card for exam day</li>
+         <li class="exam-details-text">Bring CNIC and Admit card on exam day</li>
+       </ul>
+     </div>
+     <div class="exam-details-heading">
+       Merit Calculation
+       <div>
+         <p class="exam-details-text">
+           This year, UET has changed the merit calculation formula which is as
+           follows: -
+         </p>
+       </div>
+     </div>
+     <div class="exam-table1-wrapper">
+       <table class="exam-details-table1-container">
+         <thead>
+           <tr class="exam-details-table1-header">
+             <th colspan="3">F.Sc</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr class="exam-details-table1-content">
+             <td class="exam-details-table1-subcontent">Matric<br />25%</td>
+             <td class="exam-details-table1-subcontent">Entry test<br />30%</td>
+             <td class="exam-details-table1-subcontent">F.Sc Part (1)<br />45%</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+     <div class="exam-table1-wrapper">
+       <table class="exam-details-table1-container">
+         <thead>
+           <tr class="exam-details-table1-header">
+             <th colspan="2">O-Level</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr class="exam-details-table1-content">
+             <td class="exam-details-table1-subcontent">Entry test<br />30%</td>
+             <td class="exam-details-table1-subcontent">
+               Marks in 11th Class <br />70%
+             </td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+     <div class="exam-details-heading">
+       Programs for ECAT candidates
+       <ul class="details-ul-type2">
+         <div class="li-type2"><li class="exam-details-text">BSc. Architectural Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">B. Architecture</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Civil Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. City and Regional Planning</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Computer Science</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Computer Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Electrical Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Geological Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Environmental Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Industrial and Manufacturing Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Mechanical Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Mechatronics &amp;amp; Control Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Mining Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Metallurgical and Materials Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Petroleum and Gas Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Product and Industrial Design</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Polymer Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Transportation Engineering</li></div>
+         <div class="li-type2"><li class="exam-details-text">BSc. Chemical Engineering</li></div>
+       </ul>
+     </div>`,
+    },
+    {
+      section_id: 4,
+      section_title: "paper pattern",
+      section_html: `
           <div class="exam-details-container past-paper-container">
           <div class="exam-details-heading">Past Pappers</div>
           <div class="exam-details-download-container">
@@ -591,5 +737,7 @@ let examdetail2 = {
               </tbody>
             </table>
           </div>
-          `
+          `,
+    },
+  ],
 };

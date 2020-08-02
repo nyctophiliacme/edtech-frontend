@@ -115,7 +115,7 @@ class MobileHeader extends Component {
             />
           </div>
           {this.state.ShowEntryTestList ? (
-            <Link to="/exam/ecat/home">
+            <Link to="/exam/ecat/1">
               <div
                 className="mbl-hdr-menu-item mbl-hdr-sub-item"
                 onClick={this.toggleMenu}
