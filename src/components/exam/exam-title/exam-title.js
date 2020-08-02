@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { handleResize, debounce } from "../../../common/deviceDetection";
 import "./exam-title.css";
-import { getAllCourses } from "../../../services/courseService";
+import { getExamSideNav } from "../../../services/examService";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,8 +11,10 @@ library.add(faChevronRight);
 class ExamTitle extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
     this.state = {
-      examId: "",
+      // exam_code: this.props.match.params.examName,
+      exam_code:"",
       examsItemsList: [],
       checkDevice: handleResize(),
     };
@@ -25,9 +27,9 @@ class ExamTitle extends Component {
         this.setState({ checkDevice: handleResize() });
       }, 500)
     );
-    getAllCourses().then((response) => {
-      this.setState({ examsItemsList: response.data });
-    });
+    // getAllCourses().then((response) => {
+      this.setState({ examsItemsList: getExamSideNav() });
+    // });
   }
 
   render() {
@@ -39,24 +41,24 @@ class ExamTitle extends Component {
                 return (
                   <div key={index} className="section exam-tile-section">
                     <div className="section-title exam-section-title">
-                      {category.course_container_title}
+                      {category.section_container_title}
                       <span className="right-icon">
                         <FontAwesomeIcon icon="chevron-right" className="" />
                       </span>
                     </div>
                     <div className="sub-section exam-sub-sections-mobile">
-                      {category.courses.map((subsection) => {
+                      {category.sections.map((subsection) => {
                         return (
                           <div
                             className={`subsection-item ${
-                              parseInt(subsection.id) ===
+                              parseInt(subsection.section_id) ===
                               parseInt(this.props.selectedCourseId)
                                 ? "active"
                                 : ""
                             }`}
-                            key={subsection.id}
+                            key={subsection.section_id}
                           >
-                            {subsection.course_title}
+                            {subsection.section_title}
                           </div>
                         );
                       })}
