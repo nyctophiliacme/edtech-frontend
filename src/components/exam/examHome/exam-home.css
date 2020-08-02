@@ -3,11 +3,9 @@
   background-color: #fafafa;
   overflow: hidden;
 }
-.exam-titlelist-Container {
-  float: left;
-  padding: 15px 28px;
-  background-color: #ffffff;
-  display: inline-table;
+.exam-titlelist-Container{
+    float: left;
+    background-color:#F1F5F8;
 }
 
 @media screen and (min-width: 320px) {
