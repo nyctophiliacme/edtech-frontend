@@ -1,125 +1,245 @@
 @media screen and (min-width: 320px) {
-    .action-parent-container{
-        text-align: center;
-    }
-    .action-container{
-        display: inline-flex;
-        padding-bottom: 40px;
-    }
-    .exam-action{
-        padding:20px 45px;
-        margin-right: 70px;
-        background-color: white;
-        border-radius: 16px;
-        cursor: pointer;
-    }
-    .exam-action-img{
-        width:30px;
-        padding-bottom: 15px;
-    }
-    .exam-action-text{
-        text-align: center;
-       font-weight :400;
-       font-size:36px;
-       line-height:40px;
-       color:#122E51;
-       padding-bottom: 20px;
-    }
-    .exam-details-heading{
-        padding-bottom: 8px;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 20px;
-        letter-spacing: 0.1px;
-        color: #606060;
-    }
-    .exam-details-text{
-        font-weight :normal;
-        font-size:14px;
-        line-height:20px;
-        padding-bottom: 10px;
-        letter-spacing: 0.1px;
-        color: #606060;
-        margin:0;
-    }
-    
-    .exam-details-text-paper{
-        font-weight :300;
-        font-size:20px;
-        line-height:25px;
-        color:black;
-        padding: 5px;
-        letter-spacing: 1px;
-    }
-    
-    .exam-detail-download:hover{
-        color: blue;
-        text-decoration: underline;
-    }
-    
-    .exam-details-download-container{
-        margin: 0px 0px 10px 0px;
-        background-color: white;
-        border-radius:10px;
-    }
-    .details-ul{
-        padding-left: 20px;
-        margin:0;
-    }
-    
-    .exam-details-table-container{
-        width:100%;
-        border-radius:4px;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-        table-layout: fixed;
-    }
-    .exam-details-table-header{
-        background-color: #67B2E8;
-        margin: 0 auto;
-        text-align: center;
-        color:#fff;
-        font-size: 24px;
-        letter-spacing: 1px;
-        line-height: 30px;
-        font-weight: 500;
-    }
-    .exam-details-table-subcontent{
-        text-align: center;
-        padding: 35px 0px;
-        border: solid #67B2E8;
-        border-top: none;
-        border-width: 2px;
-    }
-    .pdf-icon{
-        display: inline-block;
-    }
-    .paper-item-text{
-        text-transform: capitalize;
-        vertical-align: top;
-        line-height: 60px;
-        padding-left: 20px;
-    }
-    .examlist-wrapper{
-        display: inline;
-    }
-    .exam-page-header{
-        background: linear-gradient(37.81deg, #DB2B68 0%, #E65946 100%);
-box-shadow: 0px 4px 8px rgba(11, 35, 81, 0.1);
-    }
+  .past-paper-container {
+    background-color: #f9fafa;
+    padding-bottom: 10px;
+  }
+  .action-parent-container {
+    text-align: center;
+  }
+  .action-container {
+    display: inline-flex;
+    padding-bottom: 40px;
+  }
+  .exam-action {
+    padding: 20px 45px;
+    margin-right: 70px;
+    background-color: white;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+  .exam-action-img {
+    width: 30px;
+    padding-bottom: 15px;
+  }
+  .exam-action-text {
+    text-align: center;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 40px;
+    color: #122e51;
+    padding-bottom: 20px;
+  }
+  .exam-details-heading {
+    padding-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #606060;
+    background-color: #ffffff;
+  }
+  .exam-details-text {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    padding-bottom: px;
+    letter-spacing: 0.1px;
+    color: #606060;
+    margin: 0;
+  }
+
+  .exam-detail-download:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .exam-details-download-container {
+    margin: 10px;
+    background: #ffffff;
+    box-shadow: 0px 16px 32px rgba(221, 230, 237, 0.4);
+    border-radius: 4px;
+    padding: 20px 16px;
+  }
+  .details-ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .exam-table1-wrapper {
+    display: inline-block;
+    width: 300px;
+    margin-right: 24px;
+  }
+  .exam-details-table1-container {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    table-layout: fixed;
+  }
+  .exam-details-table1-header {
+    background-color: #4fa5d6;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #ffffff;
+  }
+  .exam-details-table2-header {
+    background-color: #2d3646;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: #ffffff;
+    padding: 24px 16px;
+    text-align: left;
+  }
+  .exam-details-table1-content:last-child {
+    border-right: none;
+  }
+  .exam-details-table1-subcontent {
+    padding: 12px 0px;
+    border-top: none;
+    border-right: 1px solid #4fa5d6;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #606060;
+    font-weight: 600;
+  }
+  .pdf-icon {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .paper-item-text {
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 0.1px;
+    color: #828282;
+  }
+  .examlist-wrapper {
+    display: inline;
+  }
+  .exam-page-header {
+    background: linear-gradient(37.81deg, #db2b68 0%, #e65946 100%);
+    box-shadow: 0px 4px 8px rgba(11, 35, 81, 0.1);
+  }
+  .exam-table2-wrapper {
+    width: 300px;
+    margin-top:24px;
+  }
+  .exam-details-table2-container {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    table-layout: fixed;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+  }
+  .exam-details-table2-subcontent {
+    padding: 20px 24px;
+    color: #606060;
+  }
 }
 @media screen and (min-width: 768px) {
-    .exam-details-heading{
-
-        font-size: 16px;
-        line-height: 24px;
-    }
-    .exam-details-text{
-        font-weight :normal;
-        font-size:16px;
-        line-height:24px;
-        padding-bottom: 10px;
-    }
+  .exam-details-table2-subcontent {
+    padding: 20px 16px;
+  }
+  .exam-details-table2-header {
+    padding: 24px 32px;
+  }
+  .exam-details-heading {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .exam-details-text {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    padding-bottom: 10px;
+  }
+  .exam-table2-wrapper {
+    width: 450px;
+  }
 }
 @media screen and (min-width: 992px) {
+  .li-type2 {
+    display: inline-block;
+    width: 48%;
+  }
+  .exam-table2-wrapper {
+    width: 560px;
+  }
+}
+
+/* top-left border-radius */
+.exam-details-table1-container tr:first-child th:first-child,
+.exam-details-table2-container tr:first-child th:first-child {
+  border-top-left-radius: 6px;
+}
+
+/* top-right border-radius */
+.exam-details-table1-container tr:first-child th:last-child,
+.exam-details-table2-container tr:first-child th:last-child {
+  border-top-right-radius: 6px;
+}
+
+/* bottom-left border-radius */
+.exam-details-table1-container tr:last-child td:first-child,
+.exam-details-table2-container tr:last-child td:first-child {
+  border-bottom-left-radius: 6px;
+}
+
+/* bottom-right border-radius */
+.exam-details-table1-container tr:last-child td:last-child,
+.exam-details-table2-container tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
+}
+
+.exam-details-table1-container tr th,
+.exam-details-table1-container tr td {
+  border-right: 1px solid #4fa5d6;
+  border-bottom: 1px solid #4fa5d6;
+  padding: 5px;
+}
+.exam-details-table1-container tr th:first-child,
+.exam-details-table1-container tr td:first-child {
+  border-left: 1px solid #4fa5d6;
+}
+.odd {
+  background-color: #f9fafa;
+}
+.even {
+  background-color: #fffffd;
+}
+.past-paper-left,
+.past-paper-right,
+.paper-download-text,
+.paper-item-text {
+  display: inline-block;
+}
+
+.past-paper-right {
+  float: right;
+}
+.paper-download-text,
+.paper-item-text {
+  vertical-align: top;
+}
+.paper-download-text {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  letter-spacing: 0.1px;
+
+  color: #2f80ed;
 }

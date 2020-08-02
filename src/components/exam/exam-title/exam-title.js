@@ -26,7 +26,6 @@ class ExamTitle extends Component {
       }, 500)
     );
     getAllCourses().then((response) => {
-      console.log(response);
       this.setState({ examsItemsList: response.data });
     });
   }
