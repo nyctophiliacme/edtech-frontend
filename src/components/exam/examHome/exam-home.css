@@ -1,33 +1,39 @@
-.examhome-container{
-    display:flex;
-    background-color:#FAFAFA;
-    overflow: hidden;
+.examhome-container {
+  display: flex;
+  background-color: #fafafa;
+  overflow: hidden;
 }
-.exam-titlelist-Container{
-    float: left;
-    padding:15px 28px;
-    background-color:#Ffffff;
-    display: inline-table;
-
+.exam-titlelist-Container {
+  float: left;
+  padding: 15px 28px;
+  background-color: #ffffff;
+  display: inline-table;
 }
-.exam-details-Container{
-    float: right;
-    padding-left:40px;
-    width:95%;
-}
-
 
 @media screen and (min-width: 320px) {
-    .exam-static-header{
-        padding-bottom: 16px;
-        text-transform: none !important;
-        padding-left: 0px !important;
-    }
+  .exam-static-header {
+    padding-bottom: 16px;
+    text-transform: none !important;
+    padding-left: 0px !important;
+  }
+  .exam-details-Container {
+    padding: 16px 12px;
+    background-color: #ffffff;
+    box-shadow: 0px 16px 32px rgba(221, 230, 237, 0.4);
+    border-radius: 4px;
+  }
 }
 @media screen and (min-width: 768px) {
-    .exam-static-header{
-        padding-bottom: 24px;
-        text-transform: none !important;
-    }
+  .exam-static-header {
+    padding-bottom: 24px;
+    text-transform: none !important;
+  }
+  .exam-details-Container {
+    padding: 48px 24px 24px 24px;
+    background-color: #ffffff;
+    box-shadow: none;
+    border-radius: 0px;
+  }
 }
-@media screen and (min-width: 992px) {}
+@media screen and (min-width: 992px) {
+}
