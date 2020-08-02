@@ -198,7 +198,7 @@ class Header extends Component {
                 <FontAwesomeIcon className="dropdown-arrow" icon="angle-down" />
               </span>
               <div className="dropdown-content">
-                <Link to="/exam/ecat/home">ECAT</Link>
+                <Link to="/exam/ecat/1">ECAT</Link>
                 {/* <Link to="#">NET</Link>
                 <Link to="#">ITU</Link> */}
               </div>
