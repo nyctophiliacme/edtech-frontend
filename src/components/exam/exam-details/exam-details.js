@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./exam-details.css";
-
+import gotoTop from "../../../assets/images/gotoTop.svg";
 
 class ExamDetails extends Component {
   constructor(props) {
@@ -330,7 +330,8 @@ class ExamDetails extends Component {
           </div>
         </div>
       
-        `},
+        `,
+        },
         {
           section_id: 3,
           section_title: "Paper Pattern",
@@ -554,7 +555,8 @@ class ExamDetails extends Component {
               </tbody>
             </table>
           </div>
-          `},
+          `,
+        },
       ],
     };
   }
@@ -570,6 +572,18 @@ class ExamDetails extends Component {
             />
           );
         })}
+        <div
+          className="goto-top-floater-wrapper"
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          }}
+        >
+          <img className="goto-img-floater" src={gotoTop} alt="" />
+          Top
+        </div>
       </>
     );
   }

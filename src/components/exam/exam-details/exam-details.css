@@ -131,7 +131,7 @@
   }
   .exam-table2-wrapper {
     width: 300px;
-    margin-top:24px;
+    margin-top: 24px;
   }
   .exam-details-table2-container {
     width: 100%;
@@ -242,4 +242,28 @@
   letter-spacing: 0.1px;
 
   color: #2f80ed;
+}
+.goto-img-floater {
+ margin-right: 12px;
+}
+.goto-top-floater-cont {
+  display: relative;
+}
+.goto-top-floater-wrapper {
+  position: fixed;
+  z-index: 1;
+  bottom: 100px;
+  right: 0;
+  background-color: #ecf0f9;
+  padding: 8px 20px 8px 8px;
+    /* height: 50px; */
+  border-radius: 50px 0px 0px 50px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  color: #122e51;
 }
