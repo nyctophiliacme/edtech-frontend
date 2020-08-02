@@ -68,10 +68,7 @@ class App extends Component {
             <Route path="/privacy_policy" component={PrivacyPolicy} />
             <Route path="/term_condition" component={TermAndCondition} />
             <Route path="/about_us" component={AboutUs} />
-            <Route
-              path="/exam/:examName/:defaultSection"
-              component={ExamHome}
-            />
+            <Route path="/exam/:examName/:sectionContainerId" component={ExamHome}  />
             <Route path="/practice/:examName" component={PracticeHome} />
             <Route path="/pricing" component={Pricing} />
             <Route path="/quiz" component={Quiz} />

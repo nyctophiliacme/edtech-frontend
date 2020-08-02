@@ -4,8 +4,8 @@ import ExamDetails from "../exam-details/exam-details";
 import "./exam-home.css";
 
 const ExamHome = (props) => {
-  const selectedSection = props.match.params.defaultSection;
-
+  const selectedSection = props.match.params.sectionContainerId;
+  
   return (
     <>
       <div className="exam-home-header-container">

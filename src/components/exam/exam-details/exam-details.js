@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./exam-details.css";
-import pdf from "../../../assets/images/pdf.svg";
-import download from "../../../assets/images/download.svg"
-import { examDetailsCompleteData } from "../exam-ecat-data";
+
 
 class ExamDetails extends Component {
   constructor(props) {

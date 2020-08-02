@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./exam-landing.css";
 import PracticeHome from "../practice/practice-home/practice-home";
-import ExamHome from "../exam/examHome/exam_home";
 import construction from "../under-construction/under-construction";
 import { Link, withRouter, Route, Switch } from "react-router-dom";
 class ExamLanding extends Component {
