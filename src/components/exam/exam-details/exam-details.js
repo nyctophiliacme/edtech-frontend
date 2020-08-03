@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import "./exam-details.css";
 import gotoTop from "../../../assets/images/gotoTop.svg";
 import { getExamStaticData } from "../../../services/examService";
+import { handleResize, debounce } from "../../../common/deviceDetection";
+
 
 class ExamDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      checkDevice: handleResize(),
       examData: [],
     };
   }
@@ -14,12 +17,18 @@ class ExamDetails extends Component {
     this.setState({
       examData: getExamStaticData(this.props.selectedSectionContionerId),
     });
+    window.addEventListener(
+      "resize",
+      debounce(() => {
+        this.setState({ checkDevice: handleResize() });
+      }, 500)
+    );
   }
 
   componentDidUpdate(prevProps) {
     if (
       prevProps.selectedSectionContionerId !==
-      this.props.selectedSectionContionerId
+      this.props.selectedSectionContionerId && !this.state.checkDevice.isMobile
     )
       this.setState(
         {
