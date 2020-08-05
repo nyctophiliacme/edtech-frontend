@@ -1,4 +1,9 @@
 @media screen and (min-width: 320px) {
+  .header-section-exam-details {
+    background-color: #f1f5f8;
+    margin: -16px -12px 0 -12px;
+    padding: 16px 0;
+  }
   .past-paper-container {
     background-color: #f9fafa;
     padding-bottom: 10px;
@@ -51,6 +56,44 @@
   .exam-detail-download:hover {
     color: blue;
     text-decoration: underline;
+  }
+
+  .heading-exam-details {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #646464;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #d9e4ec;
+  }
+
+  .in-page-nav-item {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color: #2f80ed;
+    text-transform: capitalize;
+    padding: 12px 12px 0 0;
+  }
+
+  .in-nav-bullet {
+    width: 4px;
+    height: 4px;
+    line-height: 18px;
+    background: #bec9d1;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+
+  .in-nav-bullet:last-child {
+    display: none;
+  }
+  .exam-details-content {
+    padding-top: 16px;
   }
 
   .exam-details-download-container {
@@ -148,10 +191,16 @@
     color: #606060;
   }
   .paper-download-text {
-    display:none;   
+    display: none;
   }
 }
 @media screen and (min-width: 768px) {
+  .exam-details-content {
+    padding-top: 0px;
+  }
+  .header-section-exam-details {
+    display: none;
+  }
   .exam-details-table2-subcontent {
     padding: 20px 16px;
   }
@@ -187,15 +236,14 @@
     letter-spacing: 0.1px;
   }
   .paper-download-text {
-    display:inline-block;
+    display: inline-block;
     font-weight: bold;
     font-size: 16px;
     line-height: 24px;
-    /* identical to box height, or 150% */  
-    letter-spacing: 0.1px;  
+    /* identical to box height, or 150% */
+    letter-spacing: 0.1px;
     color: #2f80ed;
   }
-
 }
 @media screen and (min-width: 992px) {
   .li-type2 {
@@ -262,7 +310,7 @@
 }
 
 .goto-img-floater {
- margin-right: 12px;
+  margin-right: 12px;
 }
 .goto-top-floater-cont {
   display: relative;
@@ -274,7 +322,7 @@
   right: 0;
   background-color: #ecf0f9;
   padding: 8px 20px 8px 8px;
-    /* height: 50px; */
+  /* height: 50px; */
   border-radius: 50px 0px 0px 50px;
   font-weight: 600;
   font-size: 24px;

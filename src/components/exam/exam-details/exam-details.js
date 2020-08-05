@@ -4,7 +4,6 @@ import gotoTop from "../../../assets/images/gotoTop.svg";
 import { getExamStaticData } from "../../../services/examService";
 import { handleResize, debounce } from "../../../common/deviceDetection";
 
-
 class ExamDetails extends Component {
   constructor(props) {
     super(props);
@@ -25,23 +24,28 @@ class ExamDetails extends Component {
     );
   }
 
+  inPageNavigate = (id) => {
+    let headerOffset = this.state.checkDevice.isMobile ? 56 : 152;
+    window.scrollTo({
+      top: document.getElementById(id).offsetTop - headerOffset,
+      behaviour: "smooth",
+    });
+  };
   componentDidUpdate(prevProps) {
     if (
       prevProps.selectedSectionContionerId !==
-      this.props.selectedSectionContionerId && !this.state.checkDevice.isMobile
+      this.props.selectedSectionContionerId
     )
       this.setState(
         {
           examData: getExamStaticData(this.props.selectedSectionContionerId),
         },
         () => {
-          if (document.getElementById(this.props.selectedSectionId)) {
-            window.scrollTo({
-              top:
-                document.getElementById(this.props.selectedSectionId)
-                  .offsetTop - 152,
-              behaviour: "smooth",
-            });
+          if (
+            document.getElementById(this.props.selectedSectionId) &&
+            !this.state.checkDevice.isMobile
+          ) {
+            this.inPageNavigate(this.props.selectedSectionId);
           }
         }
       );
@@ -50,17 +54,44 @@ class ExamDetails extends Component {
   render() {
     return (
       <>
-        {this.state.examData && this.state.examData.sections
-          ? this.state.examData.sections.map((sectionData) => {
-              return (
-                <div
-                  id={sectionData.section_id}
-                  key={sectionData.section_id}
-                  dangerouslySetInnerHTML={{ __html: sectionData.section_html }}
-                />
-              );
-            })
-          : null}
+        <div className="header-section-exam-details">
+          <div className="heading-exam-details">On this page</div>
+          <div className="in-page-nav">
+            {this.state.examData && this.state.examData.sections
+              ? this.state.examData.sections.map((section) => {
+                  return (
+                    <>
+                      <div
+                        className="in-page-nav-item"
+                        key={section.section_id}
+                        onClick={() => {
+                          this.inPageNavigate(section.section_id);
+                        }}
+                      >
+                        {section.section_title}
+                      </div>
+                      <div className="in-nav-bullet">&nbsp;</div>
+                    </>
+                  );
+                })
+              : null}
+          </div>
+        </div>
+        <div className="exam-details-content">
+          {this.state.examData && this.state.examData.sections
+            ? this.state.examData.sections.map((sectionData) => {
+                return (
+                  <div
+                    id={sectionData.section_id}
+                    key={sectionData.section_id}
+                    dangerouslySetInnerHTML={{
+                      __html: sectionData.section_html,
+                    }}
+                  />
+                );
+              })
+            : null}
+        </div>
         <div
           className="goto-top-floater-wrapper"
           onClick={() => {

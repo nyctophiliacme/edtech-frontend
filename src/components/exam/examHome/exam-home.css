@@ -43,6 +43,9 @@ html {
   }
 }
 @media screen and (min-width: 768px) {
+  .exam-back-tohome{
+    display: none;
+  }
   .examhome-container {
     padding: 0px;
     display: flex;
@@ -53,7 +56,7 @@ html {
     text-transform: none !important;
   }
   .exam-details-Container {
-    padding: 48px 24px 24px 24px;
+    padding: 40px 24px 24px 24px;
     background-color: #ffffff;
     box-shadow: none;
     border-radius: 0px;
