@@ -19,8 +19,8 @@ import EmailVerified from "./components/email-verified/email-verified";
 import ReactGA from "react-ga";
 import CourseLibrary from "./components/course_library/course_library";
 import ExamLanding from "./components/exam-landing/exam-landing";
-import {withRouter } from 'react-router';
-
+import { withRouter } from "react-router";
+import AdminHome from "./components/admin-portal/admin_home";
 
 ReactGA.initialize("UA-168958894-1");
 
@@ -35,9 +35,9 @@ class App extends Component {
   componentDidMount() {
     this.unlisten = this.props.history.listen((location, action) => {
       window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
+        top: 0,
+        behavior: "smooth",
+      });
     });
     window.addEventListener(
       "resize",
@@ -56,35 +56,43 @@ class App extends Component {
     const {
       checkDevice: { isMobile },
     } = this.state;
-
     return (
       <>
         <Notifications />
-        <MobileHeader isMobile={isMobile}></MobileHeader>
-        <Header isMobile={isMobile}></Header>
-        <div className="main-container">
-          <Switch>
-            <Route exact path="/" component={MarketingV2} />
-            <Route path="/privacy_policy" component={PrivacyPolicy} />
-            <Route path="/term_condition" component={TermAndCondition} />
-            <Route path="/about_us" component={AboutUs} />
-            <Route path="/exam/:examName/:sectionContainerId" component={ExamHome}  />
-            <Route path="/practice/:examName" component={PracticeHome} />
-            <Route path="/pricing" component={Pricing} />
-            <Route path="/quiz" component={Quiz} />
-            <Route path="/email_verified" component={EmailVerified} />
-            <Route path="/courses/:courseId" component={CourseLibrary} />
-            <Route path="/videos" component={construction} />
-            <Route path="/career_center" component={construction} />
-            <Route path="/resources" component={AboutUs} />
-            <Route path="/blog" component={AboutUs} />
-            <Route path="/construction" component={construction} />
-            <Route path="/examHome/:examcode" component={ExamLanding} />
-            <Redirect to="/" />
-          </Switch>
-        </div>
-
-        <Footer></Footer>
+        {this.props.location.pathname !== "/ad" ? (
+          <>
+            <MobileHeader isMobile={isMobile}></MobileHeader>
+            <Header isMobile={isMobile}></Header>
+            <div className="main-container">
+              <Switch>
+                <Route exact path="/" component={MarketingV2} />
+                <Route path="/privacy_policy" component={PrivacyPolicy} />
+                <Route path="/term_condition" component={TermAndCondition} />
+                <Route path="/about_us" component={AboutUs} />
+                <Route
+                  path="/exam/:examName/:sectionContainerId"
+                  component={ExamHome}
+                />
+                <Route path="/practice/:examName" component={PracticeHome} />
+                <Route path="/pricing" component={Pricing} />
+                <Route path="/quiz" component={Quiz} />
+                <Route path="/email_verified" component={EmailVerified} />
+                <Route path="/courses/:courseId" component={CourseLibrary} />
+                <Route path="/videos" component={construction} />
+                <Route path="/career_center" component={construction} />
+                <Route path="/resources" component={AboutUs} />
+                <Route path="/blog" component={AboutUs} />
+                <Route path="/construction" component={construction} />
+                <Route path="/examHome/:examcode" component={ExamLanding} />
+                {/* <Route path="/auhfdusadjashjhdgasyjg/l" component={AboutUs} /> */}
+                <Redirect to="/" />
+              </Switch>
+            </div>
+            <Footer></Footer>
+          </>
+        ) : (
+          <AdminHome />
+        )}
       </>
     );
   }
