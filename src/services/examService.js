@@ -759,34 +759,34 @@ let examDetail2 = {
         </thead>
         <tbody>
           <tr class="exam-details-table2-content ">
-            <td class="exam-details-table2-subcontent">1</td>
-            <td class="exam-details-table2-subcontent">Physics</td>
-            <td class="exam-details-table2-subcontent">30</td>
-            <td class="exam-details-table2-subcontent">120</td>
+            <td class="exam-details-table3-subcontent">1</td>
+            <td class="exam-details-table3-subcontent">Physics</td>
+            <td class="exam-details-table3-subcontent">30</td>
+            <td class="exam-details-table3-subcontent">120</td>
           </tr>
           <tr class="exam-details-table2-content ">
-            <td class="exam-details-table2-subcontent">2</td>
-            <td class="exam-details-table2-subcontent">Mathematics</td>
-            <td class="exam-details-table2-subcontent">30</td>
-            <td class="exam-details-table2-subcontent">120</td>
+            <td class="exam-details-table3-subcontent">2</td>
+            <td class="exam-details-table3-subcontent">Mathematics</td>
+            <td class="exam-details-table3-subcontent">30</td>
+            <td class="exam-details-table3-subcontent">120</td>
           </tr>
           <tr class="exam-details-table2-content ">
-            <td class="exam-details-table2-subcontent">3</td>
-            <td class="exam-details-table2-subcontent">Chemistry/ Computer Science</td>
-            <td class="exam-details-table2-subcontent">30</td>
-            <td class="exam-details-table2-subcontent">120</td>
+            <td class="exam-details-table3-subcontent">3</td>
+            <td class="exam-details-table3-subcontent">Chemistry/ Computer Science</td>
+            <td class="exam-details-table3-subcontent">30</td>
+            <td class="exam-details-table3-subcontent">120</td>
           </tr>
           <tr class="exam-details-table2-content ">
-            <td class="exam-details-table2-subcontent">4</td>
-            <td class="exam-details-table2-subcontent">English</td>
-            <td class="exam-details-table2-subcontent">10</td>
-            <td class="exam-details-table2-subcontent">40</td>
+            <td class="exam-details-table3-subcontent">4</td>
+            <td class="exam-details-table3-subcontent">English</td>
+            <td class="exam-details-table3-subcontent">10</td>
+            <td class="exam-details-table3-subcontent">40</td>
           </tr>
-          <tr class="exam-details-table2-content ">
-            <td class="exam-details-table2-subcontent">Total</td>
-            <td class="exam-details-table2-subcontent"></td>
-            <td class="exam-details-table2-subcontent">100</td>
-            <td class="exam-details-table2-subcontent">400</td>
+          <tr class="exam-details-table-content ">
+            <td class="exam-details-table3-subcontent">Total</td>
+            <td class="exam-details-table3-subcontent"></td>
+            <td class="exam-details-table3-subcontent">100</td>
+            <td class="exam-details-table3-subcontent">400</td>
           </tr>
         </tbody>
       </table>

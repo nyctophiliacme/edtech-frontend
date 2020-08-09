@@ -203,6 +203,10 @@
     padding: 20px 24px;
     color: #606060;
   }
+  .exam-details-table3-subcontent {
+    padding: 20px 6px;
+    color: #606060;
+  }
   .paper-download-text {
     display: none;
   }
