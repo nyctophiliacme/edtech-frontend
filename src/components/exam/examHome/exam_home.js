@@ -88,6 +88,14 @@ class ExamHome extends Component {
             <FontAwesomeIcon icon="chevron-left" className="exam-home-left-icon" />
             Back to ECAT Home
           </div>
+          {/* <div className={`exam-section-list-mobile ${
+              this.state.checkDevice.isMobile &&
+              this.state.selectedSectionContionerId === 0
+                ? "mobile-hide"
+                : ""
+            }`}>
+              {this.state.}
+            </div> */}
           <div
             className={`exam-details-Container ${
               this.state.checkDevice.isMobile &&

@@ -39,6 +39,10 @@ let examSideNavData = [
         section_id: 4,
         section_title: "Past paper",
       },
+      {
+        section_id: 5,
+        section_title: "Past pattern",
+      }
     ],
   },
 ];
@@ -372,7 +376,7 @@ let examDetail1 = {
 };
 let examDetail2 = {
   section_container_1d: 2,
-  section_container_title: "about the test",
+  section_container_title: "registrastion",
   sections: [
     {
       section_id: 3,
@@ -738,6 +742,56 @@ let examDetail2 = {
             </table>
           </div>
           `,
-    },
+    },{
+      section_id:5,
+      section_title:" new pattern",
+      section_html:`<div class="exam-table2-wrapper">
+      <table class=" exam-details-table2-container exam-details-table3-container">
+        <thead>
+          <tr >
+            <th class="exam-details-table3-header" >No.</th>
+            <th class="exam-details-table3-header" >ECAT Subjects</th>
+
+            <th class="exam-details-table3-header" >No. of Multiple Choice Questions</th>
+
+            <th class="exam-details-table3-header" >Marks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="exam-details-table2-content ">
+            <td class="exam-details-table2-subcontent">1</td>
+            <td class="exam-details-table2-subcontent">Physics</td>
+            <td class="exam-details-table2-subcontent">30</td>
+            <td class="exam-details-table2-subcontent">120</td>
+          </tr>
+          <tr class="exam-details-table2-content ">
+            <td class="exam-details-table2-subcontent">2</td>
+            <td class="exam-details-table2-subcontent">Mathematics</td>
+            <td class="exam-details-table2-subcontent">30</td>
+            <td class="exam-details-table2-subcontent">120</td>
+          </tr>
+          <tr class="exam-details-table2-content ">
+            <td class="exam-details-table2-subcontent">3</td>
+            <td class="exam-details-table2-subcontent">Chemistry/ Computer Science</td>
+            <td class="exam-details-table2-subcontent">30</td>
+            <td class="exam-details-table2-subcontent">120</td>
+          </tr>
+          <tr class="exam-details-table2-content ">
+            <td class="exam-details-table2-subcontent">4</td>
+            <td class="exam-details-table2-subcontent">English</td>
+            <td class="exam-details-table2-subcontent">10</td>
+            <td class="exam-details-table2-subcontent">40</td>
+          </tr>
+          <tr class="exam-details-table2-content ">
+            <td class="exam-details-table2-subcontent">Total</td>
+            <td class="exam-details-table2-subcontent"></td>
+            <td class="exam-details-table2-subcontent">100</td>
+            <td class="exam-details-table2-subcontent">400</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+`
+    }
   ],
 };
