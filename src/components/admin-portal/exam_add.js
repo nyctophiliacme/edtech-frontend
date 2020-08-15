@@ -25,16 +25,51 @@ class AddExam extends Component {
 
   render() {
     return (
-      <>
+      <div className="admin-page">
+        <div>         
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Exam Code</th>
+                <th>Exam Title</th>
+                <th>Course Id</th>
+                <th>action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.examList.map((exam) => {
+                return (
+                  <tr key={exam.id}>
+                    <td>{exam.exam_code}</td>
+                    <td>{exam.title}</td>
+                    <td>{exam.course}</td>
+                    <td>
+                      <Link to={`/ad/${exam.exam_code}/s`}>
+                        <input type="submit" value="Add Subject" />
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <br />
         {this.state.showForm ? (
           <div>
             <form>
               <label>Exam code</label>
               <input type="text" />
+              <br />
+              <br />
               <label>Exam title</label>
               <input type="text" />
+              <br />
+              <br />
               <label>Course Id</label>
               <input type="number" />
+              <br />
+              <br />
               <input
                 type="submit"
                 value="Save"
@@ -42,9 +77,10 @@ class AddExam extends Component {
                   this.setState({ showForm: false });
                 }}
               />
+              &nbsp;&nbsp;&nbsp;&nbsp;
               <input
                 type="submit"
-                value="cancel"
+                value="Cancel"
                 onClick={() => {
                   this.setState({ showForm: false });
                 }}
@@ -62,33 +98,7 @@ class AddExam extends Component {
             </button>
           </div>
         )}
-
-        <div>
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>Exam Code</th>
-                <th>Exam Title</th>
-                <th>Course Id</th>
-                <th>action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.examList.map((exam) => {
-                return(
-                <tr key={exam.id}>
-                  <td>{exam.exam_code}</td>
-                  <td>{exam.title}</td>
-                  <td>{exam.course}</td>
-                  <td><Link to={`/ad/${exam.exam_code}/s`}><input type="submit" value="Add Subject"/></Link></td>
-                </tr>
-                )
-
-              })}
-            </tbody>
-          </table>
-        </div>
-      </>
+      </div>
     );
   }
 }
