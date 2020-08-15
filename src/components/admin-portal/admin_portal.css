@@ -1,19 +1,32 @@
 @media all and (min-width: 480px) {
-    .login-admin {
-      padding: 60px 0;
-    }
-  
-    .login-admin form {
-      margin: 0 auto;
-      max-width: 320px;
-    }
+  .login-admin {
+    padding: 60px 0;
   }
-  .admin-table{
-      border:solid 1px blue;
-      text-align: left;
-      border-collapse: collapse;
-  }
-  .admin-table td, .admin-table th{
-    border:solid 1px blue;
 
+  .login-admin form {
+    margin: 0 auto;
+    max-width: 320px;
   }
+}
+.admin-table {
+  border: solid 1px blue;
+  text-align: left;
+  border-collapse: collapse;
+}
+.admin-table td,
+.admin-table th {
+  border: solid 1px blue;
+}
+.admin-page {
+  margin: 0 auto;
+  width: 500px;
+  padding-top: 60px;
+}
+label {
+  width: 120px;
+  display: inline-block;
+}
+td, th{
+  padding: 8px;
+  text-align: center;
+}
