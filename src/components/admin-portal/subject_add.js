@@ -30,6 +30,7 @@ class AddSubject extends Component {
       render() {
         return (
           <>
+          <div><Link to={`/ad/e`}> {this.state.exam_code}</Link></div>
             {this.state.showForm ? (
               <div>
                 <form>
