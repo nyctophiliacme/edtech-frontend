@@ -53,13 +53,14 @@ class App extends Component {
     ReactGA.pageview(window.location.pathname + window.location.search);
 
   render() {
+    console.log(this.props);
     const {
       checkDevice: { isMobile },
     } = this.state;
     return (
       <>
         <Notifications />
-        {this.props.location.pathname !== "/ad" ? (
+        { String(this.props.location.pathname).indexOf("/ad")===-1? (
           <>
             <MobileHeader isMobile={isMobile}></MobileHeader>
             <Header isMobile={isMobile}></Header>

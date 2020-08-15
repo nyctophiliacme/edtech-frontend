@@ -14,3 +14,6 @@ export const createExam = (exam_code, title) => {
     title: title,
   });
 };
+export const getAllExams=()=>{
+  return axios.get(`${baseURL}exams/`);
+}

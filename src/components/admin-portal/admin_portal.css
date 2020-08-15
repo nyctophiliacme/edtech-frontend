@@ -1,0 +1,19 @@
+@media all and (min-width: 480px) {
+    .login-admin {
+      padding: 60px 0;
+    }
+  
+    .login-admin form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+  }
+  .admin-table{
+      border:solid 1px blue;
+      text-align: left;
+      border-collapse: collapse;
+  }
+  .admin-table td, .admin-table th{
+    border:solid 1px blue;
+
+  }
