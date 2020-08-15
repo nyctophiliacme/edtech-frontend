@@ -1,50 +1,80 @@
 import React, { Component } from "react";
+import { getChaptersGuest } from "../../services/practiceService";
+import { Link } from "react-router-dom";
 class AddChapter extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showForm: false,
-      subjectList: [],
+      ChapterList: [],
       formData: {
-        Subject_title: "",
-        Subject_code: "",
-        backgrount_start_color: "",
-        backgrount_end_color: "",
+        Chapter_title: "",
       },
       exam_code: this.props.match.params.eId,
+      subject_code: this.props.match.params.sId,
     };
   }
   componentDidMount() {
-    console.log(this.props);
-
-    this.getSubjectList();
+    // this.getChapterList();
   }
-  getSubjectList() {
-    getSubjects(this.state.exam_code).then((response) => {
-      this.setState({ subjectList: response.data });
-    });
+  getChapterList() {
+    getChaptersGuest(this.state.exam_code, this.state.subject_code).then(
+      (response) => {
+        this.setState({ ChapterList: response.data });
+      }
+    );
   }
-
   render() {
     return (
-      <>
-        <div>
-          <Link to={`/ad/${this.state.exam_code}`}>
-            {" "}
-            {this.state.exam_code}
-          </Link>
+      <div className="admin-page">
+        <div className="admin-breadcrum">
+          <Link to={`/ad/e`}> {this.state.exam_code}</Link>
+          <span className="admin-brdcrm-spac"> &nbsp;&nbsp;/&nbsp;&nbsp; </span>
+          <Link to={`/ad/${this.state.exam_code}/s`}>{this.state.subject_code}</Link>
+         
         </div>
+        <h2>
+            {`Total chapters: ${ this.state.ChapterList.length}`}
+        </h2>
+        <div>
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Chapter Title</th>
+                <th>No of Questions</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.ChapterList.map((chapter) => {
+                return (
+                  <tr key={chapter.id}>
+                    <td>{chapter.title}</td>
+                    <td>{`${chapter.question_count} Questions`}</td>
+                    <td>{chapter.description}</td>
+                    <td>
+                      <Link
+                        to={`/ad/${this.state.exam_code}/${this.state.subject_code}/${chapter.id}/${chapter.title}/q`}
+                      >
+                        <input type="submit" value="Add Questions" />
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <br />
         {this.state.showForm ? (
           <div>
             <form>
-              <label>Subject code</label>
+              
+              <label>Chapter title</label>
               <input type="text" />
-              <label>Subject title</label>
-              <input type="text" />
-              <label>backgrount_start_color Id</label>
-              <input type="text" />
-              <label>backgrount_end_color Id</label>
-              <input type="text" />
+              <br />
+              <br />
               <input
                 type="submit"
                 value="Save"
@@ -52,9 +82,10 @@ class AddChapter extends Component {
                   this.setState({ showForm: false });
                 }}
               />
+              &nbsp;&nbsp;&nbsp;&nbsp;
               <input
                 type="submit"
-                value="cancel"
+                value="Cancel"
                 onClick={() => {
                   this.setState({ showForm: false });
                 }}
@@ -68,42 +99,11 @@ class AddChapter extends Component {
                 this.setState({ showForm: true });
               }}
             >
-              Add Exam
+              Add Chapter
             </button>
           </div>
         )}
-
-        <div>
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>Subject Title</th>
-                <th>Subject Code</th>
-                <th>No of Chapter</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.subjectList.map((subject) => {
-                return (
-                  <tr key={subject.subject_code}>
-                    <td>{subject.subject_code}</td>
-                    <td>{subject.title}</td>
-                    <td>0 chapters</td>
-                    <td>
-                      <Link
-                        to={`/ad/${this.state.exam_code}/${subject.subject_code}/c`}
-                      >
-                        <input type="submit" value="Add Chapters" />
-                      </Link>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </>
+      </div>
     );
   }
 }

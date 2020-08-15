@@ -30,15 +30,14 @@ class AddSubject extends Component {
   render() {
     return (
       <div className="admin-page">
-        <div><Link to={`/ad/e`}> {this.state.exam_code}</Link></div>
+        <div className="admin-breadcrum"><Link to={`/ad/e`}> {this.state.exam_code}</Link></div>
 
         <div>
           <table className="admin-table">
             <thead>
               <tr>
-                <th>Subject Title</th>
                 <th>Subject Code</th>
-                <th>No of Chapter</th>
+                <th>Subject Title</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -48,7 +47,6 @@ class AddSubject extends Component {
                   <tr key={subject.subject_code}>
                     <td>{subject.subject_code}</td>
                     <td>{subject.title}</td>
-                    <td>0 chapters</td>
                     <td>
                       <Link
                         to={`/ad/${this.state.exam_code}/${subject.subject_code}/c`}
@@ -106,7 +104,7 @@ class AddSubject extends Component {
                 this.setState({ showForm: true });
               }}
             >
-              Add Exam
+              Add Subject
             </button>
           </div>
         )}
