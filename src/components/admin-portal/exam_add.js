@@ -1,32 +1,59 @@
 import React, { Component } from "react";
-import { getAllExams } from "../../services/adminService";
+import { getAllExams, createExam } from "../../services/adminService";
 import { Link } from "react-router-dom";
+import { getAllCourses } from "../../services/courseService";
 class AddExam extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showForm: false,
       examList: [],
-      formData: {
-        exam_code: "",
-        exam_title: "",
-        course_id: 0,
-      },
+      CourseList: [],
+      exam_code: "",
+      exam_title: "",
+      course_id: 1,
     };
   }
   componentDidMount() {
     this.getExamList();
+    this.getCourseList();
   }
   getExamList() {
     getAllExams().then((response) => {
       this.setState({ examList: response.data });
     });
   }
-
+  getCourseList() {
+    getAllCourses().then((response) => {
+      this.setState({
+        CourseList: response.data,
+      });
+    });
+  }
+  ExamCodeUpdate = (e) => {
+    this.setState({ exam_code: e.target.value });
+  };
+  ExamTitleUpdate = (e) => {
+    this.setState({ exam_title: e.target.value });
+  };
+  updateCourse = (e) => {
+    let value = e.target.value;
+    this.setState({ course_id: value });
+  };
+  SaveNewExam() {
+    createExam(
+      this.state.exam_code,
+      this.state.exam_title,
+      this.state.course_id
+    ).then((response) => {
+      this.setState({ showForm: false });
+      this.getExamList();
+    });
+  }
   render() {
     return (
       <div className="admin-page">
-        <div>         
+        <div>
           <table className="admin-table">
             <thead>
               <tr>
@@ -59,30 +86,39 @@ class AddExam extends Component {
           <div>
             <form>
               <label>Exam code</label>
-              <input type="text" />
+              <input type="text" onChange={this.ExamCodeUpdate} />
               <br />
               <br />
               <label>Exam title</label>
-              <input type="text" />
+              <input type="text" onChange={this.ExamTitleUpdate} />
               <br />
               <br />
               <label>Course Id</label>
-              <input type="number" />
+              <select onChange={this.updateCourse} value={this.state.course_id}>
+                {this.state.CourseList.map((courseHeader) => {
+                  return courseHeader.courses.map((course) => {
+                    return (
+                      <option key={course.id} value={course.id}>
+                        {course.course_title}
+                      </option>
+                    );
+                  });
+                })}
+              </select>
               <br />
               <br />
-              <input
-                type="submit"
-                value="Save"
-                onClick={() => {
-                  this.setState({ showForm: false });
-                }}
-              />
+              <input type="submit" value="Save" onClick={this.SaveNewExam} />
               &nbsp;&nbsp;&nbsp;&nbsp;
               <input
                 type="submit"
                 value="Cancel"
                 onClick={() => {
-                  this.setState({ showForm: false });
+                  this.setState({
+                    showForm: false,
+                    course_id: 1,
+                    exam_code: "",
+                    exam_title: "",
+                  });
                 }}
               />
             </form>

@@ -1,24 +1,21 @@
 import React, { Component } from "react";
 import { getSubjects } from "../../services/practiceService";
 import { Link } from "react-router-dom";
+import { createSubject } from "../../services/adminService";
 class AddSubject extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showForm: false,
       subjectList: [],
-      formData: {
-        Subject_title: "",
-        Subject_code: "",
-        backgrount_start_color: "",
-        backgrount_end_color: "",
-      },
+      subject_title: "",
+      subject_code: "",
+      backgrount_start_color: "",
+      backgrount_end_color: "",
       exam_code: this.props.match.params.eId,
     };
   }
   componentDidMount() {
-    console.log(this.props);
-
     this.getSubjectList();
   }
   getSubjectList() {
@@ -26,11 +23,42 @@ class AddSubject extends Component {
       this.setState({ subjectList: response.data });
     });
   }
+  updateSubjectTitle = (e) => {
+    let value = e.target.value;
+    this.setState({ subject_title: value });
+  };
+  updateSubjectCode = (e) => {
+    let value = e.target.value;
+    this.setState({ subject_code: value });
+  };
+  updateBgStrtClr = (e) => {
+    let value = e.target.value;
+    this.setState({ backgrount_start_color: value });
+  };
+  updateBgEndClr = (e) => {
+    let value = e.target.value;
+    this.setState({ backgrount_end_color: value });
+  };
 
+  SaveNewSubject = () => {
+    debugger;
+    createSubject(
+      this.state.subject_code,
+      this.state.subject_title,
+      this.state.exam_code,
+      this.state.backgrount_start_color,
+      this.state.backgrount_end_color
+    ).then((response) => {
+      this.getSubjectList();
+      this.setState({ showForm: false });
+    });
+  };
   render() {
     return (
       <div className="admin-page">
-        <div className="admin-breadcrum"><Link to={`/ad/e`}> {this.state.exam_code}</Link></div>
+        <div className="admin-breadcrum">
+          <Link to={`/ad/e`}> {this.state.exam_code}</Link>
+        </div>
 
         <div>
           <table className="admin-table">
@@ -65,34 +93,35 @@ class AddSubject extends Component {
           <div>
             <form>
               <label>Subject code</label>
-              <input type="text" />
+              <input type="text" onChange={this.updateSubjectCode} />
               <br />
               <br />
               <label>Subject title</label>
-              <input type="text" />
+              <input type="text" onChange={this.updateSubjectTitle} />
               <br />
               <br />
-              <label>bg_start_color Id</label>
-              <input type="text" />
+              <label>Start Color</label>
+              <input type="text" onChange={this.updateBgStrtClr} />
               <br />
               <br />
-              <label>bg_end_color Id</label>
-              <input type="text" />
+              <label>End Color</label>
+              <input type="text" onChange={this.updateBgEndClr} />
               <br />
               <br />
-              <input
-                type="submit"
-                value="Save"
-                onClick={() => {
-                  this.setState({ showForm: false });
-                }}
-              />
+              <input type="submit" value="Save" onClick={this.SaveNewSubject} />
               &nbsp;&nbsp;&nbsp;&nbsp;
               <input
                 type="submit"
                 value="Cancel"
                 onClick={() => {
-                  this.setState({ showForm: false });
+                  this.setState({
+                    showForm: false,
+                    exam_code: "",
+                    subject_code: "",
+                    subject_title: "",
+                    backgrount_end_color: "",
+                    backgrount_start_color: "",
+                  });
                 }}
               />
             </form>
