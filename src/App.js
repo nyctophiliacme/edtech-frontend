@@ -53,7 +53,7 @@ class App extends Component {
     ReactGA.pageview(window.location.pathname + window.location.search);
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const {
       checkDevice: { isMobile },
     } = this.state;
