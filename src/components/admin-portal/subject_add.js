@@ -25,12 +25,12 @@ class AddSubject extends Component {
   }
   updateSubjectTitle = (e) => {
     let value = e.target.value;
-    this.setState({ subject_title: value });
+    this.setState({
+      subject_title: value,
+      subject_code:value.replace(/\s/g,'').toLowerCase(),
+    });
   };
-  updateSubjectCode = (e) => {
-    let value = e.target.value;
-    this.setState({ subject_code: value });
-  };
+  
   updateBgStrtClr = (e) => {
     let value = e.target.value;
     this.setState({ backgrount_start_color: value });
@@ -41,7 +41,6 @@ class AddSubject extends Component {
   };
 
   SaveNewSubject = () => {
-    debugger;
     createSubject(
       this.state.subject_code,
       this.state.subject_title,
@@ -92,10 +91,6 @@ class AddSubject extends Component {
         {this.state.showForm ? (
           <div>
             <form>
-              <label>Subject code</label>
-              <input type="text" onChange={this.updateSubjectCode} />
-              <br />
-              <br />
               <label>Subject title</label>
               <input type="text" onChange={this.updateSubjectTitle} />
               <br />
