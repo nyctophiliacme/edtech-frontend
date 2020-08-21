@@ -63,6 +63,7 @@ class UserManage extends Component {
                 <th>SL No.</th>
                 <th>Name</th>
                 <th>User ID</th>
+                <th>Mobile No.</th>
                 <th>Paid Status</th>
                 <th>Change Status</th>
                 <th>Registered On</th>
@@ -78,6 +79,7 @@ class UserManage extends Component {
                           {user.first_name} {user.last_name}
                         </td>
                         <td>{user.email}</td>
+                        <td>{user.phone_number}</td>
                         <td>{user.is_paid_user ? "Paid" : "Unpaid"}</td>
                         <td>
                           <button
