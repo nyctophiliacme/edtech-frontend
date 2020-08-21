@@ -13,19 +13,19 @@
   text-align: left;
   border-collapse: collapse;
 }
-.admin-breadcrum{
-    padding: 10px;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 20px;
-    background: #e5e5e5;
-    width: fit-content;
-    margin-bottom: 10px;
-    border-bottom: solid 1px blue;
+.admin-breadcrum {
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+  background: #e5e5e5;
+  width: fit-content;
+  margin-bottom: 10px;
+  border-bottom: solid 1px blue;
 }
-.admin-brdcrm-spac{
-    text-decoration: none !important;
-    font-weight: 300;
+.admin-brdcrm-spac {
+  text-decoration: none !important;
+  font-weight: 300;
 }
 .admin-table td,
 .admin-table th {
@@ -36,15 +36,30 @@
   width: 500px;
   padding-top: 60px;
 }
+.user-page {
+  width: 900px;
+}
+.user-page-search {
+  text-align: right;
+  padding-bottom: 20px;
+}
+.user-page-search .search-button{
+  width: auto;
+  margin-left: 10px;
+}
+.user-page button {
+  width: 100%;
+}
 label {
   width: 120px;
   display: inline-block;
 }
-td, th{
+td,
+th {
   padding: 8px;
   text-align: center;
 }
-.admin-error{
-  color:red;
+.admin-error {
+  color: red;
   padding-top: 10px;
 }

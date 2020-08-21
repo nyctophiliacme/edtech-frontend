@@ -47,7 +47,22 @@ export const createChapter = (
   });
 };
 
-
 export const getAllExams = () => {
   return axios.get(`${baseURL}exams/`);
+};
+
+export const getVerifiedUsers = () => {
+  return axios.get(`${baseURL}auth/user/get_verified_users/`);
+};
+
+export const changePaidStatus = (email, paidStatus) => {
+  if (paidStatus) {
+    return axios.get(
+      `${baseURL}auth/user/update_payment_information/mark_as_unpaid/?email_id=${email}`
+    );
+  } else {
+    return axios.get(
+      `${baseURL}auth/user/update_payment_information/mark_as_paid/?email_id=${email}`
+    );
+  }
 };
