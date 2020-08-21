@@ -21,9 +21,8 @@ class ViewQuestions extends Component {
     this.getQuestionList();
   }
   getQuestionList() {
-    console.log(this.state.chapter_id);
     getQuestions(this.state.chapter_id).then((response) => {
-      console.log(response.data[0]);
+      console.log(response.data);
       this.setState({ questionList: response.data });
     });
   }
@@ -43,6 +42,11 @@ class ViewQuestions extends Component {
         </div>
         <h2>{`Total Questions: ${this.state.questionList.length}`}</h2>
         <div>
+          <Link to={`${this.props.match.url}a`}>
+            <button> Add Question</button>
+          </Link>
+        </div>
+        <div>
           <table className="admin-table">
             <thead>
               <tr>
@@ -57,7 +61,7 @@ class ViewQuestions extends Component {
                 return (
                   <tr key={question.id}>
                     <td>{index + 1}</td>
-                    <td style={{textAlign:"left", maxWidth:"240px"}}>
+                    <td style={{ textAlign: "left", maxWidth: "240px" }}>
                       {question.question_text.length > 31
                         ? `${question.question_text.substring(0, 30)}...`
                         : question.question_text}

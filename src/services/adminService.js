@@ -66,3 +66,38 @@ export const changePaidStatus = (email, paidStatus) => {
     );
   }
 };
+export const createQuestion = (
+  question_text,
+  difficulty_level,
+  explanation,
+  question_img_url,
+  explanation_img_url,
+  chapter_id,
+  question_choice_1,
+  question_choice_2,
+  question_choice_3,
+  question_choice_4,
+  correct_choice,
+  question_choice_1_image_url,
+  question_choice_2_image_url,
+  question_choice_3_image_url,
+  question_choice_4_image_url
+) => {
+  return axios.post(`${baseURL}questions/save_data/`, {
+    question_text: question_text,
+    question_img_url: question_img_url,
+    difficulty_level: difficulty_level,
+    explanation:explanation,
+    explanation_img_url: explanation_img_url,
+    chapter_id: chapter_id,
+    question_choice_1: question_choice_1,
+    question_choice_2: question_choice_2,
+    question_choice_3: question_choice_3,
+    question_choice_4: question_choice_4,
+    correct_choice: correct_choice,
+    question_choice_1_image_url: question_choice_1_image_url,
+    question_choice_2_image_url: question_choice_2_image_url,
+    question_choice_3_image_url: question_choice_3_image_url,
+    question_choice_4_image_url: question_choice_4_image_url,
+  });
+};

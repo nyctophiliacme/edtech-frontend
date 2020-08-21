@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { handleResize, debounce } from "../../../common/deviceDetection";
 import "./exam-title.css";
 import { getExamSideNav } from "../../../services/examService";

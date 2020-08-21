@@ -111,7 +111,6 @@ class AddSubject extends Component {
                 onClick={() => {
                   this.setState({
                     showForm: false,
-                    exam_code: "",
                     subject_code: "",
                     subject_title: "",
                     backgrount_end_color: "",

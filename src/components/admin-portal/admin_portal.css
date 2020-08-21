@@ -27,6 +27,18 @@
   text-decoration: none !important;
   font-weight: 300;
 }
+.question-preview{
+  border: solid 1px gray;
+  min-height: 40px;
+  width: 70%;
+  display: inline-block;
+}
+.add-question-container label{
+ width:150px
+}
+.add-question-container textarea{
+  width: 70%;
+ }
 .admin-table td,
 .admin-table th {
   border: solid 1px blue;

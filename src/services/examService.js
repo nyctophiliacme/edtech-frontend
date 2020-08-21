@@ -6,9 +6,9 @@ export const getAllExams=()=>{
   return axios.get(`${baseURL}exams`);
 }
 export const getExamSideNav = (exam_code) => {
-  const axiosParams = {
-    exam_code: exam_code,
-  };
+  // const axiosParams = {
+  //   exam_code: exam_code,
+  // };
 
   return examSideNavData;
 };
