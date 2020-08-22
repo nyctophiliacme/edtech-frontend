@@ -211,14 +211,14 @@ class AddQuestion extends Component {
           <br />
           <br />
           <label>Category</label>
-          <select onChange={this.updateCategory} value={this.state.category}>
+          <select onChange={this.updtCategory} value={this.state.category}>
             <option value="easy"> Easy </option>
             <option value="moderate"> Moderate </option>
             <option value="difficult"> Difficult </option>
           </select>
           <br />
           <br />
-          <label>Correct number</label>
+          <label>Correct answer</label>
           <input type="number" onChange={this.updtCorrectOption} />
           <br />
           <br />

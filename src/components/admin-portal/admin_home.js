@@ -13,7 +13,7 @@ class AdminHome extends Component {
       <div>
         {this.props.location.pathname === "/ad/" ||
         this.props.location.pathname === "/ad" ? null : (
-          <div>
+          <div className="admin-header">
             <span>
               <Link to="/ad/e">Exam Management</Link>
             </span>

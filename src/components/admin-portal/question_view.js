@@ -40,8 +40,8 @@ class ViewQuestions extends Component {
             {this.state.chapter_title}
           </Link>
         </div>
-        <h2>{`Total Questions: ${this.state.questionList.length}`}</h2>
-        <div>
+        <div className="ad-question-left">{`Total Questions: ${this.state.questionList.length}`}</div>
+        <div className="ad-question-right">
           <Link to={`${this.props.match.url}a`}>
             <button> Add Question</button>
           </Link>
