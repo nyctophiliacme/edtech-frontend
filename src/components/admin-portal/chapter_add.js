@@ -59,9 +59,9 @@ class AddChapter extends Component {
     return (
       <div className="admin-page">
         <div className="admin-breadcrum">
-          <Link to={`/ad/e`}> {this.state.exam_code}</Link>
+          <Link to={`/qazwsxedcrfv/e`}> {this.state.exam_code}</Link>
           <span className="admin-brdcrm-spac"> &nbsp;&nbsp;/&nbsp;&nbsp; </span>
-          <Link to={`/ad/${this.state.exam_code}/s`}>
+          <Link to={`/qazwsxedcrfv/${this.state.exam_code}/s`}>
             {this.state.subject_code}
           </Link>
         </div>
@@ -85,7 +85,7 @@ class AddChapter extends Component {
                     <td>{chapter.description}</td>
                     <td>
                       <Link
-                        to={`/ad/${this.state.exam_code}/${this.state.subject_code}/${chapter.id}/${chapter.title}/q`}
+                        to={`/qazwsxedcrfv/${this.state.exam_code}/${this.state.subject_code}/${chapter.id}/${chapter.title}/q`}
                       >
                         <input type="submit" value="Add Questions" />
                       </Link>

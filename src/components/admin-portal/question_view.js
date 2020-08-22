@@ -30,13 +30,13 @@ class ViewQuestions extends Component {
     return (
       <div className="admin-page">
         <div className="admin-breadcrum">
-          <Link to={`/ad/e`}>{this.state.exam_code}</Link>
+          <Link to={`/qazwsxedcrfv/e`}>{this.state.exam_code}</Link>
           <span className="admin-brdcrm-spac"> &nbsp;&nbsp;/&nbsp;&nbsp; </span>
-          <Link to={`/ad/${this.state.exam_code}/s`}>
+          <Link to={`/qazwsxedcrfv/${this.state.exam_code}/s`}>
             {this.state.subject_code}
           </Link>
           <span className="admin-brdcrm-spac"> &nbsp;&nbsp;/&nbsp;&nbsp; </span>
-          <Link to={`/ad/${this.state.exam_code}/${this.state.subject_code}/c`}>
+          <Link to={`/qazwsxedcrfv/${this.state.exam_code}/${this.state.subject_code}/c`}>
             {this.state.chapter_title}
           </Link>
         </div>

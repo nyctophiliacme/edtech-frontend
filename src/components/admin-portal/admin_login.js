@@ -20,7 +20,7 @@ const AdminLogin = (props) => {
         getUserDetails(sessionStorage.getItem("userToken")).then((response) => {
           if (response.data.is_superteacher_admin) {
             setShowerror(false);
-            props.history.push("/ad/e");
+            props.history.push("/qazwsxedcrfv/e");
           } else {
             setShowerror(true);
           }

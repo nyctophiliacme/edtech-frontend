@@ -71,7 +71,7 @@ class AddExam extends Component {
                     <td>{exam.title}</td>
                     <td>{exam.course}</td>
                     <td>
-                      <Link to={`/ad/${exam.exam_code}/s`}>
+                      <Link to={`/qazwsxedcrfv/${exam.exam_code}/s`}>
                         <input type="submit" value="Add Subject" />
                       </Link>
                     </td>

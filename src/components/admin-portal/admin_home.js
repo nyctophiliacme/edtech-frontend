@@ -11,32 +11,32 @@ class AdminHome extends Component {
   render() {
     return (
       <div>
-        {this.props.location.pathname === "/ad/" ||
-        this.props.location.pathname === "/ad" ? null : (
+        {this.props.location.pathname === "/qazwsxedcrfv/" ||
+        this.props.location.pathname === "/qazwsxedcrfv" ? null : (
           <div className="admin-header">
             <span>
-              <Link to="/ad/e">Exam Management</Link>
+              <Link to="/qazwsxedcrfv/e">Exam Management</Link>
             </span>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>
-              <Link to="/ad/u">User Management</Link>
+              <Link to="/qazwsxedcrfv/u">User Management</Link>
             </span>
           </div>
         )}
         <Switch>
-          <Route exact path="/ad" component={AdminLogin} />
-          <Route exact path="/ad/u" component={UserManage} />
-          <Route exact path="/ad/e" component={AddExam} />
-          <Route exact path="/ad/:eId/s" component={AddSubject} />
-          <Route exact path="/ad/:eId/:sId/c" component={AddChapter} />
+          <Route exact path="/qazwsxedcrfv" component={AdminLogin} />
+          <Route exact path="/qazwsxedcrfv/u" component={UserManage} />
+          <Route exact path="/qazwsxedcrfv/e" component={AddExam} />
+          <Route exact path="/qazwsxedcrfv/:eId/s" component={AddSubject} />
+          <Route exact path="/qazwsxedcrfv/:eId/:sId/c" component={AddChapter} />
           <Route
             exact
-            path="/ad/:eId/:sId/:cId/:cTitle/q"
+            path="/qazwsxedcrfv/:eId/:sId/:cId/:cTitle/q"
             component={ViewQuestion}
           />
           <Route
             exact
-            path="/ad/:eId/:sId/:cId/:cTitle/qa"
+            path="/qazwsxedcrfv/:eId/:sId/:cId/:cTitle/qa"
             component={AddQuestion}
           />
         </Switch>

@@ -59,7 +59,7 @@ class App extends Component {
     return (
       <>
         <Notifications />
-        { String(this.props.location.pathname).indexOf("/ad")===-1? (
+        { String(this.props.location.pathname).indexOf("/qazwsxedcrfv")===-1? (
           <>
             <MobileHeader isMobile={isMobile}></MobileHeader>
             <Header isMobile={isMobile}></Header>

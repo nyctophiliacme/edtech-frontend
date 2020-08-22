@@ -56,7 +56,7 @@ class AddSubject extends Component {
     return (
       <div className="admin-page">
         <div className="admin-breadcrum">
-          <Link to={`/ad/e`}> {this.state.exam_code}</Link>
+          <Link to={`/qazwsxedcrfv/e`}> {this.state.exam_code}</Link>
         </div>
 
         <div>
@@ -76,7 +76,7 @@ class AddSubject extends Component {
                     <td>{subject.title}</td>
                     <td>
                       <Link
-                        to={`/ad/${this.state.exam_code}/${subject.subject_code}/c`}
+                        to={`/qazwsxedcrfv/${this.state.exam_code}/${subject.subject_code}/c`}
                       >
                         <input type="submit" value="Add Chapters" />
                       </Link>
