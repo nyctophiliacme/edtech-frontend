@@ -222,7 +222,7 @@ class AddQuestion extends Component {
           <input type="number" onChange={this.updtCorrectOption} />
           <br />
           <br />
-          <input type="submit" value="Save" onClick={this.SaveNewSubject} />
+          <input type="submit" value="Save" onClick={this.saveNewQuestion} />
           &nbsp;&nbsp;&nbsp;&nbsp;
           <input type="submit" value="Cancel" />
         </form>
