@@ -26,9 +26,9 @@ class ExamTitle extends Component {
         this.setState({ checkDevice: handleResize() });
       }, 500)
     );
-    // getAllCourses().then((response) => {
-      this.setState({ examsItemsList: getExamSideNav() });
-    // });
+    getExamSideNav(1).then((response)=>{
+      this.setState({ examsItemsList: response.data })
+    });
   }
 
   render() {
@@ -40,26 +40,26 @@ class ExamTitle extends Component {
                 return (
                   <div key={index} className="section exam-tile-section">
                     <div className="section-title exam-section-title" onClick={()=>{
-                              this.props.updateRoute(category.section_container_1d, category.sections[0].section_id)}}>
+                              this.props.updateRoute(category.section_container_1d, category.section_details[0].id)}}>
                       {category.section_container_title}
                       <span className="right-icon">
                         <FontAwesomeIcon icon="chevron-right" className="" />
                       </span>
                     </div>
                     <div className="sub-section exam-sub-sections-mobile">
-                      {category.sections.map((subsection) => {
+                      {category.section_details.map((subsection) => {
                         return (
                           <div
                             className={`subsection-item ${
-                              parseInt(subsection.section_id) ===
+                              parseInt(subsection.id) ===
                               parseInt(this.props.selectedCourseId)
                                 ? "active"
                                 : ""
                             }`}
-                            key={subsection.section_id} onClick={()=>{
-                              this.props.updateRoute(category.section_container_1d,subsection.section_id)}}
+                            key={subsection.id} onClick={()=>{
+                              this.props.updateRoute(category.id,subsection.id)}}
                           >
-                            {subsection.section_title}
+                            {subsection.section_title.replace(/\:/g, "")}
                           </div>
                         );
                       })}

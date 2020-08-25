@@ -3,6 +3,7 @@ import "./exam-details.css";
 import gotoTop from "../../../assets/images/gotoTop.svg";
 import { getExamStaticData } from "../../../services/examService";
 import { handleResize, debounce } from "../../../common/deviceDetection";
+import { Link } from "react-router-dom";
 
 class ExamDetails extends Component {
   constructor(props) {
@@ -13,9 +14,13 @@ class ExamDetails extends Component {
     };
   }
   componentDidMount() {
-    this.setState({
-      examData: getExamStaticData(this.props.selectedSectionContionerId),
-    });
+    getExamStaticData(this.props.selectedSectionContionerId).then(
+      (response) => {
+        this.setState({ examData: response.data }, () => {
+          console.log(this.state.examData);
+        });
+      }
+    );
     window.addEventListener(
       "resize",
       debounce(() => {
@@ -36,17 +41,16 @@ class ExamDetails extends Component {
       prevProps.selectedSectionContionerId !==
       this.props.selectedSectionContionerId
     )
-      this.setState(
-        {
-          examData: getExamStaticData(this.props.selectedSectionContionerId),
-        },
-        () => {
-          if (
-            document.getElementById(this.props.selectedSectionId) &&
-            !this.state.checkDevice.isMobile
-          ) {
-            this.inPageNavigate(this.props.selectedSectionId);
-          }
+      getExamStaticData(this.props.selectedSectionContionerId).then(
+        (response) => {
+          this.setState({ examData: response.data }, () => {
+            if (
+              document.getElementById(this.props.selectedSectionId) &&
+              !this.state.checkDevice.isMobile
+            ) {
+              this.inPageNavigate(this.props.selectedSectionId);
+            }
+          });
         }
       );
   }
@@ -57,15 +61,15 @@ class ExamDetails extends Component {
         <div className="header-section-exam-details">
           <div className="heading-exam-details">On this page</div>
           <div className="in-page-nav">
-            {this.state.examData && this.state.examData.sections
-              ? this.state.examData.sections.map((section) => {
+            {this.state.examData
+              ? this.state.examData.map((section) => {
                   return (
                     <>
                       <div
                         className="in-page-nav-item"
-                        key={section.section_id}
+                        key={section.id}
                         onClick={() => {
-                          this.inPageNavigate(section.section_id);
+                          this.inPageNavigate(section.id);
                         }}
                       >
                         {section.section_title}
@@ -78,12 +82,12 @@ class ExamDetails extends Component {
           </div>
         </div>
         <div className="exam-details-content">
-          {this.state.examData && this.state.examData.sections
-            ? this.state.examData.sections.map((sectionData) => {
+          {this.state.examData 
+            ? this.state.examData.map((sectionData) => {
                 return (
                   <div
-                    id={sectionData.section_id}
-                    key={sectionData.section_id}
+                    id={sectionData.id}
+                    key={sectionData.id}
                     dangerouslySetInnerHTML={{
                       __html: sectionData.section_html,
                     }}
