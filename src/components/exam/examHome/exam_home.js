@@ -13,7 +13,7 @@ class ExamHome extends Component {
     super(props);
     this.state = {
       checkDevice: handleResize(),
-      selectedSectionContionerId: 1,
+      selectedSectionContionerId: this.props.match.params.sectionContainerId,
       selectedSectionId: "",
     };
   }
@@ -48,7 +48,6 @@ class ExamHome extends Component {
     });
   }
   render() {
-    console.log(this.state.checkDevice.isMobile, this.state.selectedSectionId);
     return (
       <>
         <div className={`exam-home-header-container `}>

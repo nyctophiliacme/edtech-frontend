@@ -6,14 +6,23 @@ export const getAllExams=()=>{
   return axios.get(`${baseURL}exams`);
 }
 export const getExamSideNav = (exam_code) => {
-  // const axiosParams = {
-  //   exam_code: exam_code,
-  // };
-
-  return examSideNavData;
+  const axiosParams = {
+    exam_code: exam_code,
+  };
+  return axios.get(`${baseURL}/exam_data/section_container_exam_vise`, {
+    params: {
+      exam_id: 1
+    }
+  });
+  
 };
 export const getExamStaticData = (section_container_1d) => {
-  return section_container_1d === 1 ? examDetail1 : examDetail2;
+  return axios.get(`${baseURL}/exam_data/section_details_container_vise/`, {
+    params: {
+      exam_section_container_id: section_container_1d
+    }
+  });
+  
 };
 
 let examSideNavData = [
