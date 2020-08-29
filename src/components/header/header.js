@@ -37,16 +37,7 @@ class Header extends Component {
       ),
     };
   }
-  // startPractice = () => {
-  //   // if (!sessionStorage.getItem("isLoggedIn")) {
-  //   //   this.setState({ modalType: "login", showModal: true });
-  //   //   sessionStorage.setItem("targetUrl", "practice");
-  //   // } else {
-  //   //   this.props.history.push({
-  //   //     pathname: "/practice/ecat",
-  //   //   });
-  //   // }
-  // };
+
   checkUpgradePractice = () => {
     if (sessionStorage.getItem("isLoggedIn")) {
       this.setState({
@@ -65,13 +56,7 @@ class Header extends Component {
         ),
       });
     }
-    // else if (
-    //   this.props.location.pathname.split("/")[1] === "" ||
-    //   this.props.location.pathname.split("/")[1] === "exam" ||
-    //   this.props.location.pathname.split("/")[1] === "pricing"
-    // ) {
 
-    // }
     else {
       this.setState({
         firstText: (
@@ -117,6 +102,11 @@ class Header extends Component {
       } else if (message.text === "verified successful login now") {
         this.setState({
           modalType: "login",
+          showModal: true,
+        });
+      }else if(message.text==="Report a Problem"){
+        this.setState({
+          modalType: "reportProblem",
           showModal: true,
         });
       }

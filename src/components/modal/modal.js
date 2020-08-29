@@ -5,6 +5,7 @@ import Register from "../register/register";
 import { useHistory } from "react-router-dom";
 import Upgrade from "../upgarde/upgrade";
 import { messageService } from "../../services/notifyComponentService";
+import ReportProblem from "../report_problem/report_problem";
 
 const Modal = ({ handleClose, show, type }) => {
   const showHideClassname = show
@@ -40,7 +41,7 @@ const Modal = ({ handleClose, show, type }) => {
               handleClose();
             }}
           />
-        ) : (
+        ) :type==="reportProblem"?<ReportProblem/>: (
           <Upgrade handleModalClose={() => {
             handleClose();
           }}/>
