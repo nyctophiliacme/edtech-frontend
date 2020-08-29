@@ -7,6 +7,8 @@ import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { submitAnswer } from "../../../services/questionService";
 import { withRouter } from "react-router-dom";
 import { notify } from "react-notify-toast";
+import { messageService } from "../../../services/notifyComponentService";
+import report from "../../../assets/images/alertTriangle.png"
 
 library.add(faCheck, faTimes);
 
@@ -98,6 +100,14 @@ class Question extends Component {
             ) : null}
           </div>
           <div className="question-header-rightblock">
+            <div className="report-problem-question"
+              onClick={() => {
+                messageService.sendMessage("Report a Problem");
+              }}
+            >
+              <img src={report} alt="d"/>
+              Report a mistake
+            </div>
             {this.props.activeQuestion > 1 ? (
               <div
                 className="question-prevnext  question-prev"
@@ -226,7 +236,7 @@ class Question extends Component {
           <div className="solution-wrapper">
             <div className="solution-header">Solution</div>
             <div className="solution-text">
-              <div >
+              <div>
                 <div className="solution-answer">{`Answer: (${this.selectedIndex})`}</div>
                 <HTML
                   className="answer-text"

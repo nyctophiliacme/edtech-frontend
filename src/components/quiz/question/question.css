@@ -117,6 +117,18 @@
   .question-prev {
     margin-right: 16px;
   }
+  .report-problem-question {
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    color: #e86767;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  .report-problem-question img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
 }
 
 @media screen and (min-width: 768px) {
