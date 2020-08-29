@@ -28,6 +28,17 @@
 .report-problem-textarea {
   background-color: white;
   margin-bottom: 24px;
+  border: 1px solid #E2EBF5;
+  box-sizing: border-box;
+  box-shadow: 0px 16px 32px rgba(221, 230, 237, 0.4);
+  border-radius: 4px;   
+  height: 88px;
+}
+.report-problem-textarea textarea {
+  width: 100% !important;
+  border: none;
+  border-radius: 4px;
+  height: 88px;
 }
 .report-problem-subheader {
   color: #3e4851;
@@ -72,8 +83,8 @@ input[type="radio"] {
   content: "";
   display: block;
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: 3.5px;
+  left: 3.5px;
   width: 7px;
   height: 7px;
   background-color: #2f80ed;

@@ -34,7 +34,7 @@ const ReportProblem = () => {
       <div className="report-problem-subheader">
         Description of the issue (optional)
       </div>
-      <div className="report-problem-textarea">   <textarea rows="4" /></div>       
+      <div className="report-problem-textarea">   <textarea /></div>       
       <div className="report-problem-button">
           Submit Report
       </div>
