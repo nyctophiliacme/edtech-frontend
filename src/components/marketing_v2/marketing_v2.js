@@ -116,7 +116,7 @@ const marketingV2 = () => {
         </Link>
         <Link
           to={{
-            pathname: "/exam/ecat/previousPapers",
+            pathname: "/exam/ecat/3/12",
             loadPaper: "true",
           }}
         >

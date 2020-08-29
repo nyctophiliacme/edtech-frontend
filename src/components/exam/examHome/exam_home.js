@@ -14,9 +14,14 @@ class ExamHome extends Component {
     this.state = {
       checkDevice: handleResize(),
       selectedSectionContionerId: this.props.match.params.sectionContainerId,
-      selectedSectionId: "",
+      selectedSectionId: ""
     };
   }
+  componentDidMount(){
+    console.log(this.props.match);
+
+  }
+  
   updateRoute = (selectedSectionContionerId, selectedSectionId) => {
     this.setState(
       {

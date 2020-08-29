@@ -22,7 +22,6 @@ class ViewQuestions extends Component {
   }
   getQuestionList() {
     getQuestions(this.state.chapter_id).then((response) => {
-      console.log(response.data);
       this.setState({ questionList: response.data });
     });
   }

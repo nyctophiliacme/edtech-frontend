@@ -39,7 +39,7 @@ class ExamTitle extends Component {
                 return (
                   <div key={index} className="section exam-tile-section">
                     <div className="section-title exam-section-title" onClick={()=>{
-                              this.props.updateRoute(category.section_container_1d, category.section_details[0].id)}}>
+                              this.props.updateRoute(category.id, category.section_details[0].id)}}>
                       {category.section_container_title}
                       <span className="right-icon">
                         <FontAwesomeIcon icon="chevron-right" className="" />

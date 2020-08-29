@@ -3,7 +3,6 @@ import "./exam-details.css";
 import gotoTop from "../../../assets/images/gotoTop.svg";
 import { getExamStaticData } from "../../../services/examService";
 import { handleResize, debounce } from "../../../common/deviceDetection";
-import { Link } from "react-router-dom";
 
 class ExamDetails extends Component {
   constructor(props) {
@@ -64,10 +63,10 @@ class ExamDetails extends Component {
             {this.state.examData
               ? this.state.examData.map((section) => {
                   return (
-                    <>
+                    <div key={section.id}>
                       <div
                         className="in-page-nav-item"
-                        key={section.id}
+                        
                         onClick={() => {
                           this.inPageNavigate(section.id);
                         }}
@@ -75,7 +74,7 @@ class ExamDetails extends Component {
                         {section.section_title}
                       </div>
                       <div className="in-nav-bullet">&nbsp;</div>
-                    </>
+                    </div>
                   );
                 })
               : null}
