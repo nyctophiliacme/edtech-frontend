@@ -14,33 +14,11 @@ class ExamHome extends Component {
     this.state = {
       checkDevice: handleResize(),
       selectedSectionContionerId: this.props.match.params.sectionContainerId,
-      selectedSectionId: ""
+      selectedSectionId: this.props.location.pathname.split("/")[4]
+        ? this.props.location.pathname.split("/")[4]
+        : "",
     };
   }
-  componentDidMount(){
-    console.log(this.props.match);
-
-  }
-  
-  updateRoute = (selectedSectionContionerId, selectedSectionId) => {
-    this.setState(
-      {
-        selectedSectionContionerId: selectedSectionContionerId,
-        selectedSectionId: selectedSectionId,
-      },
-      () => {
-        this.props.history.push({
-          pathname: `/exam/${this.props.match.params.examName}/${selectedSectionContionerId}/${selectedSectionId}`,
-        });
-        if (document.getElementById(selectedSectionId) && !this.state.checkDevice.isMobile) {
-          window.scrollTo(
-            0,
-            document.getElementById(selectedSectionId).offsetTop - 152
-          );
-        }
-      }
-    );
-  };
   componentDidMount() {
     window.addEventListener(
       "resize",
@@ -48,10 +26,37 @@ class ExamHome extends Component {
         this.setState({ checkDevice: handleResize() });
       }, 500)
     );
-    this.setState({
-      selectedSectionContionerId: this.state.checkDevice.isMobile ? 0 : 1,
-    });
+    if(this.state.selectedSectionId==="")
+    {
+      this.setState({
+          selectedSectionContionerId: this.state.checkDevice.isMobile ? 0 : this.state.selectedSectionContionerId,
+        }
+      );
+    }
+    this.navigateToSection();
   }
+  
+  updateRoute = (selectedSectionContionerId, selectedSectionId) => {
+    this.setState({
+      selectedSectionContionerId: selectedSectionContionerId,
+      selectedSectionId: selectedSectionId,
+    },()=>{this.navigateToSection()});
+  };
+
+  navigateToSection = () => {
+    this.props.history.push({
+      pathname: `/exam/${this.props.match.params.examName}/${this.state.selectedSectionContionerId}/${this.state.selectedSectionId}`,
+    });
+    if (
+      document.getElementById(this.state.selectedSectionId) &&
+      !this.state.checkDevice.isMobile
+    ) {
+      window.scrollTo(
+        0,
+        document.getElementById(this.state.selectedSectionId).offsetTop - 152
+      );
+    }
+  };
   render() {
     return (
       <>
@@ -60,7 +65,9 @@ class ExamHome extends Component {
         </div>
         <div
           className={`examhome-container ${
-            this.state.selectedSectionContionerId === 0 ? "examconatainer-padding" : ""
+            this.state.selectedSectionContionerId === 0
+              ? "examconatainer-padding"
+              : ""
           }`}
         >
           <div
@@ -89,7 +96,10 @@ class ExamHome extends Component {
                 : ""
             }`}
           >
-            <FontAwesomeIcon icon="chevron-left" className="exam-home-left-icon" />
+            <FontAwesomeIcon
+              icon="chevron-left"
+              className="exam-home-left-icon"
+            />
             Back to ECAT Home
           </div>
           {/* <div className={`exam-section-list-mobile ${

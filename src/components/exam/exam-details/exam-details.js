@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./exam-details.css";
 import gotoTop from "../../../assets/images/gotoTop.svg";
 import { getExamStaticData } from "../../../services/examService";
@@ -15,9 +15,7 @@ class ExamDetails extends Component {
   componentDidMount() {
     getExamStaticData(this.props.selectedSectionContionerId).then(
       (response) => {
-        this.setState({ examData: response.data }, () => {
-          console.log(this.state.examData);
-        });
+        this.setState({ examData: response.data });
       }
     );
     window.addEventListener(
@@ -63,7 +61,7 @@ class ExamDetails extends Component {
             {this.state.examData
               ? this.state.examData.map((section) => {
                   return (
-                    <div key={section.id}>
+                    <Fragment key={section.id}>
                       <div
                         className="in-page-nav-item"
                         
@@ -74,7 +72,7 @@ class ExamDetails extends Component {
                         {section.section_title}
                       </div>
                       <div className="in-nav-bullet">&nbsp;</div>
-                    </div>
+                    </Fragment>
                   );
                 })
               : null}
