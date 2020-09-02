@@ -41,7 +41,9 @@ const Modal = ({ handleClose, show, type }) => {
               handleClose();
             }}
           />
-        ) :type==="reportProblem"?<ReportProblem/>: (
+        ) :type==="reportProblem"?<ReportProblem  handleModalClose={() => {
+          handleClose();
+        }}/>: (
           <Upgrade handleModalClose={() => {
             handleClose();
           }}/>

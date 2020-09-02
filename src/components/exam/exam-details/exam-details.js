@@ -3,6 +3,15 @@ import "./exam-details.css";
 import gotoTop from "../../../assets/images/gotoTop.svg";
 import { getExamStaticData } from "../../../services/examService";
 import { handleResize, debounce } from "../../../common/deviceDetection";
+import { css } from "@emotion/core";
+import BounceLoader from "react-spinners/ClipLoader";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+`;
+
 
 class ExamDetails extends Component {
   constructor(props) {
@@ -10,14 +19,26 @@ class ExamDetails extends Component {
     this.state = {
       checkDevice: handleResize(),
       examData: [],
+      loading: false,
     };
   }
   componentDidMount() {
-    getExamStaticData(this.props.selectedSectionContionerId).then(
-      (response) => {
-        this.setState({ examData: response.data });
+    this.setState(
+      {
+        loading: true,
+      },
+      () => {
+        getExamStaticData(this.props.selectedSectionContionerId).then(
+          (response) => {
+            this.setState({
+              examData: response.data,
+              loading: false,
+            });
+          }
+        );
       }
     );
+
     window.addEventListener(
       "resize",
       debounce(() => {
@@ -37,23 +58,38 @@ class ExamDetails extends Component {
     if (
       prevProps.selectedSectionContionerId !==
       this.props.selectedSectionContionerId
-    )
-      getExamStaticData(this.props.selectedSectionContionerId).then(
-        (response) => {
-          this.setState({ examData: response.data }, () => {
-            if (
-              document.getElementById(this.props.selectedSectionId) &&
-              !this.state.checkDevice.isMobile
-            ) {
-              this.inPageNavigate(this.props.selectedSectionId);
+    ) {
+      this.setState(
+        {
+          loading: true,
+        },
+        () => {
+          getExamStaticData(this.props.selectedSectionContionerId).then(
+            (response) => {
+              this.setState({ examData: response.data, loading: false }, () => {
+                if (
+                  document.getElementById(this.props.selectedSectionId) &&
+                  !this.state.checkDevice.isMobile
+                ) {
+                  this.inPageNavigate(this.props.selectedSectionId);
+                }
+              });
             }
-          });
+          );
         }
       );
+    }
   }
 
   render() {
-    return (
+    return this.state.loading ? (
+      <BounceLoader
+        css={override}
+        size={60}
+        color={"#123abc"}
+        loading={this.state.loading}
+      />
+    ) : (
       <>
         <div className="header-section-exam-details">
           <div className="heading-exam-details">On this page</div>
@@ -64,7 +100,6 @@ class ExamDetails extends Component {
                     <Fragment key={section.id}>
                       <div
                         className="in-page-nav-item"
-                        
                         onClick={() => {
                           this.inPageNavigate(section.id);
                         }}
@@ -79,7 +114,7 @@ class ExamDetails extends Component {
           </div>
         </div>
         <div className="exam-details-content">
-          {this.state.examData 
+          {this.state.examData
             ? this.state.examData.map((sectionData) => {
                 return (
                   <div
