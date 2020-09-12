@@ -40,6 +40,7 @@ class AddExam extends Component {
     let value = e.target.value;
     this.setState({ course_id: value });
   };
+
   SaveNewExam() {
     createExam(
       this.state.exam_code,
