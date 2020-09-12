@@ -1,29 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./footer.css";
 import facebook from "../../assets/images/facebook.svg";
 import youtube from "../../assets/images/youtube.svg";
 import { messageService } from "../../services/notifyComponentService";
 import helpLogo from "../../assets/images/Union.svg";
 
-const footer = () => {
+const footer = (props) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-
+  console.log(props);
   return (
     <div className="footer-container">
-      <div
-        className="help"
-        onClick={() => {
-          messageService.sendMessage("Help");
-        }}
-      >
-        <img src={helpLogo} alt="Headphone" /> <div className="help-text-button">Help</div>
-      </div>
+      {props.location.pathname.includes("/exam/") ? null:(
+        <div
+          className="help"
+          onClick={() => {
+            messageService.sendMessage("Help");
+          }}
+        >
+          <img src={helpLogo} alt="Headphone" />
+          <div className="help-text-button">Help</div>
+        </div>
+      ) }
       <div className="footer-column footer-first-column">
         <div className="column-header">Company</div>
         <div className="footer-text" onClick={scrollToTop}>
@@ -118,4 +121,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default withRouter(footer);
