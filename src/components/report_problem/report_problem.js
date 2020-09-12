@@ -56,6 +56,7 @@ class ReportProblem extends Component {
           {this.state.bug_tiltes.map((title, index) => {
             return (
               <label
+                key={index}
                 className="radio-button"
                 onClick={() => {
                   this.setState({ bug_title: title });

@@ -7,21 +7,22 @@ class Help extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalName: "",
-      modalEmailId: "",
+      modalName:sessionStorage.getItem("userDetails")
+      ? JSON.parse(sessionStorage.getItem("userDetails")).first_name
+      : "",
+      modalEmailId:sessionStorage.getItem("userDetails")
+      ? JSON.parse(sessionStorage.getItem("userDetails")).email
+      : "",
       modalMessage: "",
+      isGuestUser:!JSON.parse(sessionStorage.getItem("isLoggedIn")),
     };
   }
-  isGuestUser;
+  
+  
   submitHelp = () => {
-    console.log(sessionStorage.getItem("isLoggedIn"));
-    if (sessionStorage.getItem("isLoggedIn") === null) {
-      this.isGuestUser = true;
-    } else {
-      this.isGuestUser = false;
-    }
+
     help(
-      this.isGuestUser,
+      this.state.isGuestUser,
       this.state.modalName,
       this.state.modalEmailId,
       this.state.modalMessage
@@ -66,6 +67,7 @@ class Help extends Component {
           <input
             id="help-name"
             type="text"
+            disabled={!this.state.isGuestUser}
             value={this.state.modalName}
             onChange={(e) => this.handleChange("modalName", e)}
           />
@@ -73,6 +75,7 @@ class Help extends Component {
           <input
             id="help-email"
             type="text"
+            disabled={!this.state.isGuestUser}
             value={this.state.modalEmailId}
             onChange={(e) => this.handleChange("modalEmailId", e)}
           />
