@@ -57,6 +57,9 @@ class ExamHome extends Component {
       );
     }
   };
+  componentWillUnmount(){
+    
+  }
   render() {
     return (
       <>
