@@ -16,7 +16,7 @@ const footer = (props) => {
   console.log(props);
   return (
     <div className="footer-container">
-      {props.location.pathname.includes("/exam/") ? null:(
+      {props.location.pathname.includes("/exam/") ? null : (
         <div
           className="help"
           onClick={() => {
@@ -26,7 +26,7 @@ const footer = (props) => {
           <img src={helpLogo} alt="Headphone" />
           <div className="help-text-button">Help</div>
         </div>
-      ) }
+      )}
       <div className="footer-column footer-first-column">
         <div className="column-header">Company</div>
         <div className="footer-text" onClick={scrollToTop}>
@@ -86,8 +86,14 @@ const footer = (props) => {
             Blog
           </a>
         </div>
-        <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/construction">Help</Link>
+        <div
+          className="footer-text"
+          onClick={() => {
+            messageService.sendMessage("Help");
+            scrollToTop();
+          }}
+        >
+          Help
         </div>
       </div>
       <div className="footer-column footer-container-right">
