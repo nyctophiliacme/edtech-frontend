@@ -21,6 +21,7 @@ import CourseLibrary from "./components/course_library/course_library";
 import ExamLanding from "./components/exam-landing/exam-landing";
 import { withRouter } from "react-router";
 import AdminHome from "./components/admin-portal/admin_home";
+import { messageService } from "./services/notifyComponentService";
 
 ReactGA.initialize("UA-168958894-1");
 
@@ -87,6 +88,13 @@ class App extends Component {
                 {/* <Route path="/auhfdusadjashjhdgasyjg/l" component={AboutUs} /> */}
                 <Redirect to="/" />
               </Switch>
+            </div>
+            <div className="report-problem-question"
+              onClick={() => {
+                messageService.sendMessage("Help");
+              }}
+            >
+              Help
             </div>
             <Footer></Footer>
           </>
