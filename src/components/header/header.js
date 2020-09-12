@@ -4,7 +4,7 @@ import { messageService } from "../../services/notifyComponentService";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "../modal/modal";
-import logo from "../../assets/images/ST_logo.png";
+import logo from "../../assets/images/logo-new.png";
 import "./header.css";
 import { faUserCircle, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 

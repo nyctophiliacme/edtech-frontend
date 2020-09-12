@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../../assets/images/ST_logo.png";
+import logo from "../../assets/images/logo-new.png";
 import {
   faBars,
   faArrowLeft,

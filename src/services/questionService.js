@@ -32,3 +32,20 @@ export const submitAnswer = (userId,questionId,questionChoiceID,chapterId,subjec
     }
   );
 };
+
+export const submitMistake = (question,bug_title,bug_description,user) => {
+  return axios.post(
+    `${baseURL}questions/bug_report/`,
+    {
+      question: question,
+      bug_title: bug_title,
+      bug_description: bug_description,
+      user: user
+    },
+    {
+      headers: {
+        Authorization: sessionStorage.getItem("userToken"),
+      },
+    }
+  );
+};

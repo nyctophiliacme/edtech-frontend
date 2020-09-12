@@ -37,7 +37,7 @@
   .exam-details-heading {
     padding-bottom: 8px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.1px;
     color: #606060;
@@ -45,7 +45,7 @@
   }
   .exam-details-text {
     font-weight: normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     padding-bottom: 12px;
     letter-spacing: 0.1px;
@@ -192,7 +192,7 @@
     border-spacing: 0;
     margin-bottom: 20px;
     table-layout: fixed;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     font-weight: bold;
   }

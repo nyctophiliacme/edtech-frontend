@@ -17,7 +17,7 @@
   }
   .img-logo {
     width: 150px;
-    height: 24px;
+    height: 30px;
   }
   .header-login {
     background-color: #67b2e8;
@@ -70,7 +70,7 @@
 @media screen and (min-width: 768px) {
   .img-logo {
     width: 180px;
-    height: 28px;
+    height: 40px;
   }
   .logo-header {
     padding: 24px;

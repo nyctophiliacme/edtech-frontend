@@ -102,6 +102,7 @@ class Question extends Component {
           <div className="question-header-rightblock">
             <div className="report-problem-question"
               onClick={() => {
+                sessionStorage.setItem("QID",this.props.questionDetails.id);
                 messageService.sendMessage("Report a Problem");
               }}
             >
