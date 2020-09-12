@@ -61,7 +61,8 @@ class App extends Component {
     return (
       <>
         <Notifications />
-        { String(this.props.location.pathname).indexOf("/qazwsxedcrfv")===-1? (
+        {String(this.props.location.pathname).indexOf("/qazwsxedcrfv") ===
+        -1 ? (
           <>
             <MobileHeader isMobile={isMobile}></MobileHeader>
             <Header isMobile={isMobile}></Header>
@@ -90,13 +91,6 @@ class App extends Component {
                 {/* <Route path="/auhfdusadjashjhdgasyjg/l" component={AboutUs} /> */}
                 <Redirect to="/" />
               </Switch>
-            </div>
-            <div className="report-problem-question"
-              onClick={() => {
-                messageService.sendMessage("Help");
-              }}
-            >
-              Help
             </div>
             <Footer></Footer>
           </>

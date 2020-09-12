@@ -1,0 +1,52 @@
+.help-modal {
+  padding: 24px;
+}
+.help-modal .help-title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  color: #3e4851;
+  margin-bottom: 4px;
+}
+.help-modal .help-description {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #7e8794;
+}
+.help-modal .help-form {
+  margin-top: 32px;
+}
+.help-modal label {
+  display: block !important;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #a6afbc;
+}
+.help-modal input[type="text"],
+.help-modal textarea {
+  background: #ffffff;
+  border: 1px solid #e2ebf5;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+.help-modal input[type="text"] {
+  height: 40px;
+}
+.help-modal .help-submit {
+  height: 48px;
+  left: 24px;
+  top: 460px;
+  background: #2f80ed;
+  border-radius: 4px;
+  color: #F6FAFF;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 48px;
+  cursor: pointer;
+}

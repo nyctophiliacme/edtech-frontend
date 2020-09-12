@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   src: local("SourceSansPro"), local("SourceSansPro"),
-     url("./assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf")
+    url("./assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf")
       format("truetype");
 }
 
@@ -13,16 +13,16 @@ body {
 img {
   display: block;
 }
-.notify-container{
-  padding:20px 40px;
+.notify-container {
+  padding: 20px 40px;
 }
-a{
+a {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
 }
 
-.hide-header{
+.hide-header {
   display: none !important;
 }
 
@@ -32,26 +32,25 @@ a{
     text-align: center;
     padding: 40px 35px 80px 35px;
   }
-  .common-heading-text{
+  .common-heading-text {
     font-size: 37px;
     line-height: 27px;
     font-weight: 500;
   }
-  .main-container{
+  .main-container {
     margin-top: 56px;
   }
 }
 @media screen and (min-width: 768px) {
-  .common-container{
+  .common-container {
     padding: 80px 70px 120px 70px;
-    
   }
-  .common-heading-text{
+  .common-heading-text {
     font-size: 47px;
     line-height: 37px;
     font-weight: 500;
   }
-  .main-container{
+  .main-container {
     margin-top: 152px;
   }
 }
@@ -59,10 +58,9 @@ a{
   .common-container {
     padding: 120px 140px 240px 140px;
   }
-  .common-heading-text{
+  .common-heading-text {
     font-size: 57px;
     line-height: 47px;
     font-weight: 500;
   }
-
 }

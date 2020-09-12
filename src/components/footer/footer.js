@@ -4,6 +4,7 @@ import "./footer.css";
 import facebook from "../../assets/images/facebook.svg";
 import youtube from "../../assets/images/youtube.svg";
 import { messageService } from "../../services/notifyComponentService";
+import helpLogo from "../../assets/images/Union.svg";
 
 const footer = () => {
   const scrollToTop = () => {
@@ -15,6 +16,14 @@ const footer = () => {
 
   return (
     <div className="footer-container">
+      <div
+        className="help"
+        onClick={() => {
+          messageService.sendMessage("Help");
+        }}
+      >
+        <img src={helpLogo} alt="Headphone" /> <div className="help-text-button">Help</div>
+      </div>
       <div className="footer-column footer-first-column">
         <div className="column-header">Company</div>
         <div className="footer-text" onClick={scrollToTop}>
@@ -58,8 +67,7 @@ const footer = () => {
         </div>
       </div>
       <div className="footer-column footer-third-column">
-        <div className="column-header">
-          Helpful Links</div>
+        <div className="column-header">Helpful Links</div>
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/howToPay">How to pay</Link>
         </div>
