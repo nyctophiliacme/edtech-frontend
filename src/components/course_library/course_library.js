@@ -63,6 +63,9 @@ class CourseLibrary extends Component {
       });
     }
   }
+  componentWillUnmount(){
+    
+  }
   render() {
     return (
       <div>

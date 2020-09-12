@@ -13,7 +13,6 @@ const footer = (props) => {
       behavior: "smooth",
     });
   };
-  console.log(props);
   return (
     <div className="footer-container">
       {props.location.pathname.includes("/exam/") ? null : (

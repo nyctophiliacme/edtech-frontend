@@ -67,7 +67,7 @@ class ReportProblem extends Component {
                   className="radio-button__input"
                   id="choice1-1"
                   name="choice1"
-                  key={index}
+                  readOnly={true}
                   checked={this.state.bug_title===title}
                 />
                 <span className="radio-button__control"></span>
