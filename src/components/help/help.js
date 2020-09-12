@@ -14,13 +14,18 @@ class Help extends Component {
       ? JSON.parse(sessionStorage.getItem("userDetails")).email
       : "",
       modalMessage: "",
+      validForm: false,
+      errors: {
+        name: "",
+        email: "",
+        message: "",
+      },
       isGuestUser:!JSON.parse(sessionStorage.getItem("isLoggedIn")),
     };
   }
   
   
   submitHelp = () => {
-
     help(
       this.state.isGuestUser,
       this.state.modalName,
@@ -49,8 +54,48 @@ class Help extends Component {
       });
   };
 
+  validEmailRegex = RegExp(
+    /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+  );
+
+  fieldValidator = (target) => {
+    if (target.id === "help-name") {
+      target.value.length > 0
+        ? this.setState({ errors: { ...this.state.errors, name: "" } })
+        : this.setState({
+            errors: { ...this.state.errors, name: "Please enter name." },
+          });
+    } else if (target.id === "help-email") {
+      this.validEmailRegex.test(target.value)
+        ? this.setState({
+            errors: { ...this.state.errors, email: "" },
+          })
+        : this.setState({
+            errors: {
+              ...this.state.errors,
+              email: "Please enter valid email address.",
+            },
+          });
+    } else {
+      target.value.length > 10
+        ? this.setState({
+            errors: { ...this.state.errors, message: "" },
+          })
+        : this.setState({
+            errors: {
+              ...this.state.errors,
+              message: "Please enter a valid message.",
+            },
+          });
+    }
+    console.log(this.state.errors);
+  };
+
   handleChange = (stateVariable, e) => {
-    this.setState({ [stateVariable]: e.target.value });
+    this.setState(
+      { [stateVariable]: e.target.value },
+      this.fieldValidator(e.target)
+    );
   };
 
   render() {
