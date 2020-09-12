@@ -39,7 +39,7 @@ const footer = () => {
       <div className="footer-column footer-second-column">
         <div className="column-header">Account</div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/construction">Pricing and Plans</Link>
+          <Link to="/pricing">Pricing and Plans</Link>
         </div>
         {!sessionStorage.getItem("isLoggedIn") ? (
           <div
@@ -61,7 +61,7 @@ const footer = () => {
         <div className="column-header">
           Helpful Links</div>
         <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/pricing">How to pay</Link>
+          <Link to="/howToPay">How to pay</Link>
         </div>
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/construction">FAQs</Link>

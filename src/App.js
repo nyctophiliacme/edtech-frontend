@@ -21,6 +21,7 @@ import CourseLibrary from "./components/course_library/course_library";
 import ExamLanding from "./components/exam-landing/exam-landing";
 import { withRouter } from "react-router";
 import AdminHome from "./components/admin-portal/admin_home";
+import HowToPay from "./components/pricing/howToPay/howToPay";
 
 ReactGA.initialize("UA-168958894-1");
 
@@ -75,6 +76,7 @@ class App extends Component {
                 />
                 <Route path="/practice/:examName" component={PracticeHome} />
                 <Route path="/pricing" component={Pricing} />
+                <Route path="/howToPay" component={HowToPay} />
                 <Route path="/quiz" component={Quiz} />
                 <Route path="/email_verified" component={EmailVerified} />
                 <Route path="/courses/:courseId" component={CourseLibrary} />
