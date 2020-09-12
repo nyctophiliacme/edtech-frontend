@@ -5,6 +5,8 @@
   line-height: 20px;
   color: #7e8794;
   background: #f8fafc;
+  border-radius: 8px;
+
 }
 .report-problem-header {
   font-size: 24px;
