@@ -42,11 +42,15 @@
   top: 460px;
   background: #2f80ed;
   border-radius: 4px;
-  color: #F6FAFF;
+  color: #f6faff;
   width: 100%;
   text-align: center;
   font-weight: bold;
   font-size: 16px;
   line-height: 48px;
   cursor: pointer;
+}
+.help-modal .error {
+  border: 1px solid red !important;
+  color: red !important;
 }

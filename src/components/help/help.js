@@ -7,12 +7,12 @@ class Help extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalName:sessionStorage.getItem("userDetails")
-      ? JSON.parse(sessionStorage.getItem("userDetails")).first_name
-      : "",
-      modalEmailId:sessionStorage.getItem("userDetails")
-      ? JSON.parse(sessionStorage.getItem("userDetails")).email
-      : "",
+      modalName: sessionStorage.getItem("userDetails")
+        ? JSON.parse(sessionStorage.getItem("userDetails")).first_name
+        : "",
+      modalEmailId: sessionStorage.getItem("userDetails")
+        ? JSON.parse(sessionStorage.getItem("userDetails")).email
+        : "",
       modalMessage: "",
       validForm: false,
       errors: {
@@ -20,38 +20,58 @@ class Help extends Component {
         email: "",
         message: "",
       },
-      isGuestUser:!JSON.parse(sessionStorage.getItem("isLoggedIn")),
+      isGuestUser: !JSON.parse(sessionStorage.getItem("isLoggedIn")),
     };
   }
-  
-  
+
   submitHelp = () => {
-    help(
-      this.state.isGuestUser,
-      this.state.modalName,
-      this.state.modalEmailId,
-      this.state.modalMessage
-    )
-      .then((response) => {
-        this.props.handleModalClose();
-        notify.show(
-          <div className="notify-container">
-            Help request registered successfully.
-          </div>,
-          "success",
-          4000
-        );
-      })
-      .catch((error) => {
-        this.props.handleModalClose();
-        notify.show(
-          <div className="notify-container">
-            Unable to connect with server. Please try again later.
-          </div>,
-          "error",
-          4000
-        );
+    if (
+      this.state.modalName !== "" &&
+      this.state.modalEmailId !== "" &&
+      this.state.modalMessage !== ""
+    ) {
+      if (
+        this.state.errors.name === "" &&
+        this.state.errors.email === "" &&
+        this.state.errors.message === ""
+      ) {
+        console.log("inside if");
+        help(
+          this.state.isGuestUser,
+          this.state.modalName,
+          this.state.modalEmailId,
+          this.state.modalMessage
+        )
+          .then((response) => {
+            this.props.handleModalClose();
+            notify.show(
+              <div className="notify-container">
+                Help request registered successfully.
+              </div>,
+              "success",
+              4000
+            );
+          })
+          .catch((error) => {
+            this.props.handleModalClose();
+            notify.show(
+              <div className="notify-container">
+                Unable to connect with server. Please try again later.
+              </div>,
+              "error",
+              4000
+            );
+          });
+      }
+    } else {
+      this.setState({
+        errors: {
+          name: "Please enter name",
+          email: "Please enter valid email address",
+          message: "Please enter a valid message",
+        },
       });
+    }
   };
 
   validEmailRegex = RegExp(
@@ -63,7 +83,7 @@ class Help extends Component {
       target.value.length > 0
         ? this.setState({ errors: { ...this.state.errors, name: "" } })
         : this.setState({
-            errors: { ...this.state.errors, name: "Please enter name." },
+            errors: { ...this.state.errors, name: "Please enter name" },
           });
     } else if (target.id === "help-email") {
       this.validEmailRegex.test(target.value)
@@ -73,7 +93,7 @@ class Help extends Component {
         : this.setState({
             errors: {
               ...this.state.errors,
-              email: "Please enter valid email address.",
+              email: "Please enter valid email address",
             },
           });
     } else {
@@ -84,11 +104,10 @@ class Help extends Component {
         : this.setState({
             errors: {
               ...this.state.errors,
-              message: "Please enter a valid message.",
+              message: "Please enter a valid message",
             },
           });
     }
-    console.log(this.state.errors);
   };
 
   handleChange = (stateVariable, e) => {
@@ -115,6 +134,10 @@ class Help extends Component {
             disabled={!this.state.isGuestUser}
             value={this.state.modalName}
             onChange={(e) => this.handleChange("modalName", e)}
+            placeholder={
+              this.state.errors.name !== "" ? this.state.errors.name : ""
+            }
+            className={this.state.errors.name !== "" ? "error" : ""}
           />
           <label htmlFor="help-email">Email ID</label>
           <input
@@ -123,6 +146,10 @@ class Help extends Component {
             disabled={!this.state.isGuestUser}
             value={this.state.modalEmailId}
             onChange={(e) => this.handleChange("modalEmailId", e)}
+            placeholder={
+              this.state.errors.email !== "" ? this.state.errors.email : ""
+            }
+            className={this.state.errors.email !== "" ? "error" : ""}
           />
           <label htmlFor="help-message">Message</label>
           <textarea
@@ -130,6 +157,10 @@ class Help extends Component {
             rows="5"
             value={this.state.modalMessage}
             onChange={(e) => this.handleChange("modalMessage", e)}
+            placeholder={
+              this.state.errors.message !== "" ? this.state.errors.message : ""
+            }
+            className={this.state.errors.message !== "" ? "error" : ""}
           />
           <div className="help-submit" onClick={this.submitHelp}>
             Submit
