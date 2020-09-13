@@ -35,7 +35,6 @@ class Help extends Component {
         this.state.errors.email === "" &&
         this.state.errors.message === ""
       ) {
-        console.log("inside if");
         help(
           this.state.isGuestUser,
           this.state.modalName,
