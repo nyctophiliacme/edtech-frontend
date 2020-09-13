@@ -40,6 +40,7 @@ class AddExam extends Component {
     let value = e.target.value;
     this.setState({ course_id: value });
   };
+
   SaveNewExam() {
     createExam(
       this.state.exam_code,
@@ -85,15 +86,15 @@ class AddExam extends Component {
         {this.state.showForm ? (
           <div>
             <form>
-              <label>Exam code</label>
+              <label>Exam code*</label>
               <input type="text" onChange={this.ExamCodeUpdate} />
               <br />
               <br />
-              <label>Exam title</label>
+              <label>Exam title*</label>
               <input type="text" onChange={this.ExamTitleUpdate} />
               <br />
               <br />
-              <label>Course Id</label>
+              <label>Course Id*</label>
               <select onChange={this.updateCourse} value={this.state.course_id}>
                 {this.state.CourseList.map((courseHeader) => {
                   return courseHeader.courses.map((course) => {

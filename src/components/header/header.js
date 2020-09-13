@@ -55,9 +55,7 @@ class Header extends Component {
           </div>
         ),
       });
-    }
-
-    else {
+    } else {
       this.setState({
         firstText: (
           <div
@@ -104,9 +102,14 @@ class Header extends Component {
           modalType: "login",
           showModal: true,
         });
-      }else if(message.text==="Report a Problem"){
+      } else if (message.text === "Report a Problem") {
         this.setState({
           modalType: "reportProblem",
+          showModal: true,
+        });
+      } else if (message.text === "Help") {
+        this.setState({
+          modalType: "help",
           showModal: true,
         });
       }
@@ -199,10 +202,20 @@ class Header extends Component {
             <Link to="/career_center" className="header-menu-item">
               Career Center
             </Link>
-            <a href="http://158.106.139.211/~superteacher/k-12-resources/" rel="noopener noreferrer" target="_blank" className="header-menu-item">
+            <a
+              href="http://158.106.139.211/~superteacher/k-12-resources/"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="header-menu-item"
+            >
               Resources
             </a>
-            <a href="http://158.106.139.211/~superteacher/blog/" rel="noopener noreferrer" target="_blank" className="header-menu-item">
+            <a
+              href="http://158.106.139.211/~superteacher/blog/"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="header-menu-item"
+            >
               Blog
             </a>
           </div>

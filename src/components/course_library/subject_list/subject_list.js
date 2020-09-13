@@ -123,10 +123,6 @@ class SubjectList extends Component {
                     this.state.selectedExamCode === subject.exam_code
                   ) {
                     return (
-                      // <Link
-                      //   key={subject.id}
-                      //   to={`/practice/${subject.exam_code.toLowerCase()}/${subject.subject_code}`}
-                      // >
                       <Link
                         key={subject.id}
                         to={`/examHome/${subject.exam_code.toLowerCase()}/practice/${subject.subject_code}`}

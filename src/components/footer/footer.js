@@ -1,20 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./footer.css";
 import facebook from "../../assets/images/facebook.svg";
 import youtube from "../../assets/images/youtube.svg";
 import { messageService } from "../../services/notifyComponentService";
+import helpLogo from "../../assets/images/Union.svg";
 
-const footer = () => {
+const footer = (props) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-
   return (
     <div className="footer-container">
+      {props.location.pathname.includes("/exam/") ? null : (
+        <div
+          className="help"
+          onClick={() => {
+            messageService.sendMessage("Help");
+          }}
+        >
+          <img src={helpLogo} alt="Headphone" />
+          <div className="help-text-button">Help</div>
+        </div>
+      )}
       <div className="footer-column footer-first-column">
         <div className="column-header">Company</div>
         <div className="footer-text" onClick={scrollToTop}>
@@ -58,8 +69,7 @@ const footer = () => {
         </div>
       </div>
       <div className="footer-column footer-third-column">
-        <div className="column-header">
-          Helpful Links</div>
+        <div className="column-header">Helpful Links</div>
         <div className="footer-text" onClick={scrollToTop}>
           <Link to="/howToPay">How to pay</Link>
         </div>
@@ -75,8 +85,14 @@ const footer = () => {
             Blog
           </a>
         </div>
-        <div className="footer-text" onClick={scrollToTop}>
-          <Link to="/construction">Help</Link>
+        <div
+          className="footer-text"
+          onClick={() => {
+            messageService.sendMessage("Help");
+            scrollToTop();
+          }}
+        >
+          Help
         </div>
       </div>
       <div className="footer-column footer-container-right">
@@ -110,4 +126,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default withRouter(footer);

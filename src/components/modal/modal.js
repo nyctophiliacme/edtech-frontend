@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import Upgrade from "../upgarde/upgrade";
 import { messageService } from "../../services/notifyComponentService";
 import ReportProblem from "../report_problem/report_problem";
+import Help from "../help/help";
 
 const Modal = ({ handleClose, show, type }) => {
   const showHideClassname = show
@@ -41,12 +42,20 @@ const Modal = ({ handleClose, show, type }) => {
               handleClose();
             }}
           />
-        ) :type==="reportProblem"?<ReportProblem  handleModalClose={() => {
-          handleClose();
-        }}/>: (
-          <Upgrade handleModalClose={() => {
+        ) : type === "reportProblem" ? (
+          <ReportProblem handleModalClose={() => {
             handleClose();
           }}/>
+        ) : type === "help" ? (
+          <Help handleModalClose={() => {
+            handleClose();
+          }}/>
+        ) : (
+          <Upgrade
+            handleModalClose={() => {
+              handleClose();
+            }}
+          />
         )}
       </section>
     </div>
