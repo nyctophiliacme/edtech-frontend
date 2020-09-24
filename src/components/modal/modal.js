@@ -7,6 +7,8 @@ import Upgrade from "../upgarde/upgrade";
 import { messageService } from "../../services/notifyComponentService";
 import ReportProblem from "../report_problem/report_problem";
 import Help from "../help/help";
+import RegisterLanding from "../register/register_landing/register_landing";
+import EmailVerificatio from "../register/email-verification/email-verification";
 
 const Modal = ({ handleClose, show, type }) => {
   const showHideClassname = show
