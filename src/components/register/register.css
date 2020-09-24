@@ -8,7 +8,13 @@
     width:480px;
   }
 }
-
+.name-container{
+  display: inline-block;
+  width: 47%;
+}
+.last-name-container{
+ float: right;
+}
 .signup-footer {
   font-weight: 300;
   font-size: 18px;

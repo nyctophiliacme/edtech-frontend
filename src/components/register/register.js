@@ -152,10 +152,8 @@ class Register extends Component {
         <div className="login-header"> Create Account</div>
         <form onSubmit={this.handleSubmit} noValidate>
           <div className="login-form-container">
-            <div className="login-input-container">
-              <div className="login-input-header">
-                  First Name
-              </div>
+            <div className="login-input-container  name-container">
+              <div className="login-input-header">First Name</div>
               <input
                 className={
                   this.state.errors.firstName.length > 0
@@ -169,72 +167,81 @@ class Register extends Component {
                 noValidate
               />
             </div>
-
-            <input
-              className={
-                this.state.errors.lastName.length > 0
-                  ? "login-input error"
-                  : "login-input"
-              }
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              required
-              onChange={this.handleChange}
-              noValidate
-            />
-            <input
-              className={
-                this.state.errors.email.length > 0
-                  ? "login-input error"
-                  : "login-input"
-              }
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              onChange={this.handleChange}
-              noValidate
-            />
-            <input
-              className={
-                this.state.errors.phoneNumber.length > 0
-                  ? "login-input error"
-                  : "login-input"
-              }
-              type="number"
-              name="phoneNumber"
-              placeholder="Phone Number (without country code)"
-              required
-              onChange={this.handleChange}
-              noValidate
-            />
-            <input
-              className={
-                this.state.errors.password.length > 0
-                  ? "login-input error"
-                  : "login-input"
-              }
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-              onChange={this.handleChange}
-              noValidate
-            />
-            <input
-              className={
-                this.state.errors.confirmPassword.length > 0
-                  ? "login-input error"
-                  : "login-input"
-              }
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              required
-              onChange={this.handleChange}
-              noValidate
-            />
+            <div className="login-input-container  name-container last-name-container">
+              <div className="login-input-header">Last Name</div>
+              <input
+                className={
+                  this.state.errors.lastName.length > 0
+                    ? "login-input error"
+                    : "login-input"
+                }
+                type="text"
+                name="lastName"
+                required
+                onChange={this.handleChange}
+                noValidate
+              />
+            </div>
+            <div className="login-input-container">
+              <div className="login-input-header">Phone Number</div>
+              <input
+                className={
+                  this.state.errors.phoneNumber.length > 0
+                    ? "login-input error"
+                    : "login-input"
+                }
+                type="number"
+                name="phoneNumber"
+                required
+                onChange={this.handleChange}
+                noValidate
+              />
+            </div>
+            <div className="login-input-container">
+              <div className="login-input-header">Email</div>
+              <input
+                className={
+                  this.state.errors.email.length > 0
+                    ? "login-input error"
+                    : "login-input"
+                }
+                type="email"
+                name="email"
+                required
+                onChange={this.handleChange}
+                noValidate
+              />
+            </div>
+            <div className="login-input-container  name-container">
+              <div className="login-input-header">Password</div>
+              <input
+                className={
+                  this.state.errors.password.length > 0
+                    ? "login-input error"
+                    : "login-input"
+                }
+                type="password"
+                name="password"
+                required
+                onChange={this.handleChange}
+                noValidate
+              />
+            </div>
+            <div className="login-input-container  name-container last-name-container">
+              <div className="login-input-header">Re-enter Password</div>
+              <input
+                className={
+                  this.state.errors.confirmPassword.length > 0
+                    ? "login-input error"
+                    : "login-input"
+                }
+                type="password"
+                name="confirmPassword"
+                required
+                onChange={this.handleChange}
+                noValidate
+              />
+            </div>
           </div>
           <div className="signup-footer">
             By joining, you agree to the&nbsp;
