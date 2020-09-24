@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { notify } from "react-notify-toast";
 import { signup } from "../../services/loginService";
+import flag from "../../assets/images/flag.png";
 import "./register.css";
 class Register extends Component {
   constructor(props) {
@@ -184,11 +185,14 @@ class Register extends Component {
             </div>
             <div className="login-input-container">
               <div className="login-input-header">Phone Number</div>
+              <div className="phone-number-pre">
+                <img src={flag} className="flag-img" alt=""></img>+92
+              </div>
               <input
                 className={
                   this.state.errors.phoneNumber.length > 0
-                    ? "login-input error"
-                    : "login-input"
+                    ? "login-input phone-number-input error"
+                    : "login-input phone-number-input"
                 }
                 type="number"
                 name="phoneNumber"
