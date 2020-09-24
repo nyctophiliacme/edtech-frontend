@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { notify } from "react-notify-toast";
 import { signup } from "../../services/loginService";
 import flag from "../../assets/images/flag.png";
+import bag from "../../assets/images/bag.png";
+import person from "../../assets/images/person.png";
+import women from "../../assets/images/woman.png";
+
 import "./register.css";
 class Register extends Component {
   constructor(props) {
@@ -246,8 +250,41 @@ class Register extends Component {
                 noValidate
               />
             </div>
+            <div className="login-input-container role-selection-container">
+            <div className="login-input-header">Select Role</div>
+            <div>
+              <div className="role-section">
+                <img className="role-img" src={person} alt=""></img>
+                <div className="role-text"> Student</div>
+              </div>
+              <div className="role-section">
+                <img className="role-img"src={bag} alt=""></img>
+                <div className="role-text">Teacher</div>
+              </div>
+              <div className="role-section">
+                <img className="role-img" src={women} alt=""></img>
+                <div className="role-text">Parent</div>
+              </div>
+            </div>
           </div>
-          <div className="signup-footer">
+          <div className="login-input-container ">
+              <div className="login-input-header">School</div>
+              <input
+                className={
+                  this.state.errors.confirmPassword.length > 0
+                    ? "login-input error"
+                    : "login-input"
+                }
+                type="text"
+                name="school"
+                required
+                onChange={this.handleChange}
+                noValidate
+              />
+            </div>
+          </div>
+
+          {/* <div className="signup-footer">
             By joining, you agree to the&nbsp;
             <span
               className="login-signUp"
@@ -262,8 +299,8 @@ class Register extends Component {
             >
               <Link to="/privacy_policy">Privacy Policy.</Link>
             </span>
-          </div>
-          <input className="login-button" type="submit" value="Sign Up" />
+          </div> */}
+          <input className="create-account-button" type="submit" value="Create Account" />
         </form>
       </div>
     );

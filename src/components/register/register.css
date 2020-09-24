@@ -1,11 +1,44 @@
 @media screen and (min-width: 320px) {
   .register-container {
-    width: 95vw;
+    width: 100%;
+    box-sizing: border-box; /* Opera/IE 8+ */
+    padding:16px;
+    height: 95vh;
+    overflow-y: auto;
   }
+  .role-section {
+    text-align: center;
+    display: inline-block;
+    background: #ffffff;
+    border: 1px solid #e2ebf5;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-right: 8px;
+    cursor: pointer;
+    padding: 18px;
+
+  }
+  .role-img {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+    margin-bottom: 8px;
+  }
+
 }
 @media screen and (min-width: 768px) {
   .register-container {
     width: 480px;
+    box-sizing: border-box; /* Opera/IE 8+ */
+    padding: 16px 32px;
+  }
+  .role-section{
+    padding: 16px 32px 12px 35px;
+  }
+  .role-img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
   }
 }
 .name-container {
@@ -18,6 +51,7 @@
 .flag-img {
   display: inline-block;
   margin-right: 5px;
+  vertical-align: middle;
 }
 .phone-number-pre {
   width: 70px;
@@ -32,8 +66,8 @@
   margin: 0 auto;
   text-align: center;
 }
-.phone-number-input{
-  width:calc(100% - 70px);
+.phone-number-input {
+  width: calc(100% - 70px);
 }
 .signup-footer {
   font-weight: 300;
@@ -54,4 +88,29 @@ input[type="number"] {
 }
 .notify-container {
   padding: 20px 40px;
+}
+
+.role-section:last-child {
+  margin-right: 0px;
+}
+
+
+.role-text {
+  font-size: 16px;
+}
+.create-account-button {
+  padding: 12px 0px;
+  width: 100%;
+  background: #2f80ed;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px; 
+  text-align: center;
+  letter-spacing: 0.5px;  
+  color: #F6FAFF;
+  
+}
+.role-selection-container{
+  margin-bottom: 16px;
 }
