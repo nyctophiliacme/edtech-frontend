@@ -1,24 +1,33 @@
 @media screen and (min-width: 768px) {
-  .login-button:hover{
+  .login-button:hover {
     background-color: #518bb5;
   }
 }
 input:focus {
-  outline:none;
+  outline: none;
 }
 .login-container {
-    padding: 32px;
-    text-align: center;
-    background: #F8FAFC;
-    box-shadow: 0px 16px 32px rgba(221, 230, 237, 0.4);
-    border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  background: #f8fafc;
+  box-shadow: 0px 16px 32px rgba(221, 230, 237, 0.4);
+  border-radius: 8px;
 }
-
+.login-input-header {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #a6afbc;
+}
+.login-input-container{
+  text-align: left;
+}
 .login-header {
   font-weight: bold;
   font-size: 24px;
-  line-height: 32px; 
-  color: #122E51;
+  line-height: 32px;
+  color: #122e51;
   padding-bottom: 24px;
 }
 .login-button {
@@ -36,18 +45,16 @@ input:focus {
   letter-spacing: 1px;
 }
 
-
-
-.login-signUp{
-    font-weight: 400;
-    color:#60B1FF;
-    cursor: pointer;
+.login-signUp {
+  font-weight: 400;
+  color: #60b1ff;
+  cursor: pointer;
 }
 .login-footer {
-    font-weight: 300;
+  font-weight: 300;
   font-size: 18px;
   line-height: 22px;
-  padding-top:25px;
+  padding-top: 25px;
 }
 .login-forgotpswd {
   text-align: left;
@@ -60,19 +67,18 @@ input:focus {
 }
 .login-input {
   width: 100%;
-  padding: 10px 15px;
-  border-radius: 12px;
-  border-color: #e0e3e5;
-  border-width: 1.6px;
-  margin: 5px 0;
-  box-sizing: border-box;
+  padding: 8px;
   margin-bottom: 12px;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 22px;
-
+  background: #FFFFFF;
+  border: 1px solid #E2EBF5;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #6D7887;
 }
-.error{
+.error {
   border-color: red;
   color: red;
 }

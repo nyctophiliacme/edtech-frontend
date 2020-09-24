@@ -50,7 +50,9 @@ class Register extends Component {
         break;
       case "phoneNumber":
         errors.phoneNumber =
-          value.length < 10 ? "Phone Number must be greater than 10 digits long!" : "";
+          value.length < 10
+            ? "Phone Number must be greater than 10 digits long!"
+            : "";
         break;
       case "password":
         errors.password =
@@ -139,9 +141,7 @@ class Register extends Component {
           confirmPassword: "error",
         },
       });
-      Object.values(errors).forEach(
-        (val) => val.length > 0 && (valid = false)
-      );
+      Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
     }
     return valid;
   };
@@ -152,19 +152,24 @@ class Register extends Component {
         <div className="login-header"> Create Account</div>
         <form onSubmit={this.handleSubmit} noValidate>
           <div className="login-form-container">
-            <input
-              className={
-                this.state.errors.firstName.length > 0
-                  ? "login-input error"
-                  : "login-input"
-              }
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              required
-              onChange={this.handleChange}
-              noValidate
-            />
+            <div className="login-input-container">
+              <div className="login-input-header">
+                  First Name
+              </div>
+              <input
+                className={
+                  this.state.errors.firstName.length > 0
+                    ? "login-input error"
+                    : "login-input"
+                }
+                type="text"
+                name="firstName"
+                required
+                onChange={this.handleChange}
+                noValidate
+              />
+            </div>
+
             <input
               className={
                 this.state.errors.lastName.length > 0
