@@ -148,7 +148,7 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="login-container">
+      <div className="login-container register-container">
         <div className="login-header"> Create Account</div>
         <form onSubmit={this.handleSubmit} noValidate>
           <div className="login-form-container">
