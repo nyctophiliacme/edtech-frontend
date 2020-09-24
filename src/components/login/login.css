@@ -18,6 +18,7 @@ input:focus {
   font-size: 14px;
   line-height: 20px;
   color: #a6afbc;
+  margin-bottom: 4px;
 }
 .login-input-container{
   text-align: left;
