@@ -1,0 +1,28 @@
+.email-verification-header {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 40px;
+  margin-bottom: 8px;
+  color: #3e4851;
+}
+.email-verification-text {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #3e4851;
+  margin-bottom: 24px;
+}
+.email-verification-button {
+  background: #2f80ed;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  color: #f6faff;
+  padding: 12px 0px;
+}
