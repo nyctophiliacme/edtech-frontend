@@ -8,6 +8,7 @@ import person from "../../assets/images/person.png";
 import women from "../../assets/images/woman.png";
 
 import "./register.css";
+import { messageService } from "../../services/notifyComponentService";
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +19,8 @@ class Register extends Component {
       phoneNumber: null,
       password: null,
       confirmPassword: null,
+      type: "S",
+      school: "",
       errors: {
         firstName: "",
         lastName: "",
@@ -25,6 +28,7 @@ class Register extends Component {
         password: "",
         phoneNumber: "",
         confirmPassword: "",
+        school: "",
       },
     };
   }
@@ -69,6 +73,9 @@ class Register extends Component {
             ? "Confirm Password must match Password!"
             : "";
         break;
+        case "school":
+          errors.school=value.length <= 0 ? "School Name must not be blank!" : "";
+          break;
       default:
         break;
     }
@@ -80,17 +87,10 @@ class Register extends Component {
     if (this.validateForm(this.state.errors)) {
       signup(this.state)
         .then((response) => {
-          notify.show(
-            <div className="notify-container">
-              Verification e-mail sent to {this.state.email} &nbsp;. <br />
-              You can login after e-mail is verified.
-            </div>,
-            "success",
-            8000
-          );
-          this.props.handleModalClose();
+          messageService.sendMessage("email Verification pending");
         })
         .catch((error) => {
+          debugger;
           if (
             error.response.data.email[0] ===
             "A user is already registered with this e-mail address."
@@ -127,13 +127,13 @@ class Register extends Component {
 
   validateForm = (errors) => {
     let valid = true;
-    if (
+    if (!
       this.state.email === null &&
       this.state.password === null &&
-      this.state.email === null &&
-      this.state.password === null &&
-      this.state.email === null &&
-      this.state.password === null
+      this.state.firstName === null &&
+      this.state.confirmPassword === null &&
+      this.state.lastName === null &&
+      this.state.school === null
     ) {
       valid = false;
       this.setState({
@@ -251,23 +251,44 @@ class Register extends Component {
               />
             </div>
             <div className="login-input-container role-selection-container">
-            <div className="login-input-header">Select Role</div>
-            <div>
-              <div className="role-section">
-                <img className="role-img" src={person} alt=""></img>
-                <div className="role-text"> Student</div>
-              </div>
-              <div className="role-section">
-                <img className="role-img"src={bag} alt=""></img>
-                <div className="role-text">Teacher</div>
-              </div>
-              <div className="role-section">
-                <img className="role-img" src={women} alt=""></img>
-                <div className="role-text">Parent</div>
+              <div className="login-input-header">Select Role</div>
+              <div>
+                <div
+                  className={`role-section ${
+                    this.state.type === "S" ? "role-selected" : ""
+                  }`}
+                  onClick={() => {
+                    this.setState({ type: "S" });
+                  }}
+                >
+                  <img className="role-img" src={person} alt=""></img>
+                  <div className="role-text"> Student</div>
+                </div>
+                <div
+                  className={`role-section ${
+                    this.state.type === "T" ? "role-selected" : ""
+                  }`}
+                  onClick={() => {
+                    this.setState({ type: "T" });
+                  }}
+                >
+                  <img className="role-img" src={bag} alt=""></img>
+                  <div className="role-text">Teacher</div>
+                </div>
+                <div
+                  className={`role-section ${
+                    this.state.type === "P" ? "role-selected" : ""
+                  }`}
+                  onClick={() => {
+                    this.setState({ type: "P" });
+                  }}
+                >
+                  <img className="role-img" src={women} alt=""></img>
+                  <div className="role-text">Parent</div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="login-input-container ">
+            <div className="login-input-container ">
               <div className="login-input-header">School</div>
               <input
                 className={
@@ -300,7 +321,11 @@ class Register extends Component {
               <Link to="/privacy_policy">Privacy Policy.</Link>
             </span>
           </div> */}
-          <input className="create-account-button" type="submit" value="Create Account" />
+          <input
+            className="create-account-button"
+            type="submit"
+            value="Create Account"
+          />
         </form>
       </div>
     );

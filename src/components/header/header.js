@@ -73,6 +73,7 @@ class Header extends Component {
 
   componentDidMount() {
     this.subscription = messageService.getMessage().subscribe((message) => {
+      debugger;
       if (message.text === "Logged In") {
         this.setState({
           isLoggedIn: sessionStorage.getItem("isLoggedIn"),
@@ -110,6 +111,16 @@ class Header extends Component {
       } else if (message.text === "Help") {
         this.setState({
           modalType: "help",
+          showModal: true,
+        });
+      }else if(message.text === "email sign up"){
+        this.setState({
+          modalType: "emailSignUp",
+          showModal: true,
+        });
+      }else if(message.text === "email Verification pending"){
+        this.setState({
+          modalType: "emailVerification",
           showModal: true,
         });
       }
