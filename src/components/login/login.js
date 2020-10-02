@@ -4,6 +4,7 @@ import "./login.css";
 import { notify } from "react-notify-toast";
 import { messageService } from "../../services/notifyComponentService";
 import { withRouter } from "react-router-dom";
+import facebookLogo from "../../assets/images/facebookNew.png";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -58,13 +59,15 @@ class Login extends Component {
                 this.props.history.push({
                   pathname: "/practice/ecat",
                 });
-              }else if( sessionStorage.getItem("targetUrl") && sessionStorage.getItem("targetUrl").indexOf('quiz')>-1){
-                this.props.history.push(
-                  {pathname: sessionStorage.getItem("targetUrl"),
-                  state: JSON.parse(sessionStorage.getItem("targetUrlState"))
+              } else if (
+                sessionStorage.getItem("targetUrl") &&
+                sessionStorage.getItem("targetUrl").indexOf("quiz") > -1
+              ) {
+                this.props.history.push({
+                  pathname: sessionStorage.getItem("targetUrl"),
+                  state: JSON.parse(sessionStorage.getItem("targetUrlState")),
                 });
-              }
-              else if (this.props.location?.pathname === "/") {
+              } else if (this.props.location?.pathname === "/") {
                 this.props.redirect.push("/courses");
               }
               this.sendMessage("Logged In");
@@ -147,6 +150,7 @@ class Login extends Component {
         <div className="login-header"> LOGIN</div>
         <form onSubmit={this.handleSubmit} noValidate>
           <div className="login-form-container">
+            <div className="login-input-header">Email</div>
             <input
               className={
                 this.state.errors.email.length > 0
@@ -155,11 +159,11 @@ class Login extends Component {
               }
               type="email"
               name="email"
-              placeholder="Email"
               required
               onChange={this.handleChange}
               noValidate
             />
+            <div className="login-input-header">Password</div>
             <input
               className={
                 this.state.errors.password.length > 0
@@ -168,24 +172,28 @@ class Login extends Component {
               }
               type="password"
               name="password"
-              placeholder="Password"
               required
               onChange={this.handleChange}
               noValidate
             />
           </div>
           <div className="login-forgotpswd">Forgot password?</div>
-          <input className="login-button" type="submit" value="LOGIN" />
+          <input className="login-button1" type="submit" value="Log in" />
+          <div className="login-or">OR</div>
+          <button className="login-button1 login-facebook">
+            <img src={facebookLogo} alt="facebook logo" />
+            Continue with Facebook
+          </button>
         </form>
         <div className="login-footer">
-          Don’t have a Superteacher account?&nbsp;
+          Don’t have an account?&nbsp;
           <span
             className="login-signUp"
             onClick={() => {
               this.props.loadRegisterForm();
             }}
           >
-            Sign up
+            Register
           </span>
         </div>
       </div>

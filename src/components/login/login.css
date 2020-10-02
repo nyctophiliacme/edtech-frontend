@@ -20,7 +20,7 @@ input:focus {
   color: #a6afbc;
   margin-bottom: 4px;
 }
-.login-input-container{
+.login-input-container {
   text-align: left;
 }
 .login-header {
@@ -31,7 +31,8 @@ input:focus {
   padding-bottom: 24px;
   text-align: center;
 }
-.login-button {
+.login-button,
+.login-button1 {
   text-align: center;
   font-weight: 500;
   font-size: 18px;
@@ -46,22 +47,51 @@ input:focus {
   letter-spacing: 1px;
 }
 
+.login-button1 {
+  border-radius: 4px;
+  width: 100%;
+  background: #2f80ed;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 12px 25px;
+}
+
+.login-facebook {
+  background: #4868ad;
+  box-sizing: border-box;
+  line-height: 24px;
+}
+
+.login-facebook img {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 12px;
+}
+
 .login-signUp {
   font-weight: 400;
   color: #60b1ff;
   cursor: pointer;
 }
+.login-or {
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 16px 0;
+}
 .login-footer {
   font-weight: 300;
-  font-size: 18px;
-  line-height: 22px;
-  padding-top: 25px;
+  font-size: 14px;
+  line-height: 20px;
+  padding-top: 16px;
+  text-align: center;
 }
 .login-forgotpswd {
   text-align: left;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 20px;
   padding-bottom: 25px;
   color: #60b1ff;
   cursor: pointer;
@@ -70,14 +100,14 @@ input:focus {
   width: 100%;
   padding: 8px;
   margin-bottom: 12px;
-  background: #FFFFFF;
-  border: 1px solid #E2EBF5;
+  background: #ffffff;
+  border: 1px solid #e2ebf5;
   box-sizing: border-box;
   border-radius: 4px;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: #6D7887;
+  color: #6d7887;
 }
 .error {
   border-color: red;
