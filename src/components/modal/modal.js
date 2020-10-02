@@ -39,19 +39,35 @@ const Modal = ({ handleClose, show, type }) => {
             redirect={history}
           />
         ) : type === "register" ? (
-          <Register
+          <RegisterLanding
             handleModalClose={() => {
               handleClose();
             }}
           />
         ) : type === "reportProblem" ? (
-          <ReportProblem handleModalClose={() => {
-            handleClose();
-          }}/>
+          <ReportProblem
+            handleModalClose={() => {
+              handleClose();
+            }}
+          />
         ) : type === "help" ? (
-          <Help handleModalClose={() => {
-            handleClose();
-          }}/>
+          <Help
+            handleModalClose={() => {
+              handleClose();
+            }}
+          />
+        ) : type === "emailSignUp" ? (
+          <Register
+            handleModalClose={() => {
+              handleClose();
+            }}
+          />
+        ) : type === "emailVerification" ? (
+          <EmailVerificatio
+            handleModalClose={() => {
+              handleClose();
+            }}
+          />
         ) : (
           <Upgrade
             handleModalClose={() => {

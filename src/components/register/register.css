@@ -101,6 +101,7 @@ input[type="number"] {
   font-size: 16px;
 }
 .create-account-button {
+  cursor: pointer;
   padding: 12px 0px;
   width: 100%;
   background: #2f80ed;
@@ -112,6 +113,9 @@ input[type="number"] {
   letter-spacing: 0.5px;  
   color: #F6FAFF;
   cursor: pointer;
+}
+.role-selected{
+  border: solid blue 1.5px;
 }
 .role-selection-container{
   margin-bottom: 16px;
